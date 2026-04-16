@@ -1,0 +1,48 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "shop_main",
+                "npc_name": "§6Mr Francesco",
+                "text": "§fAh, benvenuto.\n§7[Drop gold ingots in the chest\nbefore hitting a button]",
+                "buttons": [
+                    {
+                        "name": "§a Bread x8 (2 gold)",
+                        "commands": [
+                            "/give @initiator bread 8"
+                        ]
+                    },
+                    {
+                        "name": "§e Torches x16 (1 gold)",
+                        "commands": [
+                            "/give @initiator torch 16"
+                        ]
+                    },
+                    {
+                        "name": "§7 Iron Sword (4 gold)",
+                        "commands": [
+                            "/give @initiator iron_sword 1"
+                        ]
+                    },
+                    {
+                        "name": "§7 Iron Pickaxe (4 gold)",
+                        "commands": [
+                            "/give @initiator iron_pickaxe 1"
+                        ]
+                    },
+                    {
+                        "name": "§2 Seeds x16 (1 gold)",
+                        "commands": [
+                            "/give @initiator wheat_seeds 16"
+                        ]
+                    },
+                    {
+                        "name": "§c No refunds. Goodbye.",
+                        "commands": []
+                    }
+                ]
+            }
+        ]
+    }
+}
