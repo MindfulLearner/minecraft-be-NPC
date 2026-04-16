@@ -1,12 +1,12 @@
-# Shop & Quest Giver NPC Ideas — Friends Server
+# Shop & Quest Giver NPC Ideas - Friends Server
 
 ## Overview
 
 Two NPC roles to bring your friends server to life:
-- **The Shopkeeper** — buy/sell items using a custom currency or barter system
-- **The Quest Giver** — assigns missions, tracks progress, rewards players
+- **The Shopkeeper** - buy/sell items using a custom currency or barter system
+- **The Quest Giver** - assigns missions, tracks progress, rewards players
 
-Both are built using **NPC Add-ons** (available via Bedrock's built-in `/give @s npc_spawn_egg` command — no extra add-on required on vanilla Bedrock).
+Both are built using **NPC Add-ons** (available via Bedrock's built-in `/give @s npc_spawn_egg` command - no extra add-on required on vanilla Bedrock).
 
 ---
 
@@ -20,31 +20,31 @@ A villager-style NPC that acts as a central economy hub. Friends earn "coins" by
 |---|---|---|
 | **Emeralds** | Mine, trade, loot | Already in the game, no setup |
 | **Gold Ingots** | Mine, piglin trade | Thematic if you have a Nether theme |
-| **Custom Named Item** | Chest at spawn with a starter pack | Most immersive — rename a stick "Server Coin" |
+| **Custom Named Item** | Chest at spawn with a starter pack | Most immersive - rename a stick "Server Coin" |
 
 ### Shop Categories
 
-#### Tier 1 — Starter Goods (cheap)
+#### Tier 1 - Starter Goods (cheap)
 - Bread, cooked food, torches
 - Basic tools (stone/iron)
 - Seeds and saplings
 
-#### Tier 2 — Mid Game
+#### Tier 2 - Mid Game
 - Enchanted books (common enchants: Efficiency III, Protection II)
 - Horse armor
 - Ender pearls (small stack)
 - Name tags *(now craftable in v26.10, but still useful for sale)*
 
-#### Tier 3 — Luxury
+#### Tier 3 - Luxury
 - Elytra repair (offer a Phantom Membrane for a price)
 - Rare dyes and banners
 - Heads / decorative blocks
-- A "mystery box" — random item from a loot chest the host prepares
+- A "mystery box" - random item from a loot chest the host prepares
 
 ### NPC Dialogue Ideas
 ```
 [Opening]
-"Welcome, traveler. I have what you need — if you have what I want."
+"Welcome, traveler. I have what you need - if you have what I want."
 
 [Out of stock]
 "Come back later. My supplier ran into some creepers."
@@ -116,9 +116,9 @@ An NPC that hands out missions to your friends. Quests add a shared goal and giv
 Spawn the NPC, then **long-press / interact** as an operator to open the NPC editor.
 
 ### NPC Editor Fields
-- **Name** — shown above the NPC's head
-- **Dialogue** — what they say when you talk to them
-- **Buttons** — up to 6 buttons, each can run a command or open a URL
+- **Name** - shown above the NPC's head
+- **Dialogue** - what they say when you talk to them
+- **Buttons** - up to 6 buttons, each can run a command or open a URL
 
 ### Useful Commands for NPC Buttons
 ```bash
@@ -172,4 +172,4 @@ Spawn the NPC, then **long-press / interact** as an operator to open the NPC edi
 
 ---
 
-*Built for Minecraft Bedrock Edition — compatible with v26.10 and later*
+*Built for Minecraft Bedrock Edition - compatible with v26.10 and later*

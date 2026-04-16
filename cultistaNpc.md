@@ -1,6 +1,6 @@
-# Cultista — Quest Giver NPC Guide
+# Cultista - Quest Giver NPC Guide
 
-> Vanilla Bedrock Edition — no mods or add-ons required  
+> Vanilla Bedrock Edition - no mods or add-ons required  
 > Designed for a **fresh server, day-1 players**
 
 ---
@@ -11,12 +11,12 @@
 |---|---|
 | **NPC Name** | `Cultista` |
 | **Role** | Quest Giver |
-| **Vibe** | Mysterious, cryptic, slightly ominous — speaks in riddles |
+| **Vibe** | Mysterious, cryptic, slightly ominous - speaks in riddles |
 | **Skin** | Default NPC skin works fine; pick the hooded/robed one if available |
 
 ---
 
-## Step 1 — Spawn the NPC
+## Step 1 - Spawn the NPC
 
 Run this command as **operator** in chat:
 
@@ -28,14 +28,14 @@ Right-click (or long-press on mobile/console) to place it.
 
 ---
 
-## Step 2 — Open the NPC Editor
+## Step 2 - Open the NPC Editor
 
 **Long-press / right-click** the NPC while you are **operator**.  
 The editor panel will open with three fields: **Name**, **Dialogue**, and **Buttons**.
 
 ---
 
-## Step 3 — Paste the Name
+## Step 3 - Paste the Name
 
 Copy and paste this exactly into the **Name** field:
 
@@ -45,7 +45,7 @@ Cultista
 
 ---
 
-## Step 4 — Paste the Dialogue
+## Step 4 - Paste the Dialogue
 
 Copy and paste this into the **Dialogue** field:
 
@@ -61,14 +61,14 @@ Choose your trial below.
 
 ---
 
-## Step 5 — Set Up the Buttons
+## Step 5 - Set Up the Buttons
 
 You have **6 button slots**. Below is the full setup.  
 For each button: paste the **Label** into the button name field, and the **Command** into the command field.
 
 ---
 
-### Button 1 — The Woodcutter
+### Button 1 - The Woodcutter
 
 **Label to paste:**
 ```
@@ -82,12 +82,12 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 **What the quest is:**
 > "The Cult needs timber. Bring me proof you've worked the forest."  
-> Collect **32 oak logs** (honor system — host can check inventory).  
+> Collect **32 oak logs** (honor system - host can check inventory).  
 > Clicking the button rewards **3 gold ingots** to spend at Mr Francesco.
 
 ---
 
-### Button 2 — Bone Errand
+### Button 2 - Bone Errand
 
 **Label to paste:**
 ```
@@ -104,11 +104,11 @@ For each button: paste the **Label** into the button name field, and the **Comma
 > Kill **10 skeletons** at night and collect their bones.  
 > Clicking the button rewards **4 gold ingots** to spend at Mr Francesco.
 
-> **Host note:** Watch chat for when players are online at night — verify by asking them to show bones in inventory.
+> **Host note:** Watch chat for when players are online at night - verify by asking them to show bones in inventory.
 
 ---
 
-### Button 3 — Feed the Cult
+### Button 3 - Feed the Cult
 
 **Label to paste:**
 ```
@@ -127,7 +127,7 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 ---
 
-### Button 4 — Into the Dark
+### Button 4 - Into the Dark
 
 **Label to paste:**
 ```
@@ -148,7 +148,7 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 ---
 
-### Button 5 — The Green Threat
+### Button 5 - The Green Threat
 
 **Label to paste:**
 ```
@@ -167,7 +167,7 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 ---
 
-### Button 6 — The Calling (Announcement)
+### Button 6 - The Calling (Announcement)
 
 **Label to paste:**
 ```
@@ -181,7 +181,7 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 **What this does:**
 > Broadcasts a server-wide message whenever a player talks to Cultista for the first time.  
-> No reward — purely atmospheric and lets the host know someone started questing.
+> No reward - purely atmospheric and lets the host know someone started questing.
 
 ---
 
@@ -208,23 +208,23 @@ Use this text for the book/sign:
 
 [1] The Woodcutter
     Chop 32 oak logs
-    -> Talk to Cultista
+    Talk to Cultista
 
 [2] Bone Errand
     Kill 10 skeletons
-    -> Talk to Cultista
+    Talk to Cultista
 
 [3] Feed the Cult
     Collect 16 bread
-    -> Talk to Cultista
+    Talk to Cultista
 
 [4] Into the Dark
     Reach Y=30 underground
-    -> Talk to Cultista
+    Talk to Cultista
 
 [5] The Green Threat
     Kill 5 creepers
-    -> Talk to Cultista
+    Talk to Cultista
 
 Complete all 5 to unlock
 Tier 2 quests (coming soon).
@@ -265,11 +265,11 @@ This won't stop griefing but warns players they are in a special zone.
 
 ## Notes
 
-- All rewards use `/give @initiator` — targets the exact player who clicked, safe for multiplayer.
-- Quest verification is **honor-based** — this is a friends server so trust is assumed.  
+- All rewards use `/give @initiator` - targets the exact player who clicked, safe for multiplayer.
+- Quest verification is **honor-based** - this is a friends server so trust is assumed.  
   For bigger rewards later, have the host manually verify before giving items from a locked chest.
 - These are **Tier 1 quests**. Once your friends have iron tools and basic gear, expand to Tier 2 (see `npc-ideas.md` for ideas).
 
 ---
 
-*Cultista NPC — built for Minecraft Bedrock Edition v26.10+*
+*Cultista NPC - built for Minecraft Bedrock Edition v26.10+*

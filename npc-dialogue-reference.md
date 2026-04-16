@@ -1,10 +1,10 @@
-# Bedrock NPC Dialogue — Reference
+# Bedrock NPC Dialogue - Reference
 
 ## File Location
 ```
 behavior_pack/dialogue/scene.json
 ```
-Multiple `.json` files allowed — Bedrock reads all of them.
+Multiple `.json` files allowed - Bedrock reads all of them.
 
 ---
 
@@ -14,11 +14,11 @@ Multiple `.json` files allowed — Bedrock reads all of them.
     "format_version": "1.17",
     "minecraft:npc_dialogue": {
         "scenes": [{
-            "scene_tag": "scene_name",          // required — ID to call this scene
-            "npc_name": "Shopkeeper",            // optional — overrides NPC display name
-            "text": "§aWhat do you need?",       // optional — dialogue text (supports § codes)
-            "on_open_commands": ["/say opened"], // optional — fire when dialogue opens
-            "on_close_commands": ["/say bye"],   // optional — fire when dialogue closes
+            "scene_tag": "scene_name",          // required - ID to call this scene
+            "npc_name": "Shopkeeper",            // optional - overrides NPC display name
+            "text": "§aWhat do you need?",       // optional - dialogue text (supports § codes)
+            "on_open_commands": ["/say opened"], // optional - fire when dialogue opens
+            "on_close_commands": ["/say bye"],   // optional - fire when dialogue closes
             "buttons": [{
                 "name": "Get Diamond",           // button label
                 "commands": ["/give @initiator diamond 1"]
@@ -35,7 +35,7 @@ Multiple `.json` files allowed — Bedrock reads all of them.
 | Command | What it does |
 |---|---|
 | `/dialogue open <npc> <player> [scene]` | Force-opens dialogue box. NPC can be hidden, must be in loaded chunk. |
-| `/dialogue change <npc> <scene> [player]` | Silently points NPC to new scene — no popup, takes effect on next interaction. |
+| `/dialogue change <npc> <scene> [player]` | Silently points NPC to new scene - no popup, takes effect on next interaction. |
 
 ```bash
 /dialogue open @e[type=npc,r=2] @p shop_intro
@@ -49,7 +49,7 @@ Multiple `.json` files allowed — Bedrock reads all of them.
 
 | Selector | Who | Note |
 |---|---|---|
-| `@initiator` | Player who opened the dialogue | **Only works inside NPC dialogue** — use this for per-player rewards |
+| `@initiator` | Player who opened the dialogue | **Only works inside NPC dialogue** - use this for per-player rewards |
 | `@p` | Nearest player | |
 | `@a` | All players | |
 
@@ -78,15 +78,15 @@ Chain scenes by calling `/dialogue open` inside button commands:
 
 Plain `§` codes work directly in any string:
 ```json
-"text": "§aGreen §cRed §r— reset"
+"text": "§aGreen §cRed §r- reset"
 ```
 
-Full rawtext object — mix text, player name, scoreboard:
+Full rawtext object - mix text, player name, scoreboard:
 ```json
 "text": { "rawtext": [
     { "text": "§eCoins: " },
     { "score": { "name": "@initiator", "objective": "coins" } },
-    { "text": " — Hello " },
+    { "text": " - Hello " },
     { "selector": "@initiator" }
 ]}
 ```
@@ -114,13 +114,13 @@ Full rawtext object — mix text, player name, scoreboard:
 | `@initiator` not working | Only valid inside NPC scene command arrays |
 | Scene not found | `scene_tag` is case-sensitive |
 | `on_open` / `on_close` not firing | Must be `on_open_commands` / `on_close_commands` |
-| Button limit | **UNTESTED** — no documented max, needs in-game confirmation |
+| Button limit | **UNTESTED** - no documented max, needs in-game confirmation |
 
 ---
 
 ## References
-- [Microsoft — NPC Dialogue](https://learn.microsoft.com/en-us/minecraft/creator/documents/npcdialogue)
-- [Bedrock Wiki — NPC Dialogue](https://wiki.bedrock.dev/entities/npc-dialogue)
+- [Microsoft - NPC Dialogue](https://learn.microsoft.com/en-us/minecraft/creator/documents/npcdialogue)
+- [Bedrock Wiki - NPC Dialogue](https://wiki.bedrock.dev/entities/npc-dialogue)
 - [Sample Behavior Pack](https://github.com/microsoft/minecraft-samples/tree/main/npc_dialogue_sample)
 - [Raw Message JSON](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/rawmessagejson)
 - [Target Selectors](https://learn.microsoft.com/en-us/minecraft/creator/documents/targetselectors)
