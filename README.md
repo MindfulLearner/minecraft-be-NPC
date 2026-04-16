@@ -40,11 +40,12 @@ Players earn gold by completing Cultista quests and spend it at Mr Francesco's s
 
 | File | Purpose |
 |---|---|
-| `cultistaNpc.md` | Step-by-step setup for the quest giver NPC |
-| `mrfrancescoNPC.md` | Step-by-step setup for the shop NPC |
-| `npc-dialogue-reference.md` | Full reference for the Bedrock NPC dialogue system |
-| `npc-ideas.md` | Ideas and future expansion for quests and shop tiers |
-| `behavior_pack/dialogue/shop.json` | Scene file for Mr Francesco (behavior pack approach) |
+| `npcs/cultistaNpc.md` | Step-by-step setup for the quest giver NPC |
+| `npcs/mrfrancescoNPC.md` | Step-by-step setup for the shop NPC |
+| `npcs/behavior_pack/dialogue/shop.json` | Scene file for Mr Francesco (behavior pack approach) |
+| `utility/npc-dialogue-reference.md` | Full reference for the Bedrock NPC dialogue system |
+| `utility/npc-ideas.md` | Ideas and future expansion for quests and shop tiers |
+| `utility/minecraft-bedrock.md` | General Bedrock Edition reference |
 
 ## Requirements
 
