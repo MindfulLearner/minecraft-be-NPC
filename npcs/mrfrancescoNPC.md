@@ -1,81 +1,87 @@
 # Mr Francesco - Negozio
 
-**Ruolo:** Vende oggetti base in cambio di lingotti d'oro.
+**Ruolo:** Vende oggetti rari in cambio di pepite d'oro. Acquista anche risorse dai giocatori.
+
+> Fa parte del pack `anpccustombeh`, condiviso con Cultista, Old Piero, Elena, Marco e Sofia.
 
 ---
 
-## Step 1 - Copia il behavior pack
+## Setup (una volta sola)
 
-Copia la cartella `behavior_pack/` del repo in:
+### 1. Copia il behavior pack
+
 ```
-C:\Users\[tuonome]\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\
+npcs/anpccustombeh/  →  C:\Users\[tuonome]\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\
 ```
 
-Se hai gia' fatto questo per Cultista, salta questo step.
+Se hai già fatto il setup per Cultista, salta.
 
----
+### 2. Registra il pack nel mondo (OBBLIGATORIO)
 
-## Step 2 - Attiva il pack nel mondo
+File: `...\minecraftWorlds\[tuomondo]\world_behavior_packs.json`
 
-Se hai gia' fatto questo per Cultista, salta questo step.
+```json
+[
+    {
+        "pack_id": "6f3d9a1c-4b8e-4f2a-9c7d-1e5b3a8f0d2e",
+        "version": [1, 0, 0]
+    }
+]
+```
 
----
-
-## Step 3 - Spawna l'NPC
+### 3. Spawna e tagga l'NPC
 
 ```
 /give @s spawn_egg 1 51
+/tag @e[type=npc,r=2] add mrfrancesco
 ```
 
-Piazzalo dentro il negozio.
-
----
-
-## Step 4 - Tagga l'NPC
+### 4. Imposta la scena di default
 
 ```
-/tag @e[type=npc,r=2] add shop
+/dialogue change @e[tag=mrfrancesco] shop_main
 ```
 
 ---
 
-## Step 5 - Aggancia il dialogo JSON
-
-```
-/dialogue open @e[tag=shop] @p shop_main
-```
-
-Da questo momento dialogo, bottoni e annunci acquisti sono tutti gestiti dal JSON.
-
----
-
-## Listino prezzi (riferimento)
+## Listino prezzi (acquisto)
 
 | Articolo | Prezzo |
 |---|---|
-| Pane x8 | 2 oro |
-| Torce x16 | 1 oro |
-| Spada di ferro | 4 oro |
-| Piccone di ferro | 4 oro |
-| Semi x16 | 1 oro |
+| Uovo di gatto | 8 pepite |
+| Sella | 6 pepite |
+| Cartellino nome | 5 pepite |
+| Spugna | 7 pepite |
+| Perle End x2 | 4 pepite |
 
-Pagamento con sistema fiduciario - metti un baule vicino a Mr Francesco con un cartello "Paga qui prima".
+## Listino vendita (giocatore → Francesco)
+
+| Articolo | Reward |
+|---|---|
+| Quercia x32 | 1 pepita |
+| Ciottoli x64 | 1 pepita |
+| Grano x32 | 1 pepita |
+| Ferro x8 | 2 pepite |
 
 ---
 
 ## Listino da mettere in gioco
 
-Metti un cartello o libro su leggio vicino al negozio:
-
 ```
 === NEGOZIO DI MR FRANCESCO ===
-  Paga nel baule prima.
 
-  Pane x8          - 2 oro
-  Torce x16        - 1 oro
-  Spada di ferro   - 4 oro
-  Piccone di ferro - 4 oro
-  Semi x16         - 1 oro
+  ACQUISTA (pepite → oggetti)
+  Uovo di gatto    - 8p
+  Sella            - 6p
+  Cartellino       - 5p
+  Spugna           - 7p
+  Perle End x2     - 4p
+
+  VENDE (oggetti → pepite)
+  Quercia x32      - 1p
+  Ciottoli x64     - 1p
+  Grano x32        - 1p
+  Ferro x8         - 2p
 
   "Niente rimborsi."
        - Mr Francesco
@@ -83,24 +89,25 @@ Metti un cartello o libro su leggio vicino al negozio:
 
 ---
 
+## Note
+
+- Il pagamento è verificato via script: se non hai le pepite, lo script blocca l'acquisto e avvisa.
+- La vendita scala automaticamente gli oggetti dall'inventario.
+
+---
+
 ## Proteggi Mr Francesco
 
-Mettilo dentro uno stallo con bancone e vetro davanti.
-
-```
-/gamemode adventure @a
-```
+Mettilo dentro uno stallo con vetro davanti.
 
 ---
 
 ## Checklist
 
-- [ ] Behavior pack copiato e attivato
-- [ ] NPC spawnato e taggato con `shop`
-- [ ] `/dialogue open` eseguito
-- [ ] Baule pagamento posizionato con cartello
-- [ ] Listino prezzi posizionato
-- [ ] Area protetta
+- [ ] Behavior pack copiato e `world_behavior_packs.json` aggiornato
+- [ ] NPC spawnato e taggato con `mrfrancesco`
+- [ ] `/dialogue change @e[tag=mrfrancesco] shop_main` eseguito
+- [ ] Listino prezzi posizionato vicino all'NPC
 - [ ] Testato come giocatore non-operator
 
 ---

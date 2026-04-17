@@ -1,128 +1,115 @@
 # Cultista - Quest Giver
 
-**Ruolo:** Darà missioni ai giocatori in cambio di lingotti d'oro.
+**Ruolo:** Dà missioni ai giocatori in cambio di pepite d'oro. Tutto automatico — nessun admin necessario.
+
+> Fa parte del pack `anpccustombeh`, condiviso con Mr Francesco, Old Piero, Elena, Marco e Sofia.
 
 ---
 
-## Step 1 - Copia il behavior pack
+## Setup (una volta sola)
 
-Copia la cartella `behavior_pack/` del repo in:
+### 1. Copia il behavior pack
+
 ```
-C:\Users\[tuonome]\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\
+npcs/anpccustombeh/  →  C:\Users\[tuonome]\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\
 ```
 
----
+### 2. Registra il pack nel mondo (OBBLIGATORIO)
 
-## Step 2 - Attiva il pack nel mondo
+File: `...\minecraftWorlds\[tuomondo]\world_behavior_packs.json`
 
-1. Apri Minecraft
-2. Modifica il tuo mondo - **Behavior Packs**
-3. Trova `NPC Server Pack` e attivalo
+```json
+[
+    {
+        "pack_id": "6f3d9a1c-4b8e-4f2a-9c7d-1e5b3a8f0d2e",
+        "version": [1, 0, 0]
+    }
+]
+```
 
----
+Senza questo i bottoni NPC non eseguono comandi.
 
-## Step 3 - Setup scoreboard (una volta sola)
+### 3. Scoreboard (una volta sola, in gioco)
 
 ```
 /scoreboard objectives add quest_punti dummy "Punti Quest"
 /scoreboard objectives setdisplay sidebar quest_punti
 ```
 
-Mostra la classifica quest sul lato destro dello schermo per tutti.
+Gli altri obiettivi (`q_taglialegna`, `q_ossa`, `q_creeper`) vengono creati automaticamente dallo script all'avvio.
 
----
-
-## Step 4 - Spawna l'NPC
+### 4. Spawna e tagga l'NPC
 
 ```
 /give @s spawn_egg 1 51
-```
-
-Piazzalo dove vuoi.
-
----
-
-## Step 5 - Tagga l'NPC
-
-Stai vicino a lui (entro 2 blocchi):
-```
 /tag @e[type=npc,r=2] add cultista
 ```
 
----
-
-## Step 6 - Aggancia il dialogo JSON
+### 5. Imposta la scena di default
 
 ```
-/dialogue open @e[tag=cultista] @p cultista_main
+/dialogue change @e[tag=cultista] cultista_intro
 ```
 
-Da questo momento dialogo, bottoni, annunci e scoreboard sono tutti gestiti dal JSON. Non devi configurare niente a mano.
-
----
-
-## Missioni (riferimento)
-
-| Missione | Obiettivo | Reward |
-|---|---|---|
-| Il Taglialegna | Taglia 32 tronchi di quercia | 3 oro |
-| Commissione delle Ossa | Uccidi 10 scheletri | 4 oro |
-| Sfama il Culto | Raccogli 16 pani | 3 oro |
-| Nel Buio | Raggiungi Y=30 sottoterra | 4 oro |
-| La Minaccia Verde | Uccidi 5 creeper | 3 oro |
-
-Verifica completamento a mano - chiedi screenshot o mostra inventario. E' un server di amici, ci si fida.
+Da questo momento funziona per tutti i giocatori senza intervento admin.
 
 ---
 
-## Bacheca (opzionale)
+## Workflow giocatore
 
-Metti un cartello o un libro su leggio vicino a Cultista:
+1. **Clicca Cultista** → sceglie l'identità (intro) → arriva alle missioni
+2. **Gioca** → i progressi vengono tracciati automaticamente con notifiche in chat
+3. **Torna dal Cultista** → clicca `» Consegna` → sceglie la missione completata
+4. **Lo script verifica** e premia automaticamente (pepite + punto scoreboard + annuncio in chat)
 
-```
-=== LE PROVE DI CULTISTA ===
+Se non ha finito, riceve il progresso attuale (es. `Scheletri: 6/10`).
 
-[1] Il Taglialegna
-    Taglia 32 tronchi di quercia
+---
 
-[2] Commissione delle Ossa
-    Uccidi 10 scheletri
+## Missioni
 
-[3] Sfama il Culto
-    Raccogli 16 pani
+| Missione | Obiettivo | Reward | Tracking |
+|---|---|---|---|
+| Il Taglialegna | Taglia 32 tronchi di quercia | 3 pepite | automatico (break block) |
+| Le Ossa | Uccidi 10 scheletri | 4 pepite | automatico (entity die) |
+| Sfama il Culto | Avere 16 pani nell'inventario | 3 pepite | check inventario alla consegna |
+| Nel Buio | Scendi a Y≤30 | 4 pepite | automatico (posizione ogni 2s) |
+| I Creeper | Uccidi 5 creeper | 3 pepite | automatico (entity die) |
 
-[4] Nel Buio
-    Raggiungi Y=30 sottoterra
+---
 
-[5] La Minaccia Verde
-    Uccidi 5 creeper
+## Scene del dialogo
 
-Completa tutte e 5 per sbloccare
-le missioni di livello 2 (presto).
-```
+| Scene Tag | Descrizione |
+|---|---|
+| `cultista_intro` | Prima scena — scelta dell'identità |
+| `cultista_avventuriero` | Branch: avventuriero |
+| `cultista_membro` | Branch: membro del culto |
+| `cultista_smascherato` | Branch: smascherato |
+| `cultista_main` | Menu missioni |
+| `cultista_consegna` | Menu consegna |
 
 ---
 
 ## Proteggi l'NPC
 
+Mettilo in una struttura chiusa o usa:
 ```
 /gamemode adventure @a
 ```
-
-Oppure mettila dentro una struttura in vetro o pietra senza porta.
 
 ---
 
 ## Checklist
 
-- [ ] Behavior pack copiato e attivato
-- [ ] Scoreboard creato
+- [ ] Behavior pack copiato
+- [ ] `world_behavior_packs.json` aggiornato con il pack UUID
+- [ ] Pack attivato nel mondo
+- [ ] `/scoreboard objectives add quest_punti dummy` eseguito
 - [ ] NPC spawnato e taggato con `cultista`
-- [ ] `/dialogue open` eseguito
-- [ ] Bacheca posizionata
-- [ ] Area protetta
+- [ ] `/dialogue change @e[tag=cultista] cultista_intro` eseguito
 - [ ] Testato come giocatore non-operator
 
 ---
 
-*Cultista - Minecraft Bedrock Edition v26.10+*
+*Cultista - Minecraft Bedrock Edition v26.10+ | Script-driven*

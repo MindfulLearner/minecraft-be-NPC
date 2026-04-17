@@ -1,0 +1,91 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "decoratrice_intro",
+                "npc_name": "§dSofia",
+                "text": "§fGuarda questo posto. Vuoto. Spento.\n§7Ho mille idee ma nessun materiale.\n§fE tu cosa fai qui?",
+                "buttons": [
+                    {
+                        "name": "Posso aiutarti a trovare cose.",
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_piano"]
+                    },
+                    {
+                        "name": "Ho tempo da perdere.",
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_piano"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "decoratrice_piano",
+                "npc_name": "§dSofia",
+                "text": "§fFiori ovunque! Lana colorata per i tappeti.\n§7Colori vivaci, bambù nell'angolo verde...\n§fSarebbe bellissimo. Aiutami?",
+                "buttons": [
+                    {
+                        "name": "Sì, lo faccio io.",
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_main"]
+                    },
+                    {
+                        "name": "Vediamo cosa trovo.",
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "decoratrice_main",
+                "npc_name": "§dSofia",
+                "text": "§fPortami qualcosa di bello!\n§7Scegli una missione o consegna quello che hai.",
+                "buttons": [
+                    {
+                        "name": "16 Fiori",
+                        "commands": ["/scriptevent decoratrice:accept sofia_fiori"]
+                    },
+                    {
+                        "name": "8 Lana Colorata",
+                        "commands": ["/scriptevent decoratrice:accept sofia_lana"]
+                    },
+                    {
+                        "name": "6 Colorante",
+                        "commands": ["/scriptevent decoratrice:accept sofia_colorante"]
+                    },
+                    {
+                        "name": "16 Bambù",
+                        "commands": ["/scriptevent decoratrice:accept sofia_bamboo"]
+                    },
+                    {
+                        "name": "§a» Consegna",
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_consegna"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "decoratrice_consegna",
+                "npc_name": "§dSofia",
+                "text": "§fHai trovato qualcosa di bello?\n§7Mostrami!",
+                "buttons": [
+                    {
+                        "name": "16 Fiori",
+                        "commands": ["/scriptevent decoratrice:deliver sofia_fiori"]
+                    },
+                    {
+                        "name": "8 Lana Colorata",
+                        "commands": ["/scriptevent decoratrice:deliver sofia_lana"]
+                    },
+                    {
+                        "name": "6 Colorante",
+                        "commands": ["/scriptevent decoratrice:deliver sofia_colorante"]
+                    },
+                    {
+                        "name": "16 Bambù",
+                        "commands": ["/scriptevent decoratrice:deliver sofia_bamboo"]
+                    },
+                    {
+                        "name": "§7« Indietro",
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_main"]
+                    }
+                ]
+            }
+        ]
+    }
+}

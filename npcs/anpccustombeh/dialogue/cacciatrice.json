@@ -1,0 +1,91 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "cacciatrice_intro",
+                "npc_name": "§6Elena",
+                "text": "§fTi osservo da un po'.\n§7La maggior parte degli avventurieri finge.\n§fTu sembri diverso. Forse.",
+                "buttons": [
+                    {
+                        "name": "Mettimi alla prova.",
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_sfida"]
+                    },
+                    {
+                        "name": "Ho visto cose peggiori.",
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_sfida"]
+                    },
+                    {
+                        "name": "Dimmi le missioni.",
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "cacciatrice_sfida",
+                "npc_name": "§6Elena",
+                "text": "§f— Interessante.\n§7Chi parla così di solito scappa al primo creeper.\n§fDimostramelo sul campo. Scegli una preda.",
+                "buttons": [
+                    {
+                        "name": "Sono pronto.",
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "cacciatrice_main",
+                "npc_name": "§6Elena",
+                "text": "§fScegli la preda. Torna con le prove.\n§7Non mi interessano le scuse.",
+                "buttons": [
+                    {
+                        "name": "8 Zombie",
+                        "commands": ["/scriptevent cacciatrice:accept elena_zombie"]
+                    },
+                    {
+                        "name": "10 Scheletri",
+                        "commands": ["/scriptevent cacciatrice:accept elena_scheletri"]
+                    },
+                    {
+                        "name": "5 Vacche",
+                        "commands": ["/scriptevent cacciatrice:accept elena_vacche"]
+                    },
+                    {
+                        "name": "8 Polli",
+                        "commands": ["/scriptevent cacciatrice:accept elena_polli"]
+                    },
+                    {
+                        "name": "§a» Consegna",
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_consegna"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "cacciatrice_consegna",
+                "npc_name": "§6Elena",
+                "text": "§fHai cacciato bene?\n§7Dimmi cosa hai preso.",
+                "buttons": [
+                    {
+                        "name": "8 Zombie",
+                        "commands": ["/scriptevent cacciatrice:deliver elena_zombie"]
+                    },
+                    {
+                        "name": "10 Scheletri",
+                        "commands": ["/scriptevent cacciatrice:deliver elena_scheletri"]
+                    },
+                    {
+                        "name": "5 Vacche",
+                        "commands": ["/scriptevent cacciatrice:deliver elena_vacche"]
+                    },
+                    {
+                        "name": "8 Polli",
+                        "commands": ["/scriptevent cacciatrice:deliver elena_polli"]
+                    },
+                    {
+                        "name": "§7« Indietro",
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_main"]
+                    }
+                ]
+            }
+        ]
+    }
+}

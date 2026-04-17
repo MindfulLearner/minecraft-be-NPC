@@ -1,0 +1,125 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "cultista_intro",
+                "npc_name": "§5Cultista",
+                "text": "§fUn'altra anima si avvicina...\n§7Chi sei, straniero?",
+                "buttons": [
+                    {
+                        "name": "Avventuriero",
+                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_avventuriero"]
+                    },
+                    {
+                        "name": "Sono del culto",
+                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_membro"]
+                    },
+                    {
+                        "name": "Le missioni",
+                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "cultista_avventuriero",
+                "npc_name": "§5Cultista",
+                "text": "§fUn avventuriero...\n§7Josh ne manda uno ogni settimana.\n§fBene. Ho lavoro per te.",
+                "buttons": [
+                    {
+                        "name": "Dimmi le missioni",
+                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "cultista_membro",
+                "npc_name": "§5Cultista",
+                "text": "§fDavvero?\n§7Dimmi il rituale di ingresso.\n§f...",
+                "buttons": [
+                    {
+                        "name": "[Silenzio]",
+                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_smascherato"]
+                    },
+                    {
+                        "name": "Ero in ritardo",
+                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "cultista_smascherato",
+                "npc_name": "§5Cultista",
+                "text": "§fCome pensavo.\n§7Non importa. Chiunque può servire il culto.\n§fEcco le missioni.",
+                "buttons": [
+                    {
+                        "name": "Grazie...",
+                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "cultista_main",
+                "npc_name": "§5Cultista",
+                "text": "§fLa terra sussurra... ma Josh urla.\nNiss non ha ancora finito le prove.\n§7Accetta una missione, o consegna quella completata.",
+                "buttons": [
+                    {
+                        "name": "Taglialegna",
+                        "commands": ["/scriptevent cultista:accept taglialegna"]
+                    },
+                    {
+                        "name": "Ossa",
+                        "commands": ["/scriptevent cultista:accept ossa"]
+                    },
+                    {
+                        "name": "Sfama il Culto",
+                        "commands": ["/scriptevent cultista:accept sfama"]
+                    },
+                    {
+                        "name": "Nel Buio",
+                        "commands": ["/scriptevent cultista:accept buio"]
+                    },
+                    {
+                        "name": "Creeper",
+                        "commands": ["/scriptevent cultista:accept creeper"]
+                    },
+                    {
+                        "name": "§a» Consegna",
+                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_consegna"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "cultista_consegna",
+                "npc_name": "§5Cultista",
+                "text": "§fIl culto osserva.\n§7Quale missione hai completato?",
+                "buttons": [
+                    {
+                        "name": "Taglialegna",
+                        "commands": ["/scriptevent cultista:deliver taglialegna"]
+                    },
+                    {
+                        "name": "Ossa",
+                        "commands": ["/scriptevent cultista:deliver ossa"]
+                    },
+                    {
+                        "name": "Sfama il Culto",
+                        "commands": ["/scriptevent cultista:deliver sfama"]
+                    },
+                    {
+                        "name": "Nel Buio",
+                        "commands": ["/scriptevent cultista:deliver buio"]
+                    },
+                    {
+                        "name": "Creeper",
+                        "commands": ["/scriptevent cultista:deliver creeper"]
+                    },
+                    {
+                        "name": "§7« Indietro",
+                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_main"]
+                    }
+                ]
+            }
+        ]
+    }
+}

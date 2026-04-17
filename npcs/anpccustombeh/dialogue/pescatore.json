@@ -1,0 +1,94 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "pescatore_intro",
+                "npc_name": "§bOld Piero",
+                "text": "§7...\n§fVattene. L'acqua porta via tutto.\n§7Non voglio aiuto da nessuno.",
+                "buttons": [
+                    {
+                        "name": "Cosa ti ha fatto l'acqua?",
+                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_storia"]
+                    },
+                    {
+                        "name": "Ho bisogno di te.",
+                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "pescatore_storia",
+                "npc_name": "§bOld Piero",
+                "text": "§fEravamo sulla barca. Io, Anna, i bambini.\n§7Una cosa enorme è salita dal fondo.\n§fNon ho potuto fare nulla. Nulla.",
+                "buttons": [
+                    {
+                        "name": "Li vendicherò io per te.",
+                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_patto"]
+                    },
+                    {
+                        "name": "Mi dispiace...",
+                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_patto"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "pescatore_patto",
+                "npc_name": "§bOld Piero",
+                "text": "§fDavvero? Non posso più toccare una canna.\n§7Ma tu puoi. Pesca per me.\n§fOgni pesce è un passo verso la vendetta.",
+                "buttons": [
+                    {
+                        "name": "Capito. Inizio subito.",
+                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "pescatore_main",
+                "npc_name": "§bOld Piero",
+                "text": "§fHo paura. Ma tu no.\n§7Pesca per me. Ti pago in pepite.\n§fScegli una missione, o consegna quella finita.",
+                "buttons": [
+                    {
+                        "name": "10 Merluzzi",
+                        "commands": ["/scriptevent pescatore:accept piero_pesce"]
+                    },
+                    {
+                        "name": "8 Salmoni",
+                        "commands": ["/scriptevent pescatore:accept piero_salmone"]
+                    },
+                    {
+                        "name": "6 Pesci Tropicali",
+                        "commands": ["/scriptevent pescatore:accept piero_tropicale"]
+                    },
+                    {
+                        "name": "§a» Consegna",
+                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_consegna"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "pescatore_consegna",
+                "npc_name": "§bOld Piero",
+                "text": "§fHai portato i pesci?\n§7Ogni pesce è... giustizia.",
+                "buttons": [
+                    {
+                        "name": "10 Merluzzi",
+                        "commands": ["/scriptevent pescatore:deliver piero_pesce"]
+                    },
+                    {
+                        "name": "8 Salmoni",
+                        "commands": ["/scriptevent pescatore:deliver piero_salmone"]
+                    },
+                    {
+                        "name": "6 Pesci Tropicali",
+                        "commands": ["/scriptevent pescatore:deliver piero_tropicale"]
+                    },
+                    {
+                        "name": "§7« Indietro",
+                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_main"]
+                    }
+                ]
+            }
+        ]
+    }
+}

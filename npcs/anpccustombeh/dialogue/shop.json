@@ -1,0 +1,68 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "shop_main",
+                "npc_name": "§6Mr Francesco",
+                "text": "§fJosh mi deve ancora 3 pepite.\nMartina e' la mia cliente preferita.\n§7Prima si paga. Niente rimborsi.",
+                "on_open_commands": [
+                    "/say [Mr Francesco] §e@initiator §fentra. Ha le pepite?"
+                ],
+                "buttons": [
+                    {
+                        "name": "Uovo di gatto - 8",
+                        "commands": ["/scriptevent shop:buy cat_spawn_egg"]
+                    },
+                    {
+                        "name": "Sella - 6",
+                        "commands": ["/scriptevent shop:buy saddle"]
+                    },
+                    {
+                        "name": "Cartellino - 5",
+                        "commands": ["/scriptevent shop:buy name_tag"]
+                    },
+                    {
+                        "name": "Spugna - 7",
+                        "commands": ["/scriptevent shop:buy sponge"]
+                    },
+                    {
+                        "name": "Perle End x2 - 4",
+                        "commands": ["/scriptevent shop:buy ender_pearl"]
+                    },
+                    {
+                        "name": "§e» Vendi",
+                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=10] @initiator shop_sell"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "shop_sell",
+                "npc_name": "§6Mr Francesco",
+                "text": "§fCosa vuoi vendere?\n§7Pago quello che vale. Forse.",
+                "buttons": [
+                    {
+                        "name": "Quercia x32 → 1",
+                        "commands": ["/scriptevent shop:sell oak_log"]
+                    },
+                    {
+                        "name": "Ciottoli x64 → 1",
+                        "commands": ["/scriptevent shop:sell cobblestone"]
+                    },
+                    {
+                        "name": "Grano x32 → 1",
+                        "commands": ["/scriptevent shop:sell wheat"]
+                    },
+                    {
+                        "name": "Ferro x8 → 2",
+                        "commands": ["/scriptevent shop:sell iron_ingot"]
+                    },
+                    {
+                        "name": "§7« Torna",
+                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=10] @initiator shop_main"]
+                    }
+                ]
+            }
+        ]
+    }
+}

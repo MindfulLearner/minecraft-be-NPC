@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(tar -tzf \"C:/Users/dimaj/Downloads/archive-2026-04-17T012626Z.tar.gz\")",
+      "Bash(tar -tzf \"/c/Users/dimaj/Downloads/archive-2026-04-17T012626Z.tar.gz\")",
+      "Bash(tar *)",
+      "WebFetch(domain:cybrancee.com)",
+      "Bash(zip -r \"/c/Users/dimaj/Downloads/npcserverpack.mcaddon\" .)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:wiki.bedrock.dev)",
+      "WebFetch(domain:www.curseforge.com)",
+      "Bash(where arc *)",
+      "Bash(tasklist)",
+      "Read(//c/Users/dimaj/AppData/Local/**)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Bash(reg query *)",
+      "Bash(xargs -I{} sh -c 'echo \"=== {} ===\"; cat \"{}\" 2>/dev/null | strings | grep -i arc')",
+      "Bash(grep -v \"^.$\")",
+      "Bash(powershell.exe *)"
+    ]
+  }
+}

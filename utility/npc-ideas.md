@@ -1,3 +1,11 @@
+# NPC Ideas - Friends Server
+
+> **Active NPCs:** Cultista (quest giver) + Mr Francesco (shop) — see `npcs/anpccustombeh/`
+> **Next batch:** 4 new NPCs planned — see `npcs/new-npc-ideas.md`
+> - Old Piero (fisherman), Elena (huntress), Marco (builder), Sofia (decorator)
+
+---
+
 # Shop & Quest Giver NPC Ideas - Friends Server
 
 ## Overview

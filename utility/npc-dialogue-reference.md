@@ -114,7 +114,7 @@ Full rawtext object - mix text, player name, scoreboard:
 | `@initiator` not working | Only valid inside NPC scene command arrays |
 | Scene not found | `scene_tag` is case-sensitive |
 | `on_open` / `on_close` not firing | Must be `on_open_commands` / `on_close_commands` |
-| Button limit | **UNTESTED** - no documented max, needs in-game confirmation |
+| Button limit | **Max 6 per scene** - confirmed in-game: 7+ buttons causes JSON parse error |
 
 ---
 
