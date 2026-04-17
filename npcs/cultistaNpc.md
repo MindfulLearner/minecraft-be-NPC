@@ -16,6 +16,25 @@
 
 ---
 
+## Step 0 - Setup Scoreboard (una volta sola)
+
+Prima di spawnare Cultista, esegui questi due comandi come operator. Vanno fatti **una volta sola** all'inizio del server.
+
+```
+/scoreboard objectives add quest_punti dummy "Punti Quest"
+/scoreboard objectives setdisplay sidebar quest_punti
+```
+
+Questo crea la classifica e la mostra sul lato destro dello schermo per tutti i giocatori.
+
+> Nota: usa `cultista.json` dal behavior pack per avere piu' comandi per bottone (annunci + scoreboard). L'editor in-game supporta solo 1 comando per bottone.
+
+```
+/dialogue open @e[tag=cultista] @p cultista_main
+```
+
+---
+
 ## Step 1 - Spawn the NPC
 
 Run this command as **operator** in chat:

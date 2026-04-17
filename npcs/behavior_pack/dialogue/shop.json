@@ -5,41 +5,48 @@
             {
                 "scene_tag": "shop_main",
                 "npc_name": "§6Mr Francesco",
-                "text": "§fAh, benvenuto.\n§7[Drop gold ingots in the chest\nbefore hitting a button]",
+                "text": "§fJosh mi deve ancora 3 lingotti d'oro.\nMartina e' la mia cliente preferita.\n§7Prima si paga. Niente rimborsi.",
                 "buttons": [
                     {
-                        "name": "§a Bread x8 (2 gold)",
+                        "name": "Pane x8 - 2 oro",
                         "commands": [
-                            "/give @initiator bread 8"
+                            "/give @initiator bread 8",
+                            "/say [Mr Francesco] @initiator ha acquistato: Pane x8. Come Giada, sempre affamata."
                         ]
                     },
                     {
-                        "name": "§e Torches x16 (1 gold)",
+                        "name": "Torce x16 - 1 oro",
                         "commands": [
-                            "/give @initiator torch 16"
+                            "/give @initiator torch 16",
+                            "/say [Mr Francesco] @initiator ha acquistato: Torce x16. Niss le perde tutte in cinque minuti."
                         ]
                     },
                     {
-                        "name": "§7 Iron Sword (4 gold)",
+                        "name": "Spada di ferro - 4 oro",
                         "commands": [
-                            "/give @initiator iron_sword 1"
+                            "/give @initiator iron_sword 1",
+                            "/say [Mr Francesco] @initiator ha acquistato: Spada di ferro. Non ferire Josh, e' l'unico che non paga mai."
                         ]
                     },
                     {
-                        "name": "§7 Iron Pickaxe (4 gold)",
+                        "name": "Piccone di ferro - 4 oro",
                         "commands": [
-                            "/give @initiator iron_pickaxe 1"
+                            "/give @initiator iron_pickaxe 1",
+                            "/say [Mr Francesco] @initiator ha acquistato: Piccone di ferro. Gabri ne ha gia' rotto tre."
                         ]
                     },
                     {
-                        "name": "§2 Seeds x16 (1 gold)",
+                        "name": "Semi x16 - 1 oro",
                         "commands": [
-                            "/give @initiator wheat_seeds 16"
+                            "/give @initiator wheat_seeds 16",
+                            "/say [Mr Francesco] @initiator ha acquistato: Semi x16. Sara voleva lo sconto. Ho detto no."
                         ]
                     },
                     {
-                        "name": "§c No refunds. Goodbye.",
-                        "commands": []
+                        "name": "Arrivederci",
+                        "commands": [
+                            "/say [Mr Francesco] @initiator se ne va senza comprare niente. Proprio come Josh."
+                        ]
                     }
                 ]
             }
