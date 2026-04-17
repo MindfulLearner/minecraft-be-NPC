@@ -51,9 +51,9 @@ Copy and paste this into the **Dialogue** field:
 
 ```
 Ah, benvenuto.
-I am Mr Francesco. I sell only
-the finest goods at very reasonable
-prices. Pay first. No refunds.
+Sono Mr Francesco. Josh mi deve
+ancora 3 lingotti d'oro. Comunque...
+Prima si paga. Niente rimborsi.
 ```
 
 > Tip: Keep dialogue under ~200 characters or it may get cut off on mobile screens.
@@ -161,7 +161,7 @@ Seeds x16 - 1 gold
 
 **Command to paste:**
 ```
-/say [Mr Francesco] Ah, a new customer. How delightful. My shop is open for business.
+/say [Mr Francesco] Un cliente! Finalmente qualcuno che paga, a differenza di Josh.
 ```
 
 **What this does:**

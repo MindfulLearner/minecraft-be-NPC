@@ -50,11 +50,10 @@ Cultista
 Copy and paste this into the **Dialogue** field:
 
 ```
-The land whispers to those who listen.
-I have tasks for those willing to serve.
-Complete my calling... and you will be rewarded.
-
-Choose your trial below.
+La terra sussurra... ma Josh urla.
+Completa le mie prove, straniero.
+Lui dice che sono "troppo seria".
+Scegli la tua prova qui sotto.
 ```
 
 > Tip: Keep dialogue under ~200 characters or it may get cut off on mobile screens.
@@ -72,7 +71,7 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 **Label to paste:**
 ```
-[Quest] The Woodcutter
+[Missione] Il Taglialegna
 ```
 
 **Command to paste:**
@@ -91,7 +90,7 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 **Label to paste:**
 ```
-[Quest] Bone Errand
+[Missione] Commissione delle Ossa
 ```
 
 **Command to paste:**
@@ -112,7 +111,7 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 **Label to paste:**
 ```
-[Quest] Feed the Cult
+[Missione] Sfama il Culto
 ```
 
 **Command to paste:**
@@ -131,7 +130,7 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 **Label to paste:**
 ```
-[Quest] Into the Dark
+[Missione] Nel Buio
 ```
 
 **Command to paste:**
@@ -152,7 +151,7 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 **Label to paste:**
 ```
-[Quest] The Green Threat
+[Missione] La Minaccia Verde
 ```
 
 **Command to paste:**
@@ -171,12 +170,12 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 **Label to paste:**
 ```
-[!] Hear the Calling
+[!] Ascolta la Chiamata
 ```
 
 **Command to paste:**
 ```
-/say [Cultista] A new soul seeks their calling. The trials begin.
+/say [Cultista] Un'altra anima. Josh sara' contento. Probabilmente.
 ```
 
 **What this does:**
@@ -189,12 +188,12 @@ For each button: paste the **Label** into the button name field, and the **Comma
 
 | Slot | Label | Command | Reward |
 |---|---|---|---|
-| 1 | `[Quest] The Woodcutter` | `/give @initiator gold_ingot 3` | 3 gold ingots |
-| 2 | `[Quest] Bone Errand` | `/give @initiator gold_ingot 4` | 4 gold ingots |
-| 3 | `[Quest] Feed the Cult` | `/give @initiator gold_ingot 3` | 3 gold ingots |
-| 4 | `[Quest] Into the Dark` | `/give @initiator gold_ingot 4` | 4 gold ingots |
-| 5 | `[Quest] The Green Threat` | `/give @initiator gold_ingot 3` | 3 gold ingots |
-| 6 | `[!] Hear the Calling` | `/say [Cultista] A new soul seeks their calling. The trials begin.` | Server announcement |
+| 1 | `[Missione] Il Taglialegna` | `/give @initiator gold_ingot 3` | 3 lingotti d'oro |
+| 2 | `[Missione] Commissione delle Ossa` | `/give @initiator gold_ingot 4` | 4 lingotti d'oro |
+| 3 | `[Missione] Sfama il Culto` | `/give @initiator gold_ingot 3` | 3 lingotti d'oro |
+| 4 | `[Missione] Nel Buio` | `/give @initiator gold_ingot 4` | 4 lingotti d'oro |
+| 5 | `[Missione] La Minaccia Verde` | `/give @initiator gold_ingot 3` | 3 lingotti d'oro |
+| 6 | `[!] Ascolta la Chiamata` | `/say [Cultista] Un'altra anima. Josh sara' contento. Probabilmente.` | Annuncio server |
 
 ---
 
@@ -204,30 +203,30 @@ Place a **Sign** or **Lectern with a Book & Quill** nearby.
 Use this text for the book/sign:
 
 ```
-=== CULTISTA'S TRIALS ===
+=== LE PROVE DI CULTISTA ===
 
-[1] The Woodcutter
-    Chop 32 oak logs
-    Talk to Cultista
+[1] Il Taglialegna
+    Taglia 32 tronchi di quercia
+    Parla con Cultista
 
-[2] Bone Errand
-    Kill 10 skeletons
-    Talk to Cultista
+[2] Commissione delle Ossa
+    Uccidi 10 scheletri
+    Parla con Cultista
 
-[3] Feed the Cult
-    Collect 16 bread
-    Talk to Cultista
+[3] Sfama il Culto
+    Raccogli 16 pani
+    Parla con Cultista
 
-[4] Into the Dark
-    Reach Y=30 underground
-    Talk to Cultista
+[4] Nel Buio
+    Raggiungi Y=30 sottoterra
+    Parla con Cultista
 
-[5] The Green Threat
-    Kill 5 creepers
-    Talk to Cultista
+[5] La Minaccia Verde
+    Uccidi 5 creeper
+    Parla con Cultista
 
-Complete all 5 to unlock
-Tier 2 quests (coming soon).
+Completa tutte e 5 per sbloccare
+le missioni di livello 2 (presto).
 ```
 
 ---
