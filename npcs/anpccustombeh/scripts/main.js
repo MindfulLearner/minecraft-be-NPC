@@ -490,7 +490,11 @@ function openDashboard(player) {
         .button1("§aChiudi")
         .button2("§aChiudi");
 
-    system.run(() => form.show(player));
+    system.run(() => form.show(player).then((r) => {
+        if (r.canceled) player.sendMessage(`§7[Dashboard] Chiusa (${r.cancelationReason})`);
+    }).catch((e) => {
+        player.sendMessage(`§c[Dashboard] Errore: ${e}`);
+    }));
 }
 
 // ── HELPERS ───────────────────────────────────────────────────────────────────
