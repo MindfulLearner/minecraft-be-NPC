@@ -1,0 +1,129 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "contadina_main",
+                "npc_name": "§dNonna Rosa",
+                "text": "§fMia nipote arriva dall'End con cose strane.\n§dIo le vendo, lei porta altro.\n§7Non chiedere da dove vengono.",
+                "on_open_commands": [
+                    "/say [Nonna Rosa] §e@initiator §fguarda la merce. La nipote sarà contenta."
+                ],
+                "buttons": [
+                    {
+                        "name": "§e» Compra",
+                        "commands": ["/dialogue open @e[tag=contadina,r=2] @initiator contadina_buy"]
+                    },
+                    {
+                        "name": "§a» Vendi",
+                        "commands": ["/dialogue open @e[tag=contadina,r=2] @initiator contadina_sell"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "contadina_buy",
+                "npc_name": "§dNonna Rosa",
+                "text": "§7Cosa ti serve oggi?",
+                "buttons": [
+                    {
+                        "name": "Mela Dorata - 14",
+                        "commands": ["/scriptevent contadina:buy golden_apple"]
+                    },
+                    {
+                        "name": "Miele x2 - 4",
+                        "commands": ["/scriptevent contadina:buy honey_bottle"]
+                    },
+                    {
+                        "name": "Frutto del Coro x4 - 6",
+                        "commands": ["/scriptevent contadina:buy chorus_fruit"]
+                    },
+                    {
+                        "name": "Bacche Splendenti x8 - 3",
+                        "commands": ["/scriptevent contadina:buy glow_berries"]
+                    },
+                    {
+                        "name": "Torta di Zucca x2 - 3",
+                        "commands": ["/scriptevent contadina:buy pumpkin_pie"]
+                    },
+                    {
+                        "name": "§e» Pagina 2",
+                        "commands": ["/dialogue open @e[tag=contadina,r=2] @initiator contadina_buy_2"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "contadina_buy_2",
+                "npc_name": "§dNonna Rosa",
+                "text": "§7Altre bontà della nonna.",
+                "buttons": [
+                    {
+                        "name": "§e« Pagina 1",
+                        "commands": ["/dialogue open @e[tag=contadina,r=2] @initiator contadina_buy"]
+                    },
+                    {
+                        "name": "Mele x8 - 3",
+                        "commands": ["/scriptevent contadina:buy apple"]
+                    },
+                    {
+                        "name": "Maiale Cotto x2 - 3",
+                        "commands": ["/scriptevent contadina:buy cooked_porkchop"]
+                    },
+                    {
+                        "name": "Stufato di Funghi - 4",
+                        "commands": ["/scriptevent contadina:buy mushroom_stew"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "contadina_sell",
+                "npc_name": "§dNonna Rosa",
+                "text": "§fCosa hai raccolto?\n§dLa nonna compra tutto.",
+                "buttons": [
+                    {
+                        "name": "Bacche Dolci x16 → 2",
+                        "commands": ["/scriptevent contadina:sell sweet_berries"]
+                    },
+                    {
+                        "name": "Anguria x32 → 1",
+                        "commands": ["/scriptevent contadina:sell melon_slice"]
+                    },
+                    {
+                        "name": "Cactus x32 → 1",
+                        "commands": ["/scriptevent contadina:sell cactus"]
+                    },
+                    {
+                        "name": "Carote x16 → 2",
+                        "commands": ["/scriptevent contadina:sell carrot"]
+                    },
+                    {
+                        "name": "Patate x16 → 1",
+                        "commands": ["/scriptevent contadina:sell potato"]
+                    },
+                    {
+                        "name": "§e» Pagina 2",
+                        "commands": ["/dialogue open @e[tag=contadina,r=2] @initiator contadina_sell_2"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "contadina_sell_2",
+                "npc_name": "§dNonna Rosa",
+                "text": "§7Altro che prendo.",
+                "buttons": [
+                    {
+                        "name": "§e« Pagina 1",
+                        "commands": ["/dialogue open @e[tag=contadina,r=2] @initiator contadina_sell"]
+                    },
+                    {
+                        "name": "Zucca x8 → 2",
+                        "commands": ["/scriptevent contadina:sell pumpkin"]
+                    },
+                    {
+                        "name": "Bambù x32 → 1",
+                        "commands": ["/scriptevent contadina:sell bamboo"]
+                    }
+                ]
+            }
+        ]
+    }
+}

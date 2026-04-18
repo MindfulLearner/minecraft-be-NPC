@@ -9,15 +9,15 @@
                 "buttons": [
                     {
                         "name": "Avventuriero",
-                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_avventuriero"]
+                        "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_avventuriero"]
                     },
                     {
                         "name": "Sono del culto",
-                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_membro"]
+                        "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_membro"]
                     },
                     {
                         "name": "Le missioni",
-                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_main"]
+                        "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_main"]
                     }
                 ]
             },
@@ -28,7 +28,7 @@
                 "buttons": [
                     {
                         "name": "Dimmi le missioni",
-                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_main"]
+                        "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_main"]
                     }
                 ]
             },
@@ -39,11 +39,11 @@
                 "buttons": [
                     {
                         "name": "[Silenzio]",
-                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_smascherato"]
+                        "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_smascherato"]
                     },
                     {
                         "name": "Ero in ritardo",
-                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_main"]
+                        "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_main"]
                     }
                 ]
             },
@@ -54,7 +54,7 @@
                 "buttons": [
                     {
                         "name": "Grazie...",
-                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_main"]
+                        "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_main"]
                     }
                 ]
             },
@@ -85,7 +85,7 @@
                     },
                     {
                         "name": "§a» Consegna",
-                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_consegna"]
+                        "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_consegna"]
                     }
                 ]
             },
@@ -116,7 +116,7 @@
                     },
                     {
                         "name": "§7« Indietro",
-                        "commands": ["/dialogue open @e[tag=cultista,r=10] @initiator cultista_main"]
+                        "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_main"]
                     }
                 ]
             }

@@ -1,0 +1,129 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "fabbro_main",
+                "npc_name": "§7Mastro Ugo",
+                "text": "§fRoba pregiata. Paghi o te ne vai.\n§8Non faccio sconti a nessuno.\n§fNeanche a Josh.",
+                "on_open_commands": [
+                    "/say [Mastro Ugo] §e@initiator §fsi avvicina alla forgia. Ha i soldi?"
+                ],
+                "buttons": [
+                    {
+                        "name": "§e» Compra",
+                        "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy"]
+                    },
+                    {
+                        "name": "§a» Vendi",
+                        "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_sell"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "fabbro_buy",
+                "npc_name": "§7Mastro Ugo",
+                "text": "§8Cosa vuoi dalla forgia?",
+                "buttons": [
+                    {
+                        "name": "Rottame Netherite - 18",
+                        "commands": ["/scriptevent fabbro:buy netherite_scrap"]
+                    },
+                    {
+                        "name": "Diamante - 13",
+                        "commands": ["/scriptevent fabbro:buy diamond"]
+                    },
+                    {
+                        "name": "Totem Immortalità - 28",
+                        "commands": ["/scriptevent fabbro:buy totem_of_undying"]
+                    },
+                    {
+                        "name": "Lanterna del Mare - 9",
+                        "commands": ["/scriptevent fabbro:buy sea_lantern"]
+                    },
+                    {
+                        "name": "Scudo - 6",
+                        "commands": ["/scriptevent fabbro:buy shield"]
+                    },
+                    {
+                        "name": "§e» Pagina 2",
+                        "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy_2"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "fabbro_buy_2",
+                "npc_name": "§7Mastro Ugo",
+                "text": "§8Armi e armature di diamante.",
+                "buttons": [
+                    {
+                        "name": "§e« Pagina 1",
+                        "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy"]
+                    },
+                    {
+                        "name": "Piccone di Diamante - 18",
+                        "commands": ["/scriptevent fabbro:buy diamond_pickaxe"]
+                    },
+                    {
+                        "name": "Spada di Diamante - 16",
+                        "commands": ["/scriptevent fabbro:buy diamond_sword"]
+                    },
+                    {
+                        "name": "Corazza di Diamante - 22",
+                        "commands": ["/scriptevent fabbro:buy diamond_chestplate"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "fabbro_sell",
+                "npc_name": "§7Mastro Ugo",
+                "text": "§fPortami roba che vale davvero.\n§8Voglio materiali rari.",
+                "buttons": [
+                    {
+                        "name": "Detriti Antichi x1 → 8",
+                        "commands": ["/scriptevent fabbro:sell ancient_debris"]
+                    },
+                    {
+                        "name": "Ossidiana x32 → 3",
+                        "commands": ["/scriptevent fabbro:sell obsidian"]
+                    },
+                    {
+                        "name": "Prismarina x32 → 3",
+                        "commands": ["/scriptevent fabbro:sell prismarine"]
+                    },
+                    {
+                        "name": "Lingotti Ferro x16 → 3",
+                        "commands": ["/scriptevent fabbro:sell iron_ingot"]
+                    },
+                    {
+                        "name": "Lingotti Oro x8 → 4",
+                        "commands": ["/scriptevent fabbro:sell gold_ingot"]
+                    },
+                    {
+                        "name": "§e» Pagina 2",
+                        "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_sell_2"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "fabbro_sell_2",
+                "npc_name": "§7Mastro Ugo",
+                "text": "§8Altro che accetto.",
+                "buttons": [
+                    {
+                        "name": "§e« Pagina 1",
+                        "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_sell"]
+                    },
+                    {
+                        "name": "Rame Grezzo x32 → 2",
+                        "commands": ["/scriptevent fabbro:sell raw_copper"]
+                    },
+                    {
+                        "name": "Quarzo x16 → 2",
+                        "commands": ["/scriptevent fabbro:sell quartz"]
+                    }
+                ]
+            }
+        ]
+    }
+}

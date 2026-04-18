@@ -5,37 +5,37 @@
             {
                 "scene_tag": "cacciatrice_intro",
                 "npc_name": "§6Elena",
-                "text": "§fTi osservo da un po'.\n§7La maggior parte degli avventurieri finge.\n§fTu sembri diverso. Forse.",
+                "text": "§eTi osservo da un po'.\n§6La maggior parte degli avventurieri finge.\n§eTu sembri diverso. Forse.",
                 "buttons": [
                     {
                         "name": "Mettimi alla prova.",
-                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_sfida"]
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_sfida"]
                     },
                     {
-                        "name": "Ho visto cose peggiori.",
-                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_sfida"]
+                        "name": "Ho visto di peggio.",
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_sfida"]
                     },
                     {
-                        "name": "Dimmi le missioni.",
-                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_main"]
+                        "name": "Le missioni.",
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_main"]
                     }
                 ]
             },
             {
                 "scene_tag": "cacciatrice_sfida",
                 "npc_name": "§6Elena",
-                "text": "§f— Interessante.\n§7Chi parla così di solito scappa al primo creeper.\n§fDimostramelo sul campo. Scegli una preda.",
+                "text": "§e— Interessante.\n§6Chi parla così scappa al primo creeper.\n§eDimostramelo. Scegli una preda.",
                 "buttons": [
                     {
                         "name": "Sono pronto.",
-                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_main"]
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_main"]
                     }
                 ]
             },
             {
                 "scene_tag": "cacciatrice_main",
                 "npc_name": "§6Elena",
-                "text": "§fScegli la preda. Torna con le prove.\n§7Non mi interessano le scuse.",
+                "text": "§eScegli la preda. Torna con le prove.\n§6Non mi interessano le scuse.",
                 "buttons": [
                     {
                         "name": "8 Zombie",
@@ -55,14 +55,14 @@
                     },
                     {
                         "name": "§a» Consegna",
-                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_consegna"]
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_consegna"]
                     }
                 ]
             },
             {
                 "scene_tag": "cacciatrice_consegna",
                 "npc_name": "§6Elena",
-                "text": "§fHai cacciato bene?\n§7Dimmi cosa hai preso.",
+                "text": "§eHai cacciato bene?\n§6Dimmi cosa hai preso.",
                 "buttons": [
                     {
                         "name": "8 Zombie",
@@ -81,8 +81,8 @@
                         "commands": ["/scriptevent cacciatrice:deliver elena_polli"]
                     },
                     {
-                        "name": "§7« Indietro",
-                        "commands": ["/dialogue open @e[tag=cacciatrice,r=10] @initiator cacciatrice_main"]
+                        "name": "§6« Indietro",
+                        "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_main"]
                     }
                 ]
             }

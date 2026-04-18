@@ -1,4 +1,5 @@
 import { world, system } from "@minecraft/server";
+import { MessageFormData } from "@minecraft/server-ui";
 
 // ── SHOP ──────────────────────────────────────────────────────────────────────
 
@@ -8,6 +9,9 @@ const SHOP = {
     name_tag:      { name: "Cartellino",     price: 5,  amount: 1 },
     sponge:        { name: "Spugna",         price: 7,  amount: 1 },
     ender_pearl:   { name: "Perle End",      price: 4,  amount: 2 },
+    torch:         { name: "Torce x8",       price: 2,  amount: 8 },
+    lantern:       { name: "Lanterna",       price: 3,  amount: 1 },
+    compass:       { name: "Bussola",        price: 5,  amount: 1 },
 };
 
 const SELL = {
@@ -15,6 +19,98 @@ const SELL = {
     cobblestone:{ name: "Ciottoli x64",  amount: 64, reward: 1 },
     wheat:      { name: "Grano x32",     amount: 32, reward: 1 },
     iron_ingot: { name: "Ferro x8",      amount: 8,  reward: 2 },
+    stone:      { name: "Pietra x64",    amount: 64, reward: 1 },
+    sand:       { name: "Sabbia x32",    amount: 32, reward: 1 },
+    bone:       { name: "Ossa x16",      amount: 16, reward: 2 },
+    string:     { name: "Filo x32",      amount: 32, reward: 1 },
+};
+
+// ── FABBRO ────────────────────────────────────────────────────────────────────
+
+const SHOP_FABBRO = {
+    netherite_scrap:    { name: "Rottame di Netherite",   price: 18, amount: 1 },
+    diamond:            { name: "Diamante",               price: 13, amount: 1 },
+    totem_of_undying:   { name: "Totem dell'Immortalità", price: 28, amount: 1 },
+    sea_lantern:        { name: "Lanterna del Mare",      price: 9,  amount: 1 },
+    shield:             { name: "Scudo",                  price: 6,  amount: 1 },
+    diamond_pickaxe:    { name: "Piccone di Diamante",    price: 18, amount: 1 },
+    diamond_sword:      { name: "Spada di Diamante",      price: 16, amount: 1 },
+    diamond_chestplate: { name: "Corazza di Diamante",    price: 22, amount: 1 },
+};
+
+const SELL_FABBRO = {
+    ancient_debris: { name: "Detriti Antichi x1",  amount: 1,  reward: 8 },
+    obsidian:       { name: "Ossidiana x32",        amount: 32, reward: 3 },
+    prismarine:     { name: "Prismarina x32",       amount: 32, reward: 3 },
+    iron_ingot:     { name: "Lingotti Ferro x16",   amount: 16, reward: 3 },
+    gold_ingot:     { name: "Lingotti Oro x8",      amount: 8,  reward: 4 },
+    raw_copper:     { name: "Rame Grezzo x32",      amount: 32, reward: 2 },
+    quartz:         { name: "Quarzo x16",           amount: 16, reward: 2 },
+};
+
+// ── CONTADINA ─────────────────────────────────────────────────────────────────
+
+const SHOP_CONTADINA = {
+    golden_apple:    { name: "Mela Dorata",          price: 14, amount: 1 },
+    honey_bottle:    { name: "Miele x2",             price: 4,  amount: 2 },
+    chorus_fruit:    { name: "Frutto del Coro x4",   price: 6,  amount: 4 },
+    glow_berries:    { name: "Bacche Splendenti x8", price: 3,  amount: 8 },
+    pumpkin_pie:     { name: "Torta di Zucca x2",    price: 3,  amount: 2 },
+    apple:           { name: "Mele x8",              price: 3,  amount: 8 },
+    cooked_porkchop: { name: "Maiale Cotto x2",      price: 3,  amount: 2 },
+    mushroom_stew:   { name: "Stufato di Funghi",    price: 4,  amount: 1 },
+};
+
+const SELL_CONTADINA = {
+    sweet_berries: { name: "Bacche Dolci x16", amount: 16, reward: 2 },
+    melon_slice:   { name: "Anguria x32",      amount: 32, reward: 1 },
+    cactus:        { name: "Cactus x32",       amount: 32, reward: 1 },
+    carrot:        { name: "Carote x16",       amount: 16, reward: 2 },
+    potato:        { name: "Patate x16",       amount: 16, reward: 1 },
+    pumpkin:       { name: "Zucca x8",         amount: 8,  reward: 2 },
+    bamboo:        { name: "Bambù x32",        amount: 32, reward: 1 },
+};
+
+// ── ALCHIMISTA ────────────────────────────────────────────────────────────────
+
+const SHOP_ALCHIMISTA = {
+    phantom_membrane:    { name: "Membrana Fantasma x2",      price: 11, amount: 2 },
+    shulker_shell:       { name: "Guscio di Shulker",         price: 14, amount: 1 },
+    dragon_breath:       { name: "Soffio del Drago",          price: 20, amount: 1 },
+    nautilus_shell:      { name: "Conchiglia x2",             price: 7,  amount: 2 },
+    end_rod:             { name: "Bastoni End x4",            price: 4,  amount: 4 },
+    popped_chorus_fruit: { name: "Frutto del Coro Cotto x4",  price: 5,  amount: 4 },
+    amethyst_shard:      { name: "Frammenti Ametista x4",     price: 5,  amount: 4 },
+    glow_ink_sac:        { name: "Inchiostro Splendente x4",  price: 4,  amount: 4 },
+};
+
+const SELL_ALCHIMISTA = {
+    magma_cream:          { name: "Crema di Magma x8",     amount: 8,  reward: 3 },
+    fermented_spider_eye: { name: "Occhio Fermentato x4",  amount: 4,  reward: 3 },
+    chorus_fruit:         { name: "Frutto del Coro x8",    amount: 8,  reward: 2 },
+    ghast_tear:           { name: "Lacrima di Ghast x4",   amount: 4,  reward: 4 },
+    nether_brick:         { name: "Mattone Nether x16",    amount: 16, reward: 2 },
+    fire_charge:          { name: "Carica di Fuoco x4",    amount: 4,  reward: 2 },
+    rabbit_foot:          { name: "Zampa di Coniglio x4",  amount: 4,  reward: 3 },
+};
+
+// ── OVAIOLO ───────────────────────────────────────────────────────────────────
+
+const SHOP_OVAIOLO = {
+    wolf_spawn_egg:    { name: "Uovo di Lupo",     price: 10, amount: 1 },
+    horse_spawn_egg:   { name: "Uovo di Cavallo",  price: 12, amount: 1 },
+    rabbit_spawn_egg:  { name: "Uovo di Coniglio", price: 6,  amount: 1 },
+    bee_spawn_egg:     { name: "Uovo di Ape",      price: 8,  amount: 1 },
+    axolotl_spawn_egg: { name: "Uovo di Axolotl",  price: 10, amount: 1 },
+    panda_spawn_egg:   { name: "Uovo di Panda",    price: 14, amount: 1 },
+    fox_spawn_egg:     { name: "Uovo di Volpe",    price: 10, amount: 1 },
+    ocelot_spawn_egg:  { name: "Uovo di Ocelot",   price: 8,  amount: 1 },
+};
+
+const SELL_OVAIOLO = {
+    egg:        { name: "Uova x16",        amount: 16, reward: 1 },
+    feather:    { name: "Piume x16",       amount: 16, reward: 1 },
+    white_wool: { name: "Lana Bianca x32", amount: 32, reward: 1 },
 };
 
 // ── QUESTS ────────────────────────────────────────────────────────────────────
@@ -210,36 +306,44 @@ system.afterEvents.scriptEventReceive.subscribe((ev) => {
 
     if      (action === "accept")  acceptQuest(player, msg);
     else if (action === "deliver") deliverQuest(player, msg);
-    else if (ev.id === "shop:buy") buyItem(player, msg);
-    else if (ev.id === "shop:sell") sellItem(player, msg);
-}, { namespaces: ["cultista", "shop", "pescatore", "cacciatrice", "costruttore", "decoratrice"] });
+    else if (ev.id === "shop:buy")         buyItem(player, msg, SHOP,           "Francesco");
+    else if (ev.id === "shop:sell")        sellItem(player, msg, SELL,          "Francesco");
+    else if (ev.id === "fabbro:buy")       buyItem(player, msg, SHOP_FABBRO,   "Mastro Ugo");
+    else if (ev.id === "fabbro:sell")      sellItem(player, msg, SELL_FABBRO,  "Mastro Ugo");
+    else if (ev.id === "contadina:buy")    buyItem(player, msg, SHOP_CONTADINA,"Nonna Rosa");
+    else if (ev.id === "contadina:sell")   sellItem(player, msg, SELL_CONTADINA,"Nonna Rosa");
+    else if (ev.id === "alchimista:buy")   buyItem(player, msg, SHOP_ALCHIMISTA, "Maga Vera");
+    else if (ev.id === "alchimista:sell")  sellItem(player, msg, SELL_ALCHIMISTA,"Maga Vera");
+    else if (ev.id === "ovaiolo:buy")      buyItem(player, msg, SHOP_OVAIOLO,   "Zio Beppe");
+    else if (ev.id === "ovaiolo:sell")     sellItem(player, msg, SELL_OVAIOLO,  "Zio Beppe");
+}, { namespaces: ["cultista", "shop", "pescatore", "cacciatrice", "costruttore", "decoratrice", "fabbro", "contadina", "alchimista", "ovaiolo"] });
 
 // ── SHOP LOGIC ────────────────────────────────────────────────────────────────
 
-function buyItem(player, itemId) {
-    const item = SHOP[itemId];
+function buyItem(player, itemId, shopMap, npcName) {
+    const item = shopMap[itemId];
     if (!item) return;
     const nuggets = countItem(player, "minecraft:gold_nugget");
     if (nuggets < item.price) {
-        player.sendMessage(`§c[Francesco] Non hai abbastanza pepite. Servono ${item.price}, ne hai ${nuggets}.`);
+        player.sendMessage(`§c[${npcName}] Non hai abbastanza pepite. Servono ${item.price}, ne hai ${nuggets}.`);
         return;
     }
     player.runCommand(`clear @s gold_nugget 0 ${item.price}`);
     player.runCommand(`give @s ${itemId} ${item.amount}`);
-    world.sendMessage(`§6[Francesco] §f${player.name} ha comprato: §e${item.name}§f. -${item.price} pepite.`);
+    world.sendMessage(`§6[${npcName}] §f${player.name} ha comprato: §e${item.name}§f. -${item.price} pepite.`);
 }
 
-function sellItem(player, itemId) {
-    const item = SELL[itemId];
+function sellItem(player, itemId, sellMap, npcName) {
+    const item = sellMap[itemId];
     if (!item) return;
     const count = countItem(player, `minecraft:${itemId}`);
     if (count < item.amount) {
-        player.sendMessage(`§c[Francesco] Non hai abbastanza. Servono ${item.amount} ${item.name.split(" x")[0]}, ne hai ${count}.`);
+        player.sendMessage(`§c[${npcName}] Non hai abbastanza. Servono ${item.amount} ${item.name.split(" x")[0]}, ne hai ${count}.`);
         return;
     }
     player.runCommand(`clear @s ${itemId} 0 ${item.amount}`);
     player.runCommand(`give @s gold_nugget ${item.reward}`);
-    player.sendMessage(`§6[Francesco] §fVenduto: §e${item.name}§f. +${item.reward} pepite.`);
+    player.sendMessage(`§6[${npcName}] §fVenduto: §e${item.name}§f. +${item.reward} pepite.`);
 }
 
 // ── QUEST LOGIC ───────────────────────────────────────────────────────────────
@@ -332,37 +436,62 @@ function getQuestProgress(player, quest) {
     return { done: false, text: "" };
 }
 
-// ── HOME COMMANDS ─────────────────────────────────────────────────────────────
+// ── DASHBOARD ─────────────────────────────────────────────────────────────────
 
-world.beforeEvents.chatSend.subscribe((ev) => {
-    const msg = ev.message.trim();
-    const player = ev.sender;
+system.afterEvents.scriptEventReceive.subscribe((ev) => {
+    const player = ev.initiator;
+    world.sendMessage(`§7[DBG] id=${ev.id} initiator=${player?.typeId ?? "null"}`);
+    if (!player || player.typeId !== "minecraft:player") return;
+    if (ev.id !== "dashboard:open") return;
+    openDashboard(player);
+}, { namespaces: ["dashboard"] });
 
-    if (msg === "/sethome") {
-        ev.cancel = true;
-        const loc = player.location;
-        player.setDynamicProperty("home_x", loc.x);
-        player.setDynamicProperty("home_y", loc.y);
-        player.setDynamicProperty("home_z", loc.z);
-        player.setDynamicProperty("home_dim", player.dimension.id);
-        player.sendMessage("§a[Home] Posizione salvata!");
+function openDashboard(player) {
+    const done    = [];
+    const active  = [];
+    const todo    = [];
 
-    } else if (msg === "/home") {
-        ev.cancel = true;
-        const x = player.getDynamicProperty("home_x");
-        const y = player.getDynamicProperty("home_y");
-        const z = player.getDynamicProperty("home_z");
-        const dim = player.getDynamicProperty("home_dim") ?? "minecraft:overworld";
-        if (x === undefined) {
-            player.sendMessage("§c[Home] Nessuna home impostata. Usa /sethome prima.");
-            return;
+    for (const [key, q] of Object.entries(QUESTS)) {
+        if (player.hasTag(`q_${key}_done`)) {
+            done.push(`§a✔ §f${q.name} §7— ${q.npc}`);
+        } else if (player.hasTag(`q_${key}`)) {
+            const prog = getQuestProgress(player, key);
+            active.push(`§6▶ §f${q.name} §7— ${q.npc}\n   §7${prog.text}`);
+        } else {
+            todo.push(`§8◆ §7${q.name} §8— ${q.npc}`);
         }
-        system.run(() => {
-            player.teleport({ x, y, z }, { dimension: world.getDimension(dim) });
-            player.sendMessage("§a[Home] Teletrasportato!");
-        });
     }
-});
+
+    const total = Object.keys(QUESTS).length;
+    const lines = [];
+
+    lines.push(`§e§lMISSIONI COMPLETATE: §f${done.length}§7/${total}\n`);
+
+    if (done.length > 0) {
+        lines.push("§a§l── COMPLETATE ──");
+        lines.push(...done);
+        lines.push("");
+    }
+
+    if (active.length > 0) {
+        lines.push("§6§l── IN CORSO ──");
+        lines.push(...active);
+        lines.push("");
+    }
+
+    if (todo.length > 0) {
+        lines.push("§8§l── DA FARE ──");
+        lines.push(...todo);
+    }
+
+    const form = new MessageFormData()
+        .title("§l§0[ §eLibro delle Missioni §0]")
+        .body(lines.join("\n"))
+        .button1("§aChiudi")
+        .button2("§aChiudi");
+
+    system.run(() => form.show(player));
+}
 
 // ── HELPERS ───────────────────────────────────────────────────────────────────
 

@@ -11,6 +11,21 @@
                 ],
                 "buttons": [
                     {
+                        "name": "§e» Compra",
+                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy"]
+                    },
+                    {
+                        "name": "§a» Vendi",
+                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "shop_buy",
+                "npc_name": "§6Mr Francesco",
+                "text": "§7Cosa compri?",
+                "buttons": [
+                    {
                         "name": "Uovo di gatto - 8",
                         "commands": ["/scriptevent shop:buy cat_spawn_egg"]
                     },
@@ -31,8 +46,31 @@
                         "commands": ["/scriptevent shop:buy ender_pearl"]
                     },
                     {
-                        "name": "§e» Vendi",
-                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=10] @initiator shop_sell"]
+                        "name": "§e» Pagina 2",
+                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_2"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "shop_buy_2",
+                "npc_name": "§6Mr Francesco",
+                "text": "§7Altro.",
+                "buttons": [
+                    {
+                        "name": "§e« Pagina 1",
+                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy"]
+                    },
+                    {
+                        "name": "Torce x8 - 2",
+                        "commands": ["/scriptevent shop:buy torch"]
+                    },
+                    {
+                        "name": "Lanterna - 3",
+                        "commands": ["/scriptevent shop:buy lantern"]
+                    },
+                    {
+                        "name": "Bussola - 5",
+                        "commands": ["/scriptevent shop:buy compass"]
                     }
                 ]
             },
@@ -58,8 +96,35 @@
                         "commands": ["/scriptevent shop:sell iron_ingot"]
                     },
                     {
-                        "name": "§7« Torna",
-                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=10] @initiator shop_main"]
+                        "name": "Pietra x64 → 1",
+                        "commands": ["/scriptevent shop:sell stone"]
+                    },
+                    {
+                        "name": "§e» Pagina 2",
+                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell_2"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "shop_sell_2",
+                "npc_name": "§6Mr Francesco",
+                "text": "§7Altro che compro.",
+                "buttons": [
+                    {
+                        "name": "§e« Pagina 1",
+                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell"]
+                    },
+                    {
+                        "name": "Sabbia x32 → 1",
+                        "commands": ["/scriptevent shop:sell sand"]
+                    },
+                    {
+                        "name": "Ossa x16 → 2",
+                        "commands": ["/scriptevent shop:sell bone"]
+                    },
+                    {
+                        "name": "Filo x32 → 1",
+                        "commands": ["/scriptevent shop:sell string"]
                     }
                 ]
             }

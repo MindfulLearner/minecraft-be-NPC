@@ -5,48 +5,48 @@
             {
                 "scene_tag": "pescatore_intro",
                 "npc_name": "§bOld Piero",
-                "text": "§7...\n§fVattene. L'acqua porta via tutto.\n§7Non voglio aiuto da nessuno.",
+                "text": "§3...\n§bVattene. L'acqua porta via tutto.\n§3Non voglio aiuto da nessuno.",
                 "buttons": [
                     {
-                        "name": "Cosa ti ha fatto l'acqua?",
-                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_storia"]
+                        "name": "Cos'è successo?",
+                        "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_storia"]
                     },
                     {
                         "name": "Ho bisogno di te.",
-                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_main"]
+                        "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_main"]
                     }
                 ]
             },
             {
                 "scene_tag": "pescatore_storia",
                 "npc_name": "§bOld Piero",
-                "text": "§fEravamo sulla barca. Io, Anna, i bambini.\n§7Una cosa enorme è salita dal fondo.\n§fNon ho potuto fare nulla. Nulla.",
+                "text": "§bEravamo sulla barca. Io, Anna, i bambini.\n§3Una cosa enorme è salita dal fondo.\n§bNon ho potuto fare nulla. Nulla.",
                 "buttons": [
                     {
-                        "name": "Li vendicherò io per te.",
-                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_patto"]
+                        "name": "Li vendicherò.",
+                        "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_patto"]
                     },
                     {
                         "name": "Mi dispiace...",
-                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_patto"]
+                        "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_patto"]
                     }
                 ]
             },
             {
                 "scene_tag": "pescatore_patto",
                 "npc_name": "§bOld Piero",
-                "text": "§fDavvero? Non posso più toccare una canna.\n§7Ma tu puoi. Pesca per me.\n§fOgni pesce è un passo verso la vendetta.",
+                "text": "§bDavvero? Non posso più toccare una canna.\n§3Ma tu puoi. Pesca per me.\n§bOgni pesce è un passo verso la vendetta.",
                 "buttons": [
                     {
-                        "name": "Capito. Inizio subito.",
-                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_main"]
+                        "name": "Capito.",
+                        "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_main"]
                     }
                 ]
             },
             {
                 "scene_tag": "pescatore_main",
                 "npc_name": "§bOld Piero",
-                "text": "§fHo paura. Ma tu no.\n§7Pesca per me. Ti pago in pepite.\n§fScegli una missione, o consegna quella finita.",
+                "text": "§bHo paura. Ma tu no.\n§3Pesca per me. Ti pago in pepite.\n§bScegli una missione, o consegna.",
                 "buttons": [
                     {
                         "name": "10 Merluzzi",
@@ -57,19 +57,19 @@
                         "commands": ["/scriptevent pescatore:accept piero_salmone"]
                     },
                     {
-                        "name": "6 Pesci Tropicali",
+                        "name": "6 Tropicali",
                         "commands": ["/scriptevent pescatore:accept piero_tropicale"]
                     },
                     {
                         "name": "§a» Consegna",
-                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_consegna"]
+                        "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_consegna"]
                     }
                 ]
             },
             {
                 "scene_tag": "pescatore_consegna",
                 "npc_name": "§bOld Piero",
-                "text": "§fHai portato i pesci?\n§7Ogni pesce è... giustizia.",
+                "text": "§bHai portato i pesci?\n§3Ogni pesce è... giustizia.",
                 "buttons": [
                     {
                         "name": "10 Merluzzi",
@@ -80,12 +80,12 @@
                         "commands": ["/scriptevent pescatore:deliver piero_salmone"]
                     },
                     {
-                        "name": "6 Pesci Tropicali",
+                        "name": "6 Tropicali",
                         "commands": ["/scriptevent pescatore:deliver piero_tropicale"]
                     },
                     {
-                        "name": "§7« Indietro",
-                        "commands": ["/dialogue open @e[tag=pescatore,r=10] @initiator pescatore_main"]
+                        "name": "§3« Indietro",
+                        "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_main"]
                     }
                 ]
             }

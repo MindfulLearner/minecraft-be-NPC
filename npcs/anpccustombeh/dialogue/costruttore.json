@@ -5,55 +5,55 @@
             {
                 "scene_tag": "costruttore_intro",
                 "npc_name": "§9Marco",
-                "text": "§fUn momento! Sto disegnando qualcosa.\n§7Guarda qui — questo villaggio potrebbe essere enorme.\n§fHo solo bisogno di materiali.",
+                "text": "§aUn momento! Sto disegnando qualcosa.\n§2Guarda — questo villaggio può essere enorme.\n§aHo solo bisogno di materiali.",
                 "buttons": [
                     {
                         "name": "Dimmi il piano.",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=10] @initiator costruttore_sogno"]
+                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_sogno"]
                     },
                     {
                         "name": "Posso aiutare.",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=10] @initiator costruttore_main"]
+                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_main"]
                     }
                 ]
             },
             {
                 "scene_tag": "costruttore_sogno",
                 "npc_name": "§9Marco",
-                "text": "§fUna torre al centro. Case per tutti.\n§7Strade lastricate, lanterne ovunque.\n§fMa senza pietra e legname non si costruisce nulla.",
+                "text": "§aUna torre al centro. Case per tutti.\n§2Strade lastricate, lanterne ovunque.\n§aSenza materiali non si costruisce nulla.",
                 "buttons": [
                     {
-                        "name": "Troverò io i materiali.",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=10] @initiator costruttore_main"]
+                        "name": "Ci penso io.",
+                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_main"]
                     },
                     {
                         "name": "Bel sogno...",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=10] @initiator costruttore_realista"]
+                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_realista"]
                     }
                 ]
             },
             {
                 "scene_tag": "costruttore_realista",
                 "npc_name": "§9Marco",
-                "text": "§f— Sogno?\n§7Questo è un piano architettonico dettagliato.\n§fGuardalo. §7...Ok, forse è un sogno. Aiutami lo stesso.",
+                "text": "§a— Sogno?\n§2È un piano architettonico dettagliato.\n§a...Ok, forse è un sogno. Aiutami lo stesso.",
                 "buttons": [
                     {
-                        "name": "Va bene, ci sto.",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=10] @initiator costruttore_main"]
+                        "name": "Ci sto.",
+                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_main"]
                     }
                 ]
             },
             {
                 "scene_tag": "costruttore_main",
                 "npc_name": "§9Marco",
-                "text": "§fMateriali, materiali, materiali.\n§7Scegli una consegna o porta ciò che hai già.",
+                "text": "§aMateriali, materiali, materiali.\n§2Scegli una consegna o porta ciò che hai.",
                 "buttons": [
                     {
                         "name": "64 Ciottoli",
                         "commands": ["/scriptevent costruttore:accept marco_ciottoli"]
                     },
                     {
-                        "name": "32 Tronchi Quercia",
+                        "name": "32 Tronchi",
                         "commands": ["/scriptevent costruttore:accept marco_quercia"]
                     },
                     {
@@ -66,21 +66,21 @@
                     },
                     {
                         "name": "§a» Consegna",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=10] @initiator costruttore_consegna"]
+                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_consegna"]
                     }
                 ]
             },
             {
                 "scene_tag": "costruttore_consegna",
                 "npc_name": "§9Marco",
-                "text": "§fHai il materiale?\n§7Ogni blocco è un mattone verso il futuro.",
+                "text": "§aHai il materiale?\n§2Ogni blocco è un mattone verso il futuro.",
                 "buttons": [
                     {
                         "name": "64 Ciottoli",
                         "commands": ["/scriptevent costruttore:deliver marco_ciottoli"]
                     },
                     {
-                        "name": "32 Tronchi Quercia",
+                        "name": "32 Tronchi",
                         "commands": ["/scriptevent costruttore:deliver marco_quercia"]
                     },
                     {
@@ -92,8 +92,8 @@
                         "commands": ["/scriptevent costruttore:deliver marco_ghiaia"]
                     },
                     {
-                        "name": "§7« Indietro",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=10] @initiator costruttore_main"]
+                        "name": "§2« Indietro",
+                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_main"]
                     }
                 ]
             }

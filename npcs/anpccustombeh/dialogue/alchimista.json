@@ -1,0 +1,129 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "alchimista_main",
+                "npc_name": "§5Maga Vera",
+                "text": "§fVuoi cose che la gente normale non tocca.\n§5Bene. Sei nel posto giusto.\n§8Il prezzo è alto. La morte non fa sconti.",
+                "on_open_commands": [
+                    "/say [Maga Vera] §e@initiator §fsi avvicina. Le candele tremano."
+                ],
+                "buttons": [
+                    {
+                        "name": "§e» Compra",
+                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_buy"]
+                    },
+                    {
+                        "name": "§a» Vendi",
+                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_sell"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "alchimista_buy",
+                "npc_name": "§5Maga Vera",
+                "text": "§8Cosa vuoi dalla mia collezione?",
+                "buttons": [
+                    {
+                        "name": "Membrana Fantasma x2 - 11",
+                        "commands": ["/scriptevent alchimista:buy phantom_membrane"]
+                    },
+                    {
+                        "name": "Guscio di Shulker - 14",
+                        "commands": ["/scriptevent alchimista:buy shulker_shell"]
+                    },
+                    {
+                        "name": "Soffio del Drago - 20",
+                        "commands": ["/scriptevent alchimista:buy dragon_breath"]
+                    },
+                    {
+                        "name": "Conchiglia x2 - 7",
+                        "commands": ["/scriptevent alchimista:buy nautilus_shell"]
+                    },
+                    {
+                        "name": "Bastoni End x4 - 4",
+                        "commands": ["/scriptevent alchimista:buy end_rod"]
+                    },
+                    {
+                        "name": "§e» Pagina 2",
+                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_buy_2"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "alchimista_buy_2",
+                "npc_name": "§5Maga Vera",
+                "text": "§8Ingredienti arcani.",
+                "buttons": [
+                    {
+                        "name": "§e« Pagina 1",
+                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_buy"]
+                    },
+                    {
+                        "name": "Frutto Coro Cotto x4 - 5",
+                        "commands": ["/scriptevent alchimista:buy popped_chorus_fruit"]
+                    },
+                    {
+                        "name": "Frammenti Ametista x4 - 5",
+                        "commands": ["/scriptevent alchimista:buy amethyst_shard"]
+                    },
+                    {
+                        "name": "Inchiostro Splendente x4 - 4",
+                        "commands": ["/scriptevent alchimista:buy glow_ink_sac"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "alchimista_sell",
+                "npc_name": "§5Maga Vera",
+                "text": "§fHai visitato il Nether. O l'End.\n§8Porta gli ingredienti. Pago bene.",
+                "buttons": [
+                    {
+                        "name": "Crema di Magma x8 → 3",
+                        "commands": ["/scriptevent alchimista:sell magma_cream"]
+                    },
+                    {
+                        "name": "Occhio Fermentato x4 → 3",
+                        "commands": ["/scriptevent alchimista:sell fermented_spider_eye"]
+                    },
+                    {
+                        "name": "Frutto del Coro x8 → 2",
+                        "commands": ["/scriptevent alchimista:sell chorus_fruit"]
+                    },
+                    {
+                        "name": "Lacrima di Ghast x4 → 4",
+                        "commands": ["/scriptevent alchimista:sell ghast_tear"]
+                    },
+                    {
+                        "name": "Mattone Nether x16 → 2",
+                        "commands": ["/scriptevent alchimista:sell nether_brick"]
+                    },
+                    {
+                        "name": "§e» Pagina 2",
+                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_sell_2"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "alchimista_sell_2",
+                "npc_name": "§5Maga Vera",
+                "text": "§8Altro che accetto.",
+                "buttons": [
+                    {
+                        "name": "§e« Pagina 1",
+                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_sell"]
+                    },
+                    {
+                        "name": "Carica di Fuoco x4 → 2",
+                        "commands": ["/scriptevent alchimista:sell fire_charge"]
+                    },
+                    {
+                        "name": "Zampa di Coniglio x4 → 3",
+                        "commands": ["/scriptevent alchimista:sell rabbit_foot"]
+                    }
+                ]
+            }
+        ]
+    }
+}

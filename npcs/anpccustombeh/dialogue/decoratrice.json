@@ -5,44 +5,44 @@
             {
                 "scene_tag": "decoratrice_intro",
                 "npc_name": "§dSofia",
-                "text": "§fGuarda questo posto. Vuoto. Spento.\n§7Ho mille idee ma nessun materiale.\n§fE tu cosa fai qui?",
+                "text": "§dGuarda questo posto. Vuoto. Spento.\n§5Ho mille idee ma nessun materiale.\n§dE tu cosa fai qui?",
                 "buttons": [
                     {
-                        "name": "Posso aiutarti a trovare cose.",
-                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_piano"]
+                        "name": "Posso aiutarti.",
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_piano"]
                     },
                     {
-                        "name": "Ho tempo da perdere.",
-                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_piano"]
+                        "name": "Ho tempo libero.",
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_piano"]
                     }
                 ]
             },
             {
                 "scene_tag": "decoratrice_piano",
                 "npc_name": "§dSofia",
-                "text": "§fFiori ovunque! Lana colorata per i tappeti.\n§7Colori vivaci, bambù nell'angolo verde...\n§fSarebbe bellissimo. Aiutami?",
+                "text": "§dFiori ovunque! Lana colorata per i tappeti.\n§5Colori vivaci, bambù nell'angolo...\n§dSarebbe bellissimo. Aiutami?",
                 "buttons": [
                     {
-                        "name": "Sì, lo faccio io.",
-                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_main"]
+                        "name": "Sì, ci sto!",
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_main"]
                     },
                     {
-                        "name": "Vediamo cosa trovo.",
-                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_main"]
+                        "name": "Vediamo.",
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_main"]
                     }
                 ]
             },
             {
                 "scene_tag": "decoratrice_main",
                 "npc_name": "§dSofia",
-                "text": "§fPortami qualcosa di bello!\n§7Scegli una missione o consegna quello che hai.",
+                "text": "§dPortami qualcosa di bello!\n§5Scegli una missione o consegna.",
                 "buttons": [
                     {
                         "name": "16 Fiori",
                         "commands": ["/scriptevent decoratrice:accept sofia_fiori"]
                     },
                     {
-                        "name": "8 Lana Colorata",
+                        "name": "8 Lana",
                         "commands": ["/scriptevent decoratrice:accept sofia_lana"]
                     },
                     {
@@ -55,21 +55,21 @@
                     },
                     {
                         "name": "§a» Consegna",
-                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_consegna"]
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_consegna"]
                     }
                 ]
             },
             {
                 "scene_tag": "decoratrice_consegna",
                 "npc_name": "§dSofia",
-                "text": "§fHai trovato qualcosa di bello?\n§7Mostrami!",
+                "text": "§dHai trovato qualcosa di bello?\n§5Mostrami!",
                 "buttons": [
                     {
                         "name": "16 Fiori",
                         "commands": ["/scriptevent decoratrice:deliver sofia_fiori"]
                     },
                     {
-                        "name": "8 Lana Colorata",
+                        "name": "8 Lana",
                         "commands": ["/scriptevent decoratrice:deliver sofia_lana"]
                     },
                     {
@@ -81,8 +81,8 @@
                         "commands": ["/scriptevent decoratrice:deliver sofia_bamboo"]
                     },
                     {
-                        "name": "§7« Indietro",
-                        "commands": ["/dialogue open @e[tag=decoratrice,r=10] @initiator decoratrice_main"]
+                        "name": "§5« Indietro",
+                        "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_consegna"]
                     }
                 ]
             }

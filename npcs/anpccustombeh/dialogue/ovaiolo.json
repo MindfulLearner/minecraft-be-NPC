@@ -1,0 +1,98 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "ovaiolo_main",
+                "npc_name": "§aZio Beppe",
+                "text": "§fLe mie creature sono le migliori!\n§aOgni uovo è una vita nuova.\n§7Tratta bene i miei animali.",
+                "on_open_commands": [
+                    "/say [Zio Beppe] §e@initiator §fsi avvicina. Attento, le uova mordono!"
+                ],
+                "buttons": [
+                    {
+                        "name": "§e» Compra",
+                        "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy"]
+                    },
+                    {
+                        "name": "§a» Vendi",
+                        "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_sell"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "ovaiolo_buy",
+                "npc_name": "§aZio Beppe",
+                "text": "§7Scegli il tuo animale!",
+                "buttons": [
+                    {
+                        "name": "Uovo di Lupo - 10",
+                        "commands": ["/scriptevent ovaiolo:buy wolf_spawn_egg"]
+                    },
+                    {
+                        "name": "Uovo di Cavallo - 12",
+                        "commands": ["/scriptevent ovaiolo:buy horse_spawn_egg"]
+                    },
+                    {
+                        "name": "Uovo di Coniglio - 6",
+                        "commands": ["/scriptevent ovaiolo:buy rabbit_spawn_egg"]
+                    },
+                    {
+                        "name": "Uovo di Ape - 8",
+                        "commands": ["/scriptevent ovaiolo:buy bee_spawn_egg"]
+                    },
+                    {
+                        "name": "Uovo di Axolotl - 10",
+                        "commands": ["/scriptevent ovaiolo:buy axolotl_spawn_egg"]
+                    },
+                    {
+                        "name": "§e» Pagina 2",
+                        "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy_2"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "ovaiolo_buy_2",
+                "npc_name": "§aZio Beppe",
+                "text": "§fAnimali rari! Questi costano di più.",
+                "buttons": [
+                    {
+                        "name": "§e« Pagina 1",
+                        "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy"]
+                    },
+                    {
+                        "name": "Uovo di Panda - 14",
+                        "commands": ["/scriptevent ovaiolo:buy panda_spawn_egg"]
+                    },
+                    {
+                        "name": "Uovo di Volpe - 10",
+                        "commands": ["/scriptevent ovaiolo:buy fox_spawn_egg"]
+                    },
+                    {
+                        "name": "Uovo di Ocelot - 8",
+                        "commands": ["/scriptevent ovaiolo:buy ocelot_spawn_egg"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "ovaiolo_sell",
+                "npc_name": "§aZio Beppe",
+                "text": "§fCosa hai portato?\n§aZio Beppe prende tutto ciò che viene dalle bestie.",
+                "buttons": [
+                    {
+                        "name": "Uova x16 → 1",
+                        "commands": ["/scriptevent ovaiolo:sell egg"]
+                    },
+                    {
+                        "name": "Piume x16 → 1",
+                        "commands": ["/scriptevent ovaiolo:sell feather"]
+                    },
+                    {
+                        "name": "Lana Bianca x32 → 1",
+                        "commands": ["/scriptevent ovaiolo:sell white_wool"]
+                    }
+                ]
+            }
+        ]
+    }
+}
