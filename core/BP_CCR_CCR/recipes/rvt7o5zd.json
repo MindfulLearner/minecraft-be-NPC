@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "cc:gunpowder_soup"
+    },
+    "tags": ["crafting_table", "cc:cooking_table"],
+    "ingredients": [
+      {
+        "item": "minecraft:bowl",
+        "count": 1
+      },
+      {
+        "item": "minecraft:gunpowder",
+        "count": 1
+      }
+    ],
+    "result": {
+      "item": "cc:gunpowder_soup",
+      "count": 1
+    }
+  }
+}

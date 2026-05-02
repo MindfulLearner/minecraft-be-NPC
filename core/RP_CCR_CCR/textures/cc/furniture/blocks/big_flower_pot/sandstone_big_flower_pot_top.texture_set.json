@@ -1,0 +1,8 @@
+{
+  "format_version": "1.21.30",
+  "minecraft:texture_set": {
+    "color": "sandstone_big_flower_pot_top",
+    "heightmap": "sandstone_big_flower_pot_top_heightmap",
+    "metalness_emissive_roughness_subsurface": "sandstone_big_flower_pot_top_mers"
+  }
+}

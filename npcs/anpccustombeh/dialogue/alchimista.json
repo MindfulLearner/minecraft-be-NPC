@@ -5,123 +5,109 @@
             {
                 "scene_tag": "alchimista_main",
                 "npc_name": "§5Maga Vera",
-                "text": "§fVuoi cose che la gente normale non tocca.\n§5Bene. Sei nel posto giusto.\n§8Il prezzo è alto. La morte non fa sconti.",
+                "text": "§0Vuoi cose che la gente normale non tocca.\nBene. Sei nel posto giusto.\nIl prezzo è alto. La morte non fa sconti.\n\n§e§lACQUISTA §0(tu dai gemme)\n§0Membrana/Phant.Memb. x2 §c-14\n§0Shulker/Shulker Shell §c-26\n§0Soffio/Dragon Breath §c-28\n§0Conchiglia/Nautilus x2 §c-9\n§0Coro Cotto/Pop.Chorus x4 §c-7\n§0End Rod x4 §c-5\n§0Framm.Eco/Echo Shard §c-14\n§0Rosa Wither/Wither Rose §c-8\n§0Sculk/Sculk Catalyst §c-14\n§0B.Infausta/Ominous Bottle §c-10\n\n§d§lLIBRI\n§0Aff.III/Sharp.III §c-22\n§0Aff.V/Sharp.V §c-45\n§0Prot.III §c-22\n§0Prot.IV §c-42\n§0Effic.III/Eff.III §c-20\n§0Sacc.III/Loot.III §c-40\n§0Fuoco I/FA I §c-18\n§0Fuoco II/FA II §c-35\n§0Potere/Power V §c-32\n§0Solidità/Unbr.III §c-28\n§0Cad.Morb./Feather Fall §c-22\n§6Riparazione/Mending §c-80\n\n§a§lVENDI §0(l'NPC ti paga)\n§0Crema/Magma Cream x8 §a+3\n§0Occhio F./Ferm.Eye x4 §a+3\n§0Coro/Chorus x8 §a+2\n§0Lacrima/Ghast Tear x4 §a+5\n§0Matt.Neth./Neth.Brick x16 §a+1\n§0Carica/Fire Charge x4 §a+2\n§0Zampa/Rabbit Foot x4 §a+3",
                 "on_open_commands": [
-                    "/say [Maga Vera] §e@initiator §fsi avvicina. Le candele tremano."
+                    "/say [Maga Vera] §e@initiator §fsi avvicina. Le candele tremano.",
+                    "/execute as @initiator run scriptevent alchimista:balance"
                 ],
                 "buttons": [
-                    {
-                        "name": "§e» Compra",
-                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_buy"]
-                    },
-                    {
-                        "name": "§a» Vendi",
-                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_sell"]
-                    }
+                    { "name": "§e» Compra",  "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_buy"] },
+                    { "name": "§d» Libri",   "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_books"] },
+                    { "name": "§a» Vendi",   "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_sell"] },
+                    { "name": "§a» Tutto",   "commands": ["/scriptevent alchimista:sellall"] }
                 ]
             },
             {
                 "scene_tag": "alchimista_buy",
                 "npc_name": "§5Maga Vera",
-                "text": "§8Cosa vuoi dalla mia collezione?",
+                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Membrana x2 §c-14\n§0Shulker §c-26\n§0Soffio §c-28\n§0Conchiglia x2 §c-9\n§0Coro Cotto x4 §c-7",
+                "on_open_commands": ["/execute as @initiator run scriptevent alchimista:balance"],
                 "buttons": [
-                    {
-                        "name": "Membrana Fantasma x2 - 11",
-                        "commands": ["/scriptevent alchimista:buy phantom_membrane"]
-                    },
-                    {
-                        "name": "Guscio di Shulker - 14",
-                        "commands": ["/scriptevent alchimista:buy shulker_shell"]
-                    },
-                    {
-                        "name": "Soffio del Drago - 20",
-                        "commands": ["/scriptevent alchimista:buy dragon_breath"]
-                    },
-                    {
-                        "name": "Conchiglia x2 - 7",
-                        "commands": ["/scriptevent alchimista:buy nautilus_shell"]
-                    },
-                    {
-                        "name": "Bastoni End x4 - 4",
-                        "commands": ["/scriptevent alchimista:buy end_rod"]
-                    },
-                    {
-                        "name": "§e» Pagina 2",
-                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_buy_2"]
-                    }
+                    { "name": "§eMembrana",    "commands": ["/scriptevent alchimista:buy phantom_membrane"] },
+                    { "name": "§eShulker",      "commands": ["/scriptevent alchimista:buy shulker_shell"] },
+                    { "name": "§eSoffio",       "commands": ["/scriptevent alchimista:buy dragon_breath"] },
+                    { "name": "§eConchiglia",   "commands": ["/scriptevent alchimista:buy nautilus_shell"] },
+                    { "name": "§eCoro Cotto",   "commands": ["/scriptevent alchimista:buy popped_chorus_fruit"] },
+                    { "name": "§e» Pag.2",      "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_buy_2"] }
                 ]
             },
             {
                 "scene_tag": "alchimista_buy_2",
                 "npc_name": "§5Maga Vera",
-                "text": "§8Ingredienti arcani.",
+                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0End Rod x4 §c-5\n§0Framm.Eco §c-14\n§0Rosa Wither §c-8\n§0Sculk §c-14\n§0Bottiglia Infausta §c-10",
+                "on_open_commands": ["/execute as @initiator run scriptevent alchimista:balance"],
                 "buttons": [
-                    {
-                        "name": "§e« Pagina 1",
-                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_buy"]
-                    },
-                    {
-                        "name": "Frutto Coro Cotto x4 - 5",
-                        "commands": ["/scriptevent alchimista:buy popped_chorus_fruit"]
-                    },
-                    {
-                        "name": "Frammenti Ametista x4 - 5",
-                        "commands": ["/scriptevent alchimista:buy amethyst_shard"]
-                    },
-                    {
-                        "name": "Inchiostro Splendente x4 - 4",
-                        "commands": ["/scriptevent alchimista:buy glow_ink_sac"]
-                    }
+                    { "name": "§e« Pag.1",    "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_buy"] },
+                    { "name": "§eEnd Rod",     "commands": ["/scriptevent alchimista:buy end_rod"] },
+                    { "name": "§eFramm.Eco",   "commands": ["/scriptevent alchimista:buy echo_shard"] },
+                    { "name": "§eRosa Wither", "commands": ["/scriptevent alchimista:buy wither_rose"] },
+                    { "name": "§eSculk",       "commands": ["/scriptevent alchimista:buy sculk_catalyst"] },
+                    { "name": "§eB.Infausta",  "commands": ["/scriptevent alchimista:buy ominous_bottle"] }
+                ]
+            },
+            {
+                "scene_tag": "alchimista_books",
+                "npc_name": "§5Maga Vera",
+                "text": "§d§lLIBRI — ATTACCO\n§0Tu dai gemme — ricevi il libro\n\n§0Affilatura III §c-22\n§0Affilatura V §c-45\n§0Asp.Fuoco I §c-18\n§0Asp.Fuoco II §c-35\n§0Saccheggio III §c-40",
+                "on_open_commands": ["/execute as @initiator run scriptevent alchimista:balance"],
+                "buttons": [
+                    { "name": "§eAffilatura III",  "commands": ["/scriptevent alchimista:buy book_sharp3"] },
+                    { "name": "§eAffilatura V",    "commands": ["/scriptevent alchimista:buy book_sharp5"] },
+                    { "name": "§eAsp.Fuoco I",     "commands": ["/scriptevent alchimista:buy book_fa1"] },
+                    { "name": "§eAsp.Fuoco II",    "commands": ["/scriptevent alchimista:buy book_fa2"] },
+                    { "name": "§eSaccheggio III",  "commands": ["/scriptevent alchimista:buy book_looting3"] },
+                    { "name": "§e» Pag.2",         "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_books_2"] }
+                ]
+            },
+            {
+                "scene_tag": "alchimista_books_2",
+                "npc_name": "§5Maga Vera",
+                "text": "§d§lLIBRI — DIFESA & STRUMENTI\n§0Tu dai gemme — ricevi il libro\n\n§0Protezione III §c-22\n§0Protezione IV §c-42\n§0Efficienza III §c-20\n§0Caduta Morbida IV §c-22",
+                "on_open_commands": ["/execute as @initiator run scriptevent alchimista:balance"],
+                "buttons": [
+                    { "name": "§e« Pag.1",         "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_books"] },
+                    { "name": "§eProtezione III",   "commands": ["/scriptevent alchimista:buy book_prot3"] },
+                    { "name": "§eProtezione IV",    "commands": ["/scriptevent alchimista:buy book_prot4"] },
+                    { "name": "§eEfficienza III",   "commands": ["/scriptevent alchimista:buy book_eff3"] },
+                    { "name": "§e» Pag.3",          "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_books_3"] }
+                ]
+            },
+            {
+                "scene_tag": "alchimista_books_3",
+                "npc_name": "§5Maga Vera",
+                "text": "§d§lLIBRI — UNIVERSALI\n§0Tu dai gemme — ricevi il libro\n\n§0Solidità III §c-28\n§0Potere V §c-32\n§0Cad. Morbida IV §c-22\n§6Riparazione §c-80",
+                "on_open_commands": ["/execute as @initiator run scriptevent alchimista:balance"],
+                "buttons": [
+                    { "name": "§e« Pag.2",       "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_books_2"] },
+                    { "name": "§eSolidità III",   "commands": ["/scriptevent alchimista:buy book_unbreaking3"] },
+                    { "name": "§ePotere V",       "commands": ["/scriptevent alchimista:buy book_power5"] },
+                    { "name": "§eCad. Morb. IV",  "commands": ["/scriptevent alchimista:buy book_ff4"] },
+                    { "name": "§6Riparazione",    "commands": ["/scriptevent alchimista:buy book_mending"] }
                 ]
             },
             {
                 "scene_tag": "alchimista_sell",
                 "npc_name": "§5Maga Vera",
-                "text": "§fHai visitato il Nether. O l'End.\n§8Porta gli ingredienti. Pago bene.",
+                "text": "§a§lSTAI VENDENDO\n§0Dai l'oggetto — l'NPC ti paga\n\n§0Crema x8 §a+3\n§0Occhio F. x4 §a+3\n§0Coro x8 §a+2\n§0Lacrima x4 §a+5\n§0Matt.Neth. x16 §a+1\n§0Carica x4 §a+2\n§0Zampa x4 §a+3",
+                "on_open_commands": ["/execute as @initiator run scriptevent alchimista:balance"],
                 "buttons": [
-                    {
-                        "name": "Crema di Magma x8 → 3",
-                        "commands": ["/scriptevent alchimista:sell magma_cream"]
-                    },
-                    {
-                        "name": "Occhio Fermentato x4 → 3",
-                        "commands": ["/scriptevent alchimista:sell fermented_spider_eye"]
-                    },
-                    {
-                        "name": "Frutto del Coro x8 → 2",
-                        "commands": ["/scriptevent alchimista:sell chorus_fruit"]
-                    },
-                    {
-                        "name": "Lacrima di Ghast x4 → 4",
-                        "commands": ["/scriptevent alchimista:sell ghast_tear"]
-                    },
-                    {
-                        "name": "Mattone Nether x16 → 2",
-                        "commands": ["/scriptevent alchimista:sell nether_brick"]
-                    },
-                    {
-                        "name": "§e» Pagina 2",
-                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_sell_2"]
-                    }
+                    { "name": "§eCrema",       "commands": ["/scriptevent alchimista:sell magma_cream"] },
+                    { "name": "§eOcchio F.",   "commands": ["/scriptevent alchimista:sell fermented_spider_eye"] },
+                    { "name": "§eCoro",        "commands": ["/scriptevent alchimista:sell chorus_fruit"] },
+                    { "name": "§eLacrima",     "commands": ["/scriptevent alchimista:sell ghast_tear"] },
+                    { "name": "§eMatt.Neth.",  "commands": ["/scriptevent alchimista:sell nether_brick"] },
+                    { "name": "§a» Pag.2",     "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_sell_2"] }
                 ]
             },
             {
                 "scene_tag": "alchimista_sell_2",
                 "npc_name": "§5Maga Vera",
-                "text": "§8Altro che accetto.",
+                "text": "§a§lSTAI VENDENDO\n§0Dai l'oggetto — l'NPC ti paga\n\n§0Carica x4 §a+2\n§0Zampa x4 §a+3",
+                "on_open_commands": ["/execute as @initiator run scriptevent alchimista:balance"],
                 "buttons": [
-                    {
-                        "name": "§e« Pagina 1",
-                        "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_sell"]
-                    },
-                    {
-                        "name": "Carica di Fuoco x4 → 2",
-                        "commands": ["/scriptevent alchimista:sell fire_charge"]
-                    },
-                    {
-                        "name": "Zampa di Coniglio x4 → 3",
-                        "commands": ["/scriptevent alchimista:sell rabbit_foot"]
-                    }
+                    { "name": "§a« Pag.1", "commands": ["/dialogue open @e[tag=alchimista,r=2] @initiator alchimista_sell"] },
+                    { "name": "§eCarica",   "commands": ["/scriptevent alchimista:sell fire_charge"] },
+                    { "name": "§eZampa",    "commands": ["/scriptevent alchimista:sell rabbit_foot"] }
                 ]
             }
         ]

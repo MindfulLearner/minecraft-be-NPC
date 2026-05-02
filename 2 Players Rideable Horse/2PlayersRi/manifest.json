@@ -1,0 +1,23 @@
+{
+  "format_version": 2,
+    "header": {
+        "description": "Give your friend a ride on your horse!",
+        "name": "2 Players Rideable Horse",
+        "uuid": "268b3045-f739-53f2-8f4e-c905ea3027eb",
+		"version": [ 1, 0, 2 ],
+		"min_engine_version": [ 1, 21, 130 ]
+    },
+  "modules": [
+    {
+        "description": "Give your friend a ride on your horse!",
+        "type": "data",
+        "uuid": "ae44efcb-a9f8-43b6-ead6-944d9204d321",
+        "version": [ 1, 0, 2 ]
+    }
+  ],
+    "metadata": {
+        "authors": [ "CaveCraft" ],
+        "url": "https://www.curseforge.com/members/cavecraft",
+        "product_type": "addon"
+    }
+}

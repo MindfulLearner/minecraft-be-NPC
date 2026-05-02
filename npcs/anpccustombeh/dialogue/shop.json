@@ -5,127 +5,79 @@
             {
                 "scene_tag": "shop_main",
                 "npc_name": "§6Mr Francesco",
-                "text": "§fJosh mi deve ancora 3 pepite.\nMartina e' la mia cliente preferita.\n§7Prima si paga. Niente rimborsi.",
+                "text": "§0Josh mi deve ancora 3 gemme.\nMartina e' la mia cliente preferita.\nPrima si paga. Niente rimborsi.\n\n§e§lACQUISTA §0(tu dai gemme)\n§0Sella/Saddle §c-14\n§0Cartellino/Name Tag §c-6\n§0Spugna/Sponge §c-11\n§0Perle/Ender Pearl §c-6\n§0Guinzaglio/Lead §c-5\n§0Cannocchiale/Spyglass §c-6\n§0Magnetite/Lodestone §c-18\n§0B.Rec./Rec.Compass §c-12\n§0Scudo/Shield §c-6\n§0Balestra/Crossbow §c-10\n§0Razzi/Firework x3 §c-4\n\n§a§lVENDI §0(l'NPC ti paga)\n§0Quercia/Oak x64 §a+1\n§0Grano/Wheat x64 §a+1\n§0Ferro/Iron x8 §a+2\n§0Pietra/Stone x64 §a+1\n§0Sabbia/Sand x32 §a+1\n§0Ossa/Bone x16 §a+2\n§0Filo/String x32 §a+1",
                 "on_open_commands": [
-                    "/say [Mr Francesco] §e@initiator §fentra. Ha le pepite?"
+                    "/say [Mr Francesco] §e@initiator §fentra. Ha le gemme?",
+                    "/execute as @initiator run scriptevent shop:balance"
                 ],
                 "buttons": [
-                    {
-                        "name": "§e» Compra",
-                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy"]
-                    },
-                    {
-                        "name": "§a» Vendi",
-                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell"]
-                    }
+                    { "name": "§e» Compra", "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy"] },
+                    { "name": "§a» Vendi",  "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell"] },
+                    { "name": "§a» Tutto",  "commands": ["/scriptevent shop:sellall"] }
                 ]
             },
             {
                 "scene_tag": "shop_buy",
                 "npc_name": "§6Mr Francesco",
-                "text": "§7Cosa compri?",
+                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Sella §c-14\n§0Cartellino §c-6\n§0Spugna §c-11\n§0Perle End x2 §c-6\n§0Guinzaglio §c-5",
+                "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
                 "buttons": [
-                    {
-                        "name": "Uovo di gatto - 8",
-                        "commands": ["/scriptevent shop:buy cat_spawn_egg"]
-                    },
-                    {
-                        "name": "Sella - 6",
-                        "commands": ["/scriptevent shop:buy saddle"]
-                    },
-                    {
-                        "name": "Cartellino - 5",
-                        "commands": ["/scriptevent shop:buy name_tag"]
-                    },
-                    {
-                        "name": "Spugna - 7",
-                        "commands": ["/scriptevent shop:buy sponge"]
-                    },
-                    {
-                        "name": "Perle End x2 - 4",
-                        "commands": ["/scriptevent shop:buy ender_pearl"]
-                    },
-                    {
-                        "name": "§e» Pagina 2",
-                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_2"]
-                    }
+                    { "name": "§eSella",       "commands": ["/scriptevent shop:buy saddle"] },
+                    { "name": "§eCartell.",    "commands": ["/scriptevent shop:buy name_tag"] },
+                    { "name": "§eSpugna",      "commands": ["/scriptevent shop:buy sponge"] },
+                    { "name": "§ePerle x2",    "commands": ["/scriptevent shop:buy ender_pearl"] },
+                    { "name": "§eGuinzaglio", "commands": ["/scriptevent shop:buy lead"] },
+                    { "name": "§e» Pag.2",    "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_2"] }
                 ]
             },
             {
                 "scene_tag": "shop_buy_2",
                 "npc_name": "§6Mr Francesco",
-                "text": "§7Altro.",
+                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Cannocchiale §c-6\n§0Magnetite §c-18\n§0Bussola Recupero §c-12",
+                "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
                 "buttons": [
-                    {
-                        "name": "§e« Pagina 1",
-                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy"]
-                    },
-                    {
-                        "name": "Torce x8 - 2",
-                        "commands": ["/scriptevent shop:buy torch"]
-                    },
-                    {
-                        "name": "Lanterna - 3",
-                        "commands": ["/scriptevent shop:buy lantern"]
-                    },
-                    {
-                        "name": "Bussola - 5",
-                        "commands": ["/scriptevent shop:buy compass"]
-                    }
+                    { "name": "§e« Pag.1",       "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy"] },
+                    { "name": "§eCannocchiale",  "commands": ["/scriptevent shop:buy spyglass"] },
+                    { "name": "§eMagnetite",     "commands": ["/scriptevent shop:buy lodestone"] },
+                    { "name": "§eB.Recupero",    "commands": ["/scriptevent shop:buy recovery_compass"] },
+                    { "name": "§e» Pag.3",       "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_3"] }
+                ]
+            },
+            {
+                "scene_tag": "shop_buy_3",
+                "npc_name": "§6Mr Francesco",
+                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Scudo §c-6\n§0Balestra §c-10\n§0Razzi x3 §c-4",
+                "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
+                "buttons": [
+                    { "name": "§e« Pag.2",  "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_2"] },
+                    { "name": "§eScudo",     "commands": ["/scriptevent shop:buy shield"] },
+                    { "name": "§eBalestra",  "commands": ["/scriptevent shop:buy crossbow"] },
+                    { "name": "§eRazzi x3", "commands": ["/scriptevent shop:buy firework_rocket"] }
                 ]
             },
             {
                 "scene_tag": "shop_sell",
                 "npc_name": "§6Mr Francesco",
-                "text": "§fCosa vuoi vendere?\n§7Pago quello che vale. Forse.",
+                "text": "§a§lSTAI VENDENDO\n§0Dai l'oggetto — l'NPC ti paga\n\n§0Quercia x64 §a+1\n§0Grano x64 §a+1\n§0Ferro x8 §a+2\n§0Pietra x64 §a+1\n§0Sabbia x32 §a+1\n§0Ossa x16 §a+2\n§0Filo x32 §a+1",
+                "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
                 "buttons": [
-                    {
-                        "name": "Quercia x32 → 1",
-                        "commands": ["/scriptevent shop:sell oak_log"]
-                    },
-                    {
-                        "name": "Ciottoli x64 → 1",
-                        "commands": ["/scriptevent shop:sell cobblestone"]
-                    },
-                    {
-                        "name": "Grano x32 → 1",
-                        "commands": ["/scriptevent shop:sell wheat"]
-                    },
-                    {
-                        "name": "Ferro x8 → 2",
-                        "commands": ["/scriptevent shop:sell iron_ingot"]
-                    },
-                    {
-                        "name": "Pietra x64 → 1",
-                        "commands": ["/scriptevent shop:sell stone"]
-                    },
-                    {
-                        "name": "§e» Pagina 2",
-                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell_2"]
-                    }
+                    { "name": "§eQuercia",  "commands": ["/scriptevent shop:sell oak_log"] },
+                    { "name": "§eGrano",    "commands": ["/scriptevent shop:sell wheat"] },
+                    { "name": "§eFerro",    "commands": ["/scriptevent shop:sell iron_ingot"] },
+                    { "name": "§ePietra",   "commands": ["/scriptevent shop:sell stone"] },
+                    { "name": "§eSabbia",   "commands": ["/scriptevent shop:sell sand"] },
+                    { "name": "§a» Pag.2", "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell_2"] }
                 ]
             },
             {
                 "scene_tag": "shop_sell_2",
                 "npc_name": "§6Mr Francesco",
-                "text": "§7Altro che compro.",
+                "text": "§a§lSTAI VENDENDO\n§0Dai l'oggetto — l'NPC ti paga\n\n§0Ossa x16 §a+2\n§0Filo x32 §a+1",
+                "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
                 "buttons": [
-                    {
-                        "name": "§e« Pagina 1",
-                        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell"]
-                    },
-                    {
-                        "name": "Sabbia x32 → 1",
-                        "commands": ["/scriptevent shop:sell sand"]
-                    },
-                    {
-                        "name": "Ossa x16 → 2",
-                        "commands": ["/scriptevent shop:sell bone"]
-                    },
-                    {
-                        "name": "Filo x32 → 1",
-                        "commands": ["/scriptevent shop:sell string"]
-                    }
+                    { "name": "§a« Pag.1", "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell"] },
+                    { "name": "§eOssa",    "commands": ["/scriptevent shop:sell bone"] },
+                    { "name": "§eFilo",    "commands": ["/scriptevent shop:sell string"] }
                 ]
             }
         ]

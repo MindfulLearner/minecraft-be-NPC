@@ -1,0 +1,8 @@
+{
+  "format_version": "1.21.30",
+  "minecraft:texture_set": {
+    "color": "stone_big_flower_pot_bottom",
+    "heightmap": "stone_big_flower_pot_bottom_heightmap",
+    "metalness_emissive_roughness_subsurface": "stone_big_flower_pot_bottom_mers"
+  }
+}

@@ -5,92 +5,108 @@
             {
                 "scene_tag": "ovaiolo_main",
                 "npc_name": "§aZio Beppe",
-                "text": "§fLe mie creature sono le migliori!\n§aOgni uovo è una vita nuova.\n§7Tratta bene i miei animali.",
+                "text": "§0Le mie creature sono le migliori!\nOgni uovo è una vita nuova.\nTratta bene i miei animali.\n§cSe hai una farm di uova automatica... dio porco.\n\n§e§lACQUISTA §0(tu dai gemme)\n§0Lupo/Wolf §c-13\n§0Cavallo/Horse §c-17\n§0Asino/Donkey §c-12\n§0Coniglio/Rabbit §c-7\n§0Ape/Bee §c-11\n§0Axolotl §c-15\n§0Panda §c-22\n§0Volpe/Fox §c-13\n§0Ocelot §c-9\n§0Gatto/Cat §c-9\n§0Pappagallo/Parrot §c-10\n§0Rana/Frog §c-8\n§0Capra/Goat §c-10\n§0Lama/Llama §c-14\n§0Tartaruga/Turtle §c-12\n§0Orso Pol./Polar Bear §c-12\n§0Cammello/Camel §c-20\n§0Armadillo §c-11\n§0Strider §c-10\n§0Fungosso/Mooshroom §c-18\n§0Hoglin §c-12\n§0Enderman §c-14\n§0Phantom §c-16\n§0Sniffer §c-24\n\n§a§lVENDI §0(l'NPC ti paga)\n§0Uova/Egg x32 §a+1\n§0Piume/Feather x16 §a+1\n§0Lana/Wool x32 §a+1",
                 "on_open_commands": [
-                    "/say [Zio Beppe] §e@initiator §fsi avvicina. Attento, le uova mordono!"
+                    "/say [Zio Beppe] §e@initiator §fsi avvicina. Attento, le uova mordono!",
+                    "/execute as @initiator run scriptevent ovaiolo:balance"
                 ],
                 "buttons": [
-                    {
-                        "name": "§e» Compra",
-                        "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy"]
-                    },
-                    {
-                        "name": "§a» Vendi",
-                        "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_sell"]
-                    }
+                    { "name": "§e» Compra", "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy"] },
+                    { "name": "§a» Vendi",  "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_sell"] },
+                    { "name": "§a» Tutto",  "commands": ["/scriptevent ovaiolo:sellall"] }
                 ]
             },
             {
                 "scene_tag": "ovaiolo_buy",
                 "npc_name": "§aZio Beppe",
-                "text": "§7Scegli il tuo animale!",
+                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Lupo §c-13\n§0Cavallo §c-17\n§0Asino §c-12\n§0Coniglio §c-7\n§0Ape §c-11",
+                "on_open_commands": ["/execute as @initiator run scriptevent ovaiolo:balance"],
                 "buttons": [
-                    {
-                        "name": "Uovo di Lupo - 10",
-                        "commands": ["/scriptevent ovaiolo:buy wolf_spawn_egg"]
-                    },
-                    {
-                        "name": "Uovo di Cavallo - 12",
-                        "commands": ["/scriptevent ovaiolo:buy horse_spawn_egg"]
-                    },
-                    {
-                        "name": "Uovo di Coniglio - 6",
-                        "commands": ["/scriptevent ovaiolo:buy rabbit_spawn_egg"]
-                    },
-                    {
-                        "name": "Uovo di Ape - 8",
-                        "commands": ["/scriptevent ovaiolo:buy bee_spawn_egg"]
-                    },
-                    {
-                        "name": "Uovo di Axolotl - 10",
-                        "commands": ["/scriptevent ovaiolo:buy axolotl_spawn_egg"]
-                    },
-                    {
-                        "name": "§e» Pagina 2",
-                        "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy_2"]
-                    }
+                    { "name": "§eLupo",     "commands": ["/scriptevent ovaiolo:buy wolf_spawn_egg"] },
+                    { "name": "§eCavallo",  "commands": ["/scriptevent ovaiolo:buy horse_spawn_egg"] },
+                    { "name": "§eAsino",    "commands": ["/scriptevent ovaiolo:buy donkey_spawn_egg"] },
+                    { "name": "§eConiglio", "commands": ["/scriptevent ovaiolo:buy rabbit_spawn_egg"] },
+                    { "name": "§eApe",      "commands": ["/scriptevent ovaiolo:buy bee_spawn_egg"] },
+                    { "name": "§e» Pag.2",  "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy_2"] }
                 ]
             },
             {
                 "scene_tag": "ovaiolo_buy_2",
                 "npc_name": "§aZio Beppe",
-                "text": "§fAnimali rari! Questi costano di più.",
+                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Axolotl §c-15\n§0Panda §c-22\n§0Volpe §c-13\n§0Ocelot §c-9\n§0Gatto §c-9",
+                "on_open_commands": ["/execute as @initiator run scriptevent ovaiolo:balance"],
                 "buttons": [
-                    {
-                        "name": "§e« Pagina 1",
-                        "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy"]
-                    },
-                    {
-                        "name": "Uovo di Panda - 14",
-                        "commands": ["/scriptevent ovaiolo:buy panda_spawn_egg"]
-                    },
-                    {
-                        "name": "Uovo di Volpe - 10",
-                        "commands": ["/scriptevent ovaiolo:buy fox_spawn_egg"]
-                    },
-                    {
-                        "name": "Uovo di Ocelot - 8",
-                        "commands": ["/scriptevent ovaiolo:buy ocelot_spawn_egg"]
-                    }
+                    { "name": "§e« Pag.1",  "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy"] },
+                    { "name": "§eAxolotl",   "commands": ["/scriptevent ovaiolo:buy axolotl_spawn_egg"] },
+                    { "name": "§ePanda",     "commands": ["/scriptevent ovaiolo:buy panda_spawn_egg"] },
+                    { "name": "§eVolpe",     "commands": ["/scriptevent ovaiolo:buy fox_spawn_egg"] },
+                    { "name": "§eOcelot",    "commands": ["/scriptevent ovaiolo:buy ocelot_spawn_egg"] },
+                    { "name": "§e» Pag.3",   "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy_3"] }
+                ]
+            },
+            {
+                "scene_tag": "ovaiolo_buy_3",
+                "npc_name": "§aZio Beppe",
+                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Gatto §c-9\n§0Pappagallo §c-10\n§0Rana §c-8\n§0Capra §c-10\n§0Lama §c-14",
+                "on_open_commands": ["/execute as @initiator run scriptevent ovaiolo:balance"],
+                "buttons": [
+                    { "name": "§e« Pag.2",     "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy_2"] },
+                    { "name": "§eGatto",        "commands": ["/scriptevent ovaiolo:buy cat_spawn_egg"] },
+                    { "name": "§ePappagallo",   "commands": ["/scriptevent ovaiolo:buy parrot_spawn_egg"] },
+                    { "name": "§eRana",         "commands": ["/scriptevent ovaiolo:buy frog_spawn_egg"] },
+                    { "name": "§eCapra",        "commands": ["/scriptevent ovaiolo:buy goat_spawn_egg"] },
+                    { "name": "§e» Pag.4",      "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy_4"] }
+                ]
+            },
+            {
+                "scene_tag": "ovaiolo_buy_4",
+                "npc_name": "§aZio Beppe",
+                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Lama §c-14\n§0Tartaruga §c-12\n§0Orso Polare §c-12\n§0Cammello §c-20\n§0Armadillo §c-11",
+                "on_open_commands": ["/execute as @initiator run scriptevent ovaiolo:balance"],
+                "buttons": [
+                    { "name": "§e« Pag.3",    "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy_3"] },
+                    { "name": "§eLama",        "commands": ["/scriptevent ovaiolo:buy llama_spawn_egg"] },
+                    { "name": "§eTartaruga",   "commands": ["/scriptevent ovaiolo:buy turtle_spawn_egg"] },
+                    { "name": "§eOrso Polare", "commands": ["/scriptevent ovaiolo:buy polar_bear_spawn_egg"] },
+                    { "name": "§eCammello",    "commands": ["/scriptevent ovaiolo:buy camel_spawn_egg"] },
+                    { "name": "§e» Pag.5",     "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy_5"] }
+                ]
+            },
+            {
+                "scene_tag": "ovaiolo_buy_5",
+                "npc_name": "§aZio Beppe",
+                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Armadillo §c-11\n§0Strider §c-10\n§0Fungosso §c-18\n§0Hoglin §c-12\n§0Enderman §c-14",
+                "on_open_commands": ["/execute as @initiator run scriptevent ovaiolo:balance"],
+                "buttons": [
+                    { "name": "§e« Pag.4",   "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy_4"] },
+                    { "name": "§eArmadillo",  "commands": ["/scriptevent ovaiolo:buy armadillo_spawn_egg"] },
+                    { "name": "§eStrider",    "commands": ["/scriptevent ovaiolo:buy strider_spawn_egg"] },
+                    { "name": "§eFungosso",   "commands": ["/scriptevent ovaiolo:buy mooshroom_spawn_egg"] },
+                    { "name": "§eHoglin",     "commands": ["/scriptevent ovaiolo:buy hoglin_spawn_egg"] },
+                    { "name": "§e» Pag.6",    "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy_6"] }
+                ]
+            },
+            {
+                "scene_tag": "ovaiolo_buy_6",
+                "npc_name": "§aZio Beppe",
+                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Enderman §c-14\n§0Phantom §c-16\n§0Sniffer §c-24",
+                "on_open_commands": ["/execute as @initiator run scriptevent ovaiolo:balance"],
+                "buttons": [
+                    { "name": "§e« Pag.5",  "commands": ["/dialogue open @e[tag=ovaiolo,r=2] @initiator ovaiolo_buy_5"] },
+                    { "name": "§eEnderman", "commands": ["/scriptevent ovaiolo:buy enderman_spawn_egg"] },
+                    { "name": "§ePhantom",  "commands": ["/scriptevent ovaiolo:buy phantom_spawn_egg"] },
+                    { "name": "§eSniffer",  "commands": ["/scriptevent ovaiolo:buy sniffer_spawn_egg"] }
                 ]
             },
             {
                 "scene_tag": "ovaiolo_sell",
                 "npc_name": "§aZio Beppe",
-                "text": "§fCosa hai portato?\n§aZio Beppe prende tutto ciò che viene dalle bestie.",
+                "text": "§a§lSTAI VENDENDO\n§0Dai l'oggetto — l'NPC ti paga\n\n§0Uova x32 §a+1\n§0Piume x16 §a+1\n§0Lana x32 §a+1",
+                "on_open_commands": ["/execute as @initiator run scriptevent ovaiolo:balance"],
                 "buttons": [
-                    {
-                        "name": "Uova x16 → 1",
-                        "commands": ["/scriptevent ovaiolo:sell egg"]
-                    },
-                    {
-                        "name": "Piume x16 → 1",
-                        "commands": ["/scriptevent ovaiolo:sell feather"]
-                    },
-                    {
-                        "name": "Lana Bianca x32 → 1",
-                        "commands": ["/scriptevent ovaiolo:sell white_wool"]
-                    }
+                    { "name": "§eUova",  "commands": ["/scriptevent ovaiolo:sell egg"] },
+                    { "name": "§ePiume", "commands": ["/scriptevent ovaiolo:sell feather"] },
+                    { "name": "§eLana",      "commands": ["/scriptevent ovaiolo:sell white_wool"] }
                 ]
             }
         ]

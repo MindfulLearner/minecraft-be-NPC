@@ -6,15 +6,12 @@
                 "scene_tag": "costruttore_intro",
                 "npc_name": "§9Marco",
                 "text": "§aUn momento! Sto disegnando qualcosa.\n§2Guarda — questo villaggio può essere enorme.\n§aHo solo bisogno di materiali.",
+                "on_open_commands": ["/execute as @initiator run scriptevent costruttore:lang_check"],
                 "buttons": [
-                    {
-                        "name": "Dimmi il piano.",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_sogno"]
-                    },
-                    {
-                        "name": "Posso aiutare.",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_main"]
-                    }
+                    { "name": "§e» Missioni",    "commands": ["/scriptevent costruttore:missioni"] },
+                    { "name": "§e» Giornaliere", "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_giornaliere"] },
+                    { "name": "§9» Avanzati",    "commands": ["/scriptevent costruttore:hub_accesso"] },
+                    { "name": "§2» Il Sogno",    "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_sogno"] }
                 ]
             },
             {
@@ -22,14 +19,8 @@
                 "npc_name": "§9Marco",
                 "text": "§aUna torre al centro. Case per tutti.\n§2Strade lastricate, lanterne ovunque.\n§aSenza materiali non si costruisce nulla.",
                 "buttons": [
-                    {
-                        "name": "Ci penso io.",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_main"]
-                    },
-                    {
-                        "name": "Bel sogno...",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_realista"]
-                    }
+                    { "name": "§eCi penso",  "commands": ["/scriptevent costruttore:missioni"] },
+                    { "name": "§eSogno...",  "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_realista"] }
                 ]
             },
             {
@@ -37,64 +28,125 @@
                 "npc_name": "§9Marco",
                 "text": "§a— Sogno?\n§2È un piano architettonico dettagliato.\n§a...Ok, forse è un sogno. Aiutami lo stesso.",
                 "buttons": [
-                    {
-                        "name": "Ci sto.",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_main"]
-                    }
+                    { "name": "§e» Missioni", "commands": ["/scriptevent costruttore:missioni"] }
                 ]
             },
             {
                 "scene_tag": "costruttore_main",
                 "npc_name": "§9Marco",
-                "text": "§aMateriali, materiali, materiali.\n§2Scegli una consegna o porta ciò che hai.",
+                "text": "§aMateriali, materiali, materiali.\n§2Scegli o consegna.\n\n§e↺ §0Carbone §7▸ 16 Carbone §a+1\n§0Ciottoli §7▸ 64 Ciottoli §a+4\n§0Tronchi §7▸ 32 Tronchi Quercia §a+5\n§0Ghiaia §7▸ 32 Ghiaia §a+3",
                 "buttons": [
-                    {
-                        "name": "64 Ciottoli",
-                        "commands": ["/scriptevent costruttore:accept marco_ciottoli"]
-                    },
-                    {
-                        "name": "32 Tronchi",
-                        "commands": ["/scriptevent costruttore:accept marco_quercia"]
-                    },
-                    {
-                        "name": "16 Carbone",
-                        "commands": ["/scriptevent costruttore:accept marco_carbone"]
-                    },
-                    {
-                        "name": "32 Ghiaia",
-                        "commands": ["/scriptevent costruttore:accept marco_ghiaia"]
-                    },
-                    {
-                        "name": "§a» Consegna",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_consegna"]
-                    }
+                    { "name": "§e↺ Carbone",   "commands": ["/scriptevent costruttore:accept marco_carbone"] },
+                    { "name": "§eCiottoli",     "commands": ["/scriptevent costruttore:accept marco_ciottoli"] },
+                    { "name": "§eTronchi",      "commands": ["/scriptevent costruttore:accept marco_quercia"] },
+                    { "name": "§eGhiaia",       "commands": ["/scriptevent costruttore:accept marco_ghiaia"] },
+                    { "name": "§2« Indietro",  "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_intro"] }
                 ]
             },
             {
                 "scene_tag": "costruttore_consegna",
                 "npc_name": "§9Marco",
-                "text": "§aHai il materiale?\n§2Ogni blocco è un mattone verso il futuro.",
+                "text": "§aHai il materiale?\n§2Ogni blocco è un mattone verso il futuro.\n\n§0Carbone §7▸ 16 Carbone\n§0Ciottoli §7▸ 64 Ciottoli\n§0Tronchi §7▸ 32 Tronchi Quercia\n§0Ghiaia §7▸ 32 Ghiaia",
                 "buttons": [
-                    {
-                        "name": "64 Ciottoli",
-                        "commands": ["/scriptevent costruttore:deliver marco_ciottoli"]
-                    },
-                    {
-                        "name": "32 Tronchi",
-                        "commands": ["/scriptevent costruttore:deliver marco_quercia"]
-                    },
-                    {
-                        "name": "16 Carbone",
-                        "commands": ["/scriptevent costruttore:deliver marco_carbone"]
-                    },
-                    {
-                        "name": "32 Ghiaia",
-                        "commands": ["/scriptevent costruttore:deliver marco_ghiaia"]
-                    },
-                    {
-                        "name": "§2« Indietro",
-                        "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_main"]
-                    }
+                    { "name": "§e↺ Carbone",   "commands": ["/scriptevent costruttore:deliver marco_carbone"] },
+                    { "name": "§eCiottoli",     "commands": ["/scriptevent costruttore:deliver marco_ciottoli"] },
+                    { "name": "§eTronchi",      "commands": ["/scriptevent costruttore:deliver marco_quercia"] },
+                    { "name": "§eGhiaia",       "commands": ["/scriptevent costruttore:deliver marco_ghiaia"] },
+                    { "name": "§2« Indietro",  "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_main"] }
+                ]
+            },
+            {
+                "scene_tag": "costruttore_hub",
+                "npc_name": "§9Marco",
+                "text": "§aGrande lavoro fino ad ora!\n§2Ho progetti più ambiziosi. Sei pronto?",
+                "buttons": [
+                    { "name": "§9» Progetti", "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_sfide"] },
+                    { "name": "§a» Consegna", "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_consegna_av"] }
+                ]
+            },
+            {
+                "scene_tag": "costruttore_giornaliere",
+                "npc_name": "§9Marco",
+                "text": "§aOgni giorno servono torce per il villaggio.\n§7▸ 16 Carbone §a→ +1 gemma",
+                "buttons": [
+                    { "name": "§e↺ Accetta",  "commands": ["/scriptevent costruttore:accept marco_carbone"] },
+                    { "name": "§2« Indietro", "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_intro"] }
+                ]
+            },
+            {
+                "scene_tag": "costruttore_sfide",
+                "npc_name": "§9Marco",
+                "text": "§aMateriali preziosi per grandi progetti.\n§2Scegli il progetto.\n\n§0Ferro+Oro §7▸ Ferro x64 + Oro x32 §a+18\n§0Ossidiana §7▸ Ossidiana x32 + Piangente x8 §a+20\n§0Nether §7▸ Mattoni Nether x32 + Quarzo x16 §a+16\n§6Netherite §7▸ 4 Lingotti Netherite §a+40",
+                "buttons": [
+                    { "name": "§eFerro+Oro",   "commands": ["/scriptevent costruttore:accept marco_ferro_oro"] },
+                    { "name": "§eOssidiana",   "commands": ["/scriptevent costruttore:accept marco_ossidiana"] },
+                    { "name": "§eNether",       "commands": ["/scriptevent costruttore:accept marco_nether"] },
+                    { "name": "§6Netherite",   "commands": ["/scriptevent costruttore:accept marco_netherite"] },
+                    { "name": "§2« Indietro",  "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_hub"] }
+                ]
+            },
+            {
+                "scene_tag": "costruttore_intro_en",
+                "npc_name": "§9Marco",
+                "text": "§aOne moment! I'm sketching something.\n§2Look — this village could be huge.\n§aI just need materials.",
+                "buttons": [
+                    { "name": "§e» Missions", "commands": ["/scriptevent costruttore:missioni"] },
+                    { "name": "§e» Daily",    "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_giornaliere_en"] },
+                    { "name": "§9» Advanced", "commands": ["/scriptevent costruttore:hub_accesso"] }
+                ]
+            },
+            {
+                "scene_tag": "costruttore_main_en",
+                "npc_name": "§9Marco",
+                "text": "§aMaterials, materials, materials.\n§2Choose.\n\n§e↺ §0Coal §7▸ 16 Coal §a+1\n§0Cobble §7▸ 64 Cobblestone §a+4\n§0Oak §7▸ 32 Oak Logs §a+5\n§0Gravel §7▸ 32 Gravel §a+3",
+                "buttons": [
+                    { "name": "§e↺ Coal",  "commands": ["/scriptevent costruttore:accept marco_carbone"] },
+                    { "name": "§eCobble",   "commands": ["/scriptevent costruttore:accept marco_ciottoli"] },
+                    { "name": "§eOak",      "commands": ["/scriptevent costruttore:accept marco_quercia"] },
+                    { "name": "§eGravel",   "commands": ["/scriptevent costruttore:accept marco_ghiaia"] },
+                    { "name": "§2« Back",   "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_intro_en"] }
+                ]
+            },
+            {
+                "scene_tag": "costruttore_hub_en",
+                "npc_name": "§9Marco",
+                "text": "§aGreat work so far!\n§2I have bigger plans. Are you ready?",
+                "buttons": [
+                    { "name": "§9» Projects", "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_sfide_en"] }
+                ]
+            },
+            {
+                "scene_tag": "costruttore_sfide_en",
+                "npc_name": "§9Marco",
+                "text": "§aPrecious materials for big projects.\n§2Choose a project.\n\n§0Iron+Gold §7▸ Iron x64 + Gold x32 §a+18\n§0Obsidian §7▸ Obsidian x32 + Crying x8 §a+20\n§0Nether §7▸ Nether Bricks x32 + Quartz x16 §a+16\n§6Netherite §7▸ 4 Netherite Ingots §a+40",
+                "buttons": [
+                    { "name": "§eIron+Gold",  "commands": ["/scriptevent costruttore:accept marco_ferro_oro"] },
+                    { "name": "§eObsidian",   "commands": ["/scriptevent costruttore:accept marco_ossidiana"] },
+                    { "name": "§eNether",      "commands": ["/scriptevent costruttore:accept marco_nether"] },
+                    { "name": "§6Netherite",  "commands": ["/scriptevent costruttore:accept marco_netherite"] },
+                    { "name": "§2« Back",      "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_hub_en"] }
+                ]
+            },
+            {
+                "scene_tag": "costruttore_giornaliere_en",
+                "npc_name": "§9Marco",
+                "text": "§aEvery day the village needs torches.\n§7▸ 16 Coal §a→ +1 gem",
+                "buttons": [
+                    { "name": "§e↺ Accept", "commands": ["/scriptevent costruttore:accept marco_carbone"] },
+                    { "name": "§2« Back",   "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_intro_en"] }
+                ]
+            },
+            {
+                "scene_tag": "costruttore_consegna_av",
+                "npc_name": "§9Marco",
+                "text": "§aHai i materiali?\n§2Ogni blocco conta.\n\n§0Carbone §7▸ 16 Carbone\n§0Ferro+Oro §7▸ Ferro x64 + Oro x32\n§0Ossidiana §7▸ Ossidiana x32 + Piangente x8\n§0Nether §7▸ Mattoni x32 + Quarzo x16\n§6Netherite §7▸ 4 Netherite",
+                "buttons": [
+                    { "name": "§e↺ Carbone",  "commands": ["/scriptevent costruttore:deliver marco_carbone"] },
+                    { "name": "§eFerro+Oro",   "commands": ["/scriptevent costruttore:deliver marco_ferro_oro"] },
+                    { "name": "§eOssidiana",   "commands": ["/scriptevent costruttore:deliver marco_ossidiana"] },
+                    { "name": "§eNether",       "commands": ["/scriptevent costruttore:deliver marco_nether"] },
+                    { "name": "§6Netherite",   "commands": ["/scriptevent costruttore:deliver marco_netherite"] },
+                    { "name": "§2« Indietro",  "commands": ["/dialogue open @e[tag=costruttore,r=2] @initiator costruttore_hub"] }
                 ]
             }
         ]

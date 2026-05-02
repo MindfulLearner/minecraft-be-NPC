@@ -1,0 +1,190 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "custode_intro",
+                "npc_name": "§0Il Custode",
+                "text": "§8Siediti.\n§0Non molti si fermano qui.\n§8Di solito vanno dai mercanti. O dal Culto.\n§0Come se fossero cose diverse.",
+                "buttons": [
+                    {
+                        "name": "Di cosa sei custode?",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_risposta"]
+                    },
+                    {
+                        "name": "Cosa sai?",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_risposta",
+                "npc_name": "§0Il Custode",
+                "text": "§8Della memoria.\n§0Questo villaggio ha una storia lunga.\n§8Tutti fanno di tutto per dimenticarla.\n§0Io no.",
+                "buttons": [
+                    {
+                        "name": "Raccontami.",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_main",
+                "npc_name": "§0Il Custode",
+                "text": "§8Di cosa vuoi sapere?",
+                "buttons": [
+                    {
+                        "name": "Il Culto",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_culto"]
+                    },
+                    {
+                        "name": "I Mercanti",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_mercanti"]
+                    },
+                    {
+                        "name": "Old Piero",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_piero"]
+                    },
+                    {
+                        "name": "Maga Vera",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_vera"]
+                    },
+                    {
+                        "name": "Il Segreto",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_segreto"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_culto",
+                "npc_name": "§0Il Custode",
+                "text": "§0Prima dei mercanti, c'era solo il Culto.\n§8Volevi del ferro? Dovevi offrire qualcosa.\n§0Non gemme. Non oro.\n§8Qualcosa che non si riacquista.",
+                "buttons": [
+                    {
+                        "name": "Cosa offrivano?",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_culto_2"]
+                    },
+                    {
+                        "name": "§0« Indietro",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_culto_2",
+                "npc_name": "§0Il Custode",
+                "text": "§8Tempo. Lavoro. Segreti.\n§0A volte, persone.\n§8Il Culto chiamava queste cose missioni.\n§0Lo chiamano ancora così.\n§8Le abitudini sono dure a morire.",
+                "buttons": [
+                    {
+                        "name": "§0« Indietro",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_mercanti",
+                "npc_name": "§0Il Custode",
+                "text": "§0Francesco arrivò per primo.\n§8Portò gemme. Portò prezzi fissi.\n§0Portò la scelta.\n§8Il Culto non lo perdonerà mai.\n§0Francesco lo sa. Sorride lo stesso.",
+                "buttons": [
+                    {
+                        "name": "E gli altri?",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_mercanti_2"]
+                    },
+                    {
+                        "name": "§0« Indietro",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_mercanti_2",
+                "npc_name": "§0Il Custode",
+                "text": "§8Mastro Ugo forgiava per il Culto.\n§0Un giorno smise, senza spiegazioni.\n§8Zio Beppe non ha mai capito la politica.\n§0È probabilmente il più saggio di tutti.",
+                "buttons": [
+                    {
+                        "name": "§0« Indietro",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_piero",
+                "npc_name": "§0Il Custode",
+                "text": "§0Il Culto voleva il monumento oceanico.\n§8Piero disse no.\n§0La notte dopo, andò in barca con la famiglia.\n§8Solo lui tornò.\n§0Dice che fu il mare.\n§8Forse aveva ragione.",
+                "buttons": [
+                    {
+                        "name": "Fu il Culto?",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_piero_2"]
+                    },
+                    {
+                        "name": "§0« Indietro",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_piero_2",
+                "npc_name": "§0Il Custode",
+                "text": "§8Non lo so.\n§0Non lo saprò mai.\n§8Piero pesca ogni giorno nello stesso punto.\n§0Come se aspettasse una risposta.\n§8Il mare non risponde.",
+                "buttons": [
+                    {
+                        "name": "§0« Indietro",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_vera",
+                "npc_name": "§0Il Custode",
+                "text": "§0Vera era l'alchimista del Culto.\n§8La migliore che avessero mai avuto.\n§0Un giorno aprì bottega da sola.\n§8Disse che era stanca di lavorare per altri.\n§0Il Culto la chiama traditrice.\n§8Lei vende ai prezzi più alti del villaggio.",
+                "buttons": [
+                    {
+                        "name": "Cosa nasconde?",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_vera_2"]
+                    },
+                    {
+                        "name": "§0« Indietro",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_vera_2",
+                "npc_name": "§0Il Custode",
+                "text": "§8Sa perché i rituali del Culto smisero di funzionare.\n§0Sa cosa li faceva funzionare prima.\n§8Non lo dirà mai.\n§0Alcune cose valgono più delle gemme.",
+                "buttons": [
+                    {
+                        "name": "§0« Indietro",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_segreto",
+                "npc_name": "§0Il Custode",
+                "text": "§0Sotto il villaggio ci sono fondamenta più vecchie.\n§8Marco le ha trovate. Non ne parla.\n§0I rituali del Culto non erano solo tradizione.\n§8Qualcosa li ascoltava.\n§0Poi smise.\n§8Nessuno sa perché.\n§0Forse è un bene.",
+                "buttons": [
+                    {
+                        "name": "Cosa succederà?",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_futuro"]
+                    },
+                    {
+                        "name": "§0« Indietro",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "custode_futuro",
+                "npc_name": "§0Il Custode",
+                "text": "§8Non lo so.\n§0I mercanti vendono ancora.\n§8Il Culto assegna ancora missioni.\n§0Piero pesca ancora.\n§8E qualcosa, da qualche parte,\n§0aspetta ancora.",
+                "buttons": [
+                    {
+                        "name": "§0« Indietro",
+                        "commands": ["/dialogue open @e[tag=custode,r=2] @initiator custode_main"]
+                    }
+                ]
+            }
+        ]
+    }
+}

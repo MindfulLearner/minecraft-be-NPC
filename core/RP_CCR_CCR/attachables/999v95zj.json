@@ -1,0 +1,58 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "cc:soul_scythe_charged",
+      "materials": {
+        "default": "outline_base_glow",
+        "enchanted": "outline_base_glow",
+        "outline": "outline"
+      },
+      "textures": {
+        "default": "textures/cc/weapons/items/scythe/soul",
+        "enchanted": "textures/misc/enchanted_item_glint",
+        "outline": "textures/cc/weapons/items/outline/freeze"
+      },
+      "geometry": {
+        "default": "geometry.cc.mesh_attachable",
+        "outline": "geometry.cc.outline.attachable"
+      },
+      "animations": {
+        "wield_first_person": "animation.cc.weapon.wield.first_person",
+        "wield_first_person_as": "animation.cc.weapon.wield.first_person.as",
+        "wield_third_person": "animation.cc.weapon.wield.third_person",
+        "first_person_attack": "animation.cc.player.attack.attachable",
+        "first_person_attack_controller": "controller.animation.cc.attack.first_person",
+        "charging": "animation.cc.weapon.charging",
+        "charged": "animation.cc.weapon.charged",
+        "scale": "animation.cc.weapon.scale.20px",
+        "glow": "animation.cc.weapon.glow.third_person"
+      },
+      "particle_effects": {
+        "charging": "cc:ice_charge",
+        "charged": "cc:stormbreaker_charged"
+      },
+      "scripts": {
+        "initialize": ["v.charge_time = 400;"],
+        "parent_setup": "c.item_slot == 'main_hand' ? { v.oreville_mainhand_visible = 1;}; c.item_slot == 'off_hand' ? {v.oreville_offhand_visible = 1; }; v.oreville_mainhand_custom_pos = 1;",
+        "pre_animation": [
+          "v.is_charged = q.is_using_item && query.item_in_use_duration >= v.charge_time && query.is_selected_item;",
+          "v.is_charging = q.is_using_item && query.item_in_use_duration < v.charge_time;",
+          "v.actions_and_stuff = c.owning_entity -> v.actions_and_stuff;",
+          "v.attack_time = c.owning_entity -> v.attack_time;"
+        ],
+        "animate": [
+          { "wield_third_person": "!c.is_first_person" },
+          { "wield_first_person": "c.is_first_person && !v.actions_and_stuff" },
+          { "wield_first_person_as": "c.is_first_person && v.actions_and_stuff" },
+          { "first_person_attack_controller": "c.is_first_person && !v.actions_and_stuff" },
+          { "charged": "v.is_charged" },
+          { "charging": "v.is_charging" },
+          { "glow": "!c.is_first_person" },
+          "scale"
+        ]
+      },
+      "render_controllers": ["controller.render.cc.item", "controller.render.cc.item.outline"]
+    }
+  }
+}

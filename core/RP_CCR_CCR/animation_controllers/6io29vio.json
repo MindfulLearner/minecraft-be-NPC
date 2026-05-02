@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.cc.attack.first_person": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "attacking": "v.attack_time > 0.0"
+            }
+          ],
+          "blend_transition": 0.1
+        },
+        "attacking": {
+          "animations": ["first_person_attack"],
+          "transitions": [
+            {
+              "attacked": "q.all_animations_finished"
+            }
+          ],
+          "blend_transition": 0.1
+        },
+        "attacked": {
+          "transitions": [
+            {
+              "default": "v.attack_time == 0"
+            }
+          ],
+          "blend_transition": 0.1
+        }
+      }
+    }
+  }
+}

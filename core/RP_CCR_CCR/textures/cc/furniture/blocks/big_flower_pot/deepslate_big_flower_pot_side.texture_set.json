@@ -1,0 +1,8 @@
+{
+  "format_version": "1.21.30",
+  "minecraft:texture_set": {
+    "color": "deepslate_big_flower_pot_side",
+    "heightmap": "deepslate_big_flower_pot_side_heightmap",
+    "metalness_emissive_roughness_subsurface": "deepslate_big_flower_pot_side_mers"
+  }
+}

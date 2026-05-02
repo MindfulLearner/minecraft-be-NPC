@@ -1,0 +1,10 @@
+NPC,Type,Sells to Player,Buys from Player,Stand Type
+Mr Francesco,Shop,"Cat egg, saddle, name tag, sponge, ender pearls, torches, lantern, compass","Oak logs, wheat, iron, stone, sand, bones, string",General market stall
+Maga Vera,Shop,"Phantom membrane, shulker shell, dragon breath, nautilus shell, end rods, chorus fruit, amethyst, glow ink","Magma cream, fermented spider eye, chorus fruit, ghast tear, nether brick, fire charge, rabbit's foot",Dark magic shop
+Nonna Rosa,Food Shop,"Golden apple, honey, glow berries, pumpkin pie, apples, cooked porkchop, mushroom stew","Sweet berries, melon, cactus, carrots, potatoes, pumpkins, bamboo",Farmer's market stall
+Mastro Ugo,Shop,"Netherite scrap, diamond, totem, sea lantern, shield, diamond pickaxe, diamond sword, diamond chestplate","Ancient debris, obsidian, prismarine, iron, gold, copper, quartz",Forge / weapon shop
+Zio Beppe,Shop,"Wolf, horse, rabbit, bee, axolotl, panda, fox, ocelot spawn eggs","Eggs, feathers, white wool",Animal pen / barn
+Old Piero,Quest,—,"Cod x10, salmon x8, tropical fish x6",Dock / pier
+Cultista,Quest,—,"Wood, bones, food, creeper drops",Dark shrine
+Sofia,Quest,—,"Flowers x16, wool x8, dye x6, bamboo x16",Deco booth
+Il Custode,Lore,—,—,Library corner

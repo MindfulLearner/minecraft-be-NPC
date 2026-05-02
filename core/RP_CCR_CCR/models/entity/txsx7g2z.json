@@ -1,0 +1,70 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.cc.orangutan_baby",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "rightLeg",
+					"parent": "root",
+					"pivot": [-1.5, 5, -0.5],
+					"cubes": [
+						{"origin": [-2.5, 0, -2], "size": [2, 5, 3], "uv": [20, 0]}
+					]
+				},
+				{
+					"name": "leftLeg",
+					"parent": "root",
+					"pivot": [1.5, 5, -0.5],
+					"cubes": [
+						{"origin": [0.5, 0, -2], "size": [2, 5, 3], "uv": [20, 0], "mirror": true}
+					]
+				},
+				{
+					"name": "waist",
+					"parent": "root",
+					"pivot": [0, 5, -1],
+					"cubes": [
+						{"origin": [-2.5, 5, -3], "size": [5, 6, 5], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "leftArm",
+					"parent": "waist",
+					"pivot": [2.5, 10, 0],
+					"cubes": [
+						{"origin": [2.5, 3, -1], "size": [2, 8, 2], "inflate": 0.02, "uv": [20, 8]}
+					]
+				},
+				{
+					"name": "rightArm",
+					"parent": "waist",
+					"pivot": [-2.5, 10, 0],
+					"cubes": [
+						{"origin": [-4.5, 3, -1], "size": [2, 8, 2], "inflate": 0.02, "uv": [20, 8], "mirror": true}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "waist",
+					"pivot": [0, 10.75, -1.25],
+					"cubes": [
+						{"origin": [-2.5, 11, -4], "size": [5, 5, 5], "uv": [0, 11]},
+						{"origin": [-1.5, 10, -5], "size": [3, 3, 3], "uv": [20, 18]}
+					]
+				}
+			]
+		}
+	]
+}

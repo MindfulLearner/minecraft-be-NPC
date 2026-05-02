@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cc:dummy_pale_oak"
+    },
+    "assume_symmetry": true,
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "H",
+      "*"
+    ],
+    "key": {
+      "*": {
+        "item": "minecraft:pale_oak_fence"
+      },
+      "H": {
+        "item": "minecraft:hay_block"
+      }
+    },
+    "result": "cc:dummy"
+  }
+}

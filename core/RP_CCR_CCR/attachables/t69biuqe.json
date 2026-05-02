@@ -1,0 +1,52 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "cc:end_stone_slingshot_unusable",
+      "geometry": {
+        "default": "geometry.cc.charge_shooter_weapon"
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "standby": "textures/cc/charge_item/end_stone_slingshot/standby",
+        "pull0": "textures/cc/charge_item/end_stone_slingshot/pulling0",
+        "pull1": "textures/cc/charge_item/end_stone_slingshot/pulling1",
+        "pull2": "textures/cc/charge_item/end_stone_slingshot/pulling2",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "animations": {
+        "first_person": "animation.cc.slingshot.first_person_hold",
+        "wield_first_person_as": "animation.cc.slingshot.wield.first_person.as",
+        "third_person": "animation.cc.slingshot.third_person_hold"
+      },
+      "scripts": {
+        "initialize": [
+          "v.item_name = 'cc:end_stone_pebbles';",
+          "v.shake_direction = 0.0;",
+          "v.charge_amount = 0.0;"
+        ],
+        "parent_setup": "c.item_slot == 'main_hand' ? { v.oreville_mainhand_visible = 1;}; c.item_slot == 'off_hand' ? {v.oreville_offhand_visible = 1; }; v.oreville_mainhand_custom_pos = 1;",
+        "pre_animation": [
+          "v.actions_and_stuff = c.owning_entity -> v.actions_and_stuff;"
+        ],
+        "animate": [
+          {
+            "first_person": "c.is_first_person && !v.actions_and_stuff"
+          },
+          {
+            "wield_first_person_as": "c.is_first_person && v.actions_and_stuff"
+          },
+          {
+            "third_person": "!c.is_first_person"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cc.charge_shooter_weapon"
+      ]
+    }
+  }
+}

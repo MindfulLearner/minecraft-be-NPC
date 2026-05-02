@@ -1,0 +1,18 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "§lCute Sanrio Paintings",
+    "description": "Java pack by §cMinheeBear§r | Bedrock port by §eParzival_§r",
+    "uuid": "a1da6f7e-bc5f-4ba2-a284-1c815ee8e9ad",
+    "version": [1,0,0],
+    "min_engine_version": [1,16,0]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "f1baf3c0-588d-4384-b87c-13416a2c53be",
+      "version": [1,0,0]
+    }
+  ]
+  }
+}
