@@ -5,7 +5,7 @@
             {
                 "scene_tag": "biscazziere_main",
                 "npc_name": "§6Il Biscazziere",
-                "text": "§0You found me. That means you have gems to burn.\nOr dreams to ruin. Same thing.\n\n§6§lSLOT MACHINE\n§0Bet §c1-100 §0gems or §cALL IN§0. Match 3 symbols.\n§b♦§0×2  §a♣§0×3  §a♥§0×5  §6♠§0×10  §c★§0×40  §d✦§0×200\n\n§5§lBLACKJACK\n§0Beat 21. Natural Blackjack pays §a×1.5§0. Dealer stands at 17.\n\n§d§lMYSTERY CRATES  §0Pity every N rolls.\n§7Base §c-15 §0— food, farm eggs (chicken/pig/sheep)\n§fComune §c-30 §0— capybara, penguin, deer, name tag\n§bRara §c-50 §0— bear, owl, moose, trident, fortune/looting\n§dEpica §c-100 §0— eagle, shark, elephant, netherite, mending\n§6Legg. §c-200 §0— whale, warden, dragon egg, elytra, beacon, sword",
+                "text": "§0You found me. That means you have gems to burn.\nOr dreams to ruin. Same thing.\n\n§6§lSLOT MACHINE\n§0Bet §c1-100 §0gems or §cALL IN§0. Match 3 symbols.\n§b♦§0×2  §a♣§0×3  §a♥§0×5  §6♠§0×10  §c★§0×40  §d✦§0×200\n\n§5§lBLACKJACK\n§0Beat 21. Natural Blackjack pays §a×1.5§0. Dealer stands at 17.\n\n§d§lMYSTERY CRATES  §0Pity every N rolls.\n§7Base §c-15 §0food, farm eggs (chicken/pig/sheep)\n§fComune §c-30 §0capybara, penguin, deer, name tag\n§bRara §c-50 §0bear, owl, moose, trident, fortune/looting\n§dEpica §c-100 §0eagle, shark, elephant, netherite, mending\n§6Legg. §c-200 §0whale, warden, dragon egg, elytra, beacon, sword",
                 "on_open_commands": [
                     "/say [Il Biscazziere] §6@initiator §0tries their luck. They always lose.",
                     "/execute as @initiator run scriptevent biscazziere:balance"
