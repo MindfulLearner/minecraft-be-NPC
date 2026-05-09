@@ -46,216 +46,409 @@ const DYE_IDS = [
 // ── SHOP ──────────────────────────────────────────────────────────────────────
 
 const SHOP = {
-    saddle:            { name: "Sella",             price: 14, amount: 1 },
-    name_tag:          { name: "Cartellino",        price: 6,  amount: 1 },
-    sponge:            { name: "Spugna",            price: 11, amount: 1 },
-    ender_pearl:       { name: "Perle End",         price: 6,  amount: 2 },
-    lead:              { name: "Guinzaglio",        price: 5,  amount: 1 },
-    spyglass:          { name: "Cannocchiale",      price: 6,  amount: 1 },
-    lodestone:         { name: "Magnetite",         price: 18, amount: 1 },
-    recovery_compass:  { name: "Bussola Recupero",  price: 12, amount: 1 },
-    shield:            { name: "Scudo",             price: 6,  amount: 1 },
-    crossbow:          { name: "Balestra",          price: 10, amount: 1 },
-    firework_rocket:   { name: "Razzi x3",          price: 4,  amount: 3 },
+    saddle:            { name: "Saddle",            price: 70,  amount: 1 },
+    name_tag:          { name: "Name Tag",          price: 32,  amount: 1 },
+    sponge:            { name: "Sponge",            price: 55,  amount: 1 },
+    ender_pearl:       { name: "Ender Pearls",      price: 32,  amount: 2 },
+    lead:              { name: "Lead",              price: 25,  amount: 1 },
+    spyglass:          { name: "Spyglass",          price: 32,  amount: 1 },
+    lodestone:         { name: "Lodestone",         price: 85,  amount: 1 },
+    recovery_compass:  { name: "Recovery Compass",  price: 65,  amount: 1 },
+    shield:            { name: "Shield",            price: 32,  amount: 1 },
+    crossbow:          { name: "Crossbow",          price: 50,  amount: 1 },
+    firework_rocket:   { name: "Fireworks x3",      price: 18,  amount: 3 },
+    bundle:            { name: "Bundle",            price: 50,  amount: 1 },
+    lightning_rod:     { name: "Lightning Rod",     price: 45,  amount: 1 },
+    amethyst_shard:    { name: "Amethyst x4",       price: 20,  amount: 4 },
+    lantern:           { name: "Lanterns x4",       price: 16,  amount: 4 },
+    mace:              { name: "Mace",              price: 180, amount: 1 },
+    wind_charge:       { name: "Wind Charge x4",    price: 40,  amount: 4 },
+    trial_key:         { name: "Trial Key",         price: 75,  amount: 1 },
+    goat_horn:         { name: "Goat Horn",         price: 32,  amount: 1 },
 };
 
 const SELL = {
-    oak_log:    { name: "Quercia x64",   amount: 64, reward: 1 },
-    wheat:      { name: "Grano x64",     amount: 64, reward: 1 },
-    iron_ingot: { name: "Ferro x8",      amount: 8,  reward: 2 },
-    stone:      { name: "Pietra x64",    amount: 64, reward: 1 },
-    sand:       { name: "Sabbia x32",    amount: 32, reward: 1 },
-    bone:       { name: "Ossa x16",      amount: 16, reward: 2 },
-    string:     { name: "Filo x32",      amount: 32, reward: 1 },
+    oak_log:    { name: "Oak Log x512",   amount: 512, reward: 1 },
+    wheat:      { name: "Wheat x512",     amount: 512, reward: 1 },
+    iron_ingot: { name: "Iron x64",       amount: 64,  reward: 1 },
+    stone:      { name: "Stone x512",     amount: 512, reward: 1 },
+    sand:       { name: "Sand x384",      amount: 384, reward: 1 },
+    bone:       { name: "Bone x128",      amount: 128, reward: 1 },
+    string:     { name: "String x384",    amount: 384, reward: 1 },
+    arrow:      { name: "Arrows x384",    amount: 384, reward: 1 },
+    gunpowder:  { name: "Gunpowder x64",  amount: 64,  reward: 1 },
+    flint:      { name: "Flint x512",     amount: 512, reward: 1 },
 };
 
 // ── FABBRO ────────────────────────────────────────────────────────────────────
 
 const SHOP_FABBRO = {
-    netherite_scrap:      { name: "Rottame di Netherite",   price: 26, amount: 1 },
-    diamond:              { name: "Diamante",               price: 24, amount: 1 },
-    totem_of_undying:     { name: "Totem dell'Immortalità", price: 40, amount: 1 },
-    sea_lantern:          { name: "Lanterna del Mare",      price: 12, amount: 1 },
-    trident:              { name: "Tridente",               price: 30, amount: 1 },
-    nether_star:          { name: "Stella del Nether",      price: 80, amount: 1 },
-    wither_skeleton_skull:{ name: "Teschio Wither",         price: 22, amount: 1 },
-    elytra:               { name: "Elytra",                 price: 700, amount: 1 },
-    heart_of_the_sea:     { name: "Cuore dell'Oceano",      price: 45,  amount: 1 },
-    netherite_ingot:      { name: "Lingotto Netherite",     price: 400, amount: 1 },
-    iron_sword_fa1:       { typeId: "iron_sword", name: "§cSpada Infuocata I",  price: 18, amount: 1, enchants: { fire_aspect: 1 } },
-    iron_sword_fa2:       { typeId: "iron_sword", name: "§4Spada Infuocata II", price: 28, amount: 1, enchants: { fire_aspect: 2 } },
+    netherite_scrap:      { name: "Netherite Scrap",     price: 150,  amount: 1 },
+    diamond:              { name: "Diamond",             price: 130,  amount: 1 },
+    totem_of_undying:     { name: "Totem of Undying",    price: 220,  amount: 1 },
+    sea_lantern:          { name: "Sea Lantern",         price: 65,   amount: 1 },
+    trident:              { name: "Trident",             price: 170,  amount: 1 },
+    nether_star:          { name: "Nether Star",         price: 500,  amount: 1 },
+    wither_skeleton_skull:{ name: "Wither Skull",        price: 130,  amount: 1 },
+    elytra:               { name: "Elytra",              price: 3500, amount: 1 },
+    heart_of_the_sea:     { name: "Heart of the Sea",    price: 260,  amount: 1 },
+    netherite_ingot:      { name: "Netherite Ingot",     price: 2000, amount: 1 },
+    iron_sword_fa1:       { typeId: "iron_sword", name: "§cFlaming Sword I",  price: 100,  amount: 1, enchants: { fire_aspect: 1 } },
+    iron_sword_fa2:       { typeId: "iron_sword", name: "§4Flaming Sword II", price: 170,  amount: 1, enchants: { fire_aspect: 2 } },
+    beacon:               { name: "Beacon",              price: 800,  amount: 1 },
+    respawn_anchor:       { name: "Respawn Anchor",      price: 200,  amount: 1 },
+    dragon_egg:           { name: "Dragon Egg",          price: 5000, amount: 1 },
+    netherite_upgrade_smithing_template: { name: "Netherite Upgrade Template", price: 700, amount: 1 },
 };
 
 const SELL_FABBRO = {
-    ancient_debris: { name: "Detriti Antichi x1",  amount: 1,  reward: 9 },
-    obsidian:       { name: "Ossidiana x32",        amount: 32, reward: 3 },
-    prismarine:     { name: "Prismarina x32",       amount: 32, reward: 2 },
-    iron_ingot:     { name: "Lingotti Ferro x16",   amount: 16, reward: 4 },
-    gold_ingot:     { name: "Lingotti Oro x8",      amount: 8,  reward: 5 },
-    raw_copper:     { name: "Rame Grezzo x32",      amount: 32, reward: 1 },
-    quartz:         { name: "Quarzo x16",           amount: 16, reward: 2 },
+    ancient_debris:  { name: "Ancient Debris x3",   amount: 3,   reward: 1 },
+    obsidian:        { name: "Obsidian x192",        amount: 192, reward: 1 },
+    prismarine:      { name: "Prismarine x192",      amount: 192, reward: 1 },
+    iron_ingot:      { name: "Iron Ingots x128",     amount: 128, reward: 1 },
+    gold_ingot:      { name: "Gold Ingots x64",      amount: 64,  reward: 1 },
+    raw_copper:      { name: "Raw Copper x256",      amount: 256, reward: 1 },
+    quartz:          { name: "Quartz x192",          amount: 192, reward: 1 },
+    blaze_rod:       { name: "Blaze Rods x64",       amount: 64,  reward: 1 },
+    ender_pearl:     { name: "Ender Pearls x64",     amount: 64,  reward: 1 },
+    netherite_scrap: { name: "Netherite Scrap x3",   amount: 3,   reward: 1 },
 };
 
 // ── CONTADINA ─────────────────────────────────────────────────────────────────
 
 const SHOP_CONTADINA = {
-    golden_apple:            { name: "Mela Dorata",            price: 18,  amount: 1 },
-    slimeball:               { name: "Pallina Slime x4",        price: 8,   amount: 4 },
-    honey_bottle:            { name: "Miele x2",               price: 5,   amount: 2 },
-    nether_wart:             { name: "Verruca Nether x4",      price: 5,   amount: 4 },
-    golden_carrot:           { name: "Carota d'Oro x2",        price: 12,  amount: 2 },
-    chorus_fruit:            { name: "Frutto del Coro x4",     price: 8,   amount: 4 },
-    blaze_powder:            { name: "Polvere Blaze x4",       price: 8,   amount: 4 },
-    enchanted_golden_apple:  { name: "Mela Dorata Incantata",  price: 90, amount: 1 },
-    book_silk:     { typeId: "enchanted_book", name: "Libro: Seta I",             price: 28, amount: 1, enchants: { silk_touch: 1 } },
-    book_luck_sea: { typeId: "enchanted_book", name: "Libro: Fort. del Mare III", price: 24, amount: 1, enchants: { luck_of_the_sea: 3 } },
-    book_lure3:    { typeId: "enchanted_book", name: "Libro: Richiamo III",       price: 20, amount: 1, enchants: { lure: 3 } },
+    golden_apple:            { name: "Golden Apple",           price: 100, amount: 1 },
+    slimeball:               { name: "Slimeball x4",          price: 45,  amount: 4 },
+    honey_bottle:            { name: "Honey x2",              price: 30,  amount: 2 },
+    nether_wart:             { name: "Nether Wart x4",        price: 30,  amount: 4 },
+    golden_carrot:           { name: "Golden Carrot x2",      price: 75,  amount: 2 },
+    chorus_fruit:            { name: "Chorus Fruit x4",       price: 45,  amount: 4 },
+    blaze_powder:            { name: "Blaze Powder x4",       price: 45,  amount: 4 },
+    enchanted_golden_apple:  { name: "Enchanted Golden Apple",price: 500, amount: 1 },
+    glow_berries:            { name: "Glow Berries x8",       price: 22,  amount: 8 },
+    torchflower_seeds:       { name: "Torchflower Seeds x2",  price: 55,  amount: 2 },
+    cake:                    { name: "Cake",                  price: 55,  amount: 1 },
+    glow_ink_sac:            { name: "Glow Ink Sac x8",       price: 38,  amount: 8 },
+    honeycomb:               { name: "Honeycomb x8",          price: 35,  amount: 8 },
+    book_silk:     { typeId: "enchanted_book", name: "Book: Silk Touch I",        price: 180, amount: 1, enchants: { silk_touch: 1 } },
+    book_luck_sea: { typeId: "enchanted_book", name: "Book: Luck of the Sea III", price: 150, amount: 1, enchants: { luck_of_the_sea: 3 } },
+    book_lure3:    { typeId: "enchanted_book", name: "Book: Lure III",            price: 125, amount: 1, enchants: { lure: 3 } },
 };
 
 const SELL_CONTADINA = {
-    sweet_berries:   { name: "Bacche Dolci x40",  amount: 40, reward: 1 },
-    melon_slice:     { name: "Anguria x64",        amount: 64, reward: 1 },
-    cactus:          { name: "Cactus x64",         amount: 64, reward: 1 },
-    carrot:          { name: "Carote x40",         amount: 40, reward: 2 },
-    potato:          { name: "Patate x40",         amount: 40, reward: 1 },
-    pumpkin:         { name: "Zucca x32",          amount: 32, reward: 2 },
-    bamboo:          { name: "Bambù x64",          amount: 64, reward: 1 },
-    "cc:strawberry": { name: "Fragole x32",        amount: 32, reward: 2 },
-    "cc:banana":     { name: "Banane x16",         amount: 16, reward: 2 },
-    "cc:coconut":    { name: "Cocco x8",           amount: 8,  reward: 2 },
-    "cc:lemon":      { name: "Limoni x32",         amount: 32, reward: 2 },
-    "cc:orange":     { name: "Arance x32",         amount: 32, reward: 2 },
-    "cc:grape":      { name: "Uva x32",            amount: 32, reward: 2 },
-    "cc:pineapple":  { name: "Ananas x16",         amount: 16, reward: 3 },
+    sweet_berries:   { name: "Sweet Berries x512", amount: 512, reward: 1 },
+    melon_slice:     { name: "Melon Slice x512",   amount: 512, reward: 1 },
+    cactus:          { name: "Cactus x512",        amount: 512, reward: 1 },
+    carrot:          { name: "Carrots x512",       amount: 512, reward: 1 },
+    potato:          { name: "Potatoes x512",      amount: 512, reward: 1 },
+    pumpkin:         { name: "Pumpkin x384",       amount: 384, reward: 1 },
+    bamboo:          { name: "Bamboo x512",        amount: 512, reward: 1 },
+    "cc:strawberry": { name: "Strawberries x384",  amount: 384, reward: 1 },
+    "cc:banana":     { name: "Bananas x256",       amount: 256, reward: 1 },
+    "cc:coconut":    { name: "Coconut x128",       amount: 128, reward: 1 },
+    "cc:lemon":      { name: "Lemons x384",        amount: 384, reward: 1 },
+    "cc:orange":     { name: "Oranges x384",       amount: 384, reward: 1 },
+    "cc:grape":      { name: "Grapes x384",        amount: 384, reward: 1 },
+    "cc:pineapple":  { name: "Pineapple x256",     amount: 256, reward: 1 },
 };
 
 // ── ALCHIMISTA ────────────────────────────────────────────────────────────────
 
 const SHOP_ALCHIMISTA = {
-    phantom_membrane:    { name: "Membrana Fantasma x2",      price: 14, amount: 2 },
-    shulker_shell:       { name: "Guscio di Shulker",         price: 26, amount: 1 },
-    dragon_breath:       { name: "Soffio del Drago",          price: 28, amount: 1 },
-    nautilus_shell:      { name: "Conchiglia x2",             price: 9,  amount: 2 },
-    popped_chorus_fruit: { name: "Frutto del Coro Cotto x4",  price: 7,  amount: 4 },
-    end_rod:             { name: "Bastoni End x4",            price: 5,  amount: 4 },
-    echo_shard:          { name: "Frammento Eco",             price: 14, amount: 1 },
-    wither_rose:         { name: "Rosa del Wither",           price: 8,  amount: 1 },
-    sculk_catalyst:      { name: "Catalizzatore Sculk",       price: 14, amount: 1 },
-    ominous_bottle:      { name: "Bottiglia Infausta",        price: 10, amount: 1 },
-    book_sharp3:      { typeId: "enchanted_book", name: "Libro: Affilatura III",    price: 22, amount: 1, enchants: { sharpness: 3 } },
-    book_sharp5:      { typeId: "enchanted_book", name: "Libro: Affilatura V",     price: 45, amount: 1, enchants: { sharpness: 5 } },
-    book_prot3:       { typeId: "enchanted_book", name: "Libro: Protezione III",   price: 22, amount: 1, enchants: { protection: 3 } },
-    book_prot4:       { typeId: "enchanted_book", name: "Libro: Protezione IV",    price: 42, amount: 1, enchants: { protection: 4 } },
-    book_eff3:        { typeId: "enchanted_book", name: "Libro: Efficienza III",   price: 20, amount: 1, enchants: { efficiency: 3 } },
-    book_fa1:         { typeId: "enchanted_book", name: "Libro: Asp.Fuoco I",      price: 18, amount: 1, enchants: { fire_aspect: 1 } },
-    book_fa2:         { typeId: "enchanted_book", name: "Libro: Asp.Fuoco II",     price: 35, amount: 1, enchants: { fire_aspect: 2 } },
-    book_looting3:    { typeId: "enchanted_book", name: "Libro: Saccheggio III",   price: 40, amount: 1, enchants: { looting: 3 } },
-    book_ff4:         { typeId: "enchanted_book", name: "Libro: Caduta Morbida IV",price: 22, amount: 1, enchants: { feather_falling: 4 } },
-    book_power5:      { typeId: "enchanted_book", name: "Libro: Potere V",         price: 32, amount: 1, enchants: { power: 5 } },
-    book_unbreaking3: { typeId: "enchanted_book", name: "Libro: Solidità III",     price: 28, amount: 1, enchants: { unbreaking: 3 } },
-    book_mending:     { typeId: "enchanted_book", name: "Libro: Riparazione",      price: 80, amount: 1, enchants: { mending: 1 } },
+    phantom_membrane:    { name: "Phantom Membrane x2",    price: 85,  amount: 2 },
+    shulker_shell:       { name: "Shulker Shell",          price: 150, amount: 1 },
+    dragon_breath:       { name: "Dragon's Breath",        price: 175, amount: 1 },
+    nautilus_shell:      { name: "Nautilus Shell x2",      price: 55,  amount: 2 },
+    popped_chorus_fruit: { name: "Popped Chorus Fruit x4", price: 38,  amount: 4 },
+    end_rod:             { name: "End Rods x4",            price: 30,  amount: 4 },
+    echo_shard:          { name: "Echo Shard",             price: 90,  amount: 1 },
+    wither_rose:         { name: "Wither Rose",            price: 55,  amount: 1 },
+    sculk_catalyst:      { name: "Sculk Catalyst",         price: 90,  amount: 1 },
+    ominous_bottle:      { name: "Ominous Bottle",         price: 60,  amount: 1 },
+    conduit:             { name: "Conduit",                price: 400, amount: 1 },
+    end_crystal:         { name: "End Crystal",            price: 150, amount: 1 },
+    book_sharp3:      { typeId: "enchanted_book", name: "Book: Sharpness III",       price: 130, amount: 1, enchants: { sharpness: 3 } },
+    book_sharp5:      { typeId: "enchanted_book", name: "Book: Sharpness V",         price: 280, amount: 1, enchants: { sharpness: 5 } },
+    book_prot3:       { typeId: "enchanted_book", name: "Book: Protection III",      price: 130, amount: 1, enchants: { protection: 3 } },
+    book_prot4:       { typeId: "enchanted_book", name: "Book: Protection IV",       price: 260, amount: 1, enchants: { protection: 4 } },
+    book_eff3:        { typeId: "enchanted_book", name: "Book: Efficiency III",      price: 120, amount: 1, enchants: { efficiency: 3 } },
+    book_fa1:         { typeId: "enchanted_book", name: "Book: Fire Aspect I",       price: 110, amount: 1, enchants: { fire_aspect: 1 } },
+    book_fa2:         { typeId: "enchanted_book", name: "Book: Fire Aspect II",      price: 220, amount: 1, enchants: { fire_aspect: 2 } },
+    book_looting3:    { typeId: "enchanted_book", name: "Book: Looting III",         price: 240, amount: 1, enchants: { looting: 3 } },
+    book_ff4:         { typeId: "enchanted_book", name: "Book: Feather Falling IV",  price: 140, amount: 1, enchants: { feather_falling: 4 } },
+    book_power5:      { typeId: "enchanted_book", name: "Book: Power V",             price: 200, amount: 1, enchants: { power: 5 } },
+    book_unbreaking3: { typeId: "enchanted_book", name: "Book: Unbreaking III",      price: 180, amount: 1, enchants: { unbreaking: 3 } },
+    book_mending:     { typeId: "enchanted_book", name: "Book: Mending",             price: 500, amount: 1, enchants: { mending: 1 } },
+    book_thorns3:     { typeId: "enchanted_book", name: "Book: Thorns III",          price: 160, amount: 1, enchants: { thorns: 3 } },
+    book_depth3:      { typeId: "enchanted_book", name: "Book: Depth Strider III",   price: 150, amount: 1, enchants: { depth_strider: 3 } },
+    book_swift3:      { typeId: "enchanted_book", name: "Book: Swift Sneak III",     price: 220, amount: 1, enchants: { swift_sneak: 3 } },
+    book_resp3:       { typeId: "enchanted_book", name: "Book: Respiration III",     price: 140, amount: 1, enchants: { respiration: 3 } },
+    book_loyalty3:    { typeId: "enchanted_book", name: "Book: Loyalty III",         price: 200, amount: 1, enchants: { loyalty: 3 } },
+    book_channeling:  { typeId: "enchanted_book", name: "Book: Channeling",          price: 280, amount: 1, enchants: { channeling: 1 } },
+    book_riptide3:    { typeId: "enchanted_book", name: "Book: Riptide III",         price: 360, amount: 1, enchants: { riptide: 3 } },
 };
 
 const SELL_ALCHIMISTA = {
-    magma_cream:          { name: "Crema di Magma x8",     amount: 8,  reward: 3 },
-    fermented_spider_eye: { name: "Occhio Fermentato x4",  amount: 4,  reward: 3 },
-    chorus_fruit:         { name: "Frutto del Coro x8",    amount: 8,  reward: 2 },
-    ghast_tear:           { name: "Lacrima di Ghast x4",   amount: 4,  reward: 5 },
-    nether_brick:         { name: "Mattone Nether x16",    amount: 16, reward: 1 },
-    fire_charge:          { name: "Carica di Fuoco x4",    amount: 4,  reward: 2 },
-    rabbit_foot:          { name: "Zampa di Coniglio x4",  amount: 4,  reward: 3 },
+    magma_cream:          { name: "Magma Cream x64",          amount: 64,  reward: 1 },
+    fermented_spider_eye: { name: "Fermented Spider Eye x32", amount: 32,  reward: 1 },
+    chorus_fruit:         { name: "Chorus Fruit x128",        amount: 128, reward: 1 },
+    ghast_tear:           { name: "Ghast Tear x16",           amount: 16,  reward: 1 },
+    nether_brick:         { name: "Nether Brick x192",        amount: 192, reward: 1 },
+    fire_charge:          { name: "Fire Charge x32",          amount: 32,  reward: 1 },
+    rabbit_foot:          { name: "Rabbit's Foot x32",        amount: 32,  reward: 1 },
+    blaze_powder:         { name: "Blaze Powder x64",         amount: 64,  reward: 1 },
+    phantom_membrane:     { name: "Phantom Membrane x32",     amount: 32,  reward: 1 },
 };
 
 // ── OVAIOLO ───────────────────────────────────────────────────────────────────
 
 const SHOP_OVAIOLO = {
-    wolf_spawn_egg:      { name: "Uovo di Lupo",        price: 13, amount: 1 },
-    horse_spawn_egg:     { name: "Uovo di Cavallo",     price: 17, amount: 1 },
-    donkey_spawn_egg:    { name: "Uovo di Asino",       price: 12, amount: 1 },
-    rabbit_spawn_egg:    { name: "Uovo di Coniglio",    price: 7,  amount: 1 },
-    bee_spawn_egg:       { name: "Uovo di Ape",         price: 11, amount: 1 },
-    axolotl_spawn_egg:   { name: "Uovo di Axolotl",    price: 15, amount: 1 },
-    panda_spawn_egg:     { name: "Uovo di Panda",       price: 22, amount: 1 },
-    fox_spawn_egg:       { name: "Uovo di Volpe",       price: 13, amount: 1 },
-    ocelot_spawn_egg:    { name: "Uovo di Ocelot",      price: 9,  amount: 1 },
-    cat_spawn_egg:       { name: "Uovo di Gatto",       price: 9,  amount: 1 },
-    parrot_spawn_egg:    { name: "Uovo di Pappagallo",  price: 10, amount: 1 },
-    frog_spawn_egg:      { name: "Uovo di Rana",        price: 8,  amount: 1 },
-    goat_spawn_egg:      { name: "Uovo di Capra",       price: 10, amount: 1 },
-    llama_spawn_egg:     { name: "Uovo di Lama",        price: 14, amount: 1 },
-    turtle_spawn_egg:    { name: "Uovo di Tartaruga",   price: 12, amount: 1 },
-    polar_bear_spawn_egg:{ name: "Uovo di Orso Polare", price: 12, amount: 1 },
-    camel_spawn_egg:     { name: "Uovo di Cammello",    price: 20, amount: 1 },
-    armadillo_spawn_egg: { name: "Uovo di Armadillo",   price: 11, amount: 1 },
-    strider_spawn_egg:   { name: "Uovo di Strider",     price: 10, amount: 1 },
-    mooshroom_spawn_egg: { name: "Uovo di Fungosso",    price: 18, amount: 1 },
-    hoglin_spawn_egg:    { name: "Uovo di Hoglin",      price: 12, amount: 1 },
-    enderman_spawn_egg:  { name: "Uovo di Enderman",    price: 14, amount: 1 },
-    phantom_spawn_egg:   { name: "Uovo di Phantom",     price: 16, amount: 1 },
-    sniffer_spawn_egg:   { name: "Uovo di Sniffer",  price: 24, amount: 1 },
+    wolf_spawn_egg:       { name: "Wolf Egg",        price: 75,   amount: 1 },
+    horse_spawn_egg:      { name: "Horse Egg",       price: 100,  amount: 1 },
+    donkey_spawn_egg:     { name: "Donkey Egg",      price: 70,   amount: 1 },
+    rabbit_spawn_egg:     { name: "Rabbit Egg",      price: 45,   amount: 1 },
+    bee_spawn_egg:        { name: "Bee Egg",         price: 70,   amount: 1 },
+    axolotl_spawn_egg:    { name: "Axolotl Egg",     price: 90,   amount: 1 },
+    panda_spawn_egg:      { name: "Panda Egg",       price: 135,  amount: 1 },
+    fox_spawn_egg:        { name: "Fox Egg",         price: 75,   amount: 1 },
+    ocelot_spawn_egg:     { name: "Ocelot Egg",      price: 60,   amount: 1 },
+    cat_spawn_egg:        { name: "Cat Egg",         price: 60,   amount: 1 },
+    parrot_spawn_egg:     { name: "Parrot Egg",      price: 62,   amount: 1 },
+    frog_spawn_egg:       { name: "Frog Egg",        price: 55,   amount: 1 },
+    goat_spawn_egg:       { name: "Goat Egg",        price: 62,   amount: 1 },
+    llama_spawn_egg:      { name: "Llama Egg",       price: 85,   amount: 1 },
+    turtle_spawn_egg:     { name: "Turtle Egg",      price: 75,   amount: 1 },
+    polar_bear_spawn_egg: { name: "Polar Bear Egg",  price: 75,   amount: 1 },
+    camel_spawn_egg:      { name: "Camel Egg",       price: 125,  amount: 1 },
+    armadillo_spawn_egg:  { name: "Armadillo Egg",   price: 70,   amount: 1 },
+    strider_spawn_egg:    { name: "Strider Egg",     price: 62,   amount: 1 },
+    mooshroom_spawn_egg:  { name: "Mooshroom Egg",   price: 105,  amount: 1 },
+    hoglin_spawn_egg:     { name: "Hoglin Egg",      price: 70,   amount: 1 },
+    enderman_spawn_egg:   { name: "Enderman Egg",    price: 85,   amount: 1 },
+    phantom_spawn_egg:    { name: "Phantom Egg",     price: 100,  amount: 1 },
+    sniffer_spawn_egg:    { name: "Sniffer Egg",     price: 150,  amount: 1 },
+    allay_spawn_egg:      { name: "Allay Egg",       price: 120,  amount: 1 },
+    breeze_spawn_egg:     { name: "Breeze Egg",      price: 200,  amount: 1 },
+    warden_spawn_egg:     { name: "Warden Egg",      price: 400,  amount: 1 },
+    tadpole_spawn_egg:    { name: "Tadpole Egg",     price: 40,   amount: 1 },
+    glow_squid_spawn_egg: { name: "Glow Squid Egg",  price: 50,   amount: 1 },
+    iron_golem_spawn_egg: { name: "Iron Golem Egg",  price: 160,  amount: 1 },
 };
 
 const SELL_OVAIOLO = {
-    egg:        { name: "Uova x32",        amount: 32, reward: 1 },
-
-    feather:    { name: "Piume x16",       amount: 16, reward: 1 },
-    white_wool: { name: "Lana x32", amount: 32, reward: 1, typeIds: WOOL_IDS },
+    egg:              { name: "Eggs x512",           amount: 512, reward: 1 },
+    feather:          { name: "Feathers x512",       amount: 512, reward: 1 },
+    white_wool:       { name: "Wool x512",           amount: 512, reward: 1, typeIds: WOOL_IDS },
+    leather:          { name: "Leather x256",        amount: 256, reward: 1 },
+    rabbit_hide:      { name: "Rabbit Hide x384",    amount: 384, reward: 1 },
+    armadillo_scute:  { name: "Armadillo Scute x64", amount: 64,  reward: 1 },
 };
+
+// ── BISCAZZIERE (SLOT + CASSE) ────────────────────────────────────────────────
+
+const SLOT_SYMBOLS = [
+    { id: "♦", display: "§b§l♦§r", weight: 48 },  // ×2  — 48% → ♦♦♦ ~11%
+    { id: "♣", display: "§a§l♣§r", weight: 28 },  // ×3  — 28% → ♣♣♣ ~2.2%
+    { id: "♥", display: "§a§l♥§r", weight: 14 },  // ×5  — 14% → ♥♥♥ ~0.27%
+    { id: "♠", display: "§6§l♠§r", weight: 7  },  // ×10 — 7%  → ♠♠♠ ~0.034%
+    { id: "★", display: "§c§l★§r", weight: 2  },  // ×40 — 2%  → ★★★ ~0.0008%
+    { id: "✦", display: "§d§l✦§r", weight: 1  },  // ×200— 1%  → ✦✦✦ ~0.0001%
+];
+const SLOT_PAYOUTS = { "♦": 2, "♣": 3, "♥": 5, "♠": 10, "★": 40, "✦": 200 };
+
+const SLOT_LOSS_LINES = [
+    (bet)      => `§c§lLost. §r§7The machine keeps your §c${bet} gems§7. The jackpot grows.`,
+    (bet)      => `§7Nothing. §8The §d✦ §7jackpot sits unclaimed — §d${bet * 200} gems§8 waiting for someone.`,
+    (bet)      => `§c-${bet} gems. §7The house wins. §8It always does... until it doesn't.`,
+    (_bet)     => `§7Bad luck. §8The odds don't remember the last spin. §7Try again.`,
+    (bet)      => `§cEmpty hands. §7-${bet} gems. §8Every loss is one step closer to the jackpot.`,
+    (_bet)     => `§7The reels mocked you. §8They do that. §7Show them who's boss.`,
+];
+const SLOT_NEAR_LINES = [
+    (sym)      => `§6§lQUASI! §r§72× ${sym} §8— one reel away from a fortune. §7So close.`,
+    (_sym)     => `§6§lSO CLOSE! §r§7Two matched. The third was just warming up. §8One more?`,
+    (sym)      => `§6QUASI! §7The machine showed you ${sym}${sym}... §8then laughed.`,
+    (_sym)     => `§6Two matched! §7The jackpot is §lteasing§r§7 you. §8Don't let it win.`,
+    (_sym)     => `§6QUASI! §8That last reel. §7It always comes down to the last reel.`,
+];
+const SLOT_WIN_LINES = [
+    (win, mult) => `§a§lWIN! §r§f×${mult} → +${win} gems! §7Not bad. §8The §d✦ §7jackpot is still out there...`,
+    (win, mult) => `§a+${win} gems! §7×${mult} — a start. §8You're on a roll. Keep going?`,
+    (win, mult) => `§a§l✓ §r§f+${win} gems. §7×${mult} win. §8The machine is being generous today.`,
+];
+
+const CASSE_POOLS = {
+const CASSE_POOLS = {
+    // Base 15g — eggs ~0.8% chance
+    base: {
+        cost: 15, pityMax: 12, pityObj: "pity_bas", label: "§7Base",
+        items: [
+            { id: "minecraft:bread",             amount: 8,  weight: 88,  name: "Bread x8" },
+            { id: "minecraft:cooked_beef",       amount: 4,  weight: 72,  name: "Steak x4" },
+            { id: "minecraft:string",            amount: 8,  weight: 56,  name: "String x8" },
+            { id: "minecraft:bone",              amount: 4,  weight: 48,  name: "Bones x4" },
+            { id: "cc:ruby",                    amount: 5,  weight: 40,  name: "5 Gems" },
+            { id: "minecraft:arrow",             amount: 8,  weight: 40,  name: "Arrows x8" },
+            { id: "cc:ruby",                    amount: 15, weight: 20,  name: "§a15 Gems",     rare: true },
+            { id: "minecraft:chicken_spawn_egg", amount: 1,  weight: 1,   name: "§aChicken Egg", rare: true },
+            { id: "minecraft:pig_spawn_egg",     amount: 1,  weight: 1,   name: "§aPig Egg",     rare: true },
+            { id: "minecraft:sheep_spawn_egg",   amount: 1,  weight: 1,   name: "§aSheep Egg",   rare: true },
+        ],
+    },
+    // Comune 30g — eggs ~0.8% chance
+    comune: {
+        cost: 30, pityMax: 8, pityObj: "pity_com", label: "§fComune",
+        items: [
+            { id: "minecraft:bread",             amount: 4,  weight: 56,  name: "Bread x4" },
+            { id: "minecraft:apple",             amount: 4,  weight: 48,  name: "Apples x4" },
+            { id: "minecraft:cooked_porkchop",   amount: 4,  weight: 40,  name: "Porkchop x4" },
+            { id: "minecraft:firework_rocket",   amount: 2,  weight: 32,  name: "Fireworks x2" },
+            { id: "cc:ruby",                    amount: 10, weight: 32,  name: "10 Gems" },
+            { id: "minecraft:lead",              amount: 1,  weight: 28,  name: "Lead" },
+            { id: "minecraft:name_tag",          amount: 1,  weight: 24,  name: "§aName Tag",     rare: true },
+            { id: "cc:ruby",                    amount: 30, weight: 20,  name: "§a30 Gems",       rare: true },
+            { id: "minecraft:golden_apple",      amount: 1,  weight: 12,  name: "§6Golden Apple", rare: true },
+            { id: "cc:capybara_spawn_egg",       amount: 1,  weight: 1,   name: "§aCapybara Egg", rare: true },
+            { id: "cc:penguin_spawn_egg",        amount: 1,  weight: 1,   name: "§aPenguin Egg",  rare: true },
+            { id: "cc:deer_spawn_egg",           amount: 1,  weight: 1,   name: "§aDeer Egg",     rare: true },
+        ],
+    },
+    // Rara 50g — eggs ~1% chance
+    rara: {
+        cost: 50, pityMax: 7, pityObj: "pity_rar", label: "§bRara",
+        items: [
+            { id: "cc:ruby",                    amount: 20, weight: 48,  name: "20 Gems" },
+            { id: "minecraft:diamond",           amount: 2,  weight: 40,  name: "Diamonds x2" },
+            { id: "minecraft:golden_apple",      amount: 2,  weight: 32,  name: "Golden Apples x2" },
+            { id: "minecraft:ender_pearl",       amount: 4,  weight: 28,  name: "Ender Pearls x4" },
+            { id: "cc:ruby",                    amount: 50, weight: 28,  name: "§a50 Gems",    rare: true },
+            { id: "minecraft:trident",           amount: 1,  weight: 24,  name: "§bTrident",    rare: true },
+            { id: "_book_fortune3",              amount: 1,  weight: 20,  name: "§aFortune III", rare: true,
+              special: { typeId: "minecraft:enchanted_book", enchants: { fortune: 3 } } },
+            { id: "_book_looting3",              amount: 1,  weight: 20,  name: "§aLooting III", rare: true,
+              special: { typeId: "minecraft:enchanted_book", enchants: { looting: 3 } } },
+            { id: "minecraft:totem_of_undying",  amount: 1,  weight: 16,  name: "§aTotem",      rare: true },
+            { id: "cc:bear_spawn_egg",           amount: 1,  weight: 1,   name: "§6Bear Egg",   rare: true },
+            { id: "cc:owl_spawn_egg",            amount: 1,  weight: 1,   name: "§6Owl Egg",    rare: true },
+            { id: "cc:fox_spawn_egg",            amount: 1,  weight: 1,   name: "§6Fox Egg",    rare: true },
+            { id: "cc:moose_spawn_egg",          amount: 1,  weight: 1,   name: "§6Moose Egg",  rare: true },
+        ],
+    },
+    // Epica 100g — eggs ~1% chance
+    epica: {
+        cost: 100, pityMax: 6, pityObj: "pity_epi", label: "§dEpica",
+        items: [
+            { id: "cc:ruby",                    amount: 50,  weight: 32,  name: "50 Gems" },
+            { id: "minecraft:diamond",           amount: 4,   weight: 28,  name: "Diamonds x4" },
+            { id: "minecraft:netherite_ingot",   amount: 1,   weight: 32,  name: "§6Netherite Ingot", rare: true },
+            { id: "_book_mending",               amount: 1,   weight: 28,  name: "§6Mending Book", rare: true,
+              special: { typeId: "minecraft:enchanted_book", enchants: { mending: 1 } } },
+            { id: "cc:ruby",                    amount: 100, weight: 24,  name: "§a100 Gems",  rare: true },
+            { id: "minecraft:totem_of_undying",  amount: 2,   weight: 20,  name: "§aTotem x2", rare: true },
+            { id: "_book_silk",                  amount: 1,   weight: 16,  name: "§aSilk Touch", rare: true,
+              special: { typeId: "minecraft:enchanted_book", enchants: { silk_touch: 1 } } },
+            { id: "cc:eagle_spawn_egg",          amount: 1,   weight: 1,   name: "§bEagle Egg",     rare: true },
+            { id: "cc:shark_spawn_egg",          amount: 1,   weight: 1,   name: "§bShark Egg",     rare: true },
+            { id: "cc:elephant_spawn_egg",       amount: 1,   weight: 1,   name: "§bElephant Egg",  rare: true },
+            { id: "cc:orangutan_spawn_egg",      amount: 1,   weight: 1,   name: "§bOrangutan Egg", rare: true },
+        ],
+    },
+    // Leggendaria 200g — eggs ~1% chance
+    leggendaria: {
+        cost: 200, pityMax: 5, pityObj: "pity_leg", label: "§6Leggendaria",
+        items: [
+            { id: "cc:ruby",                    amount: 100, weight: 32,  name: "100 Gems" },
+            { id: "minecraft:diamond",           amount: 6,   weight: 28,  name: "Diamonds x6" },
+            { id: "minecraft:netherite_ingot",   amount: 2,   weight: 28,  name: "§6Netherite Ingot x2", rare: true },
+            { id: "_book_mending",               amount: 1,   weight: 24,  name: "§6Mending Book", rare: true,
+              special: { typeId: "minecraft:enchanted_book", enchants: { mending: 1 } } },
+            { id: "minecraft:elytra",            amount: 1,   weight: 20,  name: "§c§lElytra",           rare: true },
+            { id: "minecraft:nether_star",       amount: 1,   weight: 16,  name: "§fNether Star",         rare: true },
+            { id: "_sword_of_darkness",          amount: 1,   weight: 16,  name: "§5§lSword of Darkness", rare: true,
+              special: { typeId: "minecraft:netherite_sword", enchants: { sharpness: 5, fire_aspect: 2, looting: 3, unbreaking: 3, mending: 1 } } },
+            { id: "minecraft:beacon",            amount: 1,   weight: 12,  name: "§e§lBeacon",    rare: true },
+            { id: "cc:ruby",                    amount: 200, weight: 12,  name: "§a200 Gems",     rare: true },
+            { id: "minecraft:dragon_egg",        amount: 1,   weight: 4,   name: "§4§lDragon Egg", rare: true },
+            { id: "cc:whale_spawn_egg",          amount: 1,   weight: 1,   name: "§bWhale Egg",    rare: true },
+            { id: "cc:cassowary_spawn_egg",      amount: 1,   weight: 1,   name: "§bCassowary Egg",rare: true },
+            { id: "cc:crocodile_spawn_egg",      amount: 1,   weight: 1,   name: "§2Crocodile Egg",rare: true },
+            { id: "cc:scorpion_spawn_egg",       amount: 1,   weight: 1,   name: "§4Scorpion Egg", rare: true },
+            { id: "cc:hermit_spawn_egg",         amount: 1,   weight: 1,   name: "§9Hermit Egg",   rare: true },
+            { id: "minecraft:warden_spawn_egg",  amount: 1,   weight: 1,   name: "§4§lWarden Egg", rare: true },
+        ],
+    },
+};
+
+// ── RANKS ────────────────────────────────────────────────────────────────────
+
+const RANKS = [
+    { min: 0,  name: "Straniero",    color: "§7" },
+    { min: 3,  name: "Avventuriero", color: "§e" },
+    { min: 8,  name: "Cacciatore",   color: "§6" },
+    { min: 15, name: "Veterano",     color: "§9" },
+    { min: 25, name: "Leggenda",     color: null  },
+];
+const RAINBOW = ["§c","§6","§e","§a","§b","§9","§d"];
+
+function getRank(pts) {
+    let r = RANKS[0];
+    for (const rank of RANKS) if (pts >= rank.min) r = rank;
+    return r;
+}
 
 // ── QUESTS ────────────────────────────────────────────────────────────────────
 
 const QUESTS = {
     // Cultista
-    taglialegna:     { name: "Il Taglialegna",         name_en: "The Woodcutter",        reward: 4,  npc: "Cultista" },
-    ossa:            { name: "Commissione delle Ossa",  name_en: "Bone Commission",       reward: 6,  npc: "Cultista" },
-    sfama:           { name: "Sfama il Culto",          name_en: "Feed the Cult",         reward: 5,  npc: "Cultista" },
-    buio:            { name: "Nel Buio",                name_en: "In the Dark",           reward: 5,  npc: "Cultista" },
-    creeper:         { name: "La Minaccia Verde",       name_en: "The Green Threat",      reward: 4,  npc: "Cultista" },
-    cultista_giorn:  { name: "Offerta al Culto",        name_en: "Cult Offering",         reward: 1,  npc: "Cultista" },
-    // Cultista avanzato
-    niss_anime:      { name: "Anime Perdute",           name_en: "Lost Souls",            reward: 16, npc: "Cultista" },
-    niss_piglin:     { name: "Sangue del Nether",       name_en: "Nether Blood",          reward: 24, npc: "Cultista" },
-    niss_sacrificio: { name: "Il Sacrificio",           name_en: "The Sacrifice",         reward: 28, npc: "Cultista" },
-    niss_wither:     { name: "Il Rito Finale",          name_en: "The Final Ritual",      reward: 45, npc: "Cultista" },
-    // Pescatore
-    piero_pesce:     { name: "Il Primo Sgarro",         name_en: "The First Catch",       reward: 1,  npc: "Old Piero" },
-    piero_salmone:   { name: "Sapori Amari",            name_en: "Bitter Flavors",        reward: 6,  npc: "Old Piero" },
-    piero_tropicale: { name: "La Vendetta Inizia",      name_en: "Revenge Begins",        reward: 9,  npc: "Old Piero" },
-    // Pescatore avanzato
-    piero_prismarina: { name: "Tesori dell'Oceano",     name_en: "Ocean Treasures",       reward: 20, npc: "Old Piero" },
-    piero_guardiani:  { name: "La Resa dei Conti",      name_en: "The Reckoning",         reward: 18, npc: "Old Piero" },
-    piero_tridente:   { name: "L'Arma",                 name_en: "The Weapon",            reward: 22, npc: "Old Piero" },
-    piero_elder:      { name: "Il Guardiano Antico",    name_en: "The Elder Guardian",    reward: 35, npc: "Old Piero" },
-    // Cacciatrice
-    elena_zombie:    { name: "La Prima Prova",           name_en: "The First Trial",      reward: 4,  npc: "Elena" },
-    elena_scheletri: { name: "Ossa di Ferro",            name_en: "Iron Bones",           reward: 7,  npc: "Elena" },
-    elena_vacche:    { name: "Per il Villaggio",         name_en: "For the Village",      reward: 5,  npc: "Elena" },
-    elena_polli:     { name: "Cena Garantita",           name_en: "Guaranteed Dinner",    reward: 1,  npc: "Elena" },
-    // Cacciatrice avanzato
-    elena_blaze:     { name: "Fuoco e Sangue",           name_en: "Fire and Blood",       reward: 16, npc: "Elena" },
-    elena_wither_sk: { name: "Ossa Nere",                name_en: "Black Bones",          reward: 22, npc: "Elena" },
-    elena_phantom:   { name: "Notte Senza Fine",         name_en: "Endless Night",        reward: 20, npc: "Elena" },
-    elena_wither:    { name: "La Caccia Finale",         name_en: "The Final Hunt",       reward: 40, npc: "Elena" },
-    // Costruttore
-    marco_ciottoli:  { name: "Fondamenta Solide",        name_en: "Solid Foundations",    reward: 4,  npc: "Marco" },
-    marco_quercia:   { name: "Travi di Quercia",         name_en: "Oak Beams",            reward: 5,  npc: "Marco" },
-    marco_carbone:   { name: "Luci per Tutti",           name_en: "Lights for All",       reward: 1,  npc: "Marco" },
-    marco_ghiaia:    { name: "Lastricato",               name_en: "Cobblestone Path",     reward: 3,  npc: "Marco" },
-    // Costruttore avanzato
-    marco_ferro_oro:  { name: "Struttura Solida",        name_en: "Solid Structure",      reward: 18, npc: "Marco" },
-    marco_ossidiana:  { name: "Fondamenta Eterne",       name_en: "Eternal Foundations",  reward: 20, npc: "Marco" },
-    marco_nether:     { name: "Dal Nether",              name_en: "From the Nether",      reward: 16, npc: "Marco" },
-    marco_netherite:  { name: "Il Materiale Raro",       name_en: "The Rare Material",    reward: 40, npc: "Marco" },
-    // Decoratrice
-    sofia_fiori:     { name: "Giardino in Fiore",        name_en: "Blooming Garden",      reward: 1,  npc: "Sofia" },
-    sofia_lana:      { name: "Calore e Colore",          name_en: "Warmth and Color",     reward: 5,  npc: "Sofia" },
-    sofia_colorante: { name: "La Tavolozza",             name_en: "The Palette",          reward: 4,  npc: "Sofia" },
-    sofia_bamboo:    { name: "Angolo Verde",             name_en: "Green Corner",         reward: 1,  npc: "Sofia" },
-    // Decoratrice avanzato
-    sofia_vetro_glow:    { name: "Vetrate Luminose",     name_en: "Glowing Windows",      reward: 16, npc: "Sofia" },
-    sofia_sculk:         { name: "Dal Profondo",         name_en: "From the Deep",        reward: 20, npc: "Sofia" },
-    sofia_prisma:        { name: "Tesori Marini",        name_en: "Marine Treasures",     reward: 18, npc: "Sofia" },
-    sofia_candele_miele: { name: "Luce e Dolcezza",      name_en: "Light and Sweetness",  reward: 22, npc: "Sofia" },
+    taglialegna:     { name: "The Woodcutter",      reward: 1,  npc: "Cultista" },
+    ossa:            { name: "Bone Commission",     reward: 1,  npc: "Cultista" },
+    sfama:           { name: "Feed the Cult",       reward: 1,  npc: "Cultista" },
+    buio:            { name: "In the Dark",         reward: 1,  npc: "Cultista" },
+    creeper:         { name: "The Green Threat",    reward: 1,  npc: "Cultista" },
+    // Cultista advanced
+    niss_anime:      { name: "Lost Souls",          reward: 1,  npc: "Cultista" },
+    niss_piglin:     { name: "Nether Blood",        reward: 1,  npc: "Cultista" },
+    niss_sacrificio: { name: "The Sacrifice",       reward: 1,  npc: "Cultista" },
+    niss_wither:     { name: "The Final Ritual",    reward: 1,  npc: "Cultista" },
+    // Fisherman
+    piero_pesce:     { name: "The First Catch",     reward: 1,  npc: "Old Piero" },
+    piero_salmone:   { name: "Bitter Flavors",      reward: 1,  npc: "Old Piero" },
+    piero_tropicale: { name: "Revenge Begins",      reward: 1,  npc: "Old Piero" },
+    // Fisherman advanced
+    piero_prismarina: { name: "Ocean Treasures",   reward: 1,  npc: "Old Piero" },
+    piero_guardiani:  { name: "The Reckoning",     reward: 1,  npc: "Old Piero" },
+    piero_tridente:   { name: "The Weapon",        reward: 1,  npc: "Old Piero" },
+    piero_elder:      { name: "The Elder Guardian",reward: 1,  npc: "Old Piero" },
+    // Hunter
+    elena_zombie:    { name: "The First Trial",     reward: 1,  npc: "Elena" },
+    elena_scheletri: { name: "Iron Bones",          reward: 1,  npc: "Elena" },
+    elena_vacche:    { name: "For the Village",     reward: 1,  npc: "Elena" },
+    elena_polli:     { name: "Guaranteed Dinner",   reward: 1,  npc: "Elena" },
+    // Hunter advanced
+    elena_blaze:     { name: "Fire and Blood",      reward: 1,  npc: "Elena" },
+    elena_wither_sk: { name: "Black Bones",         reward: 1,  npc: "Elena" },
+    elena_phantom:   { name: "Endless Night",       reward: 1,  npc: "Elena" },
+    elena_wither:    { name: "The Final Hunt",      reward: 1,  npc: "Elena" },
+    // Builder
+    marco_ciottoli:  { name: "Solid Foundations",   reward: 1,  npc: "Marco" },
+    marco_quercia:   { name: "Oak Beams",           reward: 1,  npc: "Marco" },
+    marco_carbone:   { name: "Lights for All",      reward: 1,  npc: "Marco" },
+    marco_ghiaia:    { name: "Cobblestone Path",    reward: 1,  npc: "Marco" },
+    // Builder advanced
+    marco_ferro_oro:  { name: "Solid Structure",    reward: 1,  npc: "Marco" },
+    marco_ossidiana:  { name: "Eternal Foundations",reward: 1,  npc: "Marco" },
+    marco_nether:     { name: "From the Nether",    reward: 1,  npc: "Marco" },
+    marco_netherite:  { name: "The Rare Material",  reward: 1,  npc: "Marco" },
+    // Decorator
+    sofia_fiori:     { name: "Blooming Garden",     reward: 1,  npc: "Sofia" },
+    sofia_lana:      { name: "Warmth and Color",    reward: 1,  npc: "Sofia" },
+    sofia_colorante: { name: "The Palette",         reward: 1,  npc: "Sofia" },
+    sofia_bamboo:    { name: "Green Corner",        reward: 1,  npc: "Sofia" },
+    // Decorator advanced
+    sofia_vetro_glow:    { name: "Glowing Windows",    reward: 1,  npc: "Sofia" },
+    sofia_sculk:         { name: "From the Deep",      reward: 1,  npc: "Sofia" },
+    sofia_prisma:        { name: "Marine Treasures",   reward: 1,  npc: "Sofia" },
+    sofia_candele_miele: { name: "Light and Sweetness",reward: 1,  npc: "Sofia" },
 };
 
 // Kill-tracked quests: quest key → scoreboard objective ID
@@ -281,26 +474,26 @@ const SCORE_OBJ = {
 // ── FLAVOUR ───────────────────────────────────────────────────────────────────
 
 const FRASI_DEL_GIORNO = [
-    "Scavare dritto verso il basso è stupido. Lo sai. Lo fai lo stesso.",
-    "La miniera chiama. La miniera puzza. Ci vai comunque.",
-    "Y=-58. L'unico posto dove trovi diamanti e la volontà di vivere.",
-    "Hai mangiato qualcosa di strano nel Nether. Il tuo intestino lo sa già.",
-    "Dirreah Village: il nome era un avvertimento. Nessuno ha capito.",
-    "Il creeper è esploso. L'inventario piange. Il culo trema.",
-    "Stai scavando da 2 ore. Hai trovato 3 sassi e una depressione.",
-    "La lava sotto i tuoi piedi è calda quasi quanto il tuo stomaco dopo il Nether.",
-    "Ogni diamante trovato è una bugia che ti racconti per continuare a scavare.",
-    "Sei caduto nella cacca di un villager. Benvenuto in Minecraft.",
-    "Il tunnel che hai scavato porta dove non volevi. Come sempre.",
-    "Hai bisogno di ferro. Hai trovato granito. 64 volte.",
-    "Qualcuno ha costruito una casa sopra una miniera abbandonata piena di gas. Sei tu.",
-    "Scavare il marmo fa schifo. Scavare la ghiaia fa più schifo. Fallo lo stesso.",
-    "Il Nether non puzza. Sei tu che puzzi. Il Nether ti giudica.",
-    "Hai perso i diamanti nella lava. Momento di elaborazione del lutto: ora.",
-    "Una skeleton ti ha sparato mentre eri in bagno. Karma.",
-    "Dirreah non è solo un villaggio. È uno stato mentale. E uno stomaco.",
-    "Sei sopravvissuto alla notte. Il tuo intestino non ha avuto la stessa fortuna.",
-    "Il suono della pioggia in Minecraft è rilassante. Il suono della diarrea no.",
+    "Digging straight down is stupid. You know it. You do it anyway.",
+    "The mine calls. The mine stinks. You go anyway.",
+    "Y=-58. The only place where you find diamonds and the will to live.",
+    "You ate something weird in the Nether. Your gut already knows.",
+    "Dirreah Village: the name was a warning. Nobody got it.",
+    "The creeper exploded. The inventory weeps. Your hands tremble.",
+    "You've been digging for 2 hours. You found 3 rocks and a depression.",
+    "The lava under your feet is almost as hot as your stomach after the Nether.",
+    "Every diamond found is a lie you tell yourself to keep digging.",
+    "You fell into a villager's pit. Welcome to Minecraft.",
+    "The tunnel you dug leads where you didn't want. As always.",
+    "You need iron. You found granite. 64 times.",
+    "Someone built a house above an abandoned mine full of gas. That's you.",
+    "Mining marble sucks. Mining gravel sucks more. Do it anyway.",
+    "The Nether doesn't stink. You stink. The Nether judges you.",
+    "You lost your diamonds in lava. Grief processing time: now.",
+    "A skeleton shot you while you were AFK. Karma.",
+    "Dirreah isn't just a village. It's a state of mind. And a stomach.",
+    "You survived the night. Your inventory wasn't so lucky.",
+    "The sound of rain in Minecraft is relaxing. The sound of creepers is not.",
 ];
 
 const HAPPY_HOURS = [
@@ -321,9 +514,7 @@ let happyHourActive = false;
 const lastDeathLocation = new Map(); // playerName -> { x, y, z, dimensionId }
 const sessionStart     = new Map(); // playerName -> timestamp (ms)
 
-const REPEATABLE_QUESTS = new Set([
-    "elena_polli", "piero_pesce", "marco_carbone", "sofia_fiori", "sofia_bamboo", "cultista_giorn"
-]);
+const REPEATABLE_QUESTS = new Set();
 
 const QUEST_GROUPS = {
     cultista:    { npcTag: "cultista",    base: ["taglialegna","ossa","sfama","buio","creeper"],                                                adv: { tag: "cultista_avanzato",   quests: ["niss_anime","niss_piglin","niss_sacrificio","niss_wither"] } },
@@ -348,10 +539,12 @@ system.run(() => {
     for (const id of Object.values(SCORE_OBJ)) {
         try { world.scoreboard.addObjective(id, id); } catch {}
     }
-    try { world.scoreboard.addObjective("quest_punti",  "§eQuest Completate"); } catch {}
-    try { world.scoreboard.addObjective("pvp_kills",    "§cKill PvP"); } catch {}
-    try { world.scoreboard.addObjective("pvp_deaths",  "§7Morti PvP"); } catch {}
-    try { world.scoreboard.addObjective("total_deaths","§cMorti Totali"); } catch {}
+    try { world.scoreboard.addObjective("quest_punti",  "§eQuests Completed"); } catch {}
+    try { world.scoreboard.addObjective("pvp_kills",    "§cPvP Kills"); } catch {}
+    try { world.scoreboard.addObjective("pvp_deaths",  "§7PvP Deaths"); } catch {}
+    try { world.scoreboard.addObjective("total_deaths","§cTotal Deaths"); } catch {}
+    for (const obj of ["pity_bas","pity_com","pity_rar","pity_epi","pity_leg"])
+        try { world.scoreboard.addObjective(obj, obj); } catch {}
     try {
         world.scoreboard.setDisplayAtDisplaySlot("sidebar", {
             objective: world.scoreboard.getObjective("quest_punti")
@@ -359,17 +552,44 @@ system.run(() => {
     } catch {}
 });
 
+// ── BOOT NPC RESET ────────────────────────────────────────────────────────────
+const BOOT_RESETS = [
+    ["mrfrancesco", "shop_main"],
+    ["contadina",   "contadina_main"],
+    ["alchimista",  "alchimista_main"],
+    ["fabbro",      "fabbro_main"],
+    ["ovaiolo",     "ovaiolo_main"],
+    ["pescatore",   "pescatore_intro"],
+    ["cultista",    "cultista_intro"],
+    ["costruttore", "costruttore_intro"],
+    ["decoratrice", "decoratrice_intro"],
+    ["cacciatrice", "cacciatrice_intro"],
+    ["custode",     "custode_intro"],
+    ["biscazziere", "biscazziere_main"],
+];
+let _bootResetDone = false;
+
 // ── EVENTS ────────────────────────────────────────────────────────────────────
 
 world.afterEvents.playerSpawn.subscribe((ev) => {
     if (!ev.initialSpawn) return;
+    if (!_bootResetDone) {
+        _bootResetDone = true;
+        system.runTimeout(() => {
+            const dim = world.getDimension("overworld");
+            try { dim.runCommand("scoreboard objectives setdisplay sidebar quest_punti descending"); } catch {}
+            for (const [tag, scene] of BOOT_RESETS) {
+                try { dim.runCommand(`dialogue change @e[tag=${tag}] ${scene}`); } catch {}
+            }
+        }, 60); // ~3 second delay for chunks to load
+    }
     sessionStart.set(ev.player.name, Date.now());
     system.runTimeout(() => updateNameTag(ev.player), 20);
     const online = world.getAllPlayers().length;
-    world.sendMessage(`§a[Server] §f${ev.player.name} è entrato. §7(${online} online)`);
-    if (online === 1) ev.player.sendMessage("§7Sei solo. Il server è tuo.");
+    world.sendMessage(`§a[Server] §f${ev.player.name} joined. §7(${online} online)`);
+    if (online === 1) ev.player.sendMessage("§7You're alone. The server is yours.");
     const frase = FRASI_DEL_GIORNO[Math.floor(Date.now() / 86400000) % FRASI_DEL_GIORNO.length];
-    ev.player.sendMessage(`§7[Frase del giorno] §f${frase}`);
+    ev.player.sendMessage(`§7[Quote of the Day] §f${frase}`);
 });
 
 world.afterEvents.playerLeave.subscribe((ev) => {
@@ -379,7 +599,7 @@ world.afterEvents.playerLeave.subscribe((ev) => {
     const h  = Math.floor(ms / 3600000);
     const m  = Math.floor((ms % 3600000) / 60000);
     const t  = h > 0 ? `${h}h ${m}m` : `${m}m`;
-    world.sendMessage(`§7[Server] §f${ev.playerName} ha giocato per §e${t}§f questa sessione.`);
+    world.sendMessage(`§7[Server] §f${ev.playerName} played for §e${t}§f this session.`);
     sessionStart.delete(ev.playerName);
 });
 
@@ -387,15 +607,15 @@ world.afterEvents.playerLeave.subscribe((ev) => {
 const MOB_KILL_OBJS = ["q_el_zombie", "q_creeper", "q_ossa", "q_el_scheletri"];
 
 const MOB_QUIP = {
-    "minecraft:zombie":     ["§a⚔ §2ADDIO ZOMBIE! §r§7I morti devono stare morti.", "§2ZOMBIE PURIFICATI! §7Il villaggio respira."],
-    "minecraft:skeleton":   ["§7💀 §fSCHELETRI DISSOLTI! §7Le ossa tornano alla terra.", "§8CLAC CLAC... §7niente. §fScheletri eliminati!"],
-    "minecraft:creeper":    ["§a§lSSSSS— §r§2PUFF! §7Addio Creeper, niente esplosioni oggi.", "§2CREEPER ANNIENTATI! §7Il terreno è salvo."],
-    "minecraft:spider":     ["§8🕷 RAGNI SCHIACCIATI! §7La tela è vuota.", "§8Addio ragni! §7Oggi niente morsi velenosi."],
-    "minecraft:enderman":   ["§5ENDERMAN SCOMPARSI! §7Il buio è silenzioso.", "§5Addio Enderman! §8...non guardateli negli occhi."],
-    "minecraft:drowned":    ["§bANNEGATI RIMOSSI! §7Il mare torna pulito.", "§3Bolla bolla bolla... §bAddio Annegati!"],
-    "minecraft:witch":      ["§d🧙 STREGHE DISSOLTE! §7Niente più pozioni.", "§dCacca cacca cacca! §7Le streghe se ne sono andate."],
-    "minecraft:phantom":    ["§1👻 PHANTOM SVANITI! §7Il cielo è libero.", "§1Addio Phantom! §7Dormite di più ragazzi."],
-    "minecraft:pillager":   ["§c🏹 SACCHEGGIATORI CACCIATI! §7Il villaggio è al sicuro.", "§cADDIO PILLAGER! §8TOOOT— §7silenzio."],
+    "minecraft:zombie":     ["§a⚔ §2GOODBYE ZOMBIES! §r§7The dead should stay dead.", "§2ZOMBIES PURGED! §7The village breathes again."],
+    "minecraft:skeleton":   ["§7💀 §fSKELETONS DISSOLVED! §7Bones return to the earth.", "§8CLACK CLACK... §7nothing. §fSkeletons eliminated!"],
+    "minecraft:creeper":    ["§a§lSSSSS— §r§2PUFF! §7Goodbye Creeper, no explosions today.", "§2CREEPERS ANNIHILATED! §7The ground is safe."],
+    "minecraft:spider":     ["§8🕷 SPIDERS SQUASHED! §7The web is empty.", "§8Goodbye spiders! §7No venomous bites today."],
+    "minecraft:enderman":   ["§5ENDERMEN GONE! §7The darkness is silent.", "§5Goodbye Endermen! §8...don't look them in the eyes."],
+    "minecraft:drowned":    ["§bDROWNED REMOVED! §7The sea is clean again.", "§3Bubble bubble bubble... §bGoodbye Drowned!"],
+    "minecraft:witch":      ["§d🧙 WITCHES DISSOLVED! §7No more potions.", "§dCackle cackle cackle! §7The witches are gone."],
+    "minecraft:phantom":    ["§1👻 PHANTOMS VANISHED! §7The sky is free.", "§1Goodbye Phantoms! §7Sleep more, people."],
+    "minecraft:pillager":   ["§c🏹 PILLAGERS DRIVEN OFF! §7The village is safe.", "§cGOODBYE PILLAGERS! §8TOOT— §7silence."],
 };
 
 function doMobReset() {
@@ -411,7 +631,7 @@ function doMobReset() {
             try { world.scoreboard.getObjective(objId)?.setScore(player, 0); } catch {}
         }
         if (reset.length > 0)
-            player.sendMessage(`§c[Reset] §fI tuoi contatori sono stati azzerati: §e${reset.join(", ")}`);
+            player.sendMessage(`§c[Reset] §fYour counters have been reset: §e${reset.join(", ")}`);
     }
 
     // Purga casuale: 1-3 tipi di mob random
@@ -429,21 +649,21 @@ function doMobReset() {
         if (killed > 0) {
             const quips = MOB_QUIP[mob.type];
             const quip = quips[Math.floor(Math.random() * quips.length)];
-            world.sendMessage(quip + ` §8(${killed} eliminati)`);
+            world.sendMessage(quip + ` §8(${killed} eliminated)`);
         }
     }
 
     if (totalKilled === 0)
-        world.sendMessage("§7[Purga] §fNessun mob trovato. Il mondo è tranquillo... per ora.");
+        world.sendMessage("§7[Purge] §fNo mobs found. The world is peaceful... for now.");
 
     scheduleMobReset();
 }
 
 function mobResetCountdown(sec) {
     if (sec === 3)
-        world.sendMessage("§c§l⚠ §r§7Purga in arrivo tra §c3 secondi§7! I mob non avranno scampo.");
+        world.sendMessage("§c§l⚠ §r§7Purge incoming in §c3 seconds§7! Mobs have nowhere to run.");
     else
-        world.sendMessage(`§c[Purga] §7... §e${sec}§7 ...`);
+        world.sendMessage(`§c[Purge] §7... §e${sec}§7 ...`);
     if (sec <= 1) { system.runTimeout(doMobReset, 20); return; }
     system.runTimeout(() => mobResetCountdown(sec - 1), 20);
 }
@@ -465,17 +685,17 @@ function doItemCleanup() {
             for (const e of items) try { e.remove(); } catch {}
         } catch {}
     }
-    world.sendMessage(`§6[Cleanup] §fRimossi §e${count}§f oggetti dal suolo.`);
+    world.sendMessage(`§6[Cleanup] §fRemoved §e${count}§f items from the ground.`);
     scheduleItemCleanup();
 }
 
 function itemCleanupCountdown(sec) {
     if (sec === 30) {
-        world.sendMessage(`§6[Cleanup] §eATTENZIONE! §fGli oggetti a terra verranno rimossi tra §e30 secondi§f! Raccoglieteli!`);
-        system.runTimeout(() => itemCleanupCountdown(10), 400); // aspetta 20s poi parte il conto alla rovescia
+        world.sendMessage(`§6[Cleanup] §eWARNING! §fGround items will be removed in §e30 seconds§f! Pick them up!`);
+        system.runTimeout(() => itemCleanupCountdown(10), 400);
         return;
     }
-    world.sendMessage(`§6[Cleanup] §fRimozione oggetti tra §e${sec}§f secondi...`);
+    world.sendMessage(`§6[Cleanup] §fItem removal in §e${sec}§f seconds...`);
     if (sec <= 1) { system.runTimeout(doItemCleanup, 20); return; }
     system.runTimeout(() => itemCleanupCountdown(sec - 1), 20);
 }
@@ -483,7 +703,7 @@ function itemCleanupCountdown(sec) {
 function scheduleItemCleanup() {
     const ticks = Math.floor(Math.random() * 72000) + 72000; // 72000-144000 tick = 1-2 ore
     system.runTimeout(() => {
-        world.sendMessage("§6[Cleanup] §eATTENZIONE! §fGli oggetti a terra verranno rimossi tra §e10 minuti§f! Raccoglieteli!");
+        world.sendMessage("§6[Cleanup] §eWARNING! §fGround items will be removed in §e10 minutes§f! Pick them up!");
         system.runTimeout(() => itemCleanupCountdown(30), 11400); // 9m30s → poi parte countdown 30s
     }, ticks);
 }
@@ -504,10 +724,10 @@ system.runInterval(() => {
     const active = isHappyHour();
     if (active && !happyHourActive) {
         happyHourActive = true;
-        world.sendMessage("§6[Ora Felice] §fXP doppio attivo! Uccidi mob per bonus XP.");
+        world.sendMessage("§6[Happy Hour] §fDouble XP active! Kill mobs for bonus XP.");
     } else if (!active && happyHourActive) {
         happyHourActive = false;
-        world.sendMessage("§7[Ora Felice] §fFinita. Alla prossima!");
+        world.sendMessage("§7[Happy Hour] §fOver. See you next time!");
     }
 }, 200);
 
@@ -516,7 +736,7 @@ world.afterEvents.itemUse.subscribe((ev) => {
     const { source: player, itemStack: item } = ev;
     if (item.typeId === "minecraft:compass") {
         system.runTimeout(() => openDashboard(player), 1);
-    } else if (item.typeId === "minecraft:book" && item.nameTag === "§eLibro delle Missioni") {
+    } else if (item.typeId === "minecraft:book" && item.nameTag === "§eQuest Book") {
         system.runTimeout(() => openDashboard(player), 1);
     }
 });
@@ -539,21 +759,21 @@ system.runInterval(() => {
     if (sleeping >= needed) {
         nightSkipped = true;
         world.getDimension("overworld").runCommand("time set day");
-        world.sendMessage(`§7[Notte] §f${sleeping}/${players.length} giocatori dormono. §eAlba anticipata!`);
+        world.sendMessage(`§7[Night] §f${sleeping}/${players.length} players sleeping. §eEarly dawn!`);
     }
 }, 100);
 
-// Track: Taglialegna (32 oak_log)
+// Track: Taglialegna (64 oak_log)
 world.afterEvents.playerBreakBlock.subscribe((ev) => {
     const { player, brokenBlockPermutation } = ev;
     if (!player.hasTag("q_taglialegna") || brokenBlockPermutation.type.id !== "minecraft:oak_log") return;
     const obj = world.scoreboard.getObjective("q_taglialegna");
     const n = getScore(obj, player) + 1;
-    if (n > 32) return;
+    if (n > 64) return;
     obj.setScore(player, n);
-    player.sendMessage(n >= 32
-        ? "§5[Cultista] 32 tronchi tagliati. Torna da me."
-        : `§7[Quest] Tronchi: ${n}/32`
+    player.sendMessage(n >= 64
+        ? "§5[Cultista] 64 logs cut. Come back to me."
+        : `§7[Quest] Logs: ${n}/64`
     );
 });
 
@@ -587,21 +807,21 @@ world.afterEvents.entityDie.subscribe((ev) => {
         const deathObj = world.scoreboard.getObjective("pvp_deaths");
         killObj.setScore(player, getScore(killObj, player) + 1);
         deathObj.setScore(dead, getScore(deathObj, dead) + 1);
-        world.sendMessage(`§c[PvP] §f${player.name} ha eliminato ${dead.name}!`);
+        world.sendMessage(`§c[PvP] §f${player.name} eliminated ${dead.name}!`);
     }
-    trackKill(player, deadType, "minecraft:skeleton",       "q_ossa",         10, "§5[Cultista]", "Scheletri");
-    trackKill(player, deadType, "minecraft:creeper",        "q_creeper",       5, "§5[Cultista]", "Creeper");
-    trackKill(player, deadType, "minecraft:zombie",         "q_el_zombie",     8, "§6[Elena]",    "Zombie");
-    trackKill(player, deadType, "minecraft:skeleton",       "q_el_scheletri", 10, "§6[Elena]",    "Scheletri");
-    trackKill(player, deadType, "minecraft:cow",            "q_el_vacche",     5, "§6[Elena]",    "Vacche");
-    trackKill(player, deadType, "minecraft:chicken",        "q_el_polli",      8, "§6[Elena]",    "Polli");
-    trackKill(player, deadType, "minecraft:guardian",       "q_piero_guard",   5, "§b[Old Piero]","Guardiani");
-    trackKill(player, deadType, "minecraft:elder_guardian", "q_piero_elder",   1, "§b[Old Piero]","Guardiano Antico");
-    trackKill(player, deadType, "minecraft:blaze",          "q_el_blaze",     10, "§6[Elena]",    "Blaze");
-    trackKill(player, deadType, "minecraft:wither_skeleton","q_el_wsk",        8, "§6[Elena]",    "Scheletri Wither");
-    trackKill(player, deadType, "minecraft:phantom",        "q_el_phantom",    8, "§6[Elena]",    "Phantom");
+    trackKill(player, deadType, "minecraft:skeleton",       "q_ossa",         25, "§5[Cultista]", "Skeletons");
+    trackKill(player, deadType, "minecraft:creeper",        "q_creeper",      15, "§5[Cultista]", "Creepers");
+    trackKill(player, deadType, "minecraft:zombie",         "q_el_zombie",    20, "§6[Elena]",    "Zombies");
+    trackKill(player, deadType, "minecraft:skeleton",       "q_el_scheletri", 25, "§6[Elena]",    "Skeletons");
+    trackKill(player, deadType, "minecraft:cow",            "q_el_vacche",    15, "§6[Elena]",    "Cows");
+    trackKill(player, deadType, "minecraft:chicken",        "q_el_polli",     15, "§6[Elena]",    "Chickens");
+    trackKill(player, deadType, "minecraft:guardian",       "q_piero_guard",  12, "§b[Old Piero]","Guardians");
+    trackKill(player, deadType, "minecraft:elder_guardian", "q_piero_elder",   1, "§b[Old Piero]","Elder Guardian");
+    trackKill(player, deadType, "minecraft:blaze",          "q_el_blaze",     25, "§6[Elena]",    "Blazes");
+    trackKill(player, deadType, "minecraft:wither_skeleton","q_el_wsk",       20, "§6[Elena]",    "Wither Skeletons");
+    trackKill(player, deadType, "minecraft:phantom",        "q_el_phantom",   15, "§6[Elena]",    "Phantoms");
     trackKill(player, deadType, "minecraft:wither",         "q_el_wither",     1, "§6[Elena]",    "Wither");
-    trackKill(player, deadType, "minecraft:piglin_brute",   "q_niss_piglin",   8, "§5[Niss]",     "Piglin Brute");
+    trackKill(player, deadType, "minecraft:piglin_brute",   "q_niss_piglin",  15, "§5[Niss]",     "Piglin Brutes");
     trackKill(player, deadType, "minecraft:wither",         "q_niss_wither",   1, "§5[Niss]",     "Wither");
 });
 
@@ -611,7 +831,7 @@ system.runInterval(() => {
         if (!player.hasTag("q_buio") || player.hasTag("q_buio_ready")) continue;
         if (player.location.y <= 30) {
             player.addTag("q_buio_ready");
-            player.sendMessage("§5[Cultista] Sei sceso abbastanza. Torna da me.");
+            player.sendMessage("§5[Cultista] You've gone deep enough. Come back to me.");
         }
     }
 }, 40);
@@ -635,12 +855,6 @@ system.afterEvents.scriptEventReceive.subscribe((ev) => {
     if      (action === "accept")        acceptQuest(player, msg);
     else if (action === "deliver")       deliverQuest(player, msg);
     else if (action === "ritorno_morte") teleportToLastDeath(player);
-    else if (action === "lang_check") {
-        if (player.hasTag("sara")) {
-            const npc = ev.id.split(":")[0];
-            player.runCommand(`dialogue open @e[tag=${npc},r=5] @s ${npc}_intro_en`);
-        }
-    }
     else if (action === "missioni") {
         const npc = ev.id.split(":")[0];
         if (QUEST_GROUPS[npc]) system.runTimeout(() => openQuestForm(player, npc, false), 10);
@@ -661,60 +875,66 @@ system.afterEvents.scriptEventReceive.subscribe((ev) => {
     else if (ev.id === "alchimista:sellall")sellAll(player, SELL_ALCHIMISTA,"Maga Vera");
     else if (ev.id === "ovaiolo:sellall")   sellAll(player, SELL_OVAIOLO,   "Zio Beppe");
     else if (action === "riti_accesso") {
-        const en = player.hasTag("sara");
         if (player.hasTag("cultista_avanzato")) {
             system.runTimeout(() => openQuestForm(player, "cultista", true), 10);
         } else {
-            player.sendMessage(en
-                ? "§5[Cultist] §cYou are not yet worthy of the rites.\n§7Complete the trials first."
-                : "§5[Cultista] §cNon sei ancora degno dei riti.\n§7Completa prima le prove.");
+            player.sendMessage("§5[Cultist] §cYou are not yet worthy of the rites.\n§7Complete the trials first.");
         }
     }
     else if (action === "hub_accesso") {
         const npc = ev.id.split(":")[0];
-        const en  = player.hasTag("sara");
         const cfg = {
-            pescatore:   { tag: "piero_avanzato",       msg_it: "§b[Old Piero] §cNon te lo meriti ancora.\n§7Pesca per me prima.",                          msg_en: "§b[Old Piero] §cYou haven't earned it yet.\n§7Fish for me first." },
-            cacciatrice: { tag: "cacciatrice_avanzato", msg_it: "§6[Elena] §cNon sei ancora pronta.\n§7Dimostrami di saper cacciare.",                      msg_en: "§6[Elena] §cYou're not ready yet.\n§7Prove you can hunt." },
-            costruttore: { tag: "costruttore_avanzato", msg_it: "§9[Marco] §cI progetti avanzati non sono per te ancora.\n§7Portami i materiali base prima.", msg_en: "§9[Marco] §cAdvanced projects aren't for you yet.\n§7Bring me the basics first." },
-            decoratrice: { tag: "decoratrice_avanzato", msg_it: "§d[Sofia] §cNon ancora! Aiutami prima con le cose semplici.",                              msg_en: "§d[Sofia] §cNot yet! Help me with the simple things first." },
+            pescatore:   { tag: "piero_avanzato",       msg: "§b[Old Piero] §cYou haven't earned it yet.\n§7Fish for me first." },
+            cacciatrice: { tag: "cacciatrice_avanzato", msg: "§6[Elena] §cYou're not ready yet.\n§7Prove you can hunt." },
+            costruttore: { tag: "costruttore_avanzato", msg: "§9[Marco] §cAdvanced projects aren't for you yet.\n§7Bring me the basics first." },
+            decoratrice: { tag: "decoratrice_avanzato", msg: "§d[Sofia] §cNot yet! Help me with the simple things first." },
         }[npc];
         if (!cfg) return;
         if (player.hasTag(cfg.tag)) {
             system.runTimeout(() => openQuestForm(player, npc, true), 10);
         } else {
-            player.sendMessage(en ? cfg.msg_en : cfg.msg_it);
+            player.sendMessage(cfg.msg);
         }
     }
+    else if (ev.id === "slot:bet")   runSlot(player, parseInt(msg) || 0);
+    else if (ev.id === "slot:allin") runAllIn(player);
+    else if (ev.id === "slot:open")  system.runTimeout(() => openSlotBetPicker(player), 5);
+    else if (ev.id === "cassa:apri")         openCassa(player, msg);
+    else if (ev.id === "blackjack:start")    bjStart(player, parseInt(msg));
+    else if (ev.id === "blackjack:showhand") bjShowHand(player);
+    else if (ev.id === "blackjack:hit")      bjHit(player);
+    else if (ev.id === "blackjack:stand")    bjStand(player);
+    else if (ev.id === "blackjack:double")   bjDouble(player);
+    else if (ev.id === "blackjack:quit")     bjQuit(player);
     else if (action === "balance") {
-        const n = countItem(player, "minecraft:emerald");
-        player.onScreenDisplay.setActionBar(`§eGemme: §f${n} §6◆`);
+        const n = countItem(player, "cc:ruby");
+        player.onScreenDisplay.setActionBar(`§eRubies: §f${n} §c◆`);
     }
-}, { namespaces: ["cultista", "shop", "pescatore", "cacciatrice", "costruttore", "decoratrice", "fabbro", "contadina", "alchimista", "ovaiolo", "dashboard"] });
+}, { namespaces: ["cultista", "shop", "pescatore", "cacciatrice", "costruttore", "decoratrice", "fabbro", "contadina", "alchimista", "ovaiolo", "dashboard", "biscazziere", "slot", "cassa", "blackjack"] });
 
 // ── SHOP LOGIC ────────────────────────────────────────────────────────────────
 
 function showGems(player) {
-    const n = countItem(player, "minecraft:emerald");
-    player.onScreenDisplay.setActionBar(`§eGemme: §f${n} §6◆`);
+    const n = countItem(player, "cc:ruby");
+    player.onScreenDisplay.setActionBar(`§eRubies: §f${n} §c◆`);
 }
 
 function buyItem(player, itemId, shopMap, npcName) {
     const item = shopMap[itemId];
     if (!item) return;
-    const gemme = countItem(player, "minecraft:emerald");
+    const gemme = countItem(player, "cc:ruby");
     if (gemme < item.price) {
-        player.sendMessage(`§c[${npcName}] Non hai abbastanza gemme. Servono ${item.price}, ne hai ${gemme}.`);
+        player.sendMessage(`§c[${npcName}] Not enough gems. Need ${item.price}, you have ${gemme}.`);
         showGems(player);
         return;
     }
-    player.runCommand(`clear @s emerald 0 ${item.price}`);
+    player.runCommand(`clear @s cc:ruby 0 ${item.price}`);
     if (item.enchants) {
         giveSpecialItem(player, `minecraft:${item.typeId ?? itemId}`, item.name, item.enchants);
     } else {
         player.runCommand(`give @s ${itemId} ${item.amount}`);
     }
-    world.sendMessage(`§6[${npcName}] §f${player.name} ha comprato: §e${item.name}§f. -${item.price} gemme.`);
+    world.sendMessage(`§6[${npcName}] §f${player.name} bought: §e${item.name}§f. -${item.price} gems.`);
     showGems(player);
 }
 
@@ -724,14 +944,14 @@ function sellItem(player, itemId, sellMap, npcName) {
     const resolvedId = item.typeIds ? null : (itemId.includes(":") ? itemId : `minecraft:${itemId}`);
     const count = item.typeIds ? countItems(player, item.typeIds) : countItem(player, resolvedId);
     if (count < item.amount) {
-        player.sendMessage(`§c[${npcName}] Non hai abbastanza. Servono ${item.amount} ${item.name.split(" x")[0]}, ne hai ${count}.`);
+        player.sendMessage(`§c[${npcName}] Not enough. Need ${item.amount} ${item.name.split(" x")[0]}, you have ${count}.`);
         showGems(player);
         return;
     }
     if (item.typeIds) clearItems(player, item.typeIds, item.amount);
     else player.runCommand(`clear @s ${resolvedId} 0 ${item.amount}`);
-    player.runCommand(`give @s emerald ${item.reward}`);
-    player.sendMessage(`§6[${npcName}] §fVenduto: §e${item.name}§f. +${item.reward} gemme.`);
+    player.runCommand(`give @s cc:ruby ${item.reward}`);
+    player.sendMessage(`§6[${npcName}] §fSold: §e${item.name}§f. +${item.reward} gems.`);
     showGems(player);
 }
 
@@ -746,14 +966,14 @@ function sellAll(player, sellMap, npcName) {
         if (item.typeIds) { for (let i = 0; i < batches; i++) clearItems(player, item.typeIds, item.amount); }
         else player.runCommand(`clear @s ${resolvedId} 0 ${item.amount * batches}`);
         const reward = item.reward * batches;
-        player.runCommand(`give @s emerald ${reward}`);
+        player.runCommand(`give @s cc:ruby ${reward}`);
         totalGems += reward;
         sold.push(item.name.split(" x")[0]);
     }
     if (totalGems > 0) {
-        player.sendMessage(`§a[${npcName}] Venduto tutto: §f${sold.join(", ")}§a. Totale: §f+${totalGems} gemme!`);
+        player.sendMessage(`§a[${npcName}] Sold everything: §f${sold.join(", ")}§a. Total: §f+${totalGems} gems!`);
     } else {
-        player.sendMessage(`§c[${npcName}] Non hai niente da vendere.`);
+        player.sendMessage(`§c[${npcName}] You have nothing to sell.`);
     }
     showGems(player);
 }
@@ -762,41 +982,36 @@ function sellAll(player, sellMap, npcName) {
 
 function acceptQuest(player, quest) {
     if (!QUESTS[quest]) return;
-    const en = player.hasTag("sara");
     if (isQuestDone(player, quest)) {
         player.sendMessage(REPEATABLE_QUESTS.has(quest)
-            ? (en ? "§7You already completed this quest today. Come back tomorrow." : "§7Hai già completato questa missione oggi. Torna domani.")
-            : (en ? "§7You already completed this quest." : "§7Hai già completato questa missione."));
+            ? "§7You already completed this quest today. Come back tomorrow."
+            : "§7You already completed this quest.");
         return;
     }
     if (player.hasTag(`q_${quest}`)) {
-        const progress = getQuestProgress(player, quest, en);
+        const progress = getQuestProgress(player, quest);
         if (progress.done) {
             deliverQuest(player, quest);
         } else {
-            player.sendMessage(en ? `§6[In progress] §f${progress.text}` : `§6[In corso] §f${progress.text}`);
+            player.sendMessage(`§6[In progress] §f${progress.text}`);
         }
         return;
     }
     player.addTag(`q_${quest}`);
     if (SCORE_OBJ[quest]) world.scoreboard.getObjective(SCORE_OBJ[quest]).setScore(player, 0);
-    const qname  = en ? (QUESTS[quest].name_en || QUESTS[quest].name) : QUESTS[quest].name;
     const reward = QUESTS[quest].reward;
-    player.sendMessage(en
-        ? `§e[${QUESTS[quest].npc}] §fQuest accepted: §e${qname}§f  §6+${reward} ◆§f. Good luck!`
-        : `§e[${QUESTS[quest].npc}] §fMissione accettata: §e${qname}§f  §6+${reward} ◆§f. Buona fortuna!`);
+    player.sendMessage(`§e[${QUESTS[quest].npc}] §fQuest accepted: §e${QUESTS[quest].name}§f  §6+${reward} ◆§f. Good luck!`);
 }
 
 function deliverQuest(player, quest) {
     if (!QUESTS[quest]) return;
-    const en = player.hasTag("sara");
     if (!player.hasTag(`q_${quest}`)) {
-        player.sendMessage(en ? "§cYou don't have this quest active." : "§cNon hai questa missione attiva.");
+        player.sendMessage("§cYou don't have this quest active.");
         return;
     }
-    const progress = getQuestProgress(player, quest, en);
+    const progress = getQuestProgress(player, quest);
     if (!progress.done) {
-        player.sendMessage(en ? `§c[Incomplete] §f${progress.text}` : `§c[Incompleta] §f${progress.text}`);
+        player.sendMessage(`§c[Incomplete] §f${progress.text}`);
         return;
     }
 
@@ -812,42 +1027,41 @@ function deliverQuest(player, quest) {
     if (quest === "buio") player.removeTag("q_buio_ready");
 
     // Consume items for delivery quests
-    if (quest === "cultista_giorn")     player.runCommand("clear @s rotten_flesh 0 8");
-    if (quest === "sfama")              player.runCommand("clear @s bread 0 16");
-    if (quest === "piero_pesce")        player.runCommand("clear @s cod 0 10");
-    if (quest === "piero_salmone")      player.runCommand("clear @s salmon 0 8");
-    if (quest === "piero_tropicale")    player.runCommand("clear @s tropical_fish 0 6");
-    if (quest === "marco_ciottoli")     player.runCommand("clear @s cobblestone 0 64");
-    if (quest === "marco_quercia")      player.runCommand("clear @s oak_log 0 32");
-    if (quest === "marco_carbone")      player.runCommand("clear @s coal 0 16");
-    if (quest === "marco_ghiaia")       player.runCommand("clear @s gravel 0 32");
-    if (quest === "sofia_fiori")        clearItems(player, FLOWER_IDS, 16);
-    if (quest === "sofia_lana")         clearItems(player, WOOL_IDS, 8);
-    if (quest === "sofia_colorante")    clearItems(player, DYE_IDS, 6);
-    if (quest === "sofia_bamboo")       player.runCommand("clear @s bamboo 0 16");
-    // Avanzati - consuma item
-    if (quest === "piero_prismarina") { player.runCommand("clear @s prismarine 0 32"); player.runCommand("clear @s prismarine_crystals 0 8"); player.runCommand("clear @s ink_sac 0 8"); }
-    if (quest === "piero_tridente")   { player.runCommand("clear @s trident 0 1"); player.runCommand("clear @s nautilus_shell 0 4"); }
-    if (quest === "marco_ferro_oro")  { player.runCommand("clear @s iron_ingot 0 64"); player.runCommand("clear @s gold_ingot 0 32"); }
-    if (quest === "marco_ossidiana")  { player.runCommand("clear @s obsidian 0 32"); player.runCommand("clear @s crying_obsidian 0 8"); }
-    if (quest === "marco_nether")     { player.runCommand("clear @s nether_brick 0 32"); player.runCommand("clear @s quartz 0 16"); }
-    if (quest === "marco_netherite")  { player.runCommand("clear @s netherite_ingot 0 4"); }
-    if (quest === "sofia_vetro_glow") { clearItems(player, STAINED_GLASS_IDS, 32); player.runCommand("clear @s glowstone 0 16"); }
-    if (quest === "sofia_sculk")      { player.runCommand("clear @s sculk 0 16"); player.runCommand("clear @s sculk_sensor 0 4"); }
-    if (quest === "sofia_prisma")     { player.runCommand("clear @s prismarine_bricks 0 32"); player.runCommand("clear @s sea_lantern 0 16"); }
-    if (quest === "sofia_candele_miele") { clearItems(player, CANDLE_IDS, 16); player.runCommand("clear @s honeycomb 0 8"); player.runCommand("clear @s amethyst_shard 0 16"); }
-    if (quest === "niss_anime")       { player.runCommand("clear @s soul_sand 0 32"); player.runCommand("clear @s soul_soil 0 16"); }
-    if (quest === "elena_phantom")    player.runCommand("clear @s phantom_membrane 0 4");
-    if (quest === "niss_sacrificio")  { player.runCommand("clear @s totem_of_undying 0 1"); player.runCommand("clear @s ghast_tear 0 4"); }
+    if (quest === "sfama")              player.runCommand("clear @s bread 0 32");
+    if (quest === "piero_pesce")        player.runCommand("clear @s cod 0 20");
+    if (quest === "piero_salmone")      player.runCommand("clear @s salmon 0 20");
+    if (quest === "piero_tropicale")    player.runCommand("clear @s tropical_fish 0 15");
+    if (quest === "marco_ciottoli")     player.runCommand("clear @s cobblestone 0 128");
+    if (quest === "marco_quercia")      player.runCommand("clear @s oak_log 0 64");
+    if (quest === "marco_carbone")      player.runCommand("clear @s coal 0 32");
+    if (quest === "marco_ghiaia")       player.runCommand("clear @s gravel 0 64");
+    if (quest === "sofia_fiori")        clearItems(player, FLOWER_IDS, 32);
+    if (quest === "sofia_lana")         clearItems(player, WOOL_IDS, 24);
+    if (quest === "sofia_colorante")    clearItems(player, DYE_IDS, 16);
+    if (quest === "sofia_bamboo")       player.runCommand("clear @s bamboo 0 32");
+    // Advanced - consume items
+    if (quest === "piero_prismarina") { player.runCommand("clear @s prismarine 0 64"); player.runCommand("clear @s prismarine_crystals 0 16"); player.runCommand("clear @s ink_sac 0 16"); }
+    if (quest === "piero_tridente")   { player.runCommand("clear @s trident 0 1"); player.runCommand("clear @s nautilus_shell 0 8"); }
+    if (quest === "marco_ferro_oro")  { player.runCommand("clear @s iron_ingot 0 128"); player.runCommand("clear @s gold_ingot 0 64"); }
+    if (quest === "marco_ossidiana")  { player.runCommand("clear @s obsidian 0 64"); player.runCommand("clear @s crying_obsidian 0 16"); }
+    if (quest === "marco_nether")     { player.runCommand("clear @s nether_brick 0 64"); player.runCommand("clear @s quartz 0 32"); }
+    if (quest === "marco_netherite")  { player.runCommand("clear @s netherite_ingot 0 8"); }
+    if (quest === "sofia_vetro_glow") { clearItems(player, STAINED_GLASS_IDS, 64); player.runCommand("clear @s glowstone 0 32"); }
+    if (quest === "sofia_sculk")      { player.runCommand("clear @s sculk 0 32"); player.runCommand("clear @s sculk_sensor 0 8"); }
+    if (quest === "sofia_prisma")     { player.runCommand("clear @s prismarine_bricks 0 64"); player.runCommand("clear @s sea_lantern 0 32"); }
+    if (quest === "sofia_candele_miele") { clearItems(player, CANDLE_IDS, 32); player.runCommand("clear @s honeycomb 0 16"); player.runCommand("clear @s amethyst_shard 0 32"); }
+    if (quest === "niss_anime")       { player.runCommand("clear @s soul_sand 0 64"); player.runCommand("clear @s soul_soil 0 32"); }
+    if (quest === "elena_phantom")    player.runCommand("clear @s phantom_membrane 0 8");
+    if (quest === "niss_sacrificio")  { player.runCommand("clear @s totem_of_undying 0 2"); player.runCommand("clear @s ghast_tear 0 8"); }
 
     // Reward
     const gold = QUESTS[quest].reward;
-    player.runCommand(`give @s emerald ${gold}`);
+    player.runCommand(`give @s cc:ruby ${gold}`);
 
     const punti = world.scoreboard.getObjective("quest_punti");
     punti.setScore(player, getScore(punti, player) + 1);
 
-    world.sendMessage(`§e[${QUESTS[quest].npc}] §f${player.name} §aha completato §e${QUESTS[quest].name}§f! §6+${gold} ◆`);
+    world.sendMessage(`§e[${QUESTS[quest].npc}] §f${player.name} §acompleted §e${QUESTS[quest].name}§f! §6+${gold} ◆`);
 
     // Sblocco avanzate
     checkUnlock(player, quest);
@@ -855,107 +1069,96 @@ function deliverQuest(player, quest) {
     checkFinalReward(player, quest);
 }
 
-function getQuestProgress(player, quest, en = false) {
+function getQuestProgress(player, quest) {
     switch (quest) {
-        // Cultista
-        case "taglialegna": { const n = getScore(world.scoreboard.getObjective("q_taglialegna"), player); return { done: n >= 32, text: en ? `Logs: ${n}/32` : `Tronchi: ${n}/32` }; }
-        case "ossa":        { const n = getScore(world.scoreboard.getObjective("q_ossa"), player);        return { done: n >= 10, text: en ? `Skeletons: ${n}/10` : `Scheletri: ${n}/10` }; }
-        case "creeper":     { const n = getScore(world.scoreboard.getObjective("q_creeper"), player);     return { done: n >= 5,  text: `Creeper: ${n}/5` }; }
-        case "sfama":       { const n = countItem(player, "minecraft:bread");                             return { done: n >= 16, text: en ? `Bread: ${n}/16` : `Pane: ${n}/16` }; }
-        case "buio":        return { done: player.hasTag("q_buio_ready"), text: en ? "You must go down to Y≤30." : "Devi scendere a Y≤30." };
-        case "cultista_giorn": { const n = countItem(player, "minecraft:rotten_flesh"); return { done: n >= 8, text: en ? `Rotten Flesh: ${n}/8` : `Carne Marcia: ${n}/8` }; }
-        // Pescatore
-        case "piero_pesce":     { const n = countItem(player, "minecraft:cod");            return { done: n >= 10, text: en ? `Cod: ${n}/10` : `Merluzzi: ${n}/10` }; }
-        case "piero_salmone":   { const n = countItem(player, "minecraft:salmon");         return { done: n >= 8,  text: en ? `Salmon: ${n}/8` : `Salmoni: ${n}/8` }; }
-        case "piero_tropicale": { const n = countItem(player, "minecraft:tropical_fish");  return { done: n >= 6,  text: en ? `Tropical Fish: ${n}/6` : `Tropicali: ${n}/6` }; }
-        // Cacciatrice
-        case "elena_zombie":    { const n = getScore(world.scoreboard.getObjective("q_el_zombie"),     player); return { done: n >= 8,  text: en ? `Zombies: ${n}/8` : `Zombie: ${n}/8` }; }
-        case "elena_scheletri": { const n = getScore(world.scoreboard.getObjective("q_el_scheletri"), player); return { done: n >= 10, text: en ? `Skeletons: ${n}/10` : `Scheletri: ${n}/10` }; }
-        case "elena_vacche":    { const n = getScore(world.scoreboard.getObjective("q_el_vacche"),    player); return { done: n >= 5,  text: en ? `Cows: ${n}/5` : `Vacche: ${n}/5` }; }
-        case "elena_polli":     { const n = getScore(world.scoreboard.getObjective("q_el_polli"),     player); return { done: n >= 8,  text: en ? `Chickens: ${n}/8` : `Polli: ${n}/8` }; }
-        // Costruttore
-        case "marco_ciottoli": { const n = countItem(player, "minecraft:cobblestone"); return { done: n >= 64, text: en ? `Cobblestone: ${n}/64` : `Ciottoli: ${n}/64` }; }
-        case "marco_quercia":  { const n = countItem(player, "minecraft:oak_log");     return { done: n >= 32, text: en ? `Logs: ${n}/32` : `Tronchi: ${n}/32` }; }
-        case "marco_carbone":  { const n = countItem(player, "minecraft:coal");        return { done: n >= 16, text: en ? `Coal: ${n}/16` : `Carbone: ${n}/16` }; }
-        case "marco_ghiaia":   { const n = countItem(player, "minecraft:gravel");      return { done: n >= 32, text: en ? `Gravel: ${n}/32` : `Ghiaia: ${n}/32` }; }
-        // Decoratrice
-        case "sofia_fiori":     { const n = countItems(player, FLOWER_IDS); return { done: n >= 16, text: en ? `Flowers: ${n}/16` : `Fiori: ${n}/16` }; }
-        case "sofia_lana":      { const n = countItems(player, WOOL_IDS);   return { done: n >= 8,  text: en ? `Wool: ${n}/8` : `Lana: ${n}/8` }; }
-        case "sofia_colorante": { const n = countItems(player, DYE_IDS);    return { done: n >= 6,  text: en ? `Dye: ${n}/6` : `Colorante: ${n}/6` }; }
-        case "sofia_bamboo":    { const n = countItem(player, "minecraft:bamboo"); return { done: n >= 16, text: en ? `Bamboo: ${n}/16` : `Bambù: ${n}/16` }; }
-        // Pescatore avanzato
+        case "taglialegna": { const n = getScore(world.scoreboard.getObjective("q_taglialegna"), player); return { done: n >= 64, text: `Logs: ${n}/64` }; }
+        case "ossa":        { const n = getScore(world.scoreboard.getObjective("q_ossa"), player);        return { done: n >= 25, text: `Skeletons: ${n}/25` }; }
+        case "creeper":     { const n = getScore(world.scoreboard.getObjective("q_creeper"), player);     return { done: n >= 15, text: `Creepers: ${n}/15` }; }
+        case "sfama":       { const n = countItem(player, "minecraft:bread");                             return { done: n >= 32, text: `Bread: ${n}/32` }; }
+        case "buio":        return { done: player.hasTag("q_buio_ready"), text: "You must go down to Y≤30." };
+        case "piero_pesce":     { const n = countItem(player, "minecraft:cod");            return { done: n >= 20, text: `Cod: ${n}/20` }; }
+        case "piero_salmone":   { const n = countItem(player, "minecraft:salmon");         return { done: n >= 20, text: `Salmon: ${n}/20` }; }
+        case "piero_tropicale": { const n = countItem(player, "minecraft:tropical_fish");  return { done: n >= 15, text: `Tropical Fish: ${n}/15` }; }
+        case "elena_zombie":    { const n = getScore(world.scoreboard.getObjective("q_el_zombie"),     player); return { done: n >= 20, text: `Zombies: ${n}/20` }; }
+        case "elena_scheletri": { const n = getScore(world.scoreboard.getObjective("q_el_scheletri"), player); return { done: n >= 25, text: `Skeletons: ${n}/25` }; }
+        case "elena_vacche":    { const n = getScore(world.scoreboard.getObjective("q_el_vacche"),    player); return { done: n >= 15, text: `Cows: ${n}/15` }; }
+        case "elena_polli":     { const n = getScore(world.scoreboard.getObjective("q_el_polli"),     player); return { done: n >= 15, text: `Chickens: ${n}/15` }; }
+        case "marco_ciottoli": { const n = countItem(player, "minecraft:cobblestone"); return { done: n >= 128, text: `Cobblestone: ${n}/128` }; }
+        case "marco_quercia":  { const n = countItem(player, "minecraft:oak_log");     return { done: n >= 64,  text: `Logs: ${n}/64` }; }
+        case "marco_carbone":  { const n = countItem(player, "minecraft:coal");        return { done: n >= 32,  text: `Coal: ${n}/32` }; }
+        case "marco_ghiaia":   { const n = countItem(player, "minecraft:gravel");      return { done: n >= 64,  text: `Gravel: ${n}/64` }; }
+        case "sofia_fiori":     { const n = countItems(player, FLOWER_IDS); return { done: n >= 32, text: `Flowers: ${n}/32` }; }
+        case "sofia_lana":      { const n = countItems(player, WOOL_IDS);   return { done: n >= 24, text: `Wool: ${n}/24` }; }
+        case "sofia_colorante": { const n = countItems(player, DYE_IDS);    return { done: n >= 16, text: `Dye: ${n}/16` }; }
+        case "sofia_bamboo":    { const n = countItem(player, "minecraft:bamboo"); return { done: n >= 32, text: `Bamboo: ${n}/32` }; }
         case "piero_prismarina": {
             const p = countItem(player, "minecraft:prismarine");
             const c = countItem(player, "minecraft:prismarine_crystals");
             const i = countItem(player, "minecraft:ink_sac");
-            return { done: p >= 32 && c >= 8 && i >= 8, text: en ? `Prismarine: ${p}/32, Crystals: ${c}/8, Ink: ${i}/8` : `Prismarina: ${p}/32, Cristalli: ${c}/8, Inchiostro: ${i}/8` };
+            return { done: p >= 64 && c >= 16 && i >= 16, text: `Prismarine: ${p}/64, Crystals: ${c}/16, Ink: ${i}/16` };
         }
-        case "piero_guardiani": { const n = getScore(world.scoreboard.getObjective("q_piero_guard"), player); return { done: n >= 5,  text: en ? `Guardians: ${n}/5` : `Guardiani: ${n}/5` }; }
+        case "piero_guardiani": { const n = getScore(world.scoreboard.getObjective("q_piero_guard"), player); return { done: n >= 12, text: `Guardians: ${n}/12` }; }
         case "piero_tridente": {
             const t = countItem(player, "minecraft:trident");
             const n = countItem(player, "minecraft:nautilus_shell");
-            return { done: t >= 1 && n >= 4, text: en ? `Trident: ${t}/1, Nautilus: ${n}/4` : `Tridente: ${t}/1, Nautilus: ${n}/4` };
+            return { done: t >= 1 && n >= 8, text: `Trident: ${t}/1, Nautilus: ${n}/8` };
         }
-        case "piero_elder": { const n = getScore(world.scoreboard.getObjective("q_piero_elder"), player); return { done: n >= 1,  text: en ? `Elder Guardian: ${n}/1` : `Guardiano Antico: ${n}/1` }; }
-        // Cacciatrice avanzato
-        case "elena_blaze":    { const n = getScore(world.scoreboard.getObjective("q_el_blaze"), player);   return { done: n >= 10, text: `Blaze: ${n}/10` }; }
-        case "elena_wither_sk":{ const n = getScore(world.scoreboard.getObjective("q_el_wsk"),   player);   return { done: n >= 8,  text: en ? `Wither Skeletons: ${n}/8` : `Scheletri Wither: ${n}/8` }; }
+        case "piero_elder": { const n = getScore(world.scoreboard.getObjective("q_piero_elder"), player); return { done: n >= 1, text: `Elder Guardian: ${n}/1` }; }
+        case "elena_blaze":     { const n = getScore(world.scoreboard.getObjective("q_el_blaze"),   player); return { done: n >= 25, text: `Blazes: ${n}/25` }; }
+        case "elena_wither_sk": { const n = getScore(world.scoreboard.getObjective("q_el_wsk"),     player); return { done: n >= 20, text: `Wither Skeletons: ${n}/20` }; }
         case "elena_phantom": {
             const k = getScore(world.scoreboard.getObjective("q_el_phantom"), player);
             const m = countItem(player, "minecraft:phantom_membrane");
-            return { done: k >= 8 && m >= 4, text: en ? `Phantoms: ${k}/8, Membranes: ${m}/4` : `Phantom: ${k}/8, Membrane: ${m}/4` };
+            return { done: k >= 15 && m >= 8, text: `Phantoms: ${k}/15, Membranes: ${m}/8` };
         }
         case "elena_wither": { const n = getScore(world.scoreboard.getObjective("q_el_wither"), player); return { done: n >= 1, text: `Wither: ${n}/1` }; }
-        // Costruttore avanzato
         case "marco_ferro_oro": {
             const f = countItem(player, "minecraft:iron_ingot");
             const g = countItem(player, "minecraft:gold_ingot");
-            return { done: f >= 64 && g >= 32, text: en ? `Iron: ${f}/64, Gold: ${g}/32` : `Ferro: ${f}/64, Oro: ${g}/32` };
+            return { done: f >= 128 && g >= 64, text: `Iron: ${f}/128, Gold: ${g}/64` };
         }
         case "marco_ossidiana": {
             const o = countItem(player, "minecraft:obsidian");
             const c = countItem(player, "minecraft:crying_obsidian");
-            return { done: o >= 32 && c >= 8, text: en ? `Obsidian: ${o}/32, Crying: ${c}/8` : `Ossidiana: ${o}/32, Piangente: ${c}/8` };
+            return { done: o >= 64 && c >= 16, text: `Obsidian: ${o}/64, Crying: ${c}/16` };
         }
         case "marco_nether": {
             const b = countItem(player, "minecraft:nether_brick");
             const q = countItem(player, "minecraft:quartz");
-            return { done: b >= 32 && q >= 16, text: en ? `Nether Brick: ${b}/32, Quartz: ${q}/16` : `Mattoni Nether: ${b}/32, Quarzo: ${q}/16` };
+            return { done: b >= 64 && q >= 32, text: `Nether Brick: ${b}/64, Quartz: ${q}/32` };
         }
-        case "marco_netherite": { const n = countItem(player, "minecraft:netherite_ingot"); return { done: n >= 4, text: `Netherite: ${n}/4` }; }
-        // Decoratrice avanzato
+        case "marco_netherite": { const n = countItem(player, "minecraft:netherite_ingot"); return { done: n >= 8, text: `Netherite: ${n}/8` }; }
         case "sofia_vetro_glow": {
             const v = countItems(player, STAINED_GLASS_IDS);
             const g = countItem(player, "minecraft:glowstone");
-            return { done: v >= 32 && g >= 16, text: en ? `Stained Glass: ${v}/32, Glowstone: ${g}/16` : `Vetro colorato: ${v}/32, Glowstone: ${g}/16` };
+            return { done: v >= 64 && g >= 32, text: `Stained Glass: ${v}/64, Glowstone: ${g}/32` };
         }
         case "sofia_sculk": {
             const s = countItem(player, "minecraft:sculk");
             const se = countItem(player, "minecraft:sculk_sensor");
-            return { done: s >= 16 && se >= 4, text: en ? `Sculk: ${s}/16, Sensor: ${se}/4` : `Sculk: ${s}/16, Sensore: ${se}/4` };
+            return { done: s >= 32 && se >= 8, text: `Sculk: ${s}/32, Sensor: ${se}/8` };
         }
         case "sofia_prisma": {
             const p = countItem(player, "minecraft:prismarine_bricks");
             const l = countItem(player, "minecraft:sea_lantern");
-            return { done: p >= 32 && l >= 16, text: en ? `Prismarine: ${p}/32, Sea Lanterns: ${l}/16` : `Prismarina: ${p}/32, Lanterne Mare: ${l}/16` };
+            return { done: p >= 64 && l >= 32, text: `Prismarine: ${p}/64, Sea Lanterns: ${l}/32` };
         }
         case "sofia_candele_miele": {
             const ca = countItems(player, CANDLE_IDS);
             const h  = countItem(player, "minecraft:honeycomb");
             const a  = countItem(player, "minecraft:amethyst_shard");
-            return { done: ca >= 16 && h >= 8 && a >= 16, text: en ? `Candles: ${ca}/16, Honey: ${h}/8, Amethyst: ${a}/16` : `Candele: ${ca}/16, Miele: ${h}/8, Ametista: ${a}/16` };
+            return { done: ca >= 32 && h >= 16 && a >= 32, text: `Candles: ${ca}/32, Honey: ${h}/16, Amethyst: ${a}/32` };
         }
-        // Cultista avanzato
         case "niss_anime": {
             const ss = countItem(player, "minecraft:soul_sand");
             const so = countItem(player, "minecraft:soul_soil");
-            return { done: ss >= 32 && so >= 16, text: en ? `Soul Sand: ${ss}/32, Soul Soil: ${so}/16` : `Sabbia Anime: ${ss}/32, Terreno Anime: ${so}/16` };
+            return { done: ss >= 64 && so >= 32, text: `Soul Sand: ${ss}/64, Soul Soil: ${so}/32` };
         }
-        case "niss_piglin": { const n = getScore(world.scoreboard.getObjective("q_niss_piglin"), player); return { done: n >= 8, text: `Piglin Brute: ${n}/8` }; }
+        case "niss_piglin": { const n = getScore(world.scoreboard.getObjective("q_niss_piglin"), player); return { done: n >= 15, text: `Piglin Brutes: ${n}/15` }; }
         case "niss_sacrificio": {
             const t = countItem(player, "minecraft:totem_of_undying");
             const g = countItem(player, "minecraft:ghast_tear");
-            return { done: t >= 1 && g >= 4, text: en ? `Totem: ${t}/1, Ghast Tears: ${g}/4` : `Totem: ${t}/1, Lacrime Ghast: ${g}/4` };
+            return { done: t >= 2 && g >= 8, text: `Totem: ${t}/2, Ghast Tears: ${g}/8` };
         }
         case "niss_wither": { const n = getScore(world.scoreboard.getObjective("q_niss_wither"), player); return { done: n >= 1, text: `Wither: ${n}/1` }; }
     }
@@ -972,31 +1175,31 @@ function checkUnlock(player, quest) {
     if (!has("piero_avanzato") && ["piero_pesce","piero_salmone","piero_tropicale"].includes(quest)) {
         if (ever("piero_pesce") && ever("piero_salmone") && ever("piero_tropicale")) {
             player.addTag("piero_avanzato");
-            player.sendMessage("§b[Old Piero] ...aspetta. Torna da me. Ho qualcosa di diverso da chiederti.");
+            player.sendMessage("§b[Old Piero] ...wait. Come back. I have something different to ask you.");
         }
     }
     if (!has("cacciatrice_avanzato") && ["elena_zombie","elena_scheletri","elena_vacche","elena_polli"].includes(quest)) {
         if (ever("elena_zombie") && ever("elena_scheletri") && ever("elena_vacche") && ever("elena_polli")) {
             player.addTag("cacciatrice_avanzato");
-            player.sendMessage("§6[Elena] Hai superato le basi. Preparati per qualcosa di vero.");
+            player.sendMessage("§6[Elena] You've passed the basics. Get ready for something real.");
         }
     }
     if (!has("costruttore_avanzato") && ["marco_ciottoli","marco_quercia","marco_carbone","marco_ghiaia"].includes(quest)) {
         if (ever("marco_ciottoli") && ever("marco_quercia") && ever("marco_carbone") && ever("marco_ghiaia")) {
             player.addTag("costruttore_avanzato");
-            player.sendMessage("§a[Marco] Ottimo! Ho altri progetti in mente... più ambiziosi.");
+            player.sendMessage("§a[Marco] Great! I have more projects in mind... more ambitious ones.");
         }
     }
     if (!has("decoratrice_avanzato") && ["sofia_fiori","sofia_lana","sofia_colorante","sofia_bamboo"].includes(quest)) {
         if (ever("sofia_fiori") && ever("sofia_lana") && ever("sofia_colorante") && ever("sofia_bamboo")) {
             player.addTag("decoratrice_avanzato");
-            player.sendMessage("§d[Sofia] Sei fantastico! Ho idee più grandi... vieni a trovarmi!");
+            player.sendMessage("§d[Sofia] You're fantastic! I have bigger ideas... come find me!");
         }
     }
     if (!has("cultista_avanzato") && ["taglialegna","ossa","sfama","buio","creeper"].includes(quest)) {
         if (ever("taglialegna") && ever("ossa") && ever("sfama") && ever("buio") && ever("creeper")) {
             player.addTag("cultista_avanzato");
-            player.sendMessage("§5[Niss] Le prove sono complete. Ora iniziano i veri riti.");
+            player.sendMessage("§5[Niss] The trials are complete. Now the true rites begin.");
         }
     }
     updateNameTag(player);
@@ -1009,46 +1212,46 @@ function checkFinalReward(player, quest) {
         ["piero_prismarina","piero_guardiani","piero_tridente","piero_elder"].includes(quest) &&
         done("piero_prismarina") && done("piero_guardiani") && done("piero_tridente") && done("piero_elder")) {
         player.addTag("piero_finale");
-        giveSpecialItem(player, "minecraft:trident", "§b§lFiocina di Anna",
+        giveSpecialItem(player, "minecraft:trident", "§b§lAnna's Harpoon",
             { loyalty: 3, impaling: 5, riptide: 3, unbreaking: 3 });
-        player.sendMessage("§b[Old Piero] Prendi questo. Era di Anna.\n§3Non dimenticarla.");
-        world.sendMessage(`§b[Old Piero] §f${player.name} ha concluso la storia di Old Piero.`);
+        player.sendMessage("§b[Old Piero] Take this. It belonged to Anna.\n§3Don't forget her.");
+        world.sendMessage(`§b[Old Piero] §f${player.name} completed Old Piero's story.`);
     }
     if (!player.hasTag("cacciatrice_finale") &&
         ["elena_blaze","elena_wither_sk","elena_phantom","elena_wither"].includes(quest) &&
         done("elena_blaze") && done("elena_wither_sk") && done("elena_phantom") && done("elena_wither")) {
         player.addTag("cacciatrice_finale");
-        giveSpecialItem(player, "minecraft:bow", "§c§lArco della Caccia",
+        giveSpecialItem(player, "minecraft:bow", "§c§lHunter's Bow",
             { power: 5, punch: 2, flame: 1, infinity: 1, unbreaking: 3 });
-        player.sendMessage("§6[Elena] Non mi aspettavo che ce la facessi. Prendilo. Te lo sei guadagnato.");
-        world.sendMessage(`§6[Elena] §f${player.name} ha concluso la storia di Elena.`);
+        player.sendMessage("§6[Elena] I didn't expect you to make it. Take it. You've earned it.");
+        world.sendMessage(`§6[Elena] §f${player.name} completed Elena's story.`);
     }
     if (!player.hasTag("costruttore_finale") &&
         ["marco_ferro_oro","marco_ossidiana","marco_nether","marco_netherite"].includes(quest) &&
         done("marco_ferro_oro") && done("marco_ossidiana") && done("marco_nether") && done("marco_netherite")) {
         player.addTag("costruttore_finale");
-        giveSpecialItem(player, "minecraft:netherite_pickaxe", "§7§lPiccone di Marco",
+        giveSpecialItem(player, "minecraft:netherite_pickaxe", "§7§lMarco's Pickaxe",
             { fortune: 3, efficiency: 5, unbreaking: 3, silk_touch: 1 });
-        player.sendMessage("§a[Marco] Il villaggio è quasi pronto. Grazie. Tieni questo — lo usavo io.");
-        world.sendMessage(`§a[Marco] §f${player.name} ha concluso la storia di Marco.`);
+        player.sendMessage("§a[Marco] The village is almost ready. Thanks. Keep this — I used to use it.");
+        world.sendMessage(`§a[Marco] §f${player.name} completed Marco's story.`);
     }
     if (!player.hasTag("decoratrice_finale") &&
         ["sofia_vetro_glow","sofia_sculk","sofia_prisma","sofia_candele_miele"].includes(quest) &&
         done("sofia_vetro_glow") && done("sofia_sculk") && done("sofia_prisma") && done("sofia_candele_miele")) {
         player.addTag("decoratrice_finale");
-        giveSpecialItem(player, "minecraft:netherite_axe", "§d§lPennello di Sofia",
+        giveSpecialItem(player, "minecraft:netherite_axe", "§d§lSofia's Brush",
             { silk_touch: 1, efficiency: 5, unbreaking: 3, mending: 1 });
-        player.sendMessage("§d[Sofia] Sei il miglior assistente che potessi sperare. Tienilo — è fatto su misura.");
-        world.sendMessage(`§d[Sofia] §f${player.name} ha concluso la storia di Sofia.`);
+        player.sendMessage("§d[Sofia] You're the best assistant I could have hoped for. Keep it — it's custom made.");
+        world.sendMessage(`§d[Sofia] §f${player.name} completed Sofia's story.`);
     }
     if (!player.hasTag("cultista_finale") &&
         ["niss_anime","niss_piglin","niss_sacrificio","niss_wither"].includes(quest) &&
         done("niss_anime") && done("niss_piglin") && done("niss_sacrificio") && done("niss_wither")) {
         player.addTag("cultista_finale");
-        giveSpecialItem(player, "minecraft:netherite_sword", "§5§lSigillo del Culto",
+        giveSpecialItem(player, "minecraft:netherite_sword", "§5§lCult Seal",
             { sharpness: 5, fire_aspect: 2, looting: 3, unbreaking: 3, mending: 1 });
-        player.sendMessage("§5[Niss] I riti sono completi. Ora appartieni al culto.\n§8...o forse il culto appartiene a te.");
-        world.sendMessage(`§5[Niss] §f${player.name} ha completato tutti i riti del Culto.`);
+        player.sendMessage("§5[Niss] The rites are complete. Now you belong to the cult.\n§8...or perhaps the cult belongs to you.");
+        world.sendMessage(`§5[Niss] §f${player.name} completed all the Cult's rites.`);
     }
     updateNameTag(player);
 }
@@ -1062,17 +1265,14 @@ const ADVANCED_QUESTS = [
 ];
 const BASE_UNLOCK_TAGS = ["piero_avanzato","cacciatrice_avanzato","costruttore_avanzato","decoratrice_avanzato","cultista_avanzato"];
 
-function updateNameTag(player) {
-    const name    = player.name;
-    const punti   = getScore(world.scoreboard.getObjective("quest_punti"), player);
-    const hasAnyAdv = ADVANCED_QUESTS.some(q => player.hasTag(`q_${q}_done`));
-    if (hasAnyAdv) {
-        const colors = ["§c","§6","§e","§a","§b","§9","§d"];
-        player.nameTag = name.split("").map((c, i) => colors[i % colors.length] + c).join("");
-    } else if (punti >= 20) {
-        player.nameTag = `§c✦ §f${name}`;
+function updateNameTag(player, tick = 0) {
+    const pts  = getScore(world.scoreboard.getObjective("quest_punti"), player);
+    const rank = getRank(pts);
+    const name = player.name;
+    if (rank.color === null) {
+        player.nameTag = name.split("").map((c, i) => RAINBOW[(tick + i) % RAINBOW.length] + c).join("");
     } else {
-        player.nameTag = name;
+        player.nameTag = rank.color + name + "§r";
     }
 }
 
@@ -1093,7 +1293,6 @@ function giveSpecialItem(player, typeId, name, enchants) {
 }
 
 function openQuestForm(player, npcId, advMode) {
-    const en  = player.hasTag("sara");
     const cfg = QUEST_GROUPS[npcId];
     if (!cfg) return;
     const isAdv   = advMode && cfg.adv;
@@ -1101,10 +1300,8 @@ function openQuestForm(player, npcId, advMode) {
     const npcName = QUESTS[quests[0]].npc;
 
     const doneCount = quests.filter(k => isQuestDone(player, k)).length;
-    const tierLabel = isAdv ? (en ? "§c[Advanced] §r" : "§c[Avanzate] §r") : "";
-    const bodyHint  = en
-        ? `§f${doneCount}§7/${quests.length} complete  ·  §7§oTap to accept, check progress, or deliver.`
-        : `§f${doneCount}§7/${quests.length} completate  ·  §7§oClicca per accettare o consegnare.`;
+    const tierLabel = isAdv ? "§c[Advanced] §r" : "";
+    const bodyHint  = `§f${doneCount}§7/${quests.length} complete  ·  §7§oTap to accept, check progress, or deliver.`;
 
     const form = new ActionFormData()
         .title(`§l${tierLabel}${npcName}`)
@@ -1112,26 +1309,25 @@ function openQuestForm(player, npcId, advMode) {
 
     for (const key of quests) {
         const q      = QUESTS[key];
-        const qname  = en ? (q.name_en || q.name) : q.name;
         const done   = isQuestDone(player, key);
         const active = player.hasTag(`q_${key}`);
         let label;
         if (done) {
-            label = `§2✓ §f${qname}`;
+            label = `§2✓ §f${q.name}`;
         } else if (active) {
-            const prog = getQuestProgress(player, key, en);
+            const prog = getQuestProgress(player, key);
             label = prog.done
-                ? `§a§l▶ §r§f${qname}\n§a  ${en ? "Ready to deliver!" : "Pronta per la consegna!"}`
-                : `§6● §f${qname}\n§8  ${prog.text}`;
+                ? `§a§l▶ §r§f${q.name}\n§a  Ready to deliver!`
+                : `§6● §f${q.name}\n§8  ${prog.text}`;
         } else {
-            const repTag = REPEATABLE_QUESTS.has(key) ? (en ? " §7(daily)" : " §7(giorn.)") : "";
-            label = `§7○ §f${qname}${repTag}\n§8  §6+${q.reward} ◆`;
+            const repTag = REPEATABLE_QUESTS.has(key) ? " §7(daily)" : "";
+            label = `§7○ §f${q.name}${repTag}\n§8  §6+${q.reward} ◆`;
         }
         form.button(label);
     }
     const hasAdv = !isAdv && cfg.adv && player.hasTag(cfg.adv.tag);
-    if (hasAdv) form.button(en ? "§c§l» Advanced Quests" : "§c§l» Missioni Avanzate");
-    form.button(en ? "§0« Back" : "§0« Indietro");
+    if (hasAdv) form.button("§c§l» Advanced Quests");
+    form.button("§0« Back");
     const totalQuests = quests.length;
     form.show(player).then(r => {
         if (r.canceled) return;
@@ -1143,8 +1339,7 @@ function openQuestForm(player, npcId, advMode) {
         } else if (isAdv) {
             openQuestForm(player, npcId, false);
         } else {
-            const scene = en ? `${cfg.npcTag}_intro_en` : `${cfg.npcTag}_intro`;
-            player.runCommand(`dialogue open @e[tag=${cfg.npcTag},r=5] @s ${scene}`);
+            player.runCommand(`dialogue open @e[tag=${cfg.npcTag},r=5] @s ${cfg.npcTag}_intro`);
         }
     }).catch(() => {});
 }
@@ -1152,22 +1347,20 @@ function openQuestForm(player, npcId, advMode) {
 function openDashboard(player) {
     const loc     = lastDeathLocation.get(player.name);
     const isAdmin = player.hasTag("admin");
-    const en      = player.hasTag("sara");
-    const gems    = countItem(player, "minecraft:emerald");
+    const gems    = countItem(player, "cc:ruby");
     const qpts    = getScore(world.scoreboard.getObjective("quest_punti"), player);
 
     const form = new ActionFormData()
-        .title(en ? "§l§6Quest Book" : "§l§6Libro delle Missioni")
-        .body(`§6◆ §f${gems} ${en ? "gems" : "gemme"}   §7·   §e${qpts} ${en ? "quests done" : "missioni completate"}`);
+        .title("§l§6Quest Book")
+        .body(`§c◆ §f${gems} rubies   §7·   §e${qpts} quests done`);
 
-    form.button(en ? "§6» Quests" : "§6» Missioni");
-    form.button(en ? "§a» Daily" : "§a» Giornaliere");
-    if (loc) form.button(`§c» ${en ? "Last Death" : "Ultima Morte"} §8(${loc.x}, ${loc.y}, ${loc.z})`);
-    form.button(en ? "§b» Teleport" : "§b» Teletrasporto");
+    form.button("§6» Quests");
+    if (loc) form.button(`§c» Last Death §8(${loc.x}, ${loc.y}, ${loc.z})`);
+    form.button("§b» Teleport");
     if (isAdmin) form.button("§c» Admin Panel");
-    form.button(en ? "§8« Close" : "§0« Chiudi");
+    form.button("§8« Close");
 
-    const base        = loc ? 3 : 2;
+    const base        = loc ? 2 : 1;
     const idxTeleport = base;
     const idxAdmin    = isAdmin ? base + 1 : -1;
     const idxClose    = base + (isAdmin ? 2 : 1);
@@ -1175,8 +1368,7 @@ function openDashboard(player) {
     form.show(player).then(r => {
         if (r.canceled || r.selection === idxClose) return;
         if (r.selection === 0) openMissions(player);
-        if (r.selection === 1) openDailyMissions(player);
-        if (loc && r.selection === 2) teleportToLastDeath(player);
+        if (loc && r.selection === 1) teleportToLastDeath(player);
         if (r.selection === idxTeleport) openTeleport(player);
         if (isAdmin && r.selection === idxAdmin) openAdminPanel(player);
     }).catch(() => {});
@@ -1195,16 +1387,17 @@ function openAdminPanel(player) {
         ["decoratrice", "decoratrice_intro"],
         ["cacciatrice", "cacciatrice_intro"],
         ["custode",     "custode_intro"],
+        ["biscazziere", "biscazziere_main"],
     ];
 
     new ActionFormData()
         .title("§c§lAdmin Panel")
-        .body("§7Seleziona un'azione:")
+        .body("§7Select an action:")
         .button("§e» Reset NPC")
-        .button("§b» Pulisci oggetti a terra")
-        .button("§a» Gestione Entità")
-        .button("§5» Purga Mob Manuale")
-        .button("§0« Chiudi")
+        .button("§b» Clear Ground Items")
+        .button("§a» Entity Manager")
+        .button("§5» Manual Mob Purge")
+        .button("§0« Close")
         .show(player).then(r => {
             if (r.canceled || r.selection === 4) { openDashboard(player); return; }
             const dim = world.getDimension("overworld");
@@ -1213,10 +1406,10 @@ function openAdminPanel(player) {
                 for (const [tag, scene] of RESETS) {
                     try { dim.runCommand(`dialogue change @e[tag=${tag}] ${scene}`); ok++; } catch {}
                 }
-                player.sendMessage(`§c[Admin] §fReset completato: §e${ok}/${RESETS.length} §fNPC aggiornati.`);
+                player.sendMessage(`§c[Admin] §fReset complete: §e${ok}/${RESETS.length} §fNPCs updated.`);
             } else if (r.selection === 1) {
                 try { dim.runCommand("kill @e[type=item]"); } catch {}
-                player.sendMessage("§c[Admin] §fOggetti a terra eliminati.");
+                player.sendMessage("§c[Admin] §fGround items removed.");
             } else if (r.selection === 2) {
                 openEntityManager(player);
                 return;
@@ -1229,30 +1422,30 @@ function openAdminPanel(player) {
 }
 
 const FARM_TYPES = [
-    { name: "Polli",      type: "minecraft:chicken" },
-    { name: "Maiali",     type: "minecraft:pig"     },
-    { name: "Mucche",     type: "minecraft:cow"     },
-    { name: "Pecore",     type: "minecraft:sheep"   },
-    { name: "Conigli",    type: "minecraft:rabbit"  },
-    { name: "Gatti",      type: "minecraft:cat"     },
-    { name: "Cavalli",    type: "minecraft:horse"   },
-    { name: "Tartarughe", type: "minecraft:turtle"  },
-    { name: "Panda",      type: "minecraft:panda"   },
-    { name: "Rane",       type: "minecraft:frog"    },
-    { name: "Asini",      type: "minecraft:donkey"  },
-    { name: "Lama",       type: "minecraft:llama"   },
+    { name: "Chickens",  type: "minecraft:chicken" },
+    { name: "Pigs",      type: "minecraft:pig"     },
+    { name: "Cows",      type: "minecraft:cow"     },
+    { name: "Sheep",     type: "minecraft:sheep"   },
+    { name: "Rabbits",   type: "minecraft:rabbit"  },
+    { name: "Cats",      type: "minecraft:cat"     },
+    { name: "Horses",    type: "minecraft:horse"   },
+    { name: "Turtles",   type: "minecraft:turtle"  },
+    { name: "Pandas",    type: "minecraft:panda"   },
+    { name: "Frogs",     type: "minecraft:frog"    },
+    { name: "Donkeys",   type: "minecraft:donkey"  },
+    { name: "Llamas",    type: "minecraft:llama"   },
 ];
 
 const MOB_TYPES = [
-    { name: "Zombie",         type: "minecraft:zombie"     },
-    { name: "Scheletro",      type: "minecraft:skeleton"   },
-    { name: "Creeper",        type: "minecraft:creeper"    },
-    { name: "Ragno",          type: "minecraft:spider"     },
-    { name: "Enderman",       type: "minecraft:enderman"   },
-    { name: "Annegato",       type: "minecraft:drowned"    },
-    { name: "Strega",         type: "minecraft:witch"      },
-    { name: "Phantom",        type: "minecraft:phantom"    },
-    { name: "Saccheggiatore", type: "minecraft:pillager"   },
+    { name: "Zombie",    type: "minecraft:zombie"   },
+    { name: "Skeleton",  type: "minecraft:skeleton" },
+    { name: "Creeper",   type: "minecraft:creeper"  },
+    { name: "Spider",    type: "minecraft:spider"   },
+    { name: "Enderman",  type: "minecraft:enderman" },
+    { name: "Drowned",   type: "minecraft:drowned"  },
+    { name: "Witch",     type: "minecraft:witch"    },
+    { name: "Phantom",   type: "minecraft:phantom"  },
+    { name: "Pillager",  type: "minecraft:pillager" },
 ];
 
 // Soglie: unnamed per animali, totale per mob
@@ -1260,18 +1453,18 @@ const FARM_THRESH = { warn: 20, high: 50, crit: 80 };
 const MOB_THRESH  = { warn: 8,  high: 20, crit: 35 };
 
 function farmSev(n) {
-    if (n === 0)                  return { color: "§2", badge: "§2● OK",      sym: "§2✓" };
-    if (n <= FARM_THRESH.warn)    return { color: "§a", badge: "§a● BASSO",   sym: "§a·" };
-    if (n <= FARM_THRESH.high)    return { color: "§e", badge: "§e▲ ALTO",    sym: "§e!" };
-    if (n <= FARM_THRESH.crit)    return { color: "§6", badge: "§6▲ CRITICO", sym: "§6!!" };
-    return                               { color: "§c", badge: "§c■ ESTREMO", sym: "§c!!!" };
+    if (n === 0)                  return { color: "§2", badge: "§2● OK",       sym: "§2✓" };
+    if (n <= FARM_THRESH.warn)    return { color: "§a", badge: "§a● LOW",      sym: "§a·" };
+    if (n <= FARM_THRESH.high)    return { color: "§e", badge: "§e▲ HIGH",     sym: "§e!" };
+    if (n <= FARM_THRESH.crit)    return { color: "§6", badge: "§6▲ CRITICAL", sym: "§6!!" };
+    return                               { color: "§c", badge: "§c■ EXTREME",  sym: "§c!!!" };
 }
 
 function mobSev(n) {
-    if (n === 0)                 return { color: "§2", badge: "§2● ASSENTI",  sym: "§2✓" };
-    if (n <= MOB_THRESH.warn)    return { color: "§e", badge: "§e▲ ALCUNI",   sym: "§e!" };
-    if (n <= MOB_THRESH.high)    return { color: "§6", badge: "§6▲ MOLTI",    sym: "§6!!" };
-    return                              { color: "§c", badge: "§c■ INVASIONE",sym: "§c!!!" };
+    if (n === 0)                 return { color: "§2", badge: "§2● NONE",     sym: "§2✓" };
+    if (n <= MOB_THRESH.warn)    return { color: "§e", badge: "§e▲ SOME",     sym: "§e!" };
+    if (n <= MOB_THRESH.high)    return { color: "§6", badge: "§6▲ MANY",     sym: "§6!!" };
+    return                              { color: "§c", badge: "§c■ INVASION",  sym: "§c!!!" };
 }
 
 function getEntityStats(dim, types, isMob = false) {
@@ -1313,16 +1506,16 @@ system.runInterval(() => {
     }
 
     if (newAlerts.length > 0) {
-        world.sendMessage(`§c§l[⚠ OVERPOP] §r§7Entità in eccesso — usa §eAdmin Panel §8> §eGestione Entità:\n${newAlerts.join("\n")}`);
+        world.sendMessage(`§c§l[⚠ OVERPOP] §r§7Entity overflow — use §eAdmin Panel §8> §eEntity Manager:\n${newAlerts.join("\n")}`);
     }
 }, 20 * 60 * 5); // ogni 5 minuti
 
 function confirmThanos(player, context, onConfirm, onCancel) {
     new MessageFormData()
         .title("§c§l⚠ THANOS SNAP ⚠")
-        .body(`§c§lAZIONE IRREVERSIBILE\n\n§f${context}\n\n§7Sei assolutamente sicuro?`)
-        .button1("§0✗ Annulla")
-        .button2("§c§l✓ Sì, schiocca!")
+        .body(`§c§lIRREVERSIBLE ACTION\n\n§f${context}\n\n§7Are you absolutely sure?`)
+        .button1("§0✗ Cancel")
+        .button2("§c§l✓ Yes, snap!")
         .show(player).then(r => {
             if (r.canceled || r.selection === 0) { onCancel(); return; }
             onConfirm();
@@ -1334,8 +1527,8 @@ function openMobPurge(player) {
     const stats = getEntityStats(dim, MOB_TYPES, true);
 
     const form = new ActionFormData()
-        .title("§5§lPurga Mob Manuale")
-        .body("§7Scegli quali mob purgare con messaggio in chat.\n§8I messaggi divertenti vengono inviati a tutti.\n\n" +
+        .title("§5§lManual Mob Purge")
+        .body("§7Choose which mobs to purge with a chat message.\n§8Fun messages are sent to everyone.\n\n" +
             MOB_TYPES.map((m, i) => {
                 const sev = mobSev(stats[i].total);
                 return `${sev.sym} §f${m.name}: ${sev.color}${stats[i].total}`;
@@ -1345,8 +1538,8 @@ function openMobPurge(player) {
         const sev = mobSev(stats[i].total);
         form.button(`${sev.sym} §0${MOB_TYPES[i].name} §8[${sev.color}${stats[i].total}§8]`);
     }
-    form.button("§c§l⚠ THANOS SNAP §r§8(tutti i mob)");
-    form.button("§0« Indietro Admin");
+    form.button("§c§l⚠ THANOS SNAP §r§8(all mobs)");
+    form.button("§0« Back Admin");
 
     form.show(player).then(r => {
         const purgaAll = MOB_TYPES.length;
@@ -1367,18 +1560,18 @@ function openMobPurge(player) {
                 if (killed > 0) {
                     perType.push(`§f${mob.name} §8×§e${killed}`);
                     const quip = MOB_QUIP[mob.type][Math.floor(Math.random() * MOB_QUIP[mob.type].length)];
-                    world.sendMessage(quip + ` §8(${killed} eliminati)`);
+                    world.sendMessage(quip + ` §8(${killed} eliminated)`);
                 }
             }
             if (isThanosAll && total > 0)
-                world.sendMessage(`§5§l✦ THANOS SNAP §r§7— §f${player.name} §7ha ripulito tutto.\n§8${perType.join("  ")}§8  |  Totale: §c${total}`);
+                world.sendMessage(`§5§l✦ THANOS SNAP §r§7— §f${player.name} §7cleaned it all up.\n§8${perType.join("  ")}§8  |  Total: §c${total}`);
             if (total === 0)
-                player.sendMessage("§7[Purga] §fNessun mob trovato.");
+                player.sendMessage("§7[Purge] §fNo mobs found.");
             openMobPurge(player);
         };
 
         if (isThanosAll) {
-            confirmThanos(player, "TUTTI i mob ostili verranno eliminati con messaggio in chat.", doPurge, () => openMobPurge(player));
+            confirmThanos(player, "ALL hostile mobs will be eliminated with a chat message.", doPurge, () => openMobPurge(player));
         } else {
             doPurge();
         }
@@ -1396,30 +1589,30 @@ function openEntityManager(player) {
     const mSev = mobSev(mobWorst);
 
     new ActionFormData()
-        .title("§c§lGestione Entità")
+        .title("§c§lEntity Manager")
         .body(
-            `§7Panoramica server:\n` +
-            `§fAnimali anonimi peggiori: ${fSev.color}${farmWorst} ${fSev.badge}\n` +
-            `§fMob ostili peggiori:      ${mSev.color}${mobWorst} ${mSev.badge}\n\n` +
-            `§8Thanos Snap: animali anonimi > 30 + tutti i mob.`
+            `§7Server overview:\n` +
+            `§fWorst unnamed animals: ${fSev.color}${farmWorst} ${fSev.badge}\n` +
+            `§fWorst hostile mobs:    ${mSev.color}${mobWorst} ${mSev.badge}\n\n` +
+            `§8Thanos Snap: unnamed animals > 30 + all mobs.`
         )
-        .button(`${fSev.sym} §0Animali da Farm`)
-        .button(`${mSev.sym} §0Mob Ostili`)
-        .button("§c§l⚠ THANOS SNAP §r§8(animali+mob)")
-        .button(`§0↺ Reset Alert §8(${_alertedEntities.size} attivi)`)
-        .button("§0« Indietro Admin")
+        .button(`${fSev.sym} §0Farm Animals`)
+        .button(`${mSev.sym} §0Hostile Mobs`)
+        .button("§c§l⚠ THANOS SNAP §r§8(animals+mobs)")
+        .button(`§0↺ Reset Alerts §8(${_alertedEntities.size} active)`)
+        .button("§0« Back Admin")
         .show(player).then(r => {
             if (r.canceled || r.selection === 4) { openAdminPanel(player); return; }
             if (r.selection === 0) { openFarmCleanup(player); return; }
             if (r.selection === 1) { openMobCleanup(player); return; }
             if (r.selection === 3) {
                 _alertedEntities.clear();
-                player.sendMessage("§7[Alert] §fAlert resettati — il sistema tornerà ad avvisare se necessario.");
+                player.sendMessage("§7[Alert] §fAlerts reset — the system will warn again if needed.");
                 openEntityManager(player);
                 return;
             }
             confirmThanos(player,
-                "Animali anonimi >30 per tipo + TUTTI i mob ostili verranno eliminati.",
+                "Unnamed animals >30 per type + ALL hostile mobs will be eliminated.",
                 () => {
                     let total = 0;
                     let mobCount = 0, animalCount = 0;
@@ -1432,7 +1625,7 @@ function openEntityManager(player) {
                         const all = [...dim.getEntities({ type: m.type })];
                         for (const e of all) try { e.kill(); mobCount++; total++; } catch {}
                     }
-                    world.sendMessage(`§5§l✦ THANOS SNAP §r§7— §f${player.name} §7ha schioccato le dita.\n§8Animali rimossi: §e${animalCount} §8| Mob eliminati: §e${mobCount} §8| Totale: §c${total}`);
+                    world.sendMessage(`§5§l✦ THANOS SNAP §r§7— §f${player.name} §7snapped their fingers.\n§8Animals removed: §e${animalCount} §8| Mobs eliminated: §e${mobCount} §8| Total: §c${total}`);
                     openEntityManager(player);
                 },
                 () => openEntityManager(player)
@@ -1448,19 +1641,19 @@ function openFarmCleanup(player) {
     const bodyLines = FARM_TYPES.map((f, i) => {
         const s = stats[i];
         const sev = farmSev(s.unnamed);
-        return `${sev.sym} §f${f.name}: §e${s.total} tot §8| §a${s.named} nom §8| ${sev.color}${s.unnamed} anon §8— ${sev.badge}`;
+        return `${sev.sym} §f${f.name}: §e${s.total} total §8| §a${s.named} named §8| ${sev.color}${s.unnamed} unnamed §8— ${sev.badge}`;
     }).join("\n");
 
     const form = new ActionFormData()
-        .title("§a§lAnimali da Farm")
-        .body(`§7Seleziona tipo. §8Solo anonimi eliminabili — nominati al sicuro.\n\n${bodyLines}`);
+        .title("§a§lFarm Animals")
+        .body(`§7Select type. §8Only unnamed can be removed — named ones are safe.\n\n${bodyLines}`);
 
     for (let i = 0; i < FARM_TYPES.length; i++) {
         const s   = stats[i];
         const sev = farmSev(s.unnamed);
-        form.button(`${sev.sym} §0${FARM_TYPES[i].name} §8[${sev.color}${s.unnamed} §0anon §8/ §0${s.total} §0tot§8]`);
+        form.button(`${sev.sym} §0${FARM_TYPES[i].name} §8[${sev.color}${s.unnamed} §0unnamed §8/ §0${s.total} §0total§8]`);
     }
-    form.button("§0« Indietro");
+    form.button("§0« Back");
 
     form.show(player).then(r => {
         if (r.canceled || r.selection === FARM_TYPES.length) { openEntityManager(player); return; }
@@ -1479,16 +1672,16 @@ function openMobCleanup(player) {
     }).join("\n");
 
     const form = new ActionFormData()
-        .title("§c§lMob Ostili")
-        .body(`§7Seleziona tipo per impostare un cap, oppure uccidi tutti.\n\n${bodyLines}`);
+        .title("§c§lHostile Mobs")
+        .body(`§7Select type to set a cap, or kill all.\n\n${bodyLines}`);
 
     for (let i = 0; i < MOB_TYPES.length; i++) {
         const n   = stats[i].total;
         const sev = mobSev(n);
         form.button(`${sev.sym} §0${MOB_TYPES[i].name} §8[${sev.color}${n}§8]`);
     }
-    form.button("§c§l⚠ THANOS SNAP §r§8(tutti i mob)");
-    form.button("§0« Indietro");
+    form.button("§c§l⚠ THANOS SNAP §r§8(all mobs)");
+    form.button("§0« Back");
 
     form.show(player).then(r => {
         const killAll = MOB_TYPES.length;
@@ -1496,7 +1689,7 @@ function openMobCleanup(player) {
         if (r.canceled || r.selection === back) { openEntityManager(player); return; }
         if (r.selection === killAll) {
             confirmThanos(player,
-                "TUTTI i mob ostili (zombie, scheletri, creeper...) verranno eliminati.",
+                "ALL hostile mobs (zombies, skeletons, creepers...) will be eliminated.",
                 () => {
                     let total = 0;
                     const perType = [];
@@ -1506,7 +1699,7 @@ function openMobCleanup(player) {
                         for (const e of entities) try { e.kill(); killed++; total++; } catch {}
                         if (killed > 0) perType.push(`§f${m.name} §8×§e${killed}`);
                     }
-                    world.sendMessage(`§5§l✦ THANOS SNAP §r§7— §f${player.name} §7ha schioccato le dita.\n§8${perType.join("  ")}§8  |  Totale: §c${total}`);
+                    world.sendMessage(`§5§l✦ THANOS SNAP §r§7— §f${player.name} §7snapped their fingers.\n§8${perType.join("  ")}§8  |  Total: §c${total}`);
                     openMobCleanup(player);
                 },
                 () => openMobCleanup(player)
@@ -1524,8 +1717,8 @@ function openEntityTypeControl(player, entityType, stats, isMob) {
     const defaultKeep = isMob ? 0 : Math.min(20, Math.floor(count / 2));
 
     const label = isMob
-        ? `${sev.badge}  §8(${count} presenti)\n\n§fQuanti tenerne? §8(0 = uccidi tutti)`
-        : `${sev.badge}  §8(${count} anonimi, §a${stats.named} nominati al sicuro)\n\n§fQuanti anonimi tenere?`;
+        ? `${sev.badge}  §8(${count} present)\n\n§fHow many to keep? §8(0 = kill all)`
+        : `${sev.badge}  §8(${count} unnamed, §a${stats.named} named ones safe)\n\n§fHow many unnamed to keep?`;
 
     new ModalFormData()
         .title(`§l${isMob ? "§c" : "§a"}Controllo: ${entityType.name}`)
@@ -1543,76 +1736,38 @@ function openEntityTypeControl(player, entityType, stats, isMob) {
             const sevAfter = isMob ? mobSev(after) : farmSev(after);
             player.sendMessage(
                 killed > 0
-                    ? `§c[Cleanup] §f${entityType.name}: §c${killed} eliminati §8→ rimasti ${sevAfter.color}${after} ${sevAfter.badge}`
-                    : `§a[Cleanup] §f${entityType.name} già entro il limite.`
+                    ? `§c[Cleanup] §f${entityType.name}: §c${killed} eliminated §8→ remaining ${sevAfter.color}${after} ${sevAfter.badge}`
+                    : `§a[Cleanup] §f${entityType.name} already within the limit.`
             );
             isMob ? openMobCleanup(player) : openFarmCleanup(player);
         }).catch(() => {});
 }
 
 function openMissions(player) {
-    const en = player.hasTag("sara");
     const done = [], active = [], todo = [];
     for (const [key, q] of Object.entries(QUESTS)) {
-        const qname = en ? (q.name_en || q.name) : q.name;
-        const rep   = REPEATABLE_QUESTS.has(key) ? (en ? " §7(daily)" : " §7(giorn.)") : "";
+        const rep = REPEATABLE_QUESTS.has(key) ? " §7(daily)" : "";
         if (isQuestDone(player, key)) {
-            done.push(`§2✓ §f${qname}${rep} §8· ${q.npc}`);
+            done.push(`§2✓ §f${q.name}${rep} §8· ${q.npc}`);
         } else if (player.hasTag(`q_${key}`)) {
-            const prog = getQuestProgress(player, key, en);
-            const rdy  = prog.done ? (en ? " §a[READY]" : " §a[PRONTA]") : "";
-            active.push(`§6▶ §f${qname}${rep}${rdy} §8· ${q.npc}\n  §7${prog.text}`);
+            const prog = getQuestProgress(player, key);
+            const rdy  = prog.done ? " §a[READY]" : "";
+            active.push(`§6▶ §f${q.name}${rep}${rdy} §8· ${q.npc}\n  §7${prog.text}`);
         } else {
-            todo.push(`§8○ §7${qname}${rep} §8· ${q.npc} §8(§6+${q.reward} ◆§8)`);
+            todo.push(`§8○ §7${q.name}${rep} §8· ${q.npc} §8(§6+${q.reward} ◆§8)`);
         }
     }
     const total = Object.keys(QUESTS).length;
-    const header = en
-        ? `§e§lQUESTS  §f${done.length}§7/${total} complete\n`
-        : `§e§lMISSIONI  §f${done.length}§7/${total} completate\n`;
-    const lines  = [header];
-    if (active.length) { lines.push(en ? "§6§lIN PROGRESS" : "§6§lIN CORSO");   lines.push(...active, ""); }
-    if (todo.length)   { lines.push(en ? "§7§lTO DO"       : "§7§lDA FARE");    lines.push(...todo,   ""); }
-    if (done.length)   { lines.push(en ? "§a§lCOMPLETED"   : "§a§lCOMPLETE");  lines.push(...done); }
+    const lines = [`§e§lQUESTS  §f${done.length}§7/${total} complete\n`];
+    if (active.length) { lines.push("§6§lIN PROGRESS"); lines.push(...active, ""); }
+    if (todo.length)   { lines.push("§7§lTO DO");       lines.push(...todo,   ""); }
+    if (done.length)   { lines.push("§a§lCOMPLETED");   lines.push(...done); }
 
     new MessageFormData()
-        .title(en ? "§l§eQuests" : "§l§eMissioni")
+        .title("§l§eQuests")
         .body(lines.join("\n"))
-        .button1(en ? "§0« Back" : "§0« Indietro")
-        .button2(en ? "§8Close" : "§8Chiudi")
-        .show(player).then(r => { if (r.selection === 0) openDashboard(player); })
-        .catch(() => {});
-}
-
-function openDailyMissions(player) {
-    const en = player.hasTag("sara");
-    const doneLines = [], activeLines = [], todoLines = [];
-    for (const key of REPEATABLE_QUESTS) {
-        const q = QUESTS[key];
-        if (!q) continue;
-        const qname = en ? (q.name_en || q.name) : q.name;
-        const done  = isQuestDone(player, key);
-        const active = player.hasTag(`q_${key}`);
-        const prog   = active ? getQuestProgress(player, key, en) : null;
-        if (done) {
-            doneLines.push(`§2✓ §f${qname} §8· ${q.npc} §8(§6+${q.reward} ◆§8)`);
-        } else if (active) {
-            const rdy = prog.done ? (en ? " §a[READY]" : " §a[PRONTA]") : "";
-            activeLines.push(`§6▶ §f${qname}${rdy} §8· ${q.npc} §8(§6+${q.reward} ◆§8)\n  §7${prog.text}`);
-        } else {
-            todoLines.push(`§8○ §7${qname} §8· ${q.npc} §8(§6+${q.reward} ◆§8)`);
-        }
-    }
-    const lines = [en ? `§a§lDAILY QUESTS\n` : `§a§lMISSIONI GIORNALIERE\n`];
-    if (activeLines.length) { lines.push(en ? "§6§lIN PROGRESS" : "§6§lIN CORSO");   lines.push(...activeLines, ""); }
-    if (todoLines.length)   { lines.push(en ? "§7§lTO DO"       : "§7§lDA FARE");    lines.push(...todoLines,   ""); }
-    if (doneLines.length)   { lines.push(en ? "§a§lCOMPLETED"   : "§a§lCOMPLETE");  lines.push(...doneLines); }
-
-    new MessageFormData()
-        .title(en ? "§l§aDaily Quests" : "§l§aGiornaliere")
-        .body(lines.join("\n"))
-        .button1(en ? "§0« Back" : "§0« Indietro")
-        .button2(en ? "§8Close" : "§8Chiudi")
+        .button1("§0« Back")
+        .button2("§8Close")
         .show(player).then(r => { if (r.selection === 0) openDashboard(player); })
         .catch(() => {});
 }
@@ -1623,13 +1778,13 @@ function openDailyMissions(player) {
 
 function openTeleport(player) {
     const form = new ActionFormData()
-        .title("§l§bTeletrasporto")
-        .body("§7Scegli una opzione:")
+        .title("§l§bTeleport")
+        .body("§7Choose an option:")
         .button("§bWarp")
         .button("§dCommunity Warp")
         .button("§eSet TP")
         .button("§5TP Friend")
-        .button("§0< Indietro");
+        .button("§0< Back");
 
     form.show(player).then(r => {
         if (r.canceled || r.selection === 4) { openDashboard(player); return; }
@@ -1645,22 +1800,22 @@ function openTpFriend(player) {
 
     const form = new ActionFormData()
         .title("§l§dTP Friend")
-        .body(others.length > 0 ? "§7Scegli un giocatore:" : "§7Nessun altro giocatore online.");
+        .body(others.length > 0 ? "§7Choose a player:" : "§7No other players online.");
 
     for (const p of others) form.button(`§0${p.name}`);
-    form.button("§0< Indietro");
+    form.button("§0< Back");
 
     form.show(player).then(r => {
         if (r.canceled || r.selection === others.length) { openTeleport(player); return; }
         const target = others[r.selection];
         if (!target) { openTeleport(player); return; }
-        player.sendMessage(`§d[TP Friend] §fTi teletrasporto da §f${target.name}§f tra 1 secondo...`);
+        player.sendMessage(`§d[TP Friend] §fTeleporting you to §f${target.name}§f in 1 second...`);
         const targetName = target.name;
         system.runTimeout(() => {
             const online = world.getAllPlayers().find(p => p.name === targetName);
-            if (!online) { player.sendMessage(`§c[TP Friend] §f${targetName} ha lasciato il server.`); return; }
+            if (!online) { player.sendMessage(`§c[TP Friend] §f${targetName} left the server.`); return; }
             player.teleport(online.location, { dimension: online.dimension });
-            player.sendMessage(`§d[TP Friend] §fSei da §f${online.name}§f!`);
+            player.sendMessage(`§d[TP Friend] §fYou're at §f${online.name}§f!`);
         }, 20);
     }).catch(() => {});
 }
@@ -1674,11 +1829,11 @@ function openSetTP(player) {
     const form = new ActionFormData()
         .title("§l§eSet TP")
         .body(hasHome
-            ? `§8Punto TP impostato a §8(${Math.floor(hx)}, ${Math.floor(player.getDynamicProperty("home_y"))}, ${Math.floor(player.getDynamicProperty("home_z"))})`
-            : "§8Nessun punto TP impostato.")
-        .button("§eImposta TP")
-        .button(hasHome ? "§aTorna al TP" : "§8Torna al TP")
-        .button("§0< Indietro");
+            ? `§8TP point set at §8(${Math.floor(hx)}, ${Math.floor(player.getDynamicProperty("home_y"))}, ${Math.floor(player.getDynamicProperty("home_z"))})`
+            : "§8No TP point set.")
+        .button("§eSet TP")
+        .button(hasHome ? "§aGo to TP" : "§8Go to TP")
+        .button("§0< Back");
 
     form.show(player).then(r => {
         if (r.canceled || r.selection === 2) { openTeleport(player); return; }
@@ -1688,18 +1843,18 @@ function openSetTP(player) {
             player.setDynamicProperty("home_y", y);
             player.setDynamicProperty("home_z", z);
             player.setDynamicProperty("home_dim", player.dimension.id);
-            player.sendMessage(`§e[Set TP] §fPunto impostato a §f(${Math.floor(x)}, ${Math.floor(y)}, ${Math.floor(z)})`);
+            player.sendMessage(`§e[Set TP] §fPoint set at §f(${Math.floor(x)}, ${Math.floor(y)}, ${Math.floor(z)})`);
             openTeleport(player);
         } else if (r.selection === 1) {
-            if (!hasHome) { player.sendMessage("§c[Set TP] Nessun punto impostato."); openTeleport(player); return; }
-            player.sendMessage("§e[Set TP] §fTi teletrasporto tra 1 secondo...");
+            if (!hasHome) { player.sendMessage("§c[Set TP] No point set."); openTeleport(player); return; }
+            player.sendMessage("§e[Set TP] §fTeleporting in 1 second...");
             system.runTimeout(() => {
                 const dim = world.getDimension(player.getDynamicProperty("home_dim") ?? "overworld");
                 player.teleport(
                     { x: player.getDynamicProperty("home_x"), y: player.getDynamicProperty("home_y"), z: player.getDynamicProperty("home_z") },
                     { dimension: dim }
                 );
-                player.sendMessage("§e[Set TP] §fArrivato!");
+                player.sendMessage("§e[Set TP] §fArrived!");
             }, 20);
         }
     }).catch(() => {});
@@ -1747,18 +1902,18 @@ function openServerWarps(player) {
     const entries = Object.entries(SERVER_WARPS);
     const form = new ActionFormData()
         .title("§l§bWarp")
-        .body("§7Destinazioni del server:");
+        .body("§7Server destinations:");
 
     for (const [, w] of entries) form.button(`${w.name}\n§8★ server`);
-    form.button("§0< Indietro");
+    form.button("§0< Back");
 
     form.show(player).then(r => {
         if (r.canceled || r.selection === entries.length) { openTeleport(player); return; }
         const [, warp] = entries[r.selection];
-        player.sendMessage(`§b[Warp] §fTi teletrasporto a ${warp.name}§f tra 1 secondo...`);
+        player.sendMessage(`§b[Warp] §fTeleporting to ${warp.name}§f in 1 second...`);
         system.runTimeout(() => {
             player.teleport({ x: warp.x, y: warp.y, z: warp.z }, { dimension: world.getDimension(warp.dim) });
-            player.sendMessage(`§b[Warp] §fArrivato a ${warp.name}§f!`);
+            player.sendMessage(`§b[Warp] §fArrived at ${warp.name}§f!`);
         }, 20);
     }).catch(() => {});
 }
@@ -1771,26 +1926,26 @@ function openCommunityWarps(player) {
 
     const form = new ActionFormData()
         .title("§l§dCommunity Warp")
-        .body(entries.length > 0 ? "§7Warp aggiunti dalla community:" : "§7Nessun warp aggiunto ancora.");
+        .body(entries.length > 0 ? "§7Warps added by the community:" : "§7No warps added yet.");
 
     for (const [, w] of entries) {
         form.button(`§b${w.name}\n§8(${Math.floor(w.x)}, ${Math.floor(w.y)}, ${Math.floor(w.z)}) - ${w.creator}`);
     }
 
     const extras = [];
-    form.button("§a+ Aggiungi");                                        extras.push("add");
-    if (entries.length > 0) { form.button("§c- Elimina");              extras.push("delete"); }
-    if (hasDeleted)          { form.button("§6⌛ Eliminati recenti");   extras.push("history"); }
-    form.button("§0< Indietro");                                        extras.push("back");
+    form.button("§a+ Add");                                              extras.push("add");
+    if (entries.length > 0) { form.button("§c- Delete");               extras.push("delete"); }
+    if (hasDeleted)          { form.button("§6⌛ Recently Deleted");    extras.push("history"); }
+    form.button("§0< Back");                                            extras.push("back");
 
     form.show(player).then(r => {
         if (r.canceled) { openTeleport(player); return; }
         if (r.selection < entries.length) {
             const [, warp] = entries[r.selection];
-            player.sendMessage(`§d[Community Warp] §fTi teletrasporto a §b${warp.name}§f tra 1 secondo...`);
+            player.sendMessage(`§d[Community Warp] §fTeleporting to §b${warp.name}§f in 1 second...`);
             system.runTimeout(() => {
                 player.teleport({ x: warp.x, y: warp.y, z: warp.z }, { dimension: world.getDimension(warp.dim) });
-                player.sendMessage(`§d[Community Warp] §fArrivato a §b${warp.name}§f!`);
+                player.sendMessage(`§d[Community Warp] §fArrived at §b${warp.name}§f!`);
             }, 20);
             return;
         }
@@ -1804,27 +1959,27 @@ function openCommunityWarps(player) {
 
 function addWarp(player) {
     new ModalFormData()
-        .title("§l§bAggiungi Warp")
-        .textField("Nome del warp:", "es. base-principale")
+        .title("§l§bAdd Warp")
+        .textField("Warp name:", "e.g. main-base")
         .show(player).then(r => {
             if (r.canceled) { openCommunityWarps(player); return; }
             const name = (r.formValues[0] ?? "").trim();
             if (!name) {
-                player.sendMessage("§c[Warp] Nome non valido.");
+                player.sendMessage("§c[Warp] Invalid name.");
                 openCommunityWarps(player);
                 return;
             }
             const key = name.toLowerCase().replace(/\s+/g, "_");
             const warps = loadWarps();
             if (warps[key] || SERVER_WARPS[key]) {
-                player.sendMessage(`§c[Warp] Esiste già un warp chiamato "${name}".`);
+                player.sendMessage(`§c[Warp] A warp called "${name}" already exists.`);
                 openCommunityWarps(player);
                 return;
             }
             const { x, y, z } = player.location;
             warps[key] = { name, x, y, z, dim: player.dimension.id, creator: player.name, createdAt: Date.now() };
             saveWarps(warps);
-            world.sendMessage(`§b[Community Warp] §f${player.name} ha aggiunto §b${name}§f! §8(${Math.floor(x)}, ${Math.floor(y)}, ${Math.floor(z)})`);
+            world.sendMessage(`§b[Community Warp] §f${player.name} added §b${name}§f! §8(${Math.floor(x)}, ${Math.floor(y)}, ${Math.floor(z)})`);
             openCommunityWarps(player);
         }).catch(() => {});
 }
@@ -1834,13 +1989,13 @@ function deleteWarpMenu(player) {
     const entries = Object.entries(warps);
 
     const form = new ActionFormData()
-        .title("§l§cElimina Community Warp")
-        .body("§7Seleziona il warp da eliminare:");
+        .title("§l§cDelete Community Warp")
+        .body("§7Select the warp to delete:");
 
     for (const [, w] of entries) {
-        form.button(`§c${w.name}\n§8aggiunto da ${w.creator}`);
+        form.button(`§c${w.name}\n§8added by ${w.creator}`);
     }
-    form.button("§0< Indietro");
+    form.button("§0< Back");
 
     form.show(player).then(r => {
         if (r.canceled || r.selection === entries.length) { openCommunityWarps(player); return; }
@@ -1851,7 +2006,7 @@ function deleteWarpMenu(player) {
         saveDeletedWarps(deleted);
         delete warps[key];
         saveWarps(warps);
-        world.sendMessage(`§c[Community Warp] §f${player.name} ha eliminato §c${warp.name}§f.`);
+        world.sendMessage(`§c[Community Warp] §f${player.name} deleted §c${warp.name}§f.`);
         openCommunityWarps(player);
     }).catch(() => {});
 }
@@ -1861,18 +2016,18 @@ function showDeletedWarps(player) {
     const entries = Object.entries(deleted);
     const now     = Date.now();
 
-    const lines = ["§c§lWARP ELIMINATI §7(ultim'ora)\n"];
+    const lines = ["§c§lDELETED WARPS §7(last hour)\n"];
     for (const [, w] of entries) {
         const minLeft = Math.ceil((3_600_000 - (now - w.deletedAt)) / 60_000);
         lines.push(`§c${w.name} §8(${Math.floor(w.x)}, ${Math.floor(w.y)}, ${Math.floor(w.z)})`);
-        lines.push(`  §7Aggiunto da: §f${w.creator} §7— Eliminato da: §f${w.deletedBy} §7— scade tra §e${minLeft} min`);
+        lines.push(`  §7Added by: §f${w.creator} §7— Deleted by: §f${w.deletedBy} §7— expires in §e${minLeft} min`);
     }
 
     new MessageFormData()
-        .title("§l§cEliminati Recenti")
+        .title("§l§cRecently Deleted")
         .body(lines.join("\n"))
-        .button1("§0< Indietro")
-        .button2("§8Chiudi")
+        .button1("§0< Back")
+        .button2("§8Close")
         .show(player).then(r => { if (r.selection === 0) openCommunityWarps(player); })
         .catch(() => {});
 }
@@ -1888,7 +2043,7 @@ function trackKill(player, dead, mobType, scoreKey, goal, prefix, label) {
     if (n > goal) return;
     obj.setScore(player, n);
     player.sendMessage(n >= goal
-        ? `${prefix} ${goal} ${label} eliminati. Torna da me.`
+        ? `${prefix} ${goal} ${label} eliminated. Come back to me.`
         : `§7[Quest] ${label}: ${n}/${goal}`
     );
 }
@@ -1928,13 +2083,607 @@ function getScore(objective, entity) {
 function teleportToLastDeath(player) {
     const loc = lastDeathLocation.get(player.name);
     if (!loc) {
-        player.sendMessage("§5[Cultista] §fNon ricordo dove sei caduto... Muori prima.");
+        player.sendMessage("§5[Cultista] §fI don't remember where you fell... Die first.");
         return;
     }
-    player.sendMessage("§5[Cultista] §fPreparati... il viaggio inizia tra 1 secondo.");
+    player.sendMessage("§5[Cultista] §fPrepare yourself... the journey begins in 1 second.");
     system.runTimeout(() => {
         const dim = world.getDimension(loc.dimensionId);
         player.teleport({ x: loc.x, y: loc.y, z: loc.z }, { dimension: dim });
-        player.sendMessage(`§5[Cultista] §fEccoti dove hai lasciato la tua vita. §7(${loc.x}, ${loc.y}, ${loc.z})`);
+        player.sendMessage(`§5[Cultista] §fHere's where you left your life. §7(${loc.x}, ${loc.y}, ${loc.z})`);
     }, 20);
+}
+
+// ── RANK TICKER ───────────────────────────────────────────────────────────────
+let rankTick = 0;
+system.runInterval(() => {
+    rankTick = (rankTick + 1) % RAINBOW.length;
+    const obj = world.scoreboard.getObjective("quest_punti");
+    for (const player of world.getAllPlayers()) {
+        const pts  = getScore(obj, player);
+        const rank = getRank(pts);
+        const name = player.name;
+        const gems = countItem(player, "cc:ruby");
+        if (rank.color === null) {
+            player.nameTag = name.split("").map((c, i) => RAINBOW[(rankTick + i) % RAINBOW.length] + c).join("");
+            const label = "✦ Leggenda ✦".split("").map((c, i) => RAINBOW[(rankTick + i) % RAINBOW.length] + c).join("");
+            player.onScreenDisplay.setActionBar(`${label}§r §8| §e${pts} §7quest §8| §6${gems} §7◆`);
+        } else {
+            player.nameTag = rank.color + name + "§r";
+            player.onScreenDisplay.setActionBar(`${rank.color}✦ ${rank.name}§r §8| §e${pts} §7quest §8| §6${gems} §7◆`);
+        }
+    }
+}, 8);
+
+// ── BISCAZZIERE LOGIC ─────────────────────────────────────────────────────────
+
+// playerName → { spins: number, losses: number }
+const slotSessions = new Map();
+
+function weightedPick(pool) {
+    const total = pool.reduce((s, e) => s + e.weight, 0);
+    let r = Math.random() * total;
+    for (const entry of pool) {
+        r -= entry.weight;
+        if (r <= 0) return entry;
+    }
+    return pool[pool.length - 1];
+}
+
+function runSlot(player, bet) {
+    const VALID_BETS = [1, 3, 5, 10, 20, 50, 100];
+    if (!VALID_BETS.includes(bet)) return;
+    const gems = countItem(player, "cc:ruby");
+    if (gems < bet) {
+        player.sendMessage(`§c[Biscazziere] §fNot enough gems. Need §c${bet}§f, you have §c${gems}§f.`);
+        return;
+    }
+    player.runCommand(`clear @s cc:ruby 0 ${bet}`);
+
+    // ── luck cycle ─────────────────────────────────────────────────────────────
+    const sess = slotSessions.get(player.name) ?? { spins: 0, losses: 0 };
+    sess.spins++;
+    slotSessions.set(player.name, sess);
+    const cycle = sess.spins % 50; // repeating 50-spin cycle
+
+    let r1 = weightedPick(SLOT_SYMBOLS);
+    let r2 = weightedPick(SLOT_SYMBOLS);
+    let r3 = weightedPick(SLOT_SYMBOLS);
+
+    const natWin  = r1.id === r2.id && r2.id === r3.id;
+    const natNear = !natWin && (r1.id === r2.id || r2.id === r3.id || r1.id === r3.id);
+
+    // Phase HOT (spins 1-15): after 2 losses, 40% chance of forced ♦ win to hook
+    if (cycle <= 15 && !natWin && sess.losses >= 2 && Math.random() < 0.40) {
+        r1 = r2 = r3 = SLOT_SYMBOLS[0]; // ♦ ×2 — smallest win, still a win
+    }
+    // Phase COLD (spins 21-35): small natural wins become near-misses
+    else if (cycle >= 21 && cycle <= 35 && natWin && SLOT_PAYOUTS[r1.id] <= 5 && Math.random() < 0.50) {
+        r3 = weightedPick(SLOT_SYMBOLS.filter(s => s.id !== r1.id));
+    }
+    // Phase RECOVERY (spins 36-50): after 4+ losses, 50% chance of forced small win
+    else if (cycle >= 36 && !natWin && sess.losses >= 4 && Math.random() < 0.50) {
+        r1 = r2 = r3 = weightedPick(SLOT_SYMBOLS.slice(0, 2)); // ♦ or ♣
+    }
+
+    // Progressive streak boost — independent of cycle phase
+    // After long losing streaks the win rate climbs to 30-40%, resets on any win
+    const alreadyWin = r1.id === r2.id && r2.id === r3.id;
+    if (!alreadyWin) {
+        const boostChance =
+            sess.losses >= 10 ? 0.30 :
+            sess.losses >= 7  ? 0.20 :
+            sess.losses >= 5  ? 0.10 : 0;
+        if (boostChance > 0 && Math.random() < boostChance)
+            r1 = r2 = r3 = SLOT_SYMBOLS[0]; // force ♦ win
+    }
+
+    const isWin  = r1.id === r2.id && r2.id === r3.id;
+    const isNear = !isWin && (r1.id === r2.id || r2.id === r3.id || r1.id === r3.id);
+
+    // update session loss streak
+    if (isWin) sess.losses = 0; else sess.losses++;
+
+    // phase hint shown after result
+    let phaseHint = "";
+    if (!isWin && cycle >= 21 && cycle <= 35 && sess.losses >= 2)
+        phaseHint = "\n§8The machine is running cold... §7but that can't last.";
+    else if (!isWin && cycle >= 36 && sess.losses >= 3)
+        phaseHint = "\n§7The tides are turning. §8One more spin.";
+    // ──────────────────────────────────────────────────────────────────────────
+
+    const rnd = (arr, ...args) => arr[Math.floor(Math.random() * arr.length)](...args);
+    const pName = player.name;
+
+    // Frame 0: tutte le ruote in spin
+    player.onScreenDisplay.setTitle("§6[ §8? §6| §8? §6| §8? §6]", { fadeInDuration: 0, stayDuration: 25, fadeOutDuration: 5 });
+    player.onScreenDisplay.setActionBar("§7Spinning...");
+
+    // Frame 1: prima ruota si ferma (~0.9s)
+    system.runTimeout(() => {
+        const p = world.getAllPlayers().find(pl => pl.name === pName);
+        if (!p) return;
+        p.onScreenDisplay.setTitle(`§6[ ${r1.display} §6| §8? §6| §8? §6]`, { fadeInDuration: 0, stayDuration: 20, fadeOutDuration: 5 });
+        p.onScreenDisplay.setActionBar("§7Spinning...");
+    }, 18);
+
+    // Frame 2: seconda ruota si ferma (~1.6s)
+    system.runTimeout(() => {
+        const p = world.getAllPlayers().find(pl => pl.name === pName);
+        if (!p) return;
+        p.onScreenDisplay.setTitle(`§6[ ${r1.display} §6| ${r2.display} §6| §8? §6]`, { fadeInDuration: 0, stayDuration: 25, fadeOutDuration: 5 });
+        p.onScreenDisplay.setActionBar(r1.id === r2.id ? "§6One more..." : "§7Spinning...");
+    }, 32);
+
+    // Frame 3: terza ruota si ferma, risultato finale (~2.5s)
+    system.runTimeout(() => {
+        const p = world.getAllPlayers().find(pl => pl.name === pName);
+        if (!p) return;
+        try {
+            const line = `§6[ ${r1.display} §6| ${r2.display} §6| ${r3.display} §6]`;
+            let actionBarLine = "", win = 0, chatLine = "";
+
+            if (isWin) {
+                const mult = SLOT_PAYOUTS[r1.id];
+                win = bet * mult;
+                p.runCommand(`give @s cc:ruby ${win}`);
+                if (r1.id === "✦") {
+                    actionBarLine = `§d§l★ JACKPOT ×${mult}! +${win} gems!`;
+                    world.sendMessage(`§d§l✦ JACKPOT! §r§f${pName} §7hit §d✦✦✦ §7and won §d${win} gems§7!`);
+                } else if (r1.id === "★") {
+                    actionBarLine = rnd(SLOT_WIN_LINES, win, mult);
+                    world.sendMessage(`§c§l★ §r§f${pName} §7hit §c★★★ §7on the slot and won §a${win} gems§7!`);
+                } else {
+                    actionBarLine = rnd(SLOT_WIN_LINES, win, mult);
+                    world.sendMessage(`§a[Slot] §f${pName} §7won §a${win} gems §7(${r1.id}${r1.id}${r1.id} ×${mult})`);
+                }
+                chatLine = `§a[Slot] ${line}  §a+${win} gems §7(×${mult})`;
+            } else if (isNear) {
+                const matchSym = r1.id === r2.id ? r1.display : r2.id === r3.id ? r2.display : r1.display;
+                actionBarLine = rnd(SLOT_NEAR_LINES, matchSym);
+                chatLine = `§6[Slot] ${line}  §6QUASI! §c-${bet} gems${phaseHint ? "  " + phaseHint.replace(/^\n/, "") : ""}`;
+            } else {
+                actionBarLine = rnd(SLOT_LOSS_LINES, bet);
+                chatLine = `§c[Slot] ${line}  §c-${bet} gems${phaseHint ? "  " + phaseHint.replace(/^\n/, "") : ""}`;
+            }
+
+            p.onScreenDisplay.setTitle(line, { fadeInDuration: 0, stayDuration: 200, fadeOutDuration: 15 });
+            p.onScreenDisplay.setActionBar(actionBarLine);
+            p.sendMessage(chatLine);
+        } catch (e) {
+            world.sendMessage(`§c[Slot Error - ${pName}] ${e}`);
+        }
+    }, 50);
+}
+
+
+function openSlotBetPicker(player) {
+    const gems = countItem(player, "cc:ruby");
+    new ActionFormData()
+        .title("§6§lSlot Machine")
+        .body(`§6◆ §f${gems} gems\n\n§7Choose your bet:\n\n§b♦§7×2   §a♣§7×3   §a♥§7×5   §6♠§7×10   §c★§7×40   §d✦§7×200`)
+        .button("§eBet §c1")
+        .button("§eBet §c3")
+        .button("§eBet §c5")
+        .button("§eBet §c10")
+        .button("§eBet §c20")
+        .button("§eBet §c50")
+        .button("§eBet §c100")
+        .button(`§c§lALL IN  §r§8(${gems} gems — 95% bust)`)
+        .button("§0✕ Close")
+        .show(player).then(r => {
+            if (r.canceled || r.selection === 8) return;
+            if (r.selection === 7) { system.runTimeout(() => runAllIn(player), 5); return; }
+            const bets = [1, 3, 5, 10, 20, 50, 100];
+            system.runTimeout(() => runSlot(player, bets[r.selection]), 5);
+        }).catch(() => {});
+}
+
+function runAllIn(player) {
+    const gems = countItem(player, "cc:ruby");
+    if (gems < 1) {
+        player.sendMessage("§c[Biscazziere] §fNo gems, no game.");
+        return;
+    }
+    player.runCommand(`clear @s cc:ruby 0 ${gems}`);
+    const pName = player.name;
+
+    player.onScreenDisplay.setTitle("§c§l A L L   I N", { fadeInDuration: 0, stayDuration: 60, fadeOutDuration: 8 });
+    player.onScreenDisplay.setActionBar(`§7${gems} gems on the line...`);
+
+    system.runTimeout(() => {
+        const p = world.getAllPlayers().find(pl => pl.name === pName);
+        if (!p) return;
+        const win = Math.random() < 0.05;
+        if (win) {
+            const payout = gems * 3;
+            p.runCommand(`give @s cc:ruby ${payout}`);
+            p.onScreenDisplay.setTitle("§a§l★ SURVIVED ★", { fadeInDuration: 0, stayDuration: 120, fadeOutDuration: 10 });
+            p.onScreenDisplay.setActionBar(`§f×3 → §a+${payout} gems!`);
+            world.sendMessage(`§c§l[ALL IN] §r§f${pName} §7went all in with §c${gems} gems §7and tripled it! §a+${payout} gems§7!`);
+            p.sendMessage(`§a[ALL IN] ${SLOT_SYMBOLS[5].display}${SLOT_SYMBOLS[5].display}${SLOT_SYMBOLS[5].display}  §a+${payout} gems! ×3`);
+        } else {
+            p.onScreenDisplay.setTitle("§4§l B U S T E D", { fadeInDuration: 0, stayDuration: 120, fadeOutDuration: 10 });
+            p.onScreenDisplay.setActionBar(`§c-${gems} gems. §7The house never blinks.`);
+            p.sendMessage(`§c[ALL IN] §fBUSTED. §c-${gems} gems. §7The house never blinks.`);
+        }
+        showGems(p);
+    }, 40);
+}
+
+// ── BLACKJACK LOGIC ───────────────────────────────────────────────────────────
+
+const bjSessions = new Map(); // playerName → session
+
+function bjShowForm(player) {
+    const sess = bjSessions.get(player.name);
+    if (!sess || !sess.active) return;
+
+    const pVal = bjValue(sess.playerHand);
+    const pCol = pVal > 21 ? "§c" : pVal === 21 ? "§a" : "§e";
+    const d0 = sess.dealerHand[0];
+
+    const body =
+        `§fYour hand: ${bjFmt(sess.playerHand)} §8= ${pCol}${pVal}§r\n` +
+        `§8Dealer shows: ${d0.suit}${d0.v}§r  §8?\n` +
+        `§7Bet: §c${sess.bet} gems`;
+
+    const canDouble = sess.playerHand.length === 2;
+
+    system.runTimeout(() => {
+        const p = world.getAllPlayers().find(pl => pl.name === player.name);
+        if (!p) return;
+        const sess2 = bjSessions.get(p.name);
+        if (!sess2 || !sess2.active) return;
+
+        new ActionFormData()
+            .title("§5§lBLACKJACK")
+            .body(body)
+            .button("§a» Hit")
+            .button("§e» Stand")
+            .button(canDouble ? "§6» Double" : "§8  Double (×2 cards only)")
+            .button("§c» Quit")
+            .show(p)
+            .then(res => {
+                if (res.canceled || res.selection === undefined) return;
+                if (res.selection === 0) bjHit(p);
+                else if (res.selection === 1) bjStand(p);
+                else if (res.selection === 2 && canDouble) bjDouble(p);
+                else if (res.selection === 3) bjQuit(p);
+            });
+    }, 15);
+}
+
+const BJ_SUITS = [
+    { sym: "♥", col: "§c" },
+    { sym: "♦", col: "§6" },
+    { sym: "♠", col: "§f" },
+    { sym: "♣", col: "§a" },
+];
+const BJ_VALUES = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+
+function bjDraw() {
+    const s = BJ_SUITS[Math.floor(Math.random() * BJ_SUITS.length)];
+    const v = BJ_VALUES[Math.floor(Math.random() * BJ_VALUES.length)];
+    return { suit: s.col + s.sym, v };
+}
+
+function bjValue(hand) {
+    let total = 0, aces = 0;
+    for (const c of hand) {
+        if (c.v === "A")                      { total += 11; aces++; }
+        else if (["J","Q","K"].includes(c.v)) { total += 10; }
+        else                                  { total += parseInt(c.v); }
+    }
+    while (total > 21 && aces > 0) { total -= 10; aces--; }
+    return total;
+}
+
+function bjFmt(hand) {
+    return hand.map(c => {
+        const hint = c.v === "A" ? "§8(1/11)" : ["J","Q","K"].includes(c.v) ? "§8(10)" : "";
+        return `${c.suit}${c.v}${hint}§r`;
+    }).join(" ");
+}
+
+function bjShowHand(player) {
+    const sess = bjSessions.get(player.name);
+    if (!sess || !sess.active) return;
+    const pVal = bjValue(sess.playerHand);
+    const pCol = pVal > 21 ? "§c" : pVal === 21 ? "§a" : "§f";
+    const d0 = sess.dealerHand[0];
+    player.onScreenDisplay.setTitle(
+        `${bjFmt(sess.playerHand)} §8= ${pCol}${pVal}`,
+        { fadeInDuration: 0, stayDuration: 600, fadeOutDuration: 5 }
+    );
+    player.onScreenDisplay.setActionBar(
+        `§8Dealer: ${d0.suit}${d0.v}§r §8?   §7Bet: §c${sess.bet}`
+    );
+}
+
+function bjEnd(player, sess, payout, title, bar, chat) {
+    bjSessions.delete(player.name);
+    if (payout > 0) player.runCommand(`give @s cc:ruby ${payout}`);
+    player.onScreenDisplay.setTitle(title, { fadeInDuration: 0, stayDuration: 150, fadeOutDuration: 15 });
+    player.onScreenDisplay.setActionBar(bar);
+    player.sendMessage(chat);
+    showGems(player);
+}
+
+function bjStart(player, bet) {
+    if (!bet || bet < 1) return;
+
+    if (bjSessions.has(player.name)) {
+        // sessione stuck — cancella e ricomincia
+        bjSessions.delete(player.name);
+    }
+
+    const gems = countItem(player, "cc:ruby");
+    if (gems < bet) {
+        player.sendMessage(`§c[Blackjack] §fNot enough gems. Need §c${bet}§f, have §c${gems}§f.`);
+        return;
+    }
+
+    player.runCommand(`clear @s cc:ruby 0 ${bet}`);
+
+    const pH = [bjDraw(), bjDraw()];
+    const dH = [bjDraw(), bjDraw()];
+
+    // slight dealer blackjack boost: ~12% extra chance on top of natural
+    if (bjValue(dH) !== 21 && Math.random() < 0.12) {
+        const d0Val = bjValue([dH[0]]);
+        const needed = 21 - d0Val;
+        let neededV;
+        if (needed === 11) neededV = "A";
+        else if (needed === 10) neededV = ["10","J","Q","K"][Math.floor(Math.random() * 4)];
+        else if (needed >= 2 && needed <= 9) neededV = String(needed);
+        if (neededV) {
+            const s = BJ_SUITS[Math.floor(Math.random() * BJ_SUITS.length)];
+            dH[1] = { suit: s.col + s.sym, v: neededV };
+        }
+    }
+
+    const pVal = bjValue(pH);
+    const dVal = bjValue(dH);
+
+    // Natural blackjack
+    if (pVal === 21) {
+        if (dVal === 21) {
+            player.runCommand(`give @s cc:ruby ${bet}`);
+            player.sendMessage(`§5[Blackjack] §6PUSH §f— both Blackjack. Refunded §6${bet}§f gems.\n§7You: ${bjFmt(pH)}  Dealer: ${bjFmt(dH)}`);
+            player.onScreenDisplay.setTitle("§6PUSH — Blackjack", { fadeInDuration: 0, stayDuration: 120, fadeOutDuration: 10 });
+            player.onScreenDisplay.setActionBar(`§6Refunded §c${bet} gems.`);
+        } else {
+            const win = Math.ceil(bet * 1.5);
+            player.runCommand(`give @s cc:ruby ${bet + win}`);
+            player.sendMessage(`§5[Blackjack] §a§lBLACKJACK! §r§f${bjFmt(pH)} = 21.  §a+${win} gems!`);
+            player.onScreenDisplay.setTitle("§a§lBLACKJACK! ×1.5", { fadeInDuration: 0, stayDuration: 150, fadeOutDuration: 15 });
+            player.onScreenDisplay.setActionBar(`§a+${win} gems!`);
+            world.sendMessage(`§a§l[Blackjack] §r§f${player.name} §7hit a Natural Blackjack! §a+${win} gems§7!`);
+        }
+        showGems(player);
+        return;
+    }
+
+    bjSessions.set(player.name, { playerHand: pH, dealerHand: dH, bet, active: true, doubled: false });
+    player.sendMessage("§8[Blackjack] §7Shuffling cards§8...");
+    bjShowForm(player);
+}
+
+function bjHit(player) {
+    const sess = bjSessions.get(player.name);
+    if (!sess || !sess.active) {
+        player.sendMessage("§c[Blackjack] §fNo active game. Start one from the betting screen.");
+        return;
+    }
+    sess.playerHand.push(bjDraw());
+    const pVal = bjValue(sess.playerHand);
+
+    if (pVal > 21) {
+        bjEnd(player, sess, 0,
+            `§c§lBUST!  ${pVal}`,
+            `§c-${sess.bet} gems.`,
+            `§5[Blackjack] §cBUST! §f${bjFmt(sess.playerHand)} §8= ${pVal}.  §c-${sess.bet} gems.`
+        );
+        return;
+    }
+    if (pVal === 21) { bjStand(player); return; } // auto-stand on 21
+    player.sendMessage("§8[Blackjack] §7Drawing§8...");
+    bjShowForm(player);
+}
+
+function bjStand(player) {
+    const sess = bjSessions.get(player.name);
+    if (!sess || !sess.active) {
+        player.sendMessage("§c[Blackjack] §fNo active game.");
+        return;
+    }
+    sess.active = false; // lock session — no more actions
+    while (bjValue(sess.dealerHand) < 17) sess.dealerHand.push(bjDraw());
+
+    const pVal = bjValue(sess.playerHand);
+    const dVal = bjValue(sess.dealerHand);
+    const pFmt = bjFmt(sess.playerHand);
+    const dFmt = bjFmt(sess.dealerHand);
+    const pName = player.name;
+
+    let payout, title, bar, chat;
+    let broadcast = null;
+    if (dVal > 21 || pVal > dVal) {
+        payout = sess.bet * 2;
+        const why = dVal > 21 ? `Dealer bust (${dVal})` : `${pVal} vs ${dVal}`;
+        title = `§a§lWIN!  +${sess.bet}`;
+        bar   = `§a${why}. §f+${payout} gems total.`;
+        chat  = `§5[Blackjack] §aWIN! §7You: ${pFmt} §8=${pVal}  Dealer: ${dFmt} §8=${dVal}.  §a+${sess.bet} gems.`;
+        broadcast = `§5[Blackjack] §f${pName} §7beat the dealer and won §a${sess.bet} gems§7! §8(${pVal} vs ${dVal})`;
+    } else if (pVal === dVal) {
+        payout = sess.bet;
+        title = `§6PUSH  ${pVal}`;
+        bar   = `§6Tie ${pVal} = ${dVal}. Refunded §6${payout} gems.`;
+        chat  = `§5[Blackjack] §6PUSH. §7You: ${pFmt} §8=${pVal}  Dealer: ${dFmt} §8=${dVal}. Refunded.`;
+    } else {
+        payout = 0;
+        title = `§c§lLOSS  ${pVal} vs ${dVal}`;
+        bar   = `§c${dVal} > ${pVal}.  §c-${sess.bet} gems.`;
+        chat  = `§5[Blackjack] §cLOSS. §7You: ${pFmt} §8=${pVal}  Dealer: ${dFmt} §8=${dVal}.  §c-${sess.bet} gems.`;
+    }
+
+    // suspense: dealer reveal → result
+    player.onScreenDisplay.setTitle("§6...", { fadeInDuration: 0, stayDuration: 30, fadeOutDuration: 5 });
+    player.onScreenDisplay.setActionBar("§8Dealer drawing...");
+
+    system.runTimeout(() => {
+        const p = world.getAllPlayers().find(pl => pl.name === pName);
+        if (!p) return;
+        const dCol = dVal > 21 ? "§c" : "§f";
+        p.onScreenDisplay.setTitle(
+            `§8Dealer: ${dFmt} §8= ${dCol}${dVal}`,
+            { fadeInDuration: 0, stayDuration: 35, fadeOutDuration: 5 }
+        );
+        p.onScreenDisplay.setActionBar(`§7vs your §f${pVal}`);
+    }, 28);
+
+    system.runTimeout(() => {
+        const p = world.getAllPlayers().find(pl => pl.name === pName);
+        if (!p) return;
+        if (broadcast) world.sendMessage(broadcast);
+        bjEnd(p, sess, payout, title, bar, chat);
+    }, 55);
+}
+
+function bjDouble(player) {
+    const sess = bjSessions.get(player.name);
+    if (!sess || !sess.active) {
+        player.sendMessage("§c[Blackjack] §fNo active game.");
+        return;
+    }
+    if (sess.playerHand.length !== 2) {
+        player.sendMessage("§c[Blackjack] §fDouble only allowed on first 2 cards.");
+        return;
+    }
+    const gems = countItem(player, "cc:ruby");
+    if (gems < sess.bet) {
+        player.sendMessage(`§c[Blackjack] §fNot enough gems to double (need §c${sess.bet}§f more).`);
+        return;
+    }
+    player.runCommand(`clear @s cc:ruby 0 ${sess.bet}`);
+    sess.bet *= 2;
+    sess.doubled = true;
+    sess.playerHand.push(bjDraw());
+
+    const pVal = bjValue(sess.playerHand);
+    if (pVal > 21) {
+        bjEnd(player, sess, 0,
+            `§c§lBUST!  ${pVal}`,
+            `§c-${sess.bet} gems. §8(doubled)`,
+            `§5[Blackjack] §cBUST on double! §f${bjFmt(sess.playerHand)} §8= ${pVal}.  §c-${sess.bet} gems.`
+        );
+        return;
+    }
+    bjStand(player); // auto-stand after double
+}
+
+function bjQuit(player) {
+    const sess = bjSessions.get(player.name);
+    if (!sess) {
+        player.sendMessage("§c[Blackjack] §fNo active game.");
+        return;
+    }
+    bjSessions.delete(player.name);
+    player.sendMessage(`§5[Blackjack] §cForfeited.  §c-${sess.bet} gems.`);
+    player.onScreenDisplay.setTitle("§cForfeited", { fadeInDuration: 0, stayDuration: 80, fadeOutDuration: 10 });
+    player.onScreenDisplay.setActionBar(`§c-${sess.bet} gems.`);
+    showGems(player);
+}
+
+function openCassa(player, tier) {
+    const cfg = CASSE_POOLS[tier];
+    if (!cfg) return;
+    const gems = countItem(player, "cc:ruby");
+    if (gems < cfg.cost) {
+        player.sendMessage(`§c[Biscazziere] §fNot enough gems. Need §c${cfg.cost}§f, you have §c${gems}§f.`);
+        return;
+    }
+    player.runCommand(`clear @s cc:ruby 0 ${cfg.cost}`);
+
+    const pityObj = world.scoreboard.getObjective(cfg.pityObj);
+    const pity = getScore(pityObj, player);
+
+    let prize;
+    if (pity >= cfg.pityMax) {
+        prize = weightedPick(cfg.items.filter(e => e.rare));
+        pityObj.setScore(player, 0);
+    } else {
+        prize = weightedPick(cfg.items);
+        pityObj.setScore(player, prize.rare ? 0 : pity + 1);
+    }
+
+    const pName = player.name;
+
+    // decoy scroll: 5 items from common pool, fast → slow
+    const commonPool = cfg.items.filter(e => !e.rare);
+    const decoyPool = commonPool.length >= 2 ? commonPool : cfg.items;
+    const decoys = Array.from({ length: 5 }, () => weightedPick(decoyPool));
+
+    player.sendMessage(`§8▶ §7Opening ${cfg.label}§7 crate...`);
+    player.onScreenDisplay.setTitle("§8?   ?   ?", { fadeInDuration: 0, stayDuration: 40, fadeOutDuration: 5 });
+
+    // ticks:  0.7s  1.3s  2.0s  2.8s  3.8s
+    const timing   = [14,   26,   40,   56,   76];
+    const prefixes = ["§7▸", "§7▸", "§e▸▸", "§e▸▸", "§6▶▶▶"];
+
+    timing.forEach((t, i) => {
+        system.runTimeout(() => {
+            const p = world.getAllPlayers().find(pl => pl.name === pName);
+            if (!p) return;
+            p.sendMessage(`${prefixes[i]} §f${decoys[i].name}`);
+            p.onScreenDisplay.setActionBar(`§8${decoys[i].name}`);
+        }, t);
+    });
+
+    // suspense pause ~4.5s
+    system.runTimeout(() => {
+        const p = world.getAllPlayers().find(pl => pl.name === pName);
+        if (!p) return;
+        p.sendMessage("§6§l...");
+        p.onScreenDisplay.setTitle("§6§l...", { fadeInDuration: 0, stayDuration: 22, fadeOutDuration: 5 });
+    }, 90);
+
+    // REVEAL ~5.5s
+    system.runTimeout(() => {
+        const p = world.getAllPlayers().find(pl => pl.name === pName);
+        if (!p) return;
+
+        if (prize.special) {
+            giveSpecialItem(p, prize.special.typeId, prize.name, prize.special.enchants);
+        } else if (prize.id === "cc:ruby") {
+            p.runCommand(`give @s cc:ruby ${prize.amount}`);
+        } else {
+            p.runCommand(`give @s ${prize.id.replace("minecraft:", "")} ${prize.amount}`);
+        }
+
+        if (prize.rare) {
+            p.sendMessage(`§d§l✦ ════════════════ ✦`);
+            p.sendMessage(`§6§l  ${prize.name.toUpperCase()}!!!`);
+            p.sendMessage(`§d§l✦ ════════════════ ✦`);
+            p.onScreenDisplay.setTitle(
+                `§d✦ §6§l${prize.name} §d✦`,
+                { fadeInDuration: 5, stayDuration: 130, fadeOutDuration: 20 }
+            );
+            p.onScreenDisplay.setActionBar(`§d✦ §6§lRARE ITEM! §d✦`);
+            world.sendMessage(`§6§l✦ §r§f${pName} §7opened ${cfg.label}§7 and got: §6§l${prize.name}§7!`);
+        } else {
+            const newPity = getScore(pityObj, p);
+            p.sendMessage(`§f▸ §f${prize.name} §7×${prize.amount}`);
+            p.sendMessage(`§8[Pity: ${newPity}/${cfg.pityMax}]`);
+            p.onScreenDisplay.setTitle(
+                `§f${prize.name}`,
+                { fadeInDuration: 0, stayDuration: 80, fadeOutDuration: 15 }
+            );
+            p.onScreenDisplay.setActionBar(`§7×${prize.amount}`);
+            world.sendMessage(`§7▸ §f${pName} §7opened ${cfg.label}§7 and got: §f${prize.name} §7×${prize.amount}`);
+        }
+
+        showGems(p);
+    }, 110);
 }
