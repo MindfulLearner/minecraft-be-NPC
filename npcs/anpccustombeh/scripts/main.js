@@ -297,7 +297,7 @@ const CASSE_POOLS = {
     },
     // Comune 30g — eggs ~0.8% chance
     comune: {
-        cost: 30, pityMax: 8, pityObj: "pity_com", label: "§fComune",
+        cost: 30, pityMax: 8, pityObj: "pity_com", label: "§fComune", goldenTicketChance: 0.001,
         items: [
             { id: "minecraft:bread",             amount: 4,  weight: 56,  name: "Bread x4" },
             { id: "minecraft:apple",             amount: 4,  weight: 48,  name: "Apples x4" },
@@ -315,7 +315,7 @@ const CASSE_POOLS = {
     },
     // Rara 50g — eggs ~1% chance
     rara: {
-        cost: 50, pityMax: 7, pityObj: "pity_rar", label: "§bRara",
+        cost: 50, pityMax: 7, pityObj: "pity_rar", label: "§bRara", goldenTicketChance: 0.005,
         items: [
             { id: "cc:ruby",                    amount: 20, weight: 48,  name: "20 Gems" },
             { id: "minecraft:diamond",           amount: 2,  weight: 40,  name: "Diamonds x2" },
@@ -336,7 +336,7 @@ const CASSE_POOLS = {
     },
     // Epica 100g — eggs ~1% chance
     epica: {
-        cost: 100, pityMax: 6, pityObj: "pity_epi", label: "§dEpica",
+        cost: 100, pityMax: 6, pityObj: "pity_epi", label: "§dEpica", goldenTicketChance: 0.010,
         items: [
             { id: "cc:ruby",                    amount: 50,  weight: 32,  name: "50 Gems" },
             { id: "minecraft:diamond",           amount: 4,   weight: 28,  name: "Diamonds x4" },
@@ -355,7 +355,7 @@ const CASSE_POOLS = {
     },
     // Leggendaria 200g — eggs ~1% chance
     leggendaria: {
-        cost: 200, pityMax: 5, pityObj: "pity_leg", label: "§6Leggendaria",
+        cost: 200, pityMax: 5, pityObj: "pity_leg", label: "§6Leggendaria", goldenTicketChance: 0.015,
         items: [
             { id: "cc:ruby",                    amount: 100, weight: 32,  name: "100 Gems" },
             { id: "minecraft:diamond",           amount: 6,   weight: 28,  name: "Diamonds x6" },
@@ -2610,7 +2610,11 @@ function openCassa(player, tier) {
     const pity = getScore(pityObj, player);
 
     let prize;
-    if (pity >= cfg.pityMax) {
+    if (cfg.goldenTicketChance && Math.random() < cfg.goldenTicketChance) {
+        prize = { id: "_golden_ticket", name: "§6§lGolden Ticket", rare: true, amount: 1,
+                  special: { typeId: "minecraft:paper", enchants: {} } };
+        pityObj.setScore(player, 0);
+    } else if (pity >= cfg.pityMax) {
         prize = weightedPick(cfg.items.filter(e => e.rare));
         pityObj.setScore(player, 0);
     } else {
@@ -2672,6 +2676,10 @@ function openCassa(player, tier) {
             );
             p.onScreenDisplay.setActionBar(`§d✦ §6§lRARE ITEM! §d✦`);
             world.sendMessage(`§6§l✦ §r§f${pName} §7opened ${cfg.label}§7 and got: §6§l${prize.name}§7!`);
+            if (prize.id === "_golden_ticket") {
+                world.sendMessage(`§6§l★★★ WILLY WONKA GOLDEN TICKET ★★★`);
+                world.sendMessage(`§e${pName} §6ha trovato il §6§lGolden Ticket§6! §eCongratulazioni! §6★`);
+            }
         } else {
             const newPity = getScore(pityObj, p);
             p.sendMessage(`§f▸ §f${prize.name} §7×${prize.amount}`);
