@@ -2503,57 +2503,77 @@ function bjStand(player) {
         player.sendMessage("§c[Blackjack] §fNo active game.");
         return;
     }
-    sess.active = false; // lock session — no more actions
-    while (bjValue(sess.dealerHand) < 17) sess.dealerHand.push(bjDraw());
+    sess.active = false;
 
     const pVal = bjValue(sess.playerHand);
-    const dVal = bjValue(sess.dealerHand);
     const pFmt = bjFmt(sess.playerHand);
-    const dFmt = bjFmt(sess.dealerHand);
     const pName = player.name;
 
-    let payout, title, bar, chat;
-    let broadcast = null;
-    if (dVal > 21 || pVal > dVal) {
-        payout = sess.bet * 2;
-        const why = dVal > 21 ? `Dealer bust (${dVal})` : `${pVal} vs ${dVal}`;
-        title = `§a§lWIN!  +${sess.bet}`;
-        bar   = `§a${why}. §f+${payout} gems total.`;
-        chat  = `§5[Blackjack] §aWIN! §7You: ${pFmt} §8=${pVal}  Dealer: ${dFmt} §8=${dVal}.  §a+${sess.bet} gems.`;
-        broadcast = `§5[Blackjack] §f${pName} §7beat the dealer and won §a${sess.bet} gems§7! §8(${pVal} vs ${dVal})`;
-    } else if (pVal === dVal) {
-        payout = sess.bet;
-        title = `§6PUSH  ${pVal}`;
-        bar   = `§6Tie ${pVal} = ${dVal}. Refunded §6${payout} gems.`;
-        chat  = `§5[Blackjack] §6PUSH. §7You: ${pFmt} §8=${pVal}  Dealer: ${dFmt} §8=${dVal}. Refunded.`;
-    } else {
-        payout = 0;
-        title = `§c§lLOSS  ${pVal} vs ${dVal}`;
-        bar   = `§c${dVal} > ${pVal}.  §c-${sess.bet} gems.`;
-        chat  = `§5[Blackjack] §cLOSS. §7You: ${pFmt} §8=${pVal}  Dealer: ${dFmt} §8=${dVal}.  §c-${sess.bet} gems.`;
+    // pre-draw all dealer cards
+    while (bjValue(sess.dealerHand) < 17) sess.dealerHand.push(bjDraw());
+
+    const CARD_TICK = 24; // ~1.2s between each card reveal
+    let t = 10;
+
+    player.onScreenDisplay.setTitle("§6...", { fadeInDuration: 0, stayDuration: 28, fadeOutDuration: 4 });
+    player.onScreenDisplay.setActionBar("§8Dealer reveals...");
+
+    // reveal cards one by one (card[0] was already visible to the player)
+    for (let i = 2; i <= sess.dealerHand.length; i++) {
+        const snapshot = sess.dealerHand.slice(0, i);
+        const isFlip = i === 2;
+        t += CARD_TICK;
+        system.runTimeout(() => {
+            const p = world.getAllPlayers().find(pl => pl.name === pName);
+            if (!p) return;
+            const curVal = bjValue(snapshot);
+            const newCard = snapshot[snapshot.length - 1];
+            const col = curVal > 21 ? "§c" : curVal >= 17 ? "§a" : "§e";
+            const label = isFlip ? "§7Flips hidden card" : "§7Draws";
+            p.sendMessage(`§5[Blackjack] ${label}: §f${newCard.suit}${newCard.v} §8— Dealer: ${col}${curVal}`);
+            p.onScreenDisplay.setTitle(
+                `§8Dealer: ${bjFmt(snapshot)} §8= ${col}${curVal}`,
+                { fadeInDuration: 0, stayDuration: CARD_TICK - 3, fadeOutDuration: 3 }
+            );
+            p.onScreenDisplay.setActionBar(
+                curVal > 21 ? "§cDealer busts!" :
+                curVal >= 17 ? "§7Dealer stands." : "§eDealer draws..."
+            );
+        }, t);
     }
 
-    // suspense: dealer reveal → result
-    player.onScreenDisplay.setTitle("§6...", { fadeInDuration: 0, stayDuration: 30, fadeOutDuration: 5 });
-    player.onScreenDisplay.setActionBar("§8Dealer drawing...");
-
+    // result after last card
+    t += 20;
     system.runTimeout(() => {
         const p = world.getAllPlayers().find(pl => pl.name === pName);
         if (!p) return;
-        const dCol = dVal > 21 ? "§c" : "§f";
-        p.onScreenDisplay.setTitle(
-            `§8Dealer: ${dFmt} §8= ${dCol}${dVal}`,
-            { fadeInDuration: 0, stayDuration: 35, fadeOutDuration: 5 }
-        );
-        p.onScreenDisplay.setActionBar(`§7vs your §f${pVal}`);
-    }, 28);
 
-    system.runTimeout(() => {
-        const p = world.getAllPlayers().find(pl => pl.name === pName);
-        if (!p) return;
+        const dVal = bjValue(sess.dealerHand);
+        const dFmt = bjFmt(sess.dealerHand);
+        let payout, title, bar, chat, broadcast = null;
+
+        if (dVal > 21 || pVal > dVal) {
+            payout = sess.bet * 2;
+            const why = dVal > 21 ? `Dealer bust (${dVal})` : `${pVal} vs ${dVal}`;
+            title = `§a§lWIN!  +${sess.bet}`;
+            bar   = `§a${why}. §f+${payout} gems total.`;
+            chat  = `§5[Blackjack] §aWIN! §7You: ${pFmt} §8=${pVal}  Dealer: ${dFmt} §8=${dVal}.  §a+${sess.bet} gems.`;
+            broadcast = `§5[Blackjack] §f${pName} §7beat the dealer and won §a${sess.bet} gems§7! §8(${pVal} vs ${dVal})`;
+        } else if (pVal === dVal) {
+            payout = sess.bet;
+            title = `§6PUSH  ${pVal}`;
+            bar   = `§6Tie ${pVal} = ${dVal}. Refunded §6${payout} gems.`;
+            chat  = `§5[Blackjack] §6PUSH. §7You: ${pFmt} §8=${pVal}  Dealer: ${dFmt} §8=${dVal}. Refunded.`;
+        } else {
+            payout = 0;
+            title = `§c§lLOSS  ${pVal} vs ${dVal}`;
+            bar   = `§c${dVal} > ${pVal}.  §c-${sess.bet} gems.`;
+            chat  = `§5[Blackjack] §cLOSS. §7You: ${pFmt} §8=${pVal}  Dealer: ${dFmt} §8=${dVal}.  §c-${sess.bet} gems.`;
+        }
+
         if (broadcast) world.sendMessage(broadcast);
         bjEnd(p, sess, payout, title, bar, chat);
-    }, 55);
+    }, t);
 }
 
 function bjDouble(player) {
