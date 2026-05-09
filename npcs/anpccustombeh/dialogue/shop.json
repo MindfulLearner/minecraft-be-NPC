@@ -5,79 +5,110 @@
             {
                 "scene_tag": "shop_main",
                 "npc_name": "§6Mr Francesco",
-                "text": "§0Josh mi deve ancora 3 gemme.\nMartina e' la mia cliente preferita.\nPrima si paga. Niente rimborsi.\n\n§e§lACQUISTA §0(tu dai gemme)\n§0Sella/Saddle §c-14\n§0Cartellino/Name Tag §c-6\n§0Spugna/Sponge §c-11\n§0Perle/Ender Pearl §c-6\n§0Guinzaglio/Lead §c-5\n§0Cannocchiale/Spyglass §c-6\n§0Magnetite/Lodestone §c-18\n§0B.Rec./Rec.Compass §c-12\n§0Scudo/Shield §c-6\n§0Balestra/Crossbow §c-10\n§0Razzi/Firework x3 §c-4\n\n§a§lVENDI §0(l'NPC ti paga)\n§0Quercia/Oak x64 §a+1\n§0Grano/Wheat x64 §a+1\n§0Ferro/Iron x8 §a+2\n§0Pietra/Stone x64 §a+1\n§0Sabbia/Sand x32 §a+1\n§0Ossa/Bone x16 §a+2\n§0Filo/String x32 §a+1",
+                "text": "§0Josh still owes me 3 gems.\nMartina is my favorite customer.\nPay first. No refunds.\n\n§e§lBUY §0(you give gems)\n§0Saddle §c-70\n§0Name Tag §c-32\n§0Sponge §c-55\n§0Ender Pearls x2 §c-32\n§0Lead §c-25\n§0Spyglass §c-32\n§0Lodestone §c-85\n§0Rec.Compass §c-65\n§0Shield §c-32\n§0Crossbow §c-50\n§0Fireworks x3 §c-18\n§0Bundle §c-50\n§0L.Rod §c-45\n§0Amethyst x4 §c-20\n§0Lanterns x4 §c-16\n§0Mace §c-180\n§0Wind Charge x4 §c-40\n§0Trial Key §c-75\n§0Goat Horn §c-32\n\n§a§lSELL §0(the NPC pays you)\n§0Oak Log x512 §a+1\n§0Wheat x512 §a+1\n§0Iron x64 §a+1\n§0Stone x512 §a+1\n§0Sand x384 §a+1\n§0Bone x128 §a+1\n§0String x384 §a+1\n§0Arrow x384 §a+1\n§0Gunpowder x64 §a+1\n§0Flint x512 §a+1",
                 "on_open_commands": [
-                    "/say [Mr Francesco] §e@initiator §fentra. Ha le gemme?",
+                    "/say [Mr Francesco] §e@initiator §fwalks in. Got gems?",
                     "/execute as @initiator run scriptevent shop:balance"
                 ],
                 "buttons": [
-                    { "name": "§e» Compra", "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy"] },
-                    { "name": "§a» Vendi",  "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell"] },
-                    { "name": "§a» Tutto",  "commands": ["/scriptevent shop:sellall"] }
+                    { "name": "§e» Buy",  "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy"] },
+                    { "name": "§a» Sell", "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell"] },
+                    { "name": "§a» All",  "commands": ["/scriptevent shop:sellall"] }
                 ]
             },
             {
                 "scene_tag": "shop_buy",
                 "npc_name": "§6Mr Francesco",
-                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Sella §c-14\n§0Cartellino §c-6\n§0Spugna §c-11\n§0Perle End x2 §c-6\n§0Guinzaglio §c-5",
+                "text": "§e§lBUYING\n§0You give gems — get the item\n\n§0Saddle §c-70\n§0Name Tag §c-32\n§0Sponge §c-55\n§0Ender Pearls x2 §c-32\n§0Lead §c-25",
                 "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
                 "buttons": [
-                    { "name": "§eSella",       "commands": ["/scriptevent shop:buy saddle"] },
-                    { "name": "§eCartell.",    "commands": ["/scriptevent shop:buy name_tag"] },
-                    { "name": "§eSpugna",      "commands": ["/scriptevent shop:buy sponge"] },
-                    { "name": "§ePerle x2",    "commands": ["/scriptevent shop:buy ender_pearl"] },
-                    { "name": "§eGuinzaglio", "commands": ["/scriptevent shop:buy lead"] },
-                    { "name": "§e» Pag.2",    "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_2"] }
+                    { "name": "§eSaddle",   "commands": ["/scriptevent shop:buy saddle"] },
+                    { "name": "§eName Tag", "commands": ["/scriptevent shop:buy name_tag"] },
+                    { "name": "§eSponge",   "commands": ["/scriptevent shop:buy sponge"] },
+                    { "name": "§eE.Pearls", "commands": ["/scriptevent shop:buy ender_pearl"] },
+                    { "name": "§eLead",     "commands": ["/scriptevent shop:buy lead"] },
+                    { "name": "§e» Pg.2",   "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_2"] }
                 ]
             },
             {
                 "scene_tag": "shop_buy_2",
                 "npc_name": "§6Mr Francesco",
-                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Cannocchiale §c-6\n§0Magnetite §c-18\n§0Bussola Recupero §c-12",
+                "text": "§e§lBUYING\n§0You give gems — get the item\n\n§0Spyglass §c-32\n§0Lodestone §c-85\n§0Rec. Compass §c-65",
                 "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
                 "buttons": [
-                    { "name": "§e« Pag.1",       "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy"] },
-                    { "name": "§eCannocchiale",  "commands": ["/scriptevent shop:buy spyglass"] },
-                    { "name": "§eMagnetite",     "commands": ["/scriptevent shop:buy lodestone"] },
-                    { "name": "§eB.Recupero",    "commands": ["/scriptevent shop:buy recovery_compass"] },
-                    { "name": "§e» Pag.3",       "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_3"] }
+                    { "name": "§e« Pg.1",     "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy"] },
+                    { "name": "§eSpyglass",    "commands": ["/scriptevent shop:buy spyglass"] },
+                    { "name": "§eLodestone",   "commands": ["/scriptevent shop:buy lodestone"] },
+                    { "name": "§eRec.Compass", "commands": ["/scriptevent shop:buy recovery_compass"] },
+                    { "name": "§e» Pg.3",      "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_3"] }
                 ]
             },
             {
                 "scene_tag": "shop_buy_3",
                 "npc_name": "§6Mr Francesco",
-                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Scudo §c-6\n§0Balestra §c-10\n§0Razzi x3 §c-4",
+                "text": "§e§lBUYING\n§0You give gems — get the item\n\n§0Shield §c-32\n§0Crossbow §c-50\n§0Fireworks x3 §c-18\n§0Bundle §c-50",
                 "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
                 "buttons": [
-                    { "name": "§e« Pag.2",  "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_2"] },
-                    { "name": "§eScudo",     "commands": ["/scriptevent shop:buy shield"] },
-                    { "name": "§eBalestra",  "commands": ["/scriptevent shop:buy crossbow"] },
-                    { "name": "§eRazzi x3", "commands": ["/scriptevent shop:buy firework_rocket"] }
+                    { "name": "§e« Pg.2",      "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_2"] },
+                    { "name": "§eShield",       "commands": ["/scriptevent shop:buy shield"] },
+                    { "name": "§eCrossbow",     "commands": ["/scriptevent shop:buy crossbow"] },
+                    { "name": "§eFireworks x3", "commands": ["/scriptevent shop:buy firework_rocket"] },
+                    { "name": "§eBundle",       "commands": ["/scriptevent shop:buy bundle"] },
+                    { "name": "§e» Pg.4",       "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_4"] }
+                ]
+            },
+            {
+                "scene_tag": "shop_buy_4",
+                "npc_name": "§6Mr Francesco",
+                "text": "§e§lBUYING\n§0You give gems — get the item\n\n§0Lightning Rod §c-45\n§0Amethyst x4 §c-20\n§0Lanterns x4 §c-16\n§0Wind Charge x4 §c-40\n§0Goat Horn §c-32",
+                "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
+                "buttons": [
+                    { "name": "§e« Pg.3",        "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_3"] },
+                    { "name": "§eL.Rod",          "commands": ["/scriptevent shop:buy lightning_rod"] },
+                    { "name": "§eAmethyst x4",   "commands": ["/scriptevent shop:buy amethyst_shard"] },
+                    { "name": "§eLanterns x4",   "commands": ["/scriptevent shop:buy lantern"] },
+                    { "name": "§eWind Charge x4","commands": ["/scriptevent shop:buy wind_charge"] },
+                    { "name": "§e» Pg.5",         "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_5"] }
+                ]
+            },
+            {
+                "scene_tag": "shop_buy_5",
+                "npc_name": "§6Mr Francesco",
+                "text": "§e§lBUYING\n§0You give gems — get the item\n\n§cMace §c-180\n§0Goat Horn §c-32\n§0Trial Key §c-75",
+                "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
+                "buttons": [
+                    { "name": "§e« Pg.4",    "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_buy_4"] },
+                    { "name": "§cMace",       "commands": ["/scriptevent shop:buy mace"] },
+                    { "name": "§eGoat Horn",  "commands": ["/scriptevent shop:buy goat_horn"] },
+                    { "name": "§eTrial Key",  "commands": ["/scriptevent shop:buy trial_key"] }
                 ]
             },
             {
                 "scene_tag": "shop_sell",
                 "npc_name": "§6Mr Francesco",
-                "text": "§a§lSTAI VENDENDO\n§0Dai l'oggetto — l'NPC ti paga\n\n§0Quercia x64 §a+1\n§0Grano x64 §a+1\n§0Ferro x8 §a+2\n§0Pietra x64 §a+1\n§0Sabbia x32 §a+1\n§0Ossa x16 §a+2\n§0Filo x32 §a+1",
+                "text": "§a§lSELLING\n§0Give the item — the NPC pays you\n\n§0Oak Log x512 §a+1\n§0Wheat x512 §a+1\n§0Iron x64 §a+1\n§0Stone x512 §a+1\n§0Sand x384 §a+1",
                 "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
                 "buttons": [
-                    { "name": "§eQuercia",  "commands": ["/scriptevent shop:sell oak_log"] },
-                    { "name": "§eGrano",    "commands": ["/scriptevent shop:sell wheat"] },
-                    { "name": "§eFerro",    "commands": ["/scriptevent shop:sell iron_ingot"] },
-                    { "name": "§ePietra",   "commands": ["/scriptevent shop:sell stone"] },
-                    { "name": "§eSabbia",   "commands": ["/scriptevent shop:sell sand"] },
-                    { "name": "§a» Pag.2", "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell_2"] }
+                    { "name": "§eOak Log", "commands": ["/scriptevent shop:sell oak_log"] },
+                    { "name": "§eWheat",   "commands": ["/scriptevent shop:sell wheat"] },
+                    { "name": "§eIron",    "commands": ["/scriptevent shop:sell iron_ingot"] },
+                    { "name": "§eStone",   "commands": ["/scriptevent shop:sell stone"] },
+                    { "name": "§eSand",    "commands": ["/scriptevent shop:sell sand"] },
+                    { "name": "§a» Pg.2",  "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell_2"] }
                 ]
             },
             {
                 "scene_tag": "shop_sell_2",
                 "npc_name": "§6Mr Francesco",
-                "text": "§a§lSTAI VENDENDO\n§0Dai l'oggetto — l'NPC ti paga\n\n§0Ossa x16 §a+2\n§0Filo x32 §a+1",
+                "text": "§a§lSELLING\n§0Give the item — the NPC pays you\n\n§0Bone x128 §a+1\n§0String x384 §a+1\n§0Arrow x384 §a+1\n§0Gunpowder x64 §a+1\n§0Flint x512 §a+1",
                 "on_open_commands": ["/execute as @initiator run scriptevent shop:balance"],
                 "buttons": [
-                    { "name": "§a« Pag.1", "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell"] },
-                    { "name": "§eOssa",    "commands": ["/scriptevent shop:sell bone"] },
-                    { "name": "§eFilo",    "commands": ["/scriptevent shop:sell string"] }
+                    { "name": "§a« Pg.1",   "commands": ["/dialogue open @e[tag=mrfrancesco,r=2] @initiator shop_sell"] },
+                    { "name": "§eBone",      "commands": ["/scriptevent shop:sell bone"] },
+                    { "name": "§eString",    "commands": ["/scriptevent shop:sell string"] },
+                    { "name": "§eArrow",     "commands": ["/scriptevent shop:sell arrow"] },
+                    { "name": "§eGunpowder", "commands": ["/scriptevent shop:sell gunpowder"] },
+                    { "name": "§eFlint",     "commands": ["/scriptevent shop:sell flint"] }
                 ]
             }
         ]

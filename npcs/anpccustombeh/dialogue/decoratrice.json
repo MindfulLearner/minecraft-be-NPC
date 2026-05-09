@@ -5,141 +5,78 @@
             {
                 "scene_tag": "decoratrice_intro",
                 "npc_name": "§dSofia",
-                "text": "§dGuarda questo posto. Vuoto. Spento.\n§5Ho mille idee ma nessun materiale.\n§dE tu cosa fai qui?",
-                "on_open_commands": ["/execute as @initiator run scriptevent decoratrice:lang_check"],
+                "text": "§dLook at this place. Empty. Dull.\n§5I have a thousand ideas but no materials.\n§dWhat are you doing here?",
+                "on_open_commands": ["/execute as @initiator run scriptevent decoratrice:balance"],
                 "buttons": [
-                    { "name": "§e» Missioni",    "commands": ["/scriptevent decoratrice:missioni"] },
-                    { "name": "§e» Giornaliere", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_giornaliere"] },
-                    { "name": "§d» Avanzati",    "commands": ["/scriptevent decoratrice:hub_accesso"] },
-                    { "name": "§5» Il Piano",    "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_piano"] }
+                    { "name": "§e» Missions", "commands": ["/scriptevent decoratrice:missioni"] },
+                    { "name": "§d» Advanced", "commands": ["/scriptevent decoratrice:hub_accesso"] },
+                    { "name": "§5» The Plan", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_piano"] }
                 ]
             },
             {
                 "scene_tag": "decoratrice_piano",
                 "npc_name": "§dSofia",
-                "text": "§dFiori ovunque! Lana colorata per i tappeti.\n§5Colori vivaci, bambù nell'angolo...\n§dSarebbe bellissimo. Aiutami?",
+                "text": "§dFlowers everywhere! Colored wool for carpets.\n§5Vivid colors, bamboo in the corner...\n§dIt would be beautiful. Help me?",
                 "buttons": [
-                    { "name": "§e» Missioni", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_main"] }
+                    { "name": "§e» Missions", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_main"] }
                 ]
             },
             {
                 "scene_tag": "decoratrice_main",
                 "npc_name": "§dSofia",
-                "text": "§dPortami qualcosa di bello!\n§5Scegli o consegna.\n\n§e↺ §0Fiori §7▸ 16 Fiori §a+1\n§0Lana §7▸ 8 Lana (qualsiasi) §a+5\n§0Colorante §7▸ 6 Colorante §a+4\n§e↺ §0Bambù §7▸ 16 Bambù §a+1",
+                "text": "§dBring me something beautiful!\n§5Choose.\n\n§0Flowers §7▸ 32 Flowers §a+1\n§0Wool §7▸ 24 Wool (any) §a+1\n§0Dye §7▸ 16 Dye §a+1\n§0Bamboo §7▸ 32 Bamboo §a+1",
                 "buttons": [
-                    { "name": "§e↺ Fiori",    "commands": ["/scriptevent decoratrice:accept sofia_fiori"] },
-                    { "name": "§eLana",        "commands": ["/scriptevent decoratrice:accept sofia_lana"] },
-                    { "name": "§eColorante",   "commands": ["/scriptevent decoratrice:accept sofia_colorante"] },
-                    { "name": "§e↺ Bambù",    "commands": ["/scriptevent decoratrice:accept sofia_bamboo"] },
-                    { "name": "§5« Indietro", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_intro"] }
+                    { "name": "§eFlowers", "commands": ["/scriptevent decoratrice:accept sofia_fiori"] },
+                    { "name": "§eWool",       "commands": ["/scriptevent decoratrice:accept sofia_lana"] },
+                    { "name": "§eDye",        "commands": ["/scriptevent decoratrice:accept sofia_colorante"] },
+                    { "name": "§eBamboo",  "commands": ["/scriptevent decoratrice:accept sofia_bamboo"] },
+                    { "name": "§5« Back",     "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_intro"] }
                 ]
             },
             {
                 "scene_tag": "decoratrice_consegna",
                 "npc_name": "§dSofia",
-                "text": "§dHai trovato qualcosa di bello?\n§5Mostrami!\n\n§0Fiori §7▸ 16 Fiori\n§0Lana §7▸ 8 Lana\n§0Colorante §7▸ 6 Colorante\n§0Bambù §7▸ 16 Bambù",
+                "text": "§dFound something beautiful?\n§5Show me!\n\n§0Flowers §7▸ 32 Flowers\n§0Wool §7▸ 24 Wool\n§0Dye §7▸ 16 Dye\n§0Bamboo §7▸ 32 Bamboo",
                 "buttons": [
-                    { "name": "§e↺ Fiori",    "commands": ["/scriptevent decoratrice:deliver sofia_fiori"] },
-                    { "name": "§eLana",        "commands": ["/scriptevent decoratrice:deliver sofia_lana"] },
-                    { "name": "§eColorante",   "commands": ["/scriptevent decoratrice:deliver sofia_colorante"] },
-                    { "name": "§e↺ Bambù",    "commands": ["/scriptevent decoratrice:deliver sofia_bamboo"] },
-                    { "name": "§5« Indietro", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_main"] }
+                    { "name": "§eFlowers", "commands": ["/scriptevent decoratrice:deliver sofia_fiori"] },
+                    { "name": "§eWool",       "commands": ["/scriptevent decoratrice:deliver sofia_lana"] },
+                    { "name": "§eDye",        "commands": ["/scriptevent decoratrice:deliver sofia_colorante"] },
+                    { "name": "§eBamboo",  "commands": ["/scriptevent decoratrice:deliver sofia_bamboo"] },
+                    { "name": "§5« Back",     "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_main"] }
                 ]
             },
             {
                 "scene_tag": "decoratrice_hub",
                 "npc_name": "§dSofia",
-                "text": "§dHo idee ancora più grandiose!\n§5Ma servono materiali speciali...",
+                "text": "§dI have even bigger ideas!\n§5But I need special materials...",
                 "buttons": [
-                    { "name": "§d» Progetti", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_sfide"] },
-                    { "name": "§a» Consegna", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_consegna_av"] }
-                ]
-            },
-            {
-                "scene_tag": "decoratrice_giornaliere",
-                "npc_name": "§dSofia",
-                "text": "§dOgni giorno ho bisogno di colori freschi!\n§7▸ 16 Fiori §a→ +1 gemma\n§7▸ 16 Bambù §a→ +1 gemma",
-                "buttons": [
-                    { "name": "§e↺ Fiori",    "commands": ["/scriptevent decoratrice:accept sofia_fiori"] },
-                    { "name": "§e↺ Bambù",    "commands": ["/scriptevent decoratrice:accept sofia_bamboo"] },
-                    { "name": "§5« Indietro", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_intro"] }
+                    { "name": "§d» Projects", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_sfide"] },
+                    { "name": "§a» Deliver",  "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_consegna_av"] }
                 ]
             },
             {
                 "scene_tag": "decoratrice_sfide",
                 "npc_name": "§dSofia",
-                "text": "§dScegli cosa portarmi!\n§5Sarà bellissimo, promesso.\n\n§0Vetro §7▸ Vetro Colorato x32 + Glowstone x16 §a+16\n§0Sculk §7▸ Sculk x16 + Sensore x4 §a+20\n§0Prismarina §7▸ Pris.Bricks x32 + Lanterne Mare x16 §a+18\n§0Candele §7▸ Candele x16 + Miele x8 + Ametista x16 §a+22",
-                "buttons": [
-                    { "name": "§eVetro",       "commands": ["/scriptevent decoratrice:accept sofia_vetro_glow"] },
-                    { "name": "§eSculk",       "commands": ["/scriptevent decoratrice:accept sofia_sculk"] },
-                    { "name": "§ePrismarina",  "commands": ["/scriptevent decoratrice:accept sofia_prisma"] },
-                    { "name": "§eCandele",     "commands": ["/scriptevent decoratrice:accept sofia_candele_miele"] },
-                    { "name": "§5« Indietro", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_hub"] }
-                ]
-            },
-            {
-                "scene_tag": "decoratrice_intro_en",
-                "npc_name": "§dSofia",
-                "text": "§dLook at this place. Empty. Dull.\n§5I have a thousand ideas but no materials.\n§dWhat are you doing here?",
-                "buttons": [
-                    { "name": "§e» Missions", "commands": ["/scriptevent decoratrice:missioni"] },
-                    { "name": "§e» Daily",    "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_giornaliere_en"] },
-                    { "name": "§d» Advanced", "commands": ["/scriptevent decoratrice:hub_accesso"] }
-                ]
-            },
-            {
-                "scene_tag": "decoratrice_main_en",
-                "npc_name": "§dSofia",
-                "text": "§dBring me something beautiful!\n§5Choose.\n\n§e↺ §0Flowers §7▸ 16 Flowers §a+1\n§0Wool §7▸ 8 Wool (any) §a+5\n§0Dye §7▸ 6 Dye §a+4\n§e↺ §0Bamboo §7▸ 16 Bamboo §a+1",
-                "buttons": [
-                    { "name": "§e↺ Flowers", "commands": ["/scriptevent decoratrice:accept sofia_fiori"] },
-                    { "name": "§eWool",       "commands": ["/scriptevent decoratrice:accept sofia_lana"] },
-                    { "name": "§eDye",        "commands": ["/scriptevent decoratrice:accept sofia_colorante"] },
-                    { "name": "§e↺ Bamboo",  "commands": ["/scriptevent decoratrice:accept sofia_bamboo"] },
-                    { "name": "§5« Back",     "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_intro_en"] }
-                ]
-            },
-            {
-                "scene_tag": "decoratrice_hub_en",
-                "npc_name": "§dSofia",
-                "text": "§dI have even bigger ideas!\n§5But I need special materials...",
-                "buttons": [
-                    { "name": "§d» Projects", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_sfide_en"] }
-                ]
-            },
-            {
-                "scene_tag": "decoratrice_sfide_en",
-                "npc_name": "§dSofia",
-                "text": "§dChoose what to bring me!\n§5It will be beautiful, I promise.\n\n§0Glass §7▸ Stained Glass x32 + Glowstone x16 §a+16\n§0Sculk §7▸ Sculk x16 + Sensor x4 §a+20\n§0Prismarine §7▸ Pris.Bricks x32 + Sea Lanterns x16 §a+18\n§0Candles §7▸ Candles x16 + Honeycomb x8 + Amethyst x16 §a+22",
+                "text": "§dChoose what to bring me!\n§5It will be beautiful, I promise.\n\n§0Glass §7▸ Stained Glass x64 + Glowstone x32 §a+1\n§0Sculk §7▸ Sculk x32 + Sensor x8 §a+1\n§0Prismarine §7▸ Pris.Bricks x64 + Sea Lanterns x32 §a+1\n§0Candles §7▸ Candles x32 + Honeycomb x16 + Amethyst x32 §a+1",
                 "buttons": [
                     { "name": "§eGlass",      "commands": ["/scriptevent decoratrice:accept sofia_vetro_glow"] },
                     { "name": "§eSculk",      "commands": ["/scriptevent decoratrice:accept sofia_sculk"] },
                     { "name": "§ePrismarine", "commands": ["/scriptevent decoratrice:accept sofia_prisma"] },
                     { "name": "§eCandles",    "commands": ["/scriptevent decoratrice:accept sofia_candele_miele"] },
-                    { "name": "§5« Back",     "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_hub_en"] }
-                ]
-            },
-            {
-                "scene_tag": "decoratrice_giornaliere_en",
-                "npc_name": "§dSofia",
-                "text": "§dEvery day I need fresh colors!\n§7▸ 16 Flowers §a→ +1 gem\n§7▸ 16 Bamboo §a→ +1 gem",
-                "buttons": [
-                    { "name": "§e↺ Flowers", "commands": ["/scriptevent decoratrice:accept sofia_fiori"] },
-                    { "name": "§e↺ Bamboo",  "commands": ["/scriptevent decoratrice:accept sofia_bamboo"] },
-                    { "name": "§5« Back",     "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_intro_en"] }
+                    { "name": "§5« Back",     "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_hub"] }
                 ]
             },
             {
                 "scene_tag": "decoratrice_consegna_av",
                 "npc_name": "§dSofia",
-                "text": "§dHai trovato qualcosa di speciale?\n§5Mostrami, mostrami!\n\n§0Fiori §7▸ 16 Fiori\n§0Vetro §7▸ Vetro Colorato x32 + Glowstone x16\n§0Sculk §7▸ Sculk x16 + Sensore x4\n§0Prismarina §7▸ Pris.Bricks x32 + Lanterne Mare x16\n§0Candele §7▸ Candele x16 + Miele x8 + Ametista x16",
+                "text": "§dFound something special?\n§5Show me, show me!\n\n§0Flowers §7▸ 32 Flowers\n§0Glass §7▸ Stained Glass x64 + Glowstone x32\n§0Sculk §7▸ Sculk x32 + Sensor x8\n§0Prismarine §7▸ Pris.Bricks x64 + Sea Lanterns x32\n§0Candles §7▸ Candles x32 + Honeycomb x16 + Amethyst x32",
                 "buttons": [
-                    { "name": "§e↺ Fiori",    "commands": ["/scriptevent decoratrice:deliver sofia_fiori"] },
-                    { "name": "§eVetro",       "commands": ["/scriptevent decoratrice:deliver sofia_vetro_glow"] },
-                    { "name": "§eSculk",       "commands": ["/scriptevent decoratrice:deliver sofia_sculk"] },
-                    { "name": "§ePrismarina",  "commands": ["/scriptevent decoratrice:deliver sofia_prisma"] },
-                    { "name": "§eCandele",     "commands": ["/scriptevent decoratrice:deliver sofia_candele_miele"] },
-                    { "name": "§5« Indietro", "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_hub"] }
+                    { "name": "§eFlowers", "commands": ["/scriptevent decoratrice:deliver sofia_fiori"] },
+                    { "name": "§eGlass",      "commands": ["/scriptevent decoratrice:deliver sofia_vetro_glow"] },
+                    { "name": "§eSculk",      "commands": ["/scriptevent decoratrice:deliver sofia_sculk"] },
+                    { "name": "§ePrismarine", "commands": ["/scriptevent decoratrice:deliver sofia_prisma"] },
+                    { "name": "§eCandles",    "commands": ["/scriptevent decoratrice:deliver sofia_candele_miele"] },
+                    { "name": "§5« Back",     "commands": ["/dialogue open @e[tag=decoratrice,r=2] @initiator decoratrice_hub"] }
                 ]
             }
         ]

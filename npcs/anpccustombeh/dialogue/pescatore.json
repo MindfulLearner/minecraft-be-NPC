@@ -5,145 +5,85 @@
             {
                 "scene_tag": "pescatore_intro",
                 "npc_name": "§bOld Piero",
-                "text": "§3...\n§bVattene. L'acqua porta via tutto.\n§3Non voglio aiuto da nessuno.",
-                "on_open_commands": ["/execute as @initiator run scriptevent pescatore:lang_check"],
+                "text": "§3...\n§bGo away. Water takes everything.\n§3I don't want help from anyone.",
+                "on_open_commands": ["/execute as @initiator run scriptevent pescatore:balance"],
                 "buttons": [
-                    { "name": "§e» Missioni",    "commands": ["/scriptevent pescatore:missioni"] },
-                    { "name": "§e» Giornaliere", "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_giornaliere"] },
-                    { "name": "§b» Avanzate",    "commands": ["/scriptevent pescatore:hub_accesso"] },
-                    { "name": "§0» Storia",       "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_storia"] }
+                    { "name": "§e» Missions", "commands": ["/scriptevent pescatore:missioni"] },
+                    { "name": "§b» Advanced", "commands": ["/scriptevent pescatore:hub_accesso"] },
+                    { "name": "§0» Story",    "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_storia"] }
                 ]
             },
             {
                 "scene_tag": "pescatore_storia",
                 "npc_name": "§bOld Piero",
-                "text": "§bEravamo sulla barca. Io, Anna, i bambini.\n§3Una cosa enorme è salita dal fondo.\n§bNon ho potuto fare nulla. Nulla.",
+                "text": "§bWe were on the boat. Me, Anna, the kids.\n§3Something enormous rose from the deep.\n§bI couldn't do anything. Nothing.",
                 "buttons": [
-                    { "name": "§eVendetta",    "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_patto"] },
-                    { "name": "§eDispiacere",  "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_patto"] }
+                    { "name": "§eRevenge", "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_patto"] },
+                    { "name": "§eSorry",   "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_patto"] }
                 ]
             },
             {
                 "scene_tag": "pescatore_patto",
                 "npc_name": "§bOld Piero",
-                "text": "§bDavvero? Non posso più toccare una canna.\n§3Ma tu puoi. Pesca per me.\n§bOgni pesce è un passo verso la vendetta.",
+                "text": "§bReally? I can't touch a rod anymore.\n§3But you can. Fish for me.\n§bEvery fish is a step toward revenge.",
                 "buttons": [
-                    { "name": "§e» Missioni", "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_main"] }
+                    { "name": "§e» Missions", "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_main"] }
                 ]
             },
             {
                 "scene_tag": "pescatore_main",
                 "npc_name": "§bOld Piero",
-                "text": "§bHo paura. Ma tu no.\n§3Pesca per me. Ti pago in gemme.\n\n§e↺ §0Merluzzi §7▸ 10 Cod §a+1\n§0Salmoni §7▸ 8 Salmoni §a+6\n§0Tropicali §7▸ 6 Pesci Tropicali §a+9",
+                "text": "§bI'm scared. But you're not.\n§3Fish for me. I'll pay in gems.\n\n§0Cod §7▸ 20 Cod §a+1\n§0Salmon §7▸ 20 Salmon §a+1\n§0Tropical §7▸ 15 Tropical Fish §a+1",
                 "buttons": [
-                    { "name": "§e↺ Merluzzi", "commands": ["/scriptevent pescatore:accept piero_pesce"] },
-                    { "name": "§eSalmoni",     "commands": ["/scriptevent pescatore:accept piero_salmone"] },
-                    { "name": "§eTropicali",   "commands": ["/scriptevent pescatore:accept piero_tropicale"] },
-                    { "name": "§0« Indietro",  "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_intro"] }
+                    { "name": "§eCod",   "commands": ["/scriptevent pescatore:accept piero_pesce"] },
+                    { "name": "§eSalmon",   "commands": ["/scriptevent pescatore:accept piero_salmone"] },
+                    { "name": "§eTropical", "commands": ["/scriptevent pescatore:accept piero_tropicale"] },
+                    { "name": "§3« Back",   "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_intro"] }
                 ]
             },
             {
                 "scene_tag": "pescatore_consegna",
                 "npc_name": "§bOld Piero",
-                "text": "§bHai portato i pesci?\n§3Ogni pesce è... giustizia.\n\n§0Merluzzi §7▸ 10 Cod\n§0Salmoni §7▸ 8 Salmoni\n§0Tropicali §7▸ 6 Pesci Tropicali",
+                "text": "§bDid you bring the fish?\n§3Every fish is... justice.\n\n§0Cod §7▸ 20 Cod\n§0Salmon §7▸ 20 Salmon\n§0Tropical §7▸ 15 Tropical Fish",
                 "buttons": [
-                    { "name": "§e↺ Merluzzi", "commands": ["/scriptevent pescatore:deliver piero_pesce"] },
-                    { "name": "§eSalmoni",     "commands": ["/scriptevent pescatore:deliver piero_salmone"] },
-                    { "name": "§eTropicali",   "commands": ["/scriptevent pescatore:deliver piero_tropicale"] },
-                    { "name": "§3« Indietro",  "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_main"] }
+                    { "name": "§eCod",   "commands": ["/scriptevent pescatore:deliver piero_pesce"] },
+                    { "name": "§eSalmon",   "commands": ["/scriptevent pescatore:deliver piero_salmone"] },
+                    { "name": "§eTropical", "commands": ["/scriptevent pescatore:deliver piero_tropicale"] },
+                    { "name": "§3« Back",   "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_main"] }
                 ]
             },
             {
                 "scene_tag": "pescatore_hub",
                 "npc_name": "§bOld Piero",
-                "text": "§bSei tornato.\n§3Sfide vere o consegna?",
+                "text": "§bYou came back.\n§3Real challenges or deliver?",
                 "buttons": [
-                    { "name": "§b» Sfide",    "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_sfide"] },
-                    { "name": "§a» Consegna", "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_consegna_av"] }
-                ]
-            },
-            {
-                "scene_tag": "pescatore_giornaliere",
-                "npc_name": "§bOld Piero",
-                "text": "§bOgni giorno il mare porta qualcosa.\n§7▸ 10 Merluzzi (Cod) §a→ +1 gemma",
-                "buttons": [
-                    { "name": "§e↺ Accetta",  "commands": ["/scriptevent pescatore:accept piero_pesce"] },
-                    { "name": "§3« Indietro", "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_intro"] }
+                    { "name": "§b» Challenges", "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_sfide"] },
+                    { "name": "§a» Deliver",    "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_consegna_av"] }
                 ]
             },
             {
                 "scene_tag": "pescatore_sfide",
                 "npc_name": "§bOld Piero",
-                "text": "§bQueste non sono per chiunque.\n§3Scegli la tua sfida.\n\n§0Prismarina §7▸ Prism. x32 + Cristalli x8 + Inchiostro x8 §a+20\n§0Guardiani §7▸ 5 Guardiani uccisi §a+18\n§0Tridente §7▸ Tridente x1 + Nautilus x4 §a+22\n§cAntico §7▸ 1 Guardiano Antico §a+35",
-                "buttons": [
-                    { "name": "§ePrismarina",  "commands": ["/scriptevent pescatore:accept piero_prismarina"] },
-                    { "name": "§eGuardiani",   "commands": ["/scriptevent pescatore:accept piero_guardiani"] },
-                    { "name": "§eTridente",    "commands": ["/scriptevent pescatore:accept piero_tridente"] },
-                    { "name": "§cAntico",      "commands": ["/scriptevent pescatore:accept piero_elder"] },
-                    { "name": "§3« Indietro", "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_hub"] }
-                ]
-            },
-            {
-                "scene_tag": "pescatore_intro_en",
-                "npc_name": "§bOld Piero",
-                "text": "§3...\n§bGo away. Water takes everything.\n§3I don't want help from anyone.",
-                "buttons": [
-                    { "name": "§e» Missions",  "commands": ["/scriptevent pescatore:missioni"] },
-                    { "name": "§e» Daily",     "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_giornaliere_en"] },
-                    { "name": "§b» Advanced",  "commands": ["/scriptevent pescatore:hub_accesso"] }
-                ]
-            },
-            {
-                "scene_tag": "pescatore_main_en",
-                "npc_name": "§bOld Piero",
-                "text": "§bI'm scared. But you're not.\n§3Fish for me. I'll pay in gems.\n\n§e↺ §0Cod §7▸ 10 Cod §a+1\n§0Salmon §7▸ 8 Salmon §a+6\n§0Tropical §7▸ 6 Tropical Fish §a+9",
-                "buttons": [
-                    { "name": "§e↺ Cod",   "commands": ["/scriptevent pescatore:accept piero_pesce"] },
-                    { "name": "§eSalmon",   "commands": ["/scriptevent pescatore:accept piero_salmone"] },
-                    { "name": "§eTropical", "commands": ["/scriptevent pescatore:accept piero_tropicale"] },
-                    { "name": "§3« Back",   "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_intro_en"] }
-                ]
-            },
-            {
-                "scene_tag": "pescatore_hub_en",
-                "npc_name": "§bOld Piero",
-                "text": "§bYou came back.\n§3Real challenges?",
-                "buttons": [
-                    { "name": "§b» Challenges", "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_sfide_en"] }
-                ]
-            },
-            {
-                "scene_tag": "pescatore_sfide_en",
-                "npc_name": "§bOld Piero",
-                "text": "§bThese aren't for everyone.\n§3Choose your challenge.\n\n§0Prismarine §7▸ Prism. x32 + Crystals x8 + Ink x8 §a+20\n§0Guardians §7▸ 5 Guardians killed §a+18\n§0Trident §7▸ Trident x1 + Nautilus x4 §a+22\n§cElder §7▸ 1 Elder Guardian §a+35",
+                "text": "§bThese aren't for everyone.\n§3Choose your challenge.\n\n§0Prismarine §7▸ Prism. x64 + Crystals x16 + Ink x16 §a+1\n§0Guardians §7▸ 12 Guardians killed §a+1\n§0Trident §7▸ Trident x1 + Nautilus x8 §a+1\n§cElder §7▸ 1 Elder Guardian §a+1",
                 "buttons": [
                     { "name": "§ePrismarine", "commands": ["/scriptevent pescatore:accept piero_prismarina"] },
                     { "name": "§eGuardians",  "commands": ["/scriptevent pescatore:accept piero_guardiani"] },
                     { "name": "§eTrident",    "commands": ["/scriptevent pescatore:accept piero_tridente"] },
                     { "name": "§cElder",      "commands": ["/scriptevent pescatore:accept piero_elder"] },
-                    { "name": "§3« Back",     "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_hub_en"] }
-                ]
-            },
-            {
-                "scene_tag": "pescatore_giornaliere_en",
-                "npc_name": "§bOld Piero",
-                "text": "§bEvery day the sea brings something.\n§7▸ 10 Cod §a→ +1 gem",
-                "buttons": [
-                    { "name": "§e↺ Accept", "commands": ["/scriptevent pescatore:accept piero_pesce"] },
-                    { "name": "§3« Back",   "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_intro_en"] }
+                    { "name": "§3« Back",     "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_hub"] }
                 ]
             },
             {
                 "scene_tag": "pescatore_consegna_av",
                 "npc_name": "§bOld Piero",
-                "text": "§bHai completato qualcosa?\n§3Dimmi.\n\n§0Merluzzi §7▸ 10 Cod\n§0Prismarina §7▸ Prism. x32 + Cristalli x8 + Inchiostro x8\n§0Guardiani §7▸ 5 Guardiani\n§0Tridente §7▸ Tridente x1 + Nautilus x4\n§cAntico §7▸ 1 Guardiano Antico",
+                "text": "§bDid you complete something?\n§3Tell me.\n\n§0Cod §7▸ 20 Cod\n§0Prismarine §7▸ Prism. x64 + Crystals x16 + Ink x16\n§0Guardians §7▸ 12 Guardians\n§0Trident §7▸ Trident x1 + Nautilus x8\n§cElder §7▸ 1 Elder Guardian",
                 "buttons": [
-                    { "name": "§e↺ Merluzzi", "commands": ["/scriptevent pescatore:deliver piero_pesce"] },
-                    { "name": "§ePrismarina",  "commands": ["/scriptevent pescatore:deliver piero_prismarina"] },
-                    { "name": "§eGuardiani",   "commands": ["/scriptevent pescatore:deliver piero_guardiani"] },
-                    { "name": "§eTridente",    "commands": ["/scriptevent pescatore:deliver piero_tridente"] },
-                    { "name": "§cAntico",      "commands": ["/scriptevent pescatore:deliver piero_elder"] },
-                    { "name": "§3« Indietro",  "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_hub"] }
+                    { "name": "§eCod",    "commands": ["/scriptevent pescatore:deliver piero_pesce"] },
+                    { "name": "§ePrismarine","commands": ["/scriptevent pescatore:deliver piero_prismarina"] },
+                    { "name": "§eGuardians", "commands": ["/scriptevent pescatore:deliver piero_guardiani"] },
+                    { "name": "§eTrident",   "commands": ["/scriptevent pescatore:deliver piero_tridente"] },
+                    { "name": "§cElder",     "commands": ["/scriptevent pescatore:deliver piero_elder"] },
+                    { "name": "§3« Back",    "commands": ["/dialogue open @e[tag=pescatore,r=2] @initiator pescatore_hub"] }
                 ]
             }
         ]

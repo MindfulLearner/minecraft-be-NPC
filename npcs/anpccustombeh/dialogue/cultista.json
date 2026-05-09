@@ -4,113 +4,26 @@
         "scenes": [
             {
                 "scene_tag": "cultista_intro",
-                "npc_name": "§5Cultista",
-                "text": "§fUn'altra anima si avvicina...\n§7Chi sei, straniero?",
-                "on_open_commands": ["/execute as @initiator run scriptevent cultista:lang_check"],
-                "buttons": [
-                    { "name": "§e» Missioni",    "commands": ["/scriptevent cultista:missioni"] },
-                    { "name": "§e» Giornaliere", "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_giornaliere"] },
-                    { "name": "§5» Riti Av.",    "commands": ["/scriptevent cultista:riti_accesso"] }
-                ]
-            },
-            {
-                "scene_tag": "cultista_avventuriero",
-                "npc_name": "§5Cultista",
-                "text": "§fUn avventuriero...\n§7Josh ne manda uno ogni settimana.\n§fBene. Ho lavoro per te.",
-                "buttons": [
-                    { "name": "§e» Missioni", "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_main"] }
-                ]
-            },
-            {
-                "scene_tag": "cultista_main",
-                "npc_name": "§5Cultista",
-                "text": "§fScegli la tua missione.\n\n§0Legna §7▸ 32 Tronchi §a+4\n§0Ossa §7▸ 10 Scheletri §a+6\n§0Sfama §7▸ 16 Pane §a+5\n§0Buio §7▸ Scendi Y≤30 §a+5\n§0Creeper §7▸ 5 Creeper §a+4",
-                "buttons": [
-                    { "name": "§eLegna",       "commands": ["/scriptevent cultista:accept taglialegna"] },
-                    { "name": "§eOssa",         "commands": ["/scriptevent cultista:accept ossa"] },
-                    { "name": "§eSfama",        "commands": ["/scriptevent cultista:accept sfama"] },
-                    { "name": "§eBuio",         "commands": ["/scriptevent cultista:accept buio"] },
-                    { "name": "§eCreeper",      "commands": ["/scriptevent cultista:accept creeper"] }
-                ]
-            },
-            {
-                "scene_tag": "cultista_ritorno",
-                "npc_name": "§5Cultista",
-                "text": "§fIl culto conosce ogni angolo del mondo.\n§8Posso riportarti dove hai perso la vita.",
-                "buttons": [
-                    { "name": "§aVai!",       "commands": ["/scriptevent cultista:ritorno_morte"] },
-                    { "name": "§0« Indietro", "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_intro"] }
-                ]
-            },
-            {
-                "scene_tag": "cultista_consegna",
-                "npc_name": "§5Cultista",
-                "text": "§fIl culto osserva.\n§7Quale missione hai completato?\n\n§0Legna §7▸ 32 Tronchi\n§0Ossa §7▸ 10 Scheletri uccisi\n§0Sfama §7▸ 16 Pane\n§0Buio §7▸ Visita Y≤30\n§0Creeper §7▸ 5 Creeper uccisi",
-                "buttons": [
-                    { "name": "§eLegna",       "commands": ["/scriptevent cultista:deliver taglialegna"] },
-                    { "name": "§eOssa",         "commands": ["/scriptevent cultista:deliver ossa"] },
-                    { "name": "§eSfama",        "commands": ["/scriptevent cultista:deliver sfama"] },
-                    { "name": "§eBuio",         "commands": ["/scriptevent cultista:deliver buio"] },
-                    { "name": "§eCreeper",      "commands": ["/scriptevent cultista:deliver creeper"] },
-                    { "name": "§0« Indietro",  "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_main"] }
-                ]
-            },
-            {
-                "scene_tag": "cultista_hub",
-                "npc_name": "§5Cultista",
-                "text": "§fLe prove sono complete.\n§8Ora iniziano i veri riti del Culto.",
-                "buttons": [
-                    { "name": "§5» Riti",     "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_riti"] },
-                    { "name": "§a» Consegna", "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_consegna_av"] }
-                ]
-            },
-            {
-                "scene_tag": "cultista_riti",
-                "npc_name": "§5Cultista",
-                "text": "§fIl Culto chiede sacrifici.\n\n§5Anime §7▸ Sabbia Anime x32 + Terreno x16 §a+16\n§5Piglin §7▸ 8 Piglin Brute §a+24\n§5Sacrificio §7▸ Totem x1 + Lacrime Ghast x4 §a+28\n§cWither §7▸ Uccidi 1 Wither §a+45",
-                "buttons": [
-                    { "name": "§eAnime",       "commands": ["/scriptevent cultista:accept niss_anime"] },
-                    { "name": "§ePiglin",       "commands": ["/scriptevent cultista:accept niss_piglin"] },
-                    { "name": "§eSacrificio",   "commands": ["/scriptevent cultista:accept niss_sacrificio"] },
-                    { "name": "§cWither",       "commands": ["/scriptevent cultista:accept niss_wither"] },
-                    { "name": "§0« Indietro",  "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_hub"] }
-                ]
-            },
-            {
-                "scene_tag": "cultista_consegna_av",
-                "npc_name": "§5Cultista",
-                "text": "§fIl Culto osserva.\n§7Quale rito hai completato?\n\n§5Anime §7▸ Sabbia Anime x32 + Terreno x16\n§5Piglin §7▸ 8 Piglin Brute\n§5Sacrificio §7▸ Totem x1 + Lacrime Ghast x4\n§cWither §7▸ 1 Wither ucciso",
-                "buttons": [
-                    { "name": "§eAnime",       "commands": ["/scriptevent cultista:deliver niss_anime"] },
-                    { "name": "§ePiglin",       "commands": ["/scriptevent cultista:deliver niss_piglin"] },
-                    { "name": "§eSacrificio",   "commands": ["/scriptevent cultista:deliver niss_sacrificio"] },
-                    { "name": "§cWither",       "commands": ["/scriptevent cultista:deliver niss_wither"] },
-                    { "name": "§0« Indietro",  "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_hub"] }
-                ]
-            },
-            {
-                "scene_tag": "cultista_giornaliere",
-                "npc_name": "§5Cultista",
-                "text": "§fOgni giorno il culto richiede un tributo.\n§7▸ 8 Carne Marcia §a→ +1 gemma",
-                "buttons": [
-                    { "name": "§e↺ Accetta",  "commands": ["/scriptevent cultista:accept cultista_giorn"] },
-                    { "name": "§0« Indietro", "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_intro"] }
-                ]
-            },
-            {
-                "scene_tag": "cultista_intro_en",
                 "npc_name": "§5Cultist",
                 "text": "§fAnother soul approaches...\n§7Who are you, stranger?",
+                "on_open_commands": ["/execute as @initiator run scriptevent cultista:balance"],
                 "buttons": [
                     { "name": "§e» Missions",       "commands": ["/scriptevent cultista:missioni"] },
-                    { "name": "§e» Daily",           "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_giornaliere_en"] },
                     { "name": "§5» Advanced Rites",  "commands": ["/scriptevent cultista:riti_accesso"] }
                 ]
             },
             {
-                "scene_tag": "cultista_main_en",
+                "scene_tag": "cultista_avventuriero",
                 "npc_name": "§5Cultist",
-                "text": "§fChoose your mission.\n\n§0Wood §7▸ 32 Logs §a+4\n§0Bones §7▸ 10 Skeletons §a+6\n§0Feed §7▸ 16 Bread §a+5\n§0Dark §7▸ Descend Y≤30 §a+5\n§0Creeper §7▸ 5 Creepers §a+4",
+                "text": "§fAn adventurer...\n§7Josh sends one every week.\n§fGood. I have work for you.",
+                "buttons": [
+                    { "name": "§e» Missions", "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_main"] }
+                ]
+            },
+            {
+                "scene_tag": "cultista_main",
+                "npc_name": "§5Cultist",
+                "text": "§fChoose your mission.\n\n§0Wood §7▸ 64 Logs §a+1\n§0Bones §7▸ 25 Skeletons §a+1\n§0Feed §7▸ 32 Bread §a+1\n§0Dark §7▸ Descend Y≤30 §a+1\n§0Creeper §7▸ 15 Creepers §a+1",
                 "buttons": [
                     { "name": "§eWood",    "commands": ["/scriptevent cultista:accept taglialegna"] },
                     { "name": "§eBones",   "commands": ["/scriptevent cultista:accept ossa"] },
@@ -120,34 +33,59 @@
                 ]
             },
             {
-                "scene_tag": "cultista_hub_en",
+                "scene_tag": "cultista_ritorno",
+                "npc_name": "§5Cultist",
+                "text": "§fThe Cult knows every corner of the world.\n§8I can take you back to where you died.",
+                "buttons": [
+                    { "name": "§aGo!",        "commands": ["/scriptevent cultista:ritorno_morte"] },
+                    { "name": "§0« Back",     "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_intro"] }
+                ]
+            },
+            {
+                "scene_tag": "cultista_consegna",
+                "npc_name": "§5Cultist",
+                "text": "§fThe Cult is watching.\n§7Which mission did you complete?\n\n§0Wood §7▸ 64 Logs\n§0Bones §7▸ 25 Skeletons killed\n§0Feed §7▸ 32 Bread\n§0Dark §7▸ Reach Y≤30\n§0Creeper §7▸ 15 Creepers killed",
+                "buttons": [
+                    { "name": "§eWood",       "commands": ["/scriptevent cultista:deliver taglialegna"] },
+                    { "name": "§eBones",      "commands": ["/scriptevent cultista:deliver ossa"] },
+                    { "name": "§eFeed",       "commands": ["/scriptevent cultista:deliver sfama"] },
+                    { "name": "§eDark",       "commands": ["/scriptevent cultista:deliver buio"] },
+                    { "name": "§eCreeper",    "commands": ["/scriptevent cultista:deliver creeper"] },
+                    { "name": "§0« Back",     "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_main"] }
+                ]
+            },
+            {
+                "scene_tag": "cultista_hub",
                 "npc_name": "§5Cultist",
                 "text": "§fThe trials are complete.\n§8Now the true Cult rites begin.",
                 "buttons": [
-                    { "name": "§5» Rites", "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_riti_en"] }
+                    { "name": "§5» Rites",    "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_riti"] },
+                    { "name": "§a» Deliver",  "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_consegna_av"] }
                 ]
             },
             {
-                "scene_tag": "cultista_riti_en",
+                "scene_tag": "cultista_riti",
                 "npc_name": "§5Cultist",
-                "text": "§fThe Cult demands sacrifices.\n\n§5Souls §7▸ Soul Sand x32 + Soul Soil x16 §a+16\n§5Piglin §7▸ 8 Piglin Brutes §a+24\n§5Sacrifice §7▸ Totem x1 + Ghast Tears x4 §a+28\n§cWither §7▸ Kill 1 Wither §a+45",
+                "text": "§fThe Cult demands sacrifices.\n\n§5Souls §7▸ Soul Sand x64 + Soul Soil x32 §a+1\n§5Piglin §7▸ 15 Piglin Brutes §a+1\n§5Sacrifice §7▸ Totem x2 + Ghast Tears x8 §a+1\n§cWither §7▸ Kill 1 Wither §a+1",
                 "buttons": [
-                    { "name": "§eSouls",      "commands": ["/scriptevent cultista:accept niss_anime"] },
-                    { "name": "§ePiglin",      "commands": ["/scriptevent cultista:accept niss_piglin"] },
-                    { "name": "§eSacrifice",   "commands": ["/scriptevent cultista:accept niss_sacrificio"] },
-                    { "name": "§cWither",      "commands": ["/scriptevent cultista:accept niss_wither"] },
-                    { "name": "§0« Back",      "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_hub_en"] }
+                    { "name": "§eSouls",     "commands": ["/scriptevent cultista:accept niss_anime"] },
+                    { "name": "§ePiglin",    "commands": ["/scriptevent cultista:accept niss_piglin"] },
+                    { "name": "§eSacrifice", "commands": ["/scriptevent cultista:accept niss_sacrificio"] },
+                    { "name": "§cWither",    "commands": ["/scriptevent cultista:accept niss_wither"] },
+                    { "name": "§0« Back",   "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_hub"] }
                 ]
             },
             {
-                "scene_tag": "cultista_giornaliere_en",
+                "scene_tag": "cultista_consegna_av",
                 "npc_name": "§5Cultist",
-                "text": "§fEvery day the cult demands tribute.\n§7▸ 8 Rotten Flesh §a→ +1 gem",
+                "text": "§fThe Cult is watching.\n§7Which rite have you completed?\n\n§5Souls §7▸ Soul Sand x64 + Soul Soil x32\n§5Piglin §7▸ 15 Piglin Brutes\n§5Sacrifice §7▸ Totem x2 + Ghast Tears x8\n§cWither §7▸ 1 Wither killed",
                 "buttons": [
-                    { "name": "§e↺ Accept", "commands": ["/scriptevent cultista:accept cultista_giorn"] },
-                    { "name": "§0« Back",   "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_intro_en"] }
+                    { "name": "§eSouls",     "commands": ["/scriptevent cultista:deliver niss_anime"] },
+                    { "name": "§ePiglin",    "commands": ["/scriptevent cultista:deliver niss_piglin"] },
+                    { "name": "§eSacrifice", "commands": ["/scriptevent cultista:deliver niss_sacrificio"] },
+                    { "name": "§cWither",    "commands": ["/scriptevent cultista:deliver niss_wither"] },
+                    { "name": "§0« Back",   "commands": ["/dialogue open @e[tag=cultista,r=2] @initiator cultista_hub"] }
                 ]
-            }
-        ]
+            }        ]
     }
 }

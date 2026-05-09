@@ -5,80 +5,97 @@
             {
                 "scene_tag": "fabbro_main",
                 "npc_name": "§7Mastro Ugo",
-                "text": "§0Roba pregiata. Paghi o te ne vai.\nNon faccio sconti a nessuno.\nNeanche a Josh.\n\n§e§lACQUISTA §0(tu dai gemme)\n§0Rott.Neth./N.Scrap §c-26\n§0Diamante/Diamond §c-24\n§0Totem §c-40\n§0L.Mare/Sea Lantern §c-12\n§0Tridente/Trident §c-30\n§0Stella/Nether Star §c-80\n§0T.Wither/Wither Skull §c-22\n§0Elytra §c-700\n§0C.del Mare/Heart of Sea §c-45\n§4Neth.Ingot §c-400\n§cSpada/Fire Sw. I §c-18\n§4Spada/Fire Sw. II §c-28\n\n§a§lVENDI §0(l'NPC ti paga)\n§0Detriti/Anc.Debris x1 §a+9\n§0Ossidiana/Obsidian x32 §a+3\n§0Prismarina x32 §a+2\n§0Ferro/Iron x16 §a+4\n§0Oro/Gold x8 §a+5\n§0Rame/Copper x32 §a+1\n§0Quarzo/Quartz x16 §a+2",
+                "text": "§0Quality goods. Pay up or leave.\nNo discounts for anyone.\nNot even Josh.\n\n§e§lBUY §0(you give gems)\n§0Neth.Scrap §c-150\n§0Diamond §c-130\n§0Totem §c-220\n§0Sea Lantern §c-65\n§0Trident §c-170\n§0Nether Star §c-500\n§0Wither Skull §c-130\n§0Elytra §c-3500\n§0Heart of Sea §c-260\n§4Neth.Ingot §c-2000\n§cFire Sword I §c-100\n§4Fire Sword II §c-170\n§0Beacon §c-800\n§0Resp.Anchor §c-200\n§4Dragon Egg §c-5000\n§6Neth.Upgrade §c-700\n\n§a§lSELL §0(the NPC pays you)\n§0Anc.Debris x3 §a+1\n§0Obsidian x192 §a+1\n§0Prismarine x192 §a+1\n§0Iron x128 §a+1\n§0Gold x64 §a+1\n§0Copper x256 §a+1\n§0Quartz x192 §a+1\n§0Blaze Rod x64 §a+1\n§0E.Pearl x64 §a+1\n§0Neth.Scrap x3 §a+1",
                 "on_open_commands": [
-                    "/say [Mastro Ugo] §e@initiator §fsi avvicina alla forgia. Ha i soldi?",
+                    "/say [Mastro Ugo] §e@initiator §fapproaches the forge. Got gems?",
                     "/execute as @initiator run scriptevent fabbro:balance"
                 ],
                 "buttons": [
-                    { "name": "§e» Compra", "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy"] },
-                    { "name": "§a» Vendi",  "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_sell"] },
-                    { "name": "§a» Tutto",  "commands": ["/scriptevent fabbro:sellall"] }
+                    { "name": "§e» Buy",  "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy"] },
+                    { "name": "§a» Sell", "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_sell"] },
+                    { "name": "§a» All",  "commands": ["/scriptevent fabbro:sellall"] }
                 ]
             },
             {
                 "scene_tag": "fabbro_buy",
                 "npc_name": "§7Mastro Ugo",
-                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Rott. Nether §c-26\n§0Diamante §c-24\n§0Totem §c-40\n§0Lant. Mare §c-12\n§0Tridente §c-30",
+                "text": "§e§lBUYING\n§0You give gems — get the item\n\n§0Neth. Scrap §c-150\n§0Diamond §c-130\n§0Totem §c-220\n§0Sea Lantern §c-65\n§0Trident §c-170",
                 "on_open_commands": ["/execute as @initiator run scriptevent fabbro:balance"],
                 "buttons": [
-                    { "name": "§eRott.Neth.",  "commands": ["/scriptevent fabbro:buy netherite_scrap"] },
-                    { "name": "§eDiamante",    "commands": ["/scriptevent fabbro:buy diamond"] },
-                    { "name": "§eTotem",       "commands": ["/scriptevent fabbro:buy totem_of_undying"] },
-                    { "name": "§eLant.Mare",   "commands": ["/scriptevent fabbro:buy sea_lantern"] },
-                    { "name": "§eTridente",    "commands": ["/scriptevent fabbro:buy trident"] },
-                    { "name": "§e» Pag.2",     "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy_2"] }
+                    { "name": "§eNeth.Scrap", "commands": ["/scriptevent fabbro:buy netherite_scrap"] },
+                    { "name": "§eDiamond",    "commands": ["/scriptevent fabbro:buy diamond"] },
+                    { "name": "§eTotem",      "commands": ["/scriptevent fabbro:buy totem_of_undying"] },
+                    { "name": "§eSea Lantern","commands": ["/scriptevent fabbro:buy sea_lantern"] },
+                    { "name": "§eTrident",    "commands": ["/scriptevent fabbro:buy trident"] },
+                    { "name": "§e» Pg.2",     "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy_2"] }
                 ]
             },
             {
                 "scene_tag": "fabbro_buy_2",
                 "npc_name": "§7Mastro Ugo",
-                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Stella Nether §c-80\n§0Teschio Wither §c-22\n§cSpada Inf. I §c-18\n§4Spada Inf. II §c-28",
+                "text": "§e§lBUYING\n§0You give gems — get the item\n\n§0Nether Star §c-500\n§0Wither Skull §c-130\n§cFire Sw. I §c-100\n§4Fire Sw. II §c-170",
                 "on_open_commands": ["/execute as @initiator run scriptevent fabbro:balance"],
                 "buttons": [
-                    { "name": "§e« Pag.1",    "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy"] },
-                    { "name": "§eStella Nth.", "commands": ["/scriptevent fabbro:buy nether_star"] },
-                    { "name": "§eT.Wither",    "commands": ["/scriptevent fabbro:buy wither_skeleton_skull"] },
-                    { "name": "§cSpada F.I",   "commands": ["/scriptevent fabbro:buy iron_sword_fa1"] },
-                    { "name": "§4Spada F.II",  "commands": ["/scriptevent fabbro:buy iron_sword_fa2"] },
-                    { "name": "§e» Pag.3",     "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy_3"] }
+                    { "name": "§e« Pg.1",    "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy"] },
+                    { "name": "§eNeth.Star",  "commands": ["/scriptevent fabbro:buy nether_star"] },
+                    { "name": "§eW.Skull",    "commands": ["/scriptevent fabbro:buy wither_skeleton_skull"] },
+                    { "name": "§cFire Sw.I",  "commands": ["/scriptevent fabbro:buy iron_sword_fa1"] },
+                    { "name": "§4Fire Sw.II", "commands": ["/scriptevent fabbro:buy iron_sword_fa2"] },
+                    { "name": "§e» Pg.3",     "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy_3"] }
                 ]
             },
             {
                 "scene_tag": "fabbro_buy_3",
                 "npc_name": "§7Mastro Ugo",
-                "text": "§e§lSTAI COMPRANDO\n§0Tu dai gemme — ricevi l'oggetto\n\n§0Elytra §c-700\n§0Cuore del Mare §c-45\n§4Lingotto Netherite §c-400",
+                "text": "§e§lBUYING\n§0You give gems — get the item\n\n§0Elytra §c-3500\n§0Heart of Sea §c-260\n§4Neth.Ingot §c-2000\n§0Beacon §c-800",
                 "on_open_commands": ["/execute as @initiator run scriptevent fabbro:balance"],
                 "buttons": [
-                    { "name": "§e« Pag.2",      "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy_2"] },
-                    { "name": "§eElytra",        "commands": ["/scriptevent fabbro:buy elytra"] },
-                    { "name": "§eCuore Mare",    "commands": ["/scriptevent fabbro:buy heart_of_the_sea"] },
-                    { "name": "§4Lingo.Neth.",   "commands": ["/scriptevent fabbro:buy netherite_ingot"] }
+                    { "name": "§e« Pg.2",      "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy_2"] },
+                    { "name": "§eElytra",       "commands": ["/scriptevent fabbro:buy elytra"] },
+                    { "name": "§eHeart of Sea", "commands": ["/scriptevent fabbro:buy heart_of_the_sea"] },
+                    { "name": "§4Neth.Ingot",   "commands": ["/scriptevent fabbro:buy netherite_ingot"] },
+                    { "name": "§eBeacon",        "commands": ["/scriptevent fabbro:buy beacon"] },
+                    { "name": "§e» Pg.4",        "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy_4"] }
+                ]
+            },
+            {
+                "scene_tag": "fabbro_buy_4",
+                "npc_name": "§7Mastro Ugo",
+                "text": "§e§lBUYING\n§0You give gems — get the item\n\n§0Resp. Anchor §c-200\n§4Dragon Egg §c-5000\n§6Neth. Upgrade §c-700",
+                "on_open_commands": ["/execute as @initiator run scriptevent fabbro:balance"],
+                "buttons": [
+                    { "name": "§e« Pg.3",         "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_buy_3"] },
+                    { "name": "§eResp.Anchor",     "commands": ["/scriptevent fabbro:buy respawn_anchor"] },
+                    { "name": "§4Dragon Egg",      "commands": ["/scriptevent fabbro:buy dragon_egg"] },
+                    { "name": "§6Neth.Upgrade",    "commands": ["/scriptevent fabbro:buy netherite_upgrade_smithing_template"] }
                 ]
             },
             {
                 "scene_tag": "fabbro_sell",
                 "npc_name": "§7Mastro Ugo",
-                "text": "§a§lSTAI VENDENDO\n§0Dai l'oggetto — l'NPC ti paga\n\n§0Detriti x1 §a+9\n§0Ossidiana x32 §a+3\n§0Prismarina x32 §a+2\n§0Ferro x16 §a+4\n§0Oro x8 §a+5",
+                "text": "§a§lSELLING\n§0Give the item — the NPC pays you\n\n§0Anc.Debris x3 §a+1\n§0Obsidian x192 §a+1\n§0Prismarine x192 §a+1\n§0Iron x128 §a+1\n§0Gold x64 §a+1",
                 "on_open_commands": ["/execute as @initiator run scriptevent fabbro:balance"],
                 "buttons": [
-                    { "name": "§eDetriti",    "commands": ["/scriptevent fabbro:sell ancient_debris"] },
-                    { "name": "§eOssidiana",  "commands": ["/scriptevent fabbro:sell obsidian"] },
-                    { "name": "§ePrismarina", "commands": ["/scriptevent fabbro:sell prismarine"] },
-                    { "name": "§eFerro",      "commands": ["/scriptevent fabbro:sell iron_ingot"] },
-                    { "name": "§eOro",        "commands": ["/scriptevent fabbro:sell gold_ingot"] },
-                    { "name": "§a» Pag.2",    "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_sell_2"] }
+                    { "name": "§eAnc.Debris", "commands": ["/scriptevent fabbro:sell ancient_debris"] },
+                    { "name": "§eObsidian",   "commands": ["/scriptevent fabbro:sell obsidian"] },
+                    { "name": "§ePrismarine", "commands": ["/scriptevent fabbro:sell prismarine"] },
+                    { "name": "§eIron",       "commands": ["/scriptevent fabbro:sell iron_ingot"] },
+                    { "name": "§eGold",       "commands": ["/scriptevent fabbro:sell gold_ingot"] },
+                    { "name": "§a» Pg.2",     "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_sell_2"] }
                 ]
             },
             {
                 "scene_tag": "fabbro_sell_2",
                 "npc_name": "§7Mastro Ugo",
-                "text": "§a§lSTAI VENDENDO\n§0Dai l'oggetto — l'NPC ti paga\n\n§0Rame x32 §a+1\n§0Quarzo x16 §a+2",
+                "text": "§a§lSELLING\n§0Give the item — the NPC pays you\n\n§0Copper x256 §a+1\n§0Quartz x192 §a+1\n§0Blaze Rod x64 §a+1\n§0E.Pearl x64 §a+1\n§0Neth.Scrap x3 §a+1",
                 "on_open_commands": ["/execute as @initiator run scriptevent fabbro:balance"],
                 "buttons": [
-                    { "name": "§a« Pag.1", "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_sell"] },
-                    { "name": "§eRame",    "commands": ["/scriptevent fabbro:sell raw_copper"] },
-                    { "name": "§eQuarzo",  "commands": ["/scriptevent fabbro:sell quartz"] }
+                    { "name": "§a« Pg.1",    "commands": ["/dialogue open @e[tag=fabbro,r=2] @initiator fabbro_sell"] },
+                    { "name": "§eCopper",     "commands": ["/scriptevent fabbro:sell raw_copper"] },
+                    { "name": "§eQuartz",     "commands": ["/scriptevent fabbro:sell quartz"] },
+                    { "name": "§eBlaze Rod",  "commands": ["/scriptevent fabbro:sell blaze_rod"] },
+                    { "name": "§eE.Pearl",    "commands": ["/scriptevent fabbro:sell ender_pearl"] },
+                    { "name": "§eNeth.Scrap", "commands": ["/scriptevent fabbro:sell netherite_scrap"] }
                 ]
             }
         ]

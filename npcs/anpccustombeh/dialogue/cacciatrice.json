@@ -5,139 +5,78 @@
             {
                 "scene_tag": "cacciatrice_intro",
                 "npc_name": "§6Elena",
-                "text": "§eTi osservo da un po'.\n§6La maggior parte degli avventurieri finge.\n§eTu sembri diverso. Forse.",
-                "on_open_commands": ["/execute as @initiator run scriptevent cacciatrice:lang_check"],
+                "text": "§eI've been watching you.\n§6Most adventurers pretend.\n§eYou seem different. Maybe.",
+                "on_open_commands": ["/execute as @initiator run scriptevent cacciatrice:balance"],
                 "buttons": [
-                    { "name": "§e» Missioni",    "commands": ["/scriptevent cacciatrice:missioni"] },
-                    { "name": "§e» Giornaliere", "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_giornaliere"] },
-                    { "name": "§c» Avanzate",    "commands": ["/scriptevent cacciatrice:hub_accesso"] },
-                    { "name": "§6» Sfida",        "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_sfida"] }
+                    { "name": "§e» Missions", "commands": ["/scriptevent cacciatrice:missioni"] },
+                    { "name": "§c» Advanced", "commands": ["/scriptevent cacciatrice:hub_accesso"] },
+                    { "name": "§6» Challenge","commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_sfida"] }
                 ]
             },
             {
                 "scene_tag": "cacciatrice_sfida",
                 "npc_name": "§6Elena",
-                "text": "§e— Interessante.\n§6Chi parla così scappa al primo creeper.\n§eDimostramelo. Scegli una preda.",
+                "text": "§e— Interesting.\n§6Those who talk like that run from the first creeper.\n§eProve it. Choose your prey.",
                 "buttons": [
-                    { "name": "§e» Missioni", "commands": ["/scriptevent cacciatrice:missioni"] }
+                    { "name": "§e» Missions", "commands": ["/scriptevent cacciatrice:missioni"] }
                 ]
             },
             {
                 "scene_tag": "cacciatrice_main",
                 "npc_name": "§6Elena",
-                "text": "§eScegli la preda. Torna con le prove.\n§6Non mi interessano le scuse.\n\n§0Zombie §7▸ 8 Zombie §a+4\n§0Scheletri §7▸ 10 Scheletri §a+7\n§0Vacche §7▸ 5 Vacche §a+5\n§e↺ §0Polli §7▸ 8 Polli §a+1",
+                "text": "§eChoose your prey. Come back with proof.\n§6No excuses.\n\n§0Zombies §7▸ 20 Zombies §a+1\n§0Skeletons §7▸ 25 Skeletons §a+1\n§0Cows §7▸ 15 Cows §a+1\n§0Chickens §7▸ 15 Chickens §a+1",
                 "buttons": [
-                    { "name": "§eZombie",      "commands": ["/scriptevent cacciatrice:accept elena_zombie"] },
-                    { "name": "§eScheletri",   "commands": ["/scriptevent cacciatrice:accept elena_scheletri"] },
-                    { "name": "§eVacche",      "commands": ["/scriptevent cacciatrice:accept elena_vacche"] },
-                    { "name": "§e↺ Polli",    "commands": ["/scriptevent cacciatrice:accept elena_polli"] },
-                    { "name": "§0« Indietro", "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_intro"] }
+                    { "name": "§eZombies",     "commands": ["/scriptevent cacciatrice:accept elena_zombie"] },
+                    { "name": "§eSkeletons",   "commands": ["/scriptevent cacciatrice:accept elena_scheletri"] },
+                    { "name": "§eCows",        "commands": ["/scriptevent cacciatrice:accept elena_vacche"] },
+                    { "name": "§eChickens", "commands": ["/scriptevent cacciatrice:accept elena_polli"] },
+                    { "name": "§6« Back",      "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_intro"] }
                 ]
             },
             {
                 "scene_tag": "cacciatrice_consegna",
                 "npc_name": "§6Elena",
-                "text": "§eHai cacciato bene?\n§6Dimmi cosa hai preso.\n\n§0Zombie §7▸ 8 Zombie uccisi\n§0Scheletri §7▸ 10 Scheletri uccisi\n§0Vacche §7▸ 5 Vacche uccise\n§0Polli §7▸ 8 Polli uccisi",
+                "text": "§eHunt well?\n§6Tell me what you got.\n\n§0Zombies §7▸ 20 Zombies killed\n§0Skeletons §7▸ 25 Skeletons killed\n§0Cows §7▸ 15 Cows killed\n§0Chickens §7▸ 15 Chickens killed",
                 "buttons": [
-                    { "name": "§eZombie",      "commands": ["/scriptevent cacciatrice:deliver elena_zombie"] },
-                    { "name": "§eScheletri",   "commands": ["/scriptevent cacciatrice:deliver elena_scheletri"] },
-                    { "name": "§eVacche",      "commands": ["/scriptevent cacciatrice:deliver elena_vacche"] },
-                    { "name": "§e↺ Polli",    "commands": ["/scriptevent cacciatrice:deliver elena_polli"] },
-                    { "name": "§6« Indietro", "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_main"] }
+                    { "name": "§eZombies",     "commands": ["/scriptevent cacciatrice:deliver elena_zombie"] },
+                    { "name": "§eSkeletons",   "commands": ["/scriptevent cacciatrice:deliver elena_scheletri"] },
+                    { "name": "§eCows",        "commands": ["/scriptevent cacciatrice:deliver elena_vacche"] },
+                    { "name": "§eChickens", "commands": ["/scriptevent cacciatrice:deliver elena_polli"] },
+                    { "name": "§6« Back",      "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_main"] }
                 ]
             },
             {
                 "scene_tag": "cacciatrice_hub",
                 "npc_name": "§6Elena",
-                "text": "§eHai dimostrato di saper cacciare.\n§6Ora vediamo se riesci con le prede vere.",
+                "text": "§eYou proved you can hunt.\n§6Now let's see with real prey.",
                 "buttons": [
-                    { "name": "§c» Sfide",    "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_sfide"] },
-                    { "name": "§a» Consegna", "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_consegna_av"] }
-                ]
-            },
-            {
-                "scene_tag": "cacciatrice_giornaliere",
-                "npc_name": "§6Elena",
-                "text": "§eOgni giorno ci sono prede.\n§7▸ 8 Polli uccisi §a→ +1 gemma",
-                "buttons": [
-                    { "name": "§e↺ Accetta",  "commands": ["/scriptevent cacciatrice:accept elena_polli"] },
-                    { "name": "§6« Indietro", "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_intro"] }
+                    { "name": "§c» Challenges", "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_sfide"] },
+                    { "name": "§a» Deliver",    "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_consegna_av"] }
                 ]
             },
             {
                 "scene_tag": "cacciatrice_sfide",
                 "npc_name": "§6Elena",
-                "text": "§eScegli la preda. Non tornare a mani vuote.\n\n§0Blaze §7▸ 10 Blaze §a+16\n§0Wither Sk. §7▸ 8 Wither Scheletri §a+22\n§0Phantom §7▸ 8 Phantom + 4 Membrane §a+20\n§cWither §7▸ 1 Wither §a+40",
-                "buttons": [
-                    { "name": "§eBlaze",       "commands": ["/scriptevent cacciatrice:accept elena_blaze"] },
-                    { "name": "§eWither Sk.",  "commands": ["/scriptevent cacciatrice:accept elena_wither_sk"] },
-                    { "name": "§ePhantom",     "commands": ["/scriptevent cacciatrice:accept elena_phantom"] },
-                    { "name": "§cWither",      "commands": ["/scriptevent cacciatrice:accept elena_wither"] },
-                    { "name": "§6« Indietro", "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_hub"] }
-                ]
-            },
-            {
-                "scene_tag": "cacciatrice_intro_en",
-                "npc_name": "§6Elena",
-                "text": "§eI've been watching you.\n§6Most adventurers pretend.\n§eYou seem different. Maybe.",
-                "buttons": [
-                    { "name": "§e» Missions", "commands": ["/scriptevent cacciatrice:missioni"] },
-                    { "name": "§e» Daily",    "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_giornaliere_en"] },
-                    { "name": "§c» Advanced", "commands": ["/scriptevent cacciatrice:hub_accesso"] }
-                ]
-            },
-            {
-                "scene_tag": "cacciatrice_main_en",
-                "npc_name": "§6Elena",
-                "text": "§eChoose your prey. Come back with proof.\n§6No excuses.\n\n§0Zombies §7▸ 8 Zombies §a+4\n§0Skeletons §7▸ 10 Skeletons §a+7\n§0Cows §7▸ 5 Cows §a+5\n§e↺ §0Chickens §7▸ 8 Chickens §a+1",
-                "buttons": [
-                    { "name": "§eZombies",     "commands": ["/scriptevent cacciatrice:accept elena_zombie"] },
-                    { "name": "§eSkeletons",   "commands": ["/scriptevent cacciatrice:accept elena_scheletri"] },
-                    { "name": "§eCows",        "commands": ["/scriptevent cacciatrice:accept elena_vacche"] },
-                    { "name": "§e↺ Chickens", "commands": ["/scriptevent cacciatrice:accept elena_polli"] },
-                    { "name": "§6« Back",      "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_intro_en"] }
-                ]
-            },
-            {
-                "scene_tag": "cacciatrice_hub_en",
-                "npc_name": "§6Elena",
-                "text": "§eYou proved you can hunt.\n§6Now let's see with real prey.",
-                "buttons": [
-                    { "name": "§c» Challenges", "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_sfide_en"] }
-                ]
-            },
-            {
-                "scene_tag": "cacciatrice_sfide_en",
-                "npc_name": "§6Elena",
-                "text": "§eChoose your prey. Don't come back empty handed.\n\n§0Blaze §7▸ 10 Blaze §a+16\n§0Wither Sk. §7▸ 8 Wither Skeletons §a+22\n§0Phantom §7▸ 8 Phantoms + 4 Membranes §a+20\n§cWither §7▸ 1 Wither §a+40",
+                "text": "§eChoose your prey. Don't come back empty handed.\n\n§0Blaze §7▸ 25 Blaze §a+1\n§0Wither Sk. §7▸ 20 Wither Skeletons §a+1\n§0Phantom §7▸ 15 Phantoms + 8 Membranes §a+1\n§cWither §7▸ 1 Wither §a+1",
                 "buttons": [
                     { "name": "§eBlaze",      "commands": ["/scriptevent cacciatrice:accept elena_blaze"] },
                     { "name": "§eWither Sk.", "commands": ["/scriptevent cacciatrice:accept elena_wither_sk"] },
                     { "name": "§ePhantom",    "commands": ["/scriptevent cacciatrice:accept elena_phantom"] },
                     { "name": "§cWither",     "commands": ["/scriptevent cacciatrice:accept elena_wither"] },
-                    { "name": "§6« Back",     "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_hub_en"] }
-                ]
-            },
-            {
-                "scene_tag": "cacciatrice_giornaliere_en",
-                "npc_name": "§6Elena",
-                "text": "§eEvery day there's prey.\n§7▸ 8 Chickens killed §a→ +1 gem",
-                "buttons": [
-                    { "name": "§e↺ Accept", "commands": ["/scriptevent cacciatrice:accept elena_polli"] },
-                    { "name": "§6« Back",   "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_intro_en"] }
+                    { "name": "§6« Back",     "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_hub"] }
                 ]
             },
             {
                 "scene_tag": "cacciatrice_consegna_av",
                 "npc_name": "§6Elena",
-                "text": "§ePortami le prove.\n§6Non accetto scuse.\n\n§0Polli §7▸ 8 Polli\n§0Blaze §7▸ 10 Blaze\n§0Wither Sk. §7▸ 8 Wither Scheletri\n§0Phantom §7▸ 8 Phantom + 4 Membrane\n§cWither §7▸ 1 Wither",
+                "text": "§eBring me proof.\n§6No excuses.\n\n§0Chickens §7▸ 15 Chickens\n§0Blaze §7▸ 25 Blaze\n§0Wither Sk. §7▸ 20 Wither Skeletons\n§0Phantom §7▸ 15 Phantoms + 8 Membranes\n§cWither §7▸ 1 Wither",
                 "buttons": [
-                    { "name": "§e↺ Polli",    "commands": ["/scriptevent cacciatrice:deliver elena_polli"] },
+                    { "name": "§eChickens", "commands": ["/scriptevent cacciatrice:deliver elena_polli"] },
                     { "name": "§eBlaze",       "commands": ["/scriptevent cacciatrice:deliver elena_blaze"] },
                     { "name": "§eWither Sk.",  "commands": ["/scriptevent cacciatrice:deliver elena_wither_sk"] },
                     { "name": "§ePhantom",     "commands": ["/scriptevent cacciatrice:deliver elena_phantom"] },
                     { "name": "§cWither",      "commands": ["/scriptevent cacciatrice:deliver elena_wither"] },
-                    { "name": "§6« Indietro", "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_hub"] }
+                    { "name": "§6« Back",      "commands": ["/dialogue open @e[tag=cacciatrice,r=2] @initiator cacciatrice_hub"] }
                 ]
             }
         ]
