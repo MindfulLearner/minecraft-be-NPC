@@ -1,0 +1,77 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [
+            {
+                "scene_tag": "biscazziere_main",
+                "npc_name": "§6Il Biscazziere",
+                "text": "§0You found me. That means you have gems to burn.\nOr dreams to ruin. Same thing.\n\n§6§lSLOT MACHINE\n§0Bet §c1-100 §0gems or §cALL IN§0. Match 3 symbols.\n§b♦§0×2  §a♣§0×3  §a♥§0×5  §6♠§0×10  §c★§0×40  §d✦§0×200\n\n§5§lBLACKJACK\n§0Beat 21. Natural Blackjack pays §a×1.5§0. Dealer stands at 17.\n\n§d§lMYSTERY CRATES  §0Pity every N rolls.\n§7Base §c-15 §0— food, farm eggs (chicken/pig/sheep)\n§fComune §c-30 §0— capybara, penguin, deer, name tag\n§bRara §c-50 §0— bear, owl, moose, trident, fortune/looting\n§dEpica §c-100 §0— eagle, shark, elephant, netherite, mending\n§6Legg. §c-200 §0— whale, warden, dragon egg, elytra, beacon, sword",
+                "on_open_commands": [
+                    "/say [Il Biscazziere] §6@initiator §0tries their luck. They always lose.",
+                    "/execute as @initiator run scriptevent biscazziere:balance"
+                ],
+                "buttons": [
+                    { "name": "§6» Slot Machine",   "commands": ["/dialogue open @e[tag=biscazziere,r=2] @initiator biscazziere_slot"] },
+                    { "name": "§5» Blackjack",      "commands": ["/dialogue open @e[tag=biscazziere,r=2] @initiator blackjack_bet"] },
+                    { "name": "§d» Mystery Crates", "commands": ["/dialogue open @e[tag=biscazziere,r=2] @initiator biscazziere_casse"] }
+                ]
+            },
+            {
+                "scene_tag": "biscazziere_slot",
+                "npc_name": "§6Il Biscazziere",
+                "text": "§6§lSLOT MACHINE\n§0Three symbols must match to win.\nLose the gems, keep the trauma.\n\n§b§l♦ §0×2    §a§l♣ §0×3    §a§l♥ §0×5\n§6§l♠ §0×10  §c§l★ §0×40  §d§l✦ §0×200\n\n§0Quick bet or open full menu:",
+                "on_open_commands": ["/execute as @initiator run scriptevent biscazziere:balance"],
+                "buttons": [
+                    { "name": "§6Bet §c1",             "commands": ["/scriptevent slot:bet 1"]   },
+                    { "name": "§6Bet §c5",             "commands": ["/scriptevent slot:bet 5"]   },
+                    { "name": "§6Bet §c20",            "commands": ["/scriptevent slot:bet 20"]  },
+                    { "name": "§6Bet §c50",            "commands": ["/scriptevent slot:bet 50"]  },
+                    { "name": "§c» ALL IN",            "commands": ["/scriptevent slot:allin x"] },
+                    { "name": "§0« Back",              "commands": ["/dialogue open @e[tag=biscazziere,r=2] @initiator biscazziere_main"] }
+                ]
+            },
+            {
+                "scene_tag": "biscazziere_casse",
+                "npc_name": "§6Il Biscazziere",
+                "text": "§d§lMYSTERY CRATES\n§0Spend gems, get a random reward.\nHigher tier = rarer eggs & better loot.\n\n§0Pity: rare guaranteed every N rolls.\n§0Base §c-15  §0Comune §c-30  §bRara §c-50  §dEpica §c-100  §6Legg. §c-200",
+                "on_open_commands": ["/execute as @initiator run scriptevent biscazziere:balance"],
+                "buttons": [
+                    { "name": "§0Base §c-15",    "commands": ["/scriptevent cassa:apri base"]        },
+                    { "name": "§0Comune §c-30",  "commands": ["/scriptevent cassa:apri comune"]      },
+                    { "name": "§bRara §c-50",    "commands": ["/scriptevent cassa:apri rara"]        },
+                    { "name": "§dEpica §c-100",  "commands": ["/scriptevent cassa:apri epica"]       },
+                    { "name": "§6Legg. §c-200",  "commands": ["/scriptevent cassa:apri leggendaria"] },
+                    { "name": "§0« Back",        "commands": ["/dialogue open @e[tag=biscazziere,r=2] @initiator biscazziere_main"] }
+                ]
+            },
+            {
+                "scene_tag": "blackjack_bet",
+                "npc_name": "§6Il Biscazziere",
+                "text": "§5§lBLACKJACK\n§0Beat 21. Beat the dealer.\nAce = 1 or 11. Dealer stands at 17.\n\n§0Natural Blackjack → §a×1.5\n§0Win → §a×1  §0Push → §6refund  §0Bust → §closs",
+                "on_open_commands": ["/execute as @initiator run scriptevent biscazziere:balance"],
+                "buttons": [
+                    { "name": "§5Bet §c5",   "commands": ["/scriptevent blackjack:start 5"]   },
+                    { "name": "§5Bet §c20",  "commands": ["/scriptevent blackjack:start 20"]  },
+                    { "name": "§5Bet §c50",  "commands": ["/scriptevent blackjack:start 50"]  },
+                    { "name": "§5Bet §c100", "commands": ["/scriptevent blackjack:start 100"] },
+                    { "name": "§5Bet §c200", "commands": ["/scriptevent blackjack:start 200"] },
+                    { "name": "§0« Back",    "commands": ["/dialogue open @e[tag=biscazziere,r=2] @initiator biscazziere_main"] }
+                ]
+            },
+            {
+                "scene_tag": "blackjack_game",
+                "npc_name": "§6Il Biscazziere",
+                "text": "§5§lBLACKJACK\n§0Your hand is shown above.\nDealer's second card is hidden.",
+                "on_open_commands": ["/execute as @initiator run scriptevent blackjack:showhand"],
+                "buttons": [
+                    { "name": "§a» Hit",    "commands": ["/scriptevent blackjack:hit x"]    },
+                    { "name": "§e» Stand",  "commands": ["/scriptevent blackjack:stand x"]  },
+                    { "name": "§6» Double", "commands": ["/scriptevent blackjack:double x"] },
+                    { "name": "§c» Quit",   "commands": ["/scriptevent blackjack:quit x"]   },
+                    { "name": "§0« Bets",   "commands": ["/dialogue open @e[tag=biscazziere,r=2] @initiator blackjack_bet"] }
+                ]
+            }
+        ]
+    }
+}
+
