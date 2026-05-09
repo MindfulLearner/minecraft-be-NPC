@@ -1276,10 +1276,11 @@ function updateNameTag(player, tick = 0) {
     }
 }
 
-function giveSpecialItem(player, typeId, name, enchants) {
+function giveSpecialItem(player, typeId, name, enchants, lore) {
     try {
         const item = new ItemStack(typeId, 1);
         item.nameTag = name;
+        if (lore) item.setLore(lore);
         const ench = item.getComponent("minecraft:enchantable");
         if (ench) {
             for (const [id, level] of Object.entries(enchants)) {
@@ -2612,7 +2613,10 @@ function openCassa(player, tier) {
     let prize;
     if (cfg.goldenTicketChance && Math.random() < cfg.goldenTicketChance) {
         prize = { id: "_golden_ticket", name: "§6§lGolden Ticket", rare: true, amount: 1,
-                  special: { typeId: "minecraft:paper", enchants: {} } };
+                  special: { typeId: "minecraft:paper", enchants: {},
+                             lore: ["§7The server owner owes you ONE favor.",
+                                    "§8No questions asked. Cannot be refused.",
+                                    "§6— Willy Wonka"] } };
         pityObj.setScore(player, 0);
     } else if (pity >= cfg.pityMax) {
         prize = weightedPick(cfg.items.filter(e => e.rare));
@@ -2659,7 +2663,7 @@ function openCassa(player, tier) {
         if (!p) return;
 
         if (prize.special) {
-            giveSpecialItem(p, prize.special.typeId, prize.name, prize.special.enchants);
+            giveSpecialItem(p, prize.special.typeId, prize.name, prize.special.enchants, prize.special.lore);
         } else if (prize.id === "cc:ruby") {
             p.runCommand(`give @s cc:ruby ${prize.amount}`);
         } else {
