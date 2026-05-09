@@ -2230,12 +2230,15 @@ function runSlot(player, bet) {
                 if (r1.id === "✦") {
                     actionBarLine = `§d§l★ JACKPOT ×${mult}! +${win} gems!`;
                     world.sendMessage(`§d§l✦ JACKPOT! §r§f${pName} §7hit §d✦✦✦ §7and won §d${win} gems§7!`);
+                    spawnFireworks(p, 5);
                 } else if (r1.id === "★") {
                     actionBarLine = rnd(SLOT_WIN_LINES, win, mult);
                     world.sendMessage(`§c§l★ §r§f${pName} §7hit §c★★★ §7on the slot and won §a${win} gems§7!`);
+                    spawnFireworks(p, 3);
                 } else {
                     actionBarLine = rnd(SLOT_WIN_LINES, win, mult);
                     world.sendMessage(`§a[Slot] §f${pName} §7won §a${win} gems §7(${r1.id}${r1.id}${r1.id} ×${mult})`);
+                    spawnFireworks(p, 1);
                 }
                 chatLine = `§a[Slot] ${line}  §a+${win} gems §7(×${mult})`;
             } else if (isNear) {
@@ -2298,6 +2301,7 @@ function runAllIn(player) {
         if (win) {
             const payout = gems * 3;
             p.runCommand(`give @s cc:ruby ${payout}`);
+            spawnFireworks(p, 5);
             p.onScreenDisplay.setTitle("§a§l★ SURVIVED ★", { fadeInDuration: 0, stayDuration: 120, fadeOutDuration: 10 });
             p.onScreenDisplay.setActionBar(`§f×3 → §a+${payout} gems!`);
             world.sendMessage(`§c§l[ALL IN] §r§f${pName} §7went all in with §c${gems} gems §7and tripled it! §a+${payout} gems§7!`);
@@ -2404,6 +2408,7 @@ function bjShowHand(player) {
 function bjEnd(player, sess, payout, title, bar, chat) {
     bjSessions.delete(player.name);
     if (payout > 0) player.runCommand(`give @s cc:ruby ${payout}`);
+    if (payout > sess.bet) spawnFireworks(player, 2);
     player.onScreenDisplay.setTitle(title, { fadeInDuration: 0, stayDuration: 150, fadeOutDuration: 15 });
     player.onScreenDisplay.setActionBar(bar);
     player.sendMessage(chat);
@@ -2594,6 +2599,12 @@ function bjQuit(player) {
     player.onScreenDisplay.setTitle("§cForfeited", { fadeInDuration: 0, stayDuration: 80, fadeOutDuration: 10 });
     player.onScreenDisplay.setActionBar(`§c-${sess.bet} gems.`);
     showGems(player);
+}
+
+function spawnFireworks(player, count = 1) {
+    for (let i = 0; i < count; i++) {
+        system.runTimeout(() => player.runCommand("summon fireworks_rocket ~ ~1 ~"), i * 8);
+    }
 }
 
 function openCassa(player, tier) {
