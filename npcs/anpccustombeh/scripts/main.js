@@ -278,7 +278,6 @@ const SLOT_WIN_LINES = [
 ];
 
 const CASSE_POOLS = {
-const CASSE_POOLS = {
     // Base 15g — eggs ~0.8% chance
     base: {
         cost: 15, pityMax: 12, pityObj: "pity_bas", label: "§7Base",
